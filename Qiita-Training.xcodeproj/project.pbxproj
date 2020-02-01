@@ -17,10 +17,20 @@
 		AF44DB4323D9AB080001048A /* RxMoya.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF44DB3B23D9AB080001048A /* RxMoya.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AF5F642223CB3D8700FAD371 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F642123CB3D8700FAD371 /* AppDelegate.swift */; };
 		AF5F642423CB3D8700FAD371 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F642323CB3D8700FAD371 /* SceneDelegate.swift */; };
-		AF5F642623CB3D8700FAD371 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F642523CB3D8700FAD371 /* ViewController.swift */; };
-		AF5F642923CB3D8700FAD371 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF5F642723CB3D8700FAD371 /* Main.storyboard */; };
+		AF5F642623CB3D8700FAD371 /* TabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F642523CB3D8700FAD371 /* TabsViewController.swift */; };
 		AF5F642B23CB3D8900FAD371 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF5F642A23CB3D8900FAD371 /* Assets.xcassets */; };
 		AF5F642E23CB3D8900FAD371 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF5F642C23CB3D8900FAD371 /* LaunchScreen.storyboard */; };
+		AFB4A13723E5A056001900DF /* TabsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A13623E5A056001900DF /* TabsViewModel.swift */; };
+		AFB4A13923E5A090001900DF /* Tabs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A13823E5A090001900DF /* Tabs.storyboard */; };
+		AFB4A13D23E5A0DB001900DF /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A13C23E5A0DB001900DF /* FeedViewController.swift */; };
+		AFB4A13F23E5A0ED001900DF /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A13E23E5A0ED001900DF /* FeedViewModel.swift */; };
+		AFB4A14123E5A170001900DF /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A14023E5A170001900DF /* Feed.storyboard */; };
+		AFB4A14723E5A23E001900DF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A14623E5A23E001900DF /* SearchViewController.swift */; };
+		AFB4A14923E5A250001900DF /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A14823E5A250001900DF /* SearchViewModel.swift */; };
+		AFB4A14B23E5A26E001900DF /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A14A23E5A26E001900DF /* Search.storyboard */; };
+		AFB4A14D23E5A2BA001900DF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A14C23E5A2BA001900DF /* ProfileViewController.swift */; };
+		AFB4A14F23E5A2D1001900DF /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A14E23E5A2D1001900DF /* ProfileViewModel.swift */; };
+		AFB4A15123E5A2E1001900DF /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A15023E5A2E1001900DF /* Profile.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -48,11 +58,21 @@
 		AF5F641E23CB3D8700FAD371 /* Qiita-Training.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Qiita-Training.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF5F642123CB3D8700FAD371 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF5F642323CB3D8700FAD371 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AF5F642523CB3D8700FAD371 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AF5F642823CB3D8700FAD371 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AF5F642523CB3D8700FAD371 /* TabsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsViewController.swift; sourceTree = "<group>"; };
 		AF5F642A23CB3D8900FAD371 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF5F642D23CB3D8900FAD371 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF5F642F23CB3D8900FAD371 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFB4A13623E5A056001900DF /* TabsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsViewModel.swift; sourceTree = "<group>"; };
+		AFB4A13823E5A090001900DF /* Tabs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tabs.storyboard; sourceTree = "<group>"; };
+		AFB4A13C23E5A0DB001900DF /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		AFB4A13E23E5A0ED001900DF /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
+		AFB4A14023E5A170001900DF /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
+		AFB4A14623E5A23E001900DF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		AFB4A14823E5A250001900DF /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		AFB4A14A23E5A26E001900DF /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		AFB4A14C23E5A2BA001900DF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		AFB4A14E23E5A2D1001900DF /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		AFB4A15023E5A2E1001900DF /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,13 +123,63 @@
 			children = (
 				AF5F642123CB3D8700FAD371 /* AppDelegate.swift */,
 				AF5F642323CB3D8700FAD371 /* SceneDelegate.swift */,
-				AF5F642523CB3D8700FAD371 /* ViewController.swift */,
-				AF5F642723CB3D8700FAD371 /* Main.storyboard */,
+				AFB4A13523E59FEA001900DF /* ViewControllers */,
 				AF5F642A23CB3D8900FAD371 /* Assets.xcassets */,
 				AF5F642C23CB3D8900FAD371 /* LaunchScreen.storyboard */,
 				AF5F642F23CB3D8900FAD371 /* Info.plist */,
 			);
 			path = "Qiita-Training";
+			sourceTree = "<group>";
+		};
+		AFB4A13523E59FEA001900DF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AFB4A13A23E5A09A001900DF /* Tabs */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		AFB4A13A23E5A09A001900DF /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				AF5F642523CB3D8700FAD371 /* TabsViewController.swift */,
+				AFB4A13623E5A056001900DF /* TabsViewModel.swift */,
+				AFB4A13823E5A090001900DF /* Tabs.storyboard */,
+				AFB4A13B23E5A0AB001900DF /* Feed */,
+				AFB4A14423E5A211001900DF /* Search */,
+				AFB4A14523E5A218001900DF /* Profile */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		AFB4A13B23E5A0AB001900DF /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				AFB4A13C23E5A0DB001900DF /* FeedViewController.swift */,
+				AFB4A13E23E5A0ED001900DF /* FeedViewModel.swift */,
+				AFB4A14023E5A170001900DF /* Feed.storyboard */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		AFB4A14423E5A211001900DF /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				AFB4A14623E5A23E001900DF /* SearchViewController.swift */,
+				AFB4A14823E5A250001900DF /* SearchViewModel.swift */,
+				AFB4A14A23E5A26E001900DF /* Search.storyboard */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		AFB4A14523E5A218001900DF /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				AFB4A14C23E5A2BA001900DF /* ProfileViewController.swift */,
+				AFB4A14E23E5A2D1001900DF /* ProfileViewModel.swift */,
+				AFB4A15023E5A2E1001900DF /* Profile.storyboard */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,9 +242,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFB4A15123E5A2E1001900DF /* Profile.storyboard in Resources */,
+				AFB4A14123E5A170001900DF /* Feed.storyboard in Resources */,
+				AFB4A13923E5A090001900DF /* Tabs.storyboard in Resources */,
 				AF5F642E23CB3D8900FAD371 /* LaunchScreen.storyboard in Resources */,
 				AF5F642B23CB3D8900FAD371 /* Assets.xcassets in Resources */,
-				AF5F642923CB3D8700FAD371 /* Main.storyboard in Resources */,
+				AFB4A14B23E5A26E001900DF /* Search.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,7 +288,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF5F642623CB3D8700FAD371 /* ViewController.swift in Sources */,
+				AFB4A13723E5A056001900DF /* TabsViewModel.swift in Sources */,
+				AFB4A14723E5A23E001900DF /* SearchViewController.swift in Sources */,
+				AFB4A14923E5A250001900DF /* SearchViewModel.swift in Sources */,
+				AF5F642623CB3D8700FAD371 /* TabsViewController.swift in Sources */,
+				AFB4A14F23E5A2D1001900DF /* ProfileViewModel.swift in Sources */,
+				AFB4A13F23E5A0ED001900DF /* FeedViewModel.swift in Sources */,
+				AFB4A13D23E5A0DB001900DF /* FeedViewController.swift in Sources */,
+				AFB4A14D23E5A2BA001900DF /* ProfileViewController.swift in Sources */,
 				AF5F642223CB3D8700FAD371 /* AppDelegate.swift in Sources */,
 				AF5F642423CB3D8700FAD371 /* SceneDelegate.swift in Sources */,
 			);
@@ -224,14 +304,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AF5F642723CB3D8700FAD371 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AF5F642823CB3D8700FAD371 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AF5F642C23CB3D8900FAD371 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
