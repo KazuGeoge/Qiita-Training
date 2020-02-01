@@ -19,15 +19,27 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lph-NJ-cV0">
+                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Lph-NJ-cV0" firstAttribute="leading" secondItem="Lfp-lv-iWY" secondAttribute="leading" id="6nm-sX-22s"/>
+                            <constraint firstItem="Lph-NJ-cV0" firstAttribute="top" secondItem="Q4M-Hh-mr6" secondAttribute="bottom" id="HC6-S5-OKr"/>
+                            <constraint firstItem="Lfp-lv-iWY" firstAttribute="trailing" secondItem="Lph-NJ-cV0" secondAttribute="trailing" id="MWb-Sz-rmh"/>
                             <constraint firstItem="Q4M-Hh-mr6" firstAttribute="leading" secondItem="Lfp-lv-iWY" secondAttribute="leading" id="Nf2-vM-bY3"/>
                             <constraint firstItem="Q4M-Hh-mr6" firstAttribute="top" secondItem="Lfp-lv-iWY" secondAttribute="top" id="RZD-mR-c5f"/>
                             <constraint firstItem="Q4M-Hh-mr6" firstAttribute="trailing" secondItem="Lfp-lv-iWY" secondAttribute="trailing" id="dxf-dT-TQo"/>
+                            <constraint firstItem="Lfp-lv-iWY" firstAttribute="bottom" secondItem="Lph-NJ-cV0" secondAttribute="bottom" id="rH4-40-gJw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Lfp-lv-iWY"/>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="Q4M-Hh-mr6" id="Xm1-JZ-Jq4"/>
+                        <outlet property="tableView" destination="Lph-NJ-cV0" id="cVX-Ym-DL1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="471-gu-Nxw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
