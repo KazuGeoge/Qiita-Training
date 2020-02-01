@@ -6,8 +6,16 @@
 //  Copyright © 2020 城島一輝. All rights reserved.
 //
 
-import UIKit
-
-class RouteAction: NSObject {
-
+final class RouteAction {
+    static let shared = RouteAction()
+    
+    private let dispatcher: AnyObserverDispatcher<RouteDispatcher>
+    
+    init(dispatcher: AnyObserverDispatcher<RouteDispatcher> = .init(.shared)) {
+        self.dispatcher = dispatcher
+    }
+    
+    func show(routeType: RouteType) {
+        dispatcher.routeStream.onNext(routeType)
+    }
 }

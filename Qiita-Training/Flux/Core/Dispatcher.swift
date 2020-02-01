@@ -6,8 +6,23 @@
 //  Copyright © 2020 城島一輝. All rights reserved.
 //
 
-import UIKit
+// データフローを単一方向に保つ
+protocol DispatcherType {
+    static var shared: Self { get }
+}
 
-class Dispatcher: NSObject {
+// onNextだけができるDispathcher
+final class AnyObserverDispatcher<Dispatcher: DispatcherType> {
+    let dispatcher: Dispatcher
+    init(_ dispatcher: Dispatcher = .shared) {
+        self.dispatcher = dispatcher
+    }
+}
 
+// subscribeだけができるDispatcher
+final class AnyObservableDispatcher<Dispatcher: DispatcherType> {
+    let dispatcher: Dispatcher
+    init(_ dispatcher: Dispatcher = .shared) {
+        self.dispatcher = dispatcher
+    }
 }
