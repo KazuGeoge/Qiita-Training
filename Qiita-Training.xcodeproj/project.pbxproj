@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF44DB3C23D9AB080001048A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF44DB3823D9AB080001048A /* RxSwift.framework */; };
+		AF44DB3D23D9AB080001048A /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF44DB3823D9AB080001048A /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AF44DB3E23D9AB080001048A /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF44DB3923D9AB080001048A /* Moya.framework */; };
+		AF44DB3F23D9AB080001048A /* Moya.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF44DB3923D9AB080001048A /* Moya.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AF44DB4023D9AB080001048A /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF44DB3A23D9AB080001048A /* RxCocoa.framework */; };
+		AF44DB4123D9AB080001048A /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF44DB3A23D9AB080001048A /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AF44DB4223D9AB080001048A /* RxMoya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF44DB3B23D9AB080001048A /* RxMoya.framework */; };
+		AF44DB4323D9AB080001048A /* RxMoya.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF44DB3B23D9AB080001048A /* RxMoya.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AF5F642223CB3D8700FAD371 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F642123CB3D8700FAD371 /* AppDelegate.swift */; };
 		AF5F642423CB3D8700FAD371 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F642323CB3D8700FAD371 /* SceneDelegate.swift */; };
 		AF5F642623CB3D8700FAD371 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F642523CB3D8700FAD371 /* ViewController.swift */; };
@@ -15,7 +23,28 @@
 		AF5F642E23CB3D8900FAD371 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF5F642C23CB3D8900FAD371 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		AF44DB4423D9AB080001048A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AF44DB4323D9AB080001048A /* RxMoya.framework in Embed Frameworks */,
+				AF44DB4123D9AB080001048A /* RxCocoa.framework in Embed Frameworks */,
+				AF44DB3F23D9AB080001048A /* Moya.framework in Embed Frameworks */,
+				AF44DB3D23D9AB080001048A /* RxSwift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		AF44DB3823D9AB080001048A /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		AF44DB3923D9AB080001048A /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = Carthage/Build/iOS/Moya.framework; sourceTree = "<group>"; };
+		AF44DB3A23D9AB080001048A /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		AF44DB3B23D9AB080001048A /* RxMoya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMoya.framework; path = Carthage/Build/iOS/RxMoya.framework; sourceTree = "<group>"; };
 		AF5F641E23CB3D8700FAD371 /* Qiita-Training.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Qiita-Training.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF5F642123CB3D8700FAD371 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF5F642323CB3D8700FAD371 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +60,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF44DB4223D9AB080001048A /* RxMoya.framework in Frameworks */,
+				AF44DB4023D9AB080001048A /* RxCocoa.framework in Frameworks */,
+				AF44DB3E23D9AB080001048A /* Moya.framework in Frameworks */,
+				AF44DB3C23D9AB080001048A /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF44DB3723D9AB080001048A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF44DB3923D9AB080001048A /* Moya.framework */,
+				AF44DB3A23D9AB080001048A /* RxCocoa.framework */,
+				AF44DB3B23D9AB080001048A /* RxMoya.framework */,
+				AF44DB3823D9AB080001048A /* RxSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AF5F641523CB3D8700FAD371 = {
 			isa = PBXGroup;
 			children = (
 				AF5F642023CB3D8700FAD371 /* Qiita-Training */,
 				AF5F641F23CB3D8700FAD371 /* Products */,
+				AF44DB3723D9AB080001048A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +122,8 @@
 				AF5F641A23CB3D8700FAD371 /* Sources */,
 				AF5F641B23CB3D8700FAD371 /* Frameworks */,
 				AF5F641C23CB3D8700FAD371 /* Resources */,
+				AF44DB4423D9AB080001048A /* Embed Frameworks */,
+				AF44DB4523D9AB0E0001048A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -132,6 +179,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AF44DB4523D9AB0E0001048A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Moya.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxMoya.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveMoya.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxTest.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AF5F641A23CB3D8700FAD371 /* Sources */ = {
@@ -286,6 +363,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MD32H432SJ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Qiita-Training/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -304,6 +385,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MD32H432SJ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Qiita-Training/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
