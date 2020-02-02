@@ -7,15 +7,26 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
-import Moya
-import RxMoya
 
-class TabsViewController: UIViewController {
+class TabsViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("成功")
+        
+        configureTabBarItem()
+    }
+    
+    private func configureTabBarItem() {
+        guard let feed = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "Feed") as? FeedViewController,
+            let search =  UIStoryboard(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "Search") as? SearchViewController,
+            let setting = UIStoryboard(name: "Setting", bundle: nil).instantiateViewController(withIdentifier: "Setting") as? SettingViewController else { return }
+        
+        feed.tabBarItem = UITabBarItem(tabBarSystemItem: .mostRecent, tag: 1)
+        search.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 2)
+        setting.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 3)
+        
+        self.viewControllers = [feed, search, setting].map {
+            UINavigationController(rootViewController: $0)
+        }
     }
 }
