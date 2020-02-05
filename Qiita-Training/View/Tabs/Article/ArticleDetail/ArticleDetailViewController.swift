@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import WebKit
 
 class ArticleDetailViewController: UIViewController {
 
+    @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var webViewTopConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
