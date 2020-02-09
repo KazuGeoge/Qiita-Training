@@ -15,6 +15,7 @@
 		AF44DB4123D9AB080001048A /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF44DB3A23D9AB080001048A /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AF44DB4223D9AB080001048A /* RxMoya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF44DB3B23D9AB080001048A /* RxMoya.framework */; };
 		AF44DB4323D9AB080001048A /* RxMoya.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF44DB3B23D9AB080001048A /* RxMoya.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AF5F5BA323F06C520055C672 /* ProfileTableViewDataSouce.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F5BA223F06C520055C672 /* ProfileTableViewDataSouce.swift */; };
 		AF5F642223CB3D8700FAD371 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F642123CB3D8700FAD371 /* AppDelegate.swift */; };
 		AF5F642423CB3D8700FAD371 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F642323CB3D8700FAD371 /* SceneDelegate.swift */; };
 		AF5F642623CB3D8700FAD371 /* TabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F642523CB3D8700FAD371 /* TabsViewController.swift */; };
@@ -76,6 +77,7 @@
 		AF44DB3923D9AB080001048A /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = Carthage/Build/iOS/Moya.framework; sourceTree = "<group>"; };
 		AF44DB3A23D9AB080001048A /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		AF44DB3B23D9AB080001048A /* RxMoya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMoya.framework; path = Carthage/Build/iOS/RxMoya.framework; sourceTree = "<group>"; };
+		AF5F5BA223F06C520055C672 /* ProfileTableViewDataSouce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewDataSouce.swift; sourceTree = "<group>"; };
 		AF5F641E23CB3D8700FAD371 /* Qiita-Training.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Qiita-Training.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF5F642123CB3D8700FAD371 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF5F642323CB3D8700FAD371 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 			children = (
 				AFB4A14C23E5A2BA001900DF /* ProfileViewController.swift */,
 				AFB4A14E23E5A2D1001900DF /* ProfileViewModel.swift */,
+				AF5F5BA223F06C520055C672 /* ProfileTableViewDataSouce.swift */,
 				AFB4A15023E5A2E1001900DF /* Profile.storyboard */,
 				AFB4A16F23E5AA52001900DF /* Authentication */,
 				AFB4A15923E5A647001900DF /* ProfileDetail */,
@@ -449,6 +452,7 @@
 				AFB4A17623E5AB8E001900DF /* ArticleListTableViewDataSouce.swift in Sources */,
 				AFB4A15E23E5A675001900DF /* SettingViewModel.swift in Sources */,
 				AF5F642623CB3D8700FAD371 /* TabsViewController.swift in Sources */,
+				AF5F5BA323F06C520055C672 /* ProfileTableViewDataSouce.swift in Sources */,
 				AFB4A16023E5A689001900DF /* SettingViewController.swift in Sources */,
 				AFB4A14F23E5A2D1001900DF /* ProfileViewModel.swift in Sources */,
 				AFB4A16423E5A96F001900DF /* ProfileDetailViewModel.swift in Sources */,

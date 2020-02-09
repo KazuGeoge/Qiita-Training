@@ -19,7 +19,7 @@ class TabsViewController: UITabBarController {
     private func configureTabBarItem() {
         guard let feed = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "Feed") as? FeedViewController,
             let search =  UIStoryboard(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "Search") as? SearchViewController,
-            let setting = UIStoryboard(name: "Setting", bundle: nil).instantiateViewController(withIdentifier: "Setting") as? SettingViewController else { return }
+            let setting = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "Profile") as? ProfileViewController else { return }
         
         feed.tabBarItem = UITabBarItem(tabBarSystemItem: .mostRecent, tag: 1)
         search.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 2)
