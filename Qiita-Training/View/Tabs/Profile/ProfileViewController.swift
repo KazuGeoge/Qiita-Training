@@ -31,25 +31,25 @@ class ProfileViewController: UIViewController {
     func configureButton() {
         followButton.rx.tap
             .subscribe({ _ in
-                print("フォロー")
+                RouteAction.shared.show(routeType: .profileDetail(.follow))
             })
             .disposed(by: disposeBag)
         
         followerButton.rx.tap
             .subscribe({ _ in
-                print("フォロワー")
+                RouteAction.shared.show(routeType: .profileDetail(.follower))
             })
             .disposed(by: disposeBag)
         
         stockButton.rx.tap
             .subscribe({ _ in
-                print("ストック")
+                RouteAction.shared.show(routeType: .profileDetail(.stock))
             })
             .disposed(by: disposeBag)
         
         tagButton.rx.tap
             .subscribe({ _ in
-                print("タグ")
+                RouteAction.shared.show(routeType: .profileDetail(.tag))
             })
             .disposed(by: disposeBag)
     }

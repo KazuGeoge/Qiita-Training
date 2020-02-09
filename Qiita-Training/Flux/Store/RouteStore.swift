@@ -12,6 +12,8 @@ import RxCocoa
 enum RouteType {
    case article
    case articleDetaile
+   case profile
+   case profileDetail(ProfileType)
 }
 
 final class RouteStore {

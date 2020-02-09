@@ -55,6 +55,19 @@ class TabsViewController: UITabBarController {
                         let topViewController = UIApplication.topViewController() else { return }
                     
                     topViewController.navigationController?.pushViewController(articleListViewController, animated: true)
+                case .profileDetail(let profileType):
+                    guard let profileDetailViewController = UIStoryboard(name: "ProfileDetail", bundle: nil)
+                        .instantiateViewController(withIdentifier: "ProfileDetail") as? ProfileDetailViewController,
+                        let topViewController = UIApplication.topViewController() else { return }
+                    
+                    profileDetailViewController.viewModel.profileType = profileType
+                    topViewController.navigationController?.pushViewController(profileDetailViewController, animated: true)
+                case .profile:
+                    guard let profileDetailViewController = UIStoryboard(name: "Profile", bundle: nil)
+                        .instantiateViewController(withIdentifier: "Profile") as? ProfileViewController,
+                        let topViewController = UIApplication.topViewController() else { return }
+                    
+                    topViewController.navigationController?.pushViewController(profileDetailViewController, animated: true)
                 }
             })
             .disposed(by: disposeBag)
