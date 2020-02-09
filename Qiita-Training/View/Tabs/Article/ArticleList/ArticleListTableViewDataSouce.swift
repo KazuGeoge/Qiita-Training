@@ -22,6 +22,7 @@ class ArticleListTableViewDataSouce: NSObject {
 extension ArticleListTableViewDataSouce: UITableViewDelegate {
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        RouteAction.shared.show(routeType: .article)
         print("遷移")
     }
 }

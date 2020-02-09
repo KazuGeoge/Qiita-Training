@@ -7,13 +7,19 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class TabsViewController: UITabBarController {
 
+    private let disposeBag = DisposeBag()
+    private let viewModel = TabsViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureTabBarItem()
+        observeViewModel()
     }
     
     private func configureTabBarItem() {
@@ -28,5 +34,25 @@ class TabsViewController: UITabBarController {
         self.viewControllers = [feed, search, setting].map {
             UINavigationController(rootViewController: $0)
         }
+    }
+    
+    private func observeViewModel() {
+        
+        viewModel.display.asObservable()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] routeType in
+                guard let routeType = routeType else { return }
+                
+                switch routeType {
+                case .article:
+                    
+                    guard let articleDetailViewController = UIStoryboard(name: "ArticleDetail", bundle: nil)
+                        .instantiateViewController(withIdentifier: "ArticleDetail") as? ArticleDetailViewController,
+                        let topViewController = UIApplication.topViewController() else { return }
+                    
+                    topViewController.navigationController?.pushViewController(articleDetailViewController, animated: true)
+                }
+            })
+            .disposed(by: disposeBag)
     }
 }
