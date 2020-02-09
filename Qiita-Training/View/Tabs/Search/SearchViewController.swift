@@ -10,8 +10,8 @@ import UIKit
 
 class SearchViewController: UIViewController, UISearchBarDelegate {
 
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet private weak var tableView: UITableView!
     private let dataSouce = SearchTableViewDataSouce()
     
     override func viewDidLoad() {

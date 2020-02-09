@@ -14,10 +14,10 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     private let dataSouce = ProfileTableViewDataSouce()
-    @IBOutlet weak var followButton: UIButton!
-    @IBOutlet weak var followerButton: UIButton!
-    @IBOutlet weak var stockButton: UIButton!
-    @IBOutlet weak var tagButton: UIButton!
+    @IBOutlet private weak var followButton: UIButton!
+    @IBOutlet private weak var followerButton: UIButton!
+    @IBOutlet private weak var stockButton: UIButton!
+    @IBOutlet private weak var tagButton: UIButton!
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
