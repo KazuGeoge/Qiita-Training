@@ -20,6 +20,8 @@
 		AF5F642623CB3D8700FAD371 /* TabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F642523CB3D8700FAD371 /* TabsViewController.swift */; };
 		AF5F642B23CB3D8900FAD371 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF5F642A23CB3D8900FAD371 /* Assets.xcassets */; };
 		AF5F642E23CB3D8900FAD371 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF5F642C23CB3D8900FAD371 /* LaunchScreen.storyboard */; };
+		AF73700223F01ADF00B884A7 /* SwipeMenuViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF73700123F01ADF00B884A7 /* SwipeMenuViewController.framework */; };
+		AF73700323F01ADF00B884A7 /* SwipeMenuViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF73700123F01ADF00B884A7 /* SwipeMenuViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AFB4A13723E5A056001900DF /* TabsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A13623E5A056001900DF /* TabsViewModel.swift */; };
 		AFB4A13923E5A090001900DF /* Tabs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A13823E5A090001900DF /* Tabs.storyboard */; };
 		AFB4A13D23E5A0DB001900DF /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A13C23E5A0DB001900DF /* FeedViewController.swift */; };
@@ -60,6 +62,7 @@
 				AF44DB4323D9AB080001048A /* RxMoya.framework in Embed Frameworks */,
 				AF44DB4123D9AB080001048A /* RxCocoa.framework in Embed Frameworks */,
 				AF44DB3F23D9AB080001048A /* Moya.framework in Embed Frameworks */,
+				AF73700323F01ADF00B884A7 /* SwipeMenuViewController.framework in Embed Frameworks */,
 				AF44DB3D23D9AB080001048A /* RxSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -79,6 +82,7 @@
 		AF5F642A23CB3D8900FAD371 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF5F642D23CB3D8900FAD371 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF5F642F23CB3D8900FAD371 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF73700123F01ADF00B884A7 /* SwipeMenuViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipeMenuViewController.framework; path = Carthage/Build/iOS/SwipeMenuViewController.framework; sourceTree = "<group>"; };
 		AFB4A13623E5A056001900DF /* TabsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsViewModel.swift; sourceTree = "<group>"; };
 		AFB4A13823E5A090001900DF /* Tabs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tabs.storyboard; sourceTree = "<group>"; };
 		AFB4A13C23E5A0DB001900DF /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 				AF44DB4223D9AB080001048A /* RxMoya.framework in Frameworks */,
 				AF44DB4023D9AB080001048A /* RxCocoa.framework in Frameworks */,
 				AF44DB3E23D9AB080001048A /* Moya.framework in Frameworks */,
+				AF73700223F01ADF00B884A7 /* SwipeMenuViewController.framework in Frameworks */,
 				AF44DB3C23D9AB080001048A /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,6 +132,7 @@
 		AF44DB3723D9AB080001048A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AF73700123F01ADF00B884A7 /* SwipeMenuViewController.framework */,
 				AF44DB3923D9AB080001048A /* Moya.framework */,
 				AF44DB3A23D9AB080001048A /* RxCocoa.framework */,
 				AF44DB3B23D9AB080001048A /* RxMoya.framework */,
@@ -415,6 +421,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxTest.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwipeMenuViewController.framework",
 			);
 			outputFileListPaths = (
 			);
