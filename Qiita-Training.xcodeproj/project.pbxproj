@@ -44,7 +44,7 @@
 		AFB4A16E23E5AA3D001900DF /* ArticleDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A16D23E5AA3D001900DF /* ArticleDetail.storyboard */; };
 		AFB4A17123E5AA80001900DF /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A17023E5AA80001900DF /* AuthenticationViewController.swift */; };
 		AFB4A17423E5AB7C001900DF /* ArticleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A17323E5AB7C001900DF /* ArticleListViewController.swift */; };
-		AFB4A17623E5AB8E001900DF /* ArticleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A17523E5AB8E001900DF /* ArticleListViewModel.swift */; };
+		AFB4A17623E5AB8E001900DF /* ArticleListTableViewDataSouce.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A17523E5AB8E001900DF /* ArticleListTableViewDataSouce.swift */; };
 		AFB4A17823E5AB9F001900DF /* ArticleList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A17723E5AB9F001900DF /* ArticleList.storyboard */; };
 		AFB4A18623E5BA17001900DF /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A18523E5BA17001900DF /* Dispatcher.swift */; };
 		AFB4A18823E5BA25001900DF /* RouteAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A18723E5BA25001900DF /* RouteAction.swift */; };
@@ -105,7 +105,7 @@
 		AFB4A16D23E5AA3D001900DF /* ArticleDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ArticleDetail.storyboard; sourceTree = "<group>"; };
 		AFB4A17023E5AA80001900DF /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		AFB4A17323E5AB7C001900DF /* ArticleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewController.swift; sourceTree = "<group>"; };
-		AFB4A17523E5AB8E001900DF /* ArticleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModel.swift; sourceTree = "<group>"; };
+		AFB4A17523E5AB8E001900DF /* ArticleListTableViewDataSouce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListTableViewDataSouce.swift; sourceTree = "<group>"; };
 		AFB4A17723E5AB9F001900DF /* ArticleList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ArticleList.storyboard; sourceTree = "<group>"; };
 		AFB4A18523E5BA17001900DF /* Dispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatcher.swift; sourceTree = "<group>"; };
 		AFB4A18723E5BA25001900DF /* RouteAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteAction.swift; sourceTree = "<group>"; };
@@ -269,7 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				AFB4A17323E5AB7C001900DF /* ArticleListViewController.swift */,
-				AFB4A17523E5AB8E001900DF /* ArticleListViewModel.swift */,
+				AFB4A17523E5AB8E001900DF /* ArticleListTableViewDataSouce.swift */,
 				AFB4A17723E5AB9F001900DF /* ArticleList.storyboard */,
 			);
 			path = ArticleList;
@@ -443,7 +443,7 @@
 				AFB4A14723E5A23E001900DF /* SearchViewController.swift in Sources */,
 				AFB4A14923E5A250001900DF /* SearchViewModel.swift in Sources */,
 				AFB4A18823E5BA25001900DF /* RouteAction.swift in Sources */,
-				AFB4A17623E5AB8E001900DF /* ArticleListViewModel.swift in Sources */,
+				AFB4A17623E5AB8E001900DF /* ArticleListTableViewDataSouce.swift in Sources */,
 				AFB4A15E23E5A675001900DF /* SettingViewModel.swift in Sources */,
 				AF5F642623CB3D8700FAD371 /* TabsViewController.swift in Sources */,
 				AFB4A16023E5A689001900DF /* SettingViewController.swift in Sources */,

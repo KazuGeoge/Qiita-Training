@@ -65,8 +65,12 @@ extension FeedViewController: SwipeMenuViewDataSource {
         
         var viewController = UIViewController()
         
-        if let articleListViewController =  UIStoryboard(name: "ArticleList", bundle: nil).instantiateViewController(withIdentifier: "ArticleList") as? ArticleListViewController {
+        if let articleListViewController =  UIStoryboard(name: "ArticleList", bundle: nil)
+            .instantiateViewController(withIdentifier: "ArticleList") as? ArticleListViewController {
             
+            articleListViewController.title = FeedType.allCases[index].text
+            
+            addChild(articleListViewController)
             viewController = articleListViewController
         }
         return viewController
