@@ -22,6 +22,7 @@
 		AF5F642E23CB3D8900FAD371 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF5F642C23CB3D8900FAD371 /* LaunchScreen.storyboard */; };
 		AF73700223F01ADF00B884A7 /* SwipeMenuViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF73700123F01ADF00B884A7 /* SwipeMenuViewController.framework */; };
 		AF73700323F01ADF00B884A7 /* SwipeMenuViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF73700123F01ADF00B884A7 /* SwipeMenuViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AF73700523F05ADF00B884A7 /* SearchTableViewDataSouce.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF73700423F05ADF00B884A7 /* SearchTableViewDataSouce.swift */; };
 		AFB4A13723E5A056001900DF /* TabsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A13623E5A056001900DF /* TabsViewModel.swift */; };
 		AFB4A13923E5A090001900DF /* Tabs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A13823E5A090001900DF /* Tabs.storyboard */; };
 		AFB4A13D23E5A0DB001900DF /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A13C23E5A0DB001900DF /* FeedViewController.swift */; };
@@ -83,6 +84,7 @@
 		AF5F642D23CB3D8900FAD371 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF5F642F23CB3D8900FAD371 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF73700123F01ADF00B884A7 /* SwipeMenuViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipeMenuViewController.framework; path = Carthage/Build/iOS/SwipeMenuViewController.framework; sourceTree = "<group>"; };
+		AF73700423F05ADF00B884A7 /* SearchTableViewDataSouce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewDataSouce.swift; sourceTree = "<group>"; };
 		AFB4A13623E5A056001900DF /* TabsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsViewModel.swift; sourceTree = "<group>"; };
 		AFB4A13823E5A090001900DF /* Tabs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tabs.storyboard; sourceTree = "<group>"; };
 		AFB4A13C23E5A0DB001900DF /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				AFB4A14623E5A23E001900DF /* SearchViewController.swift */,
+				AF73700423F05ADF00B884A7 /* SearchTableViewDataSouce.swift */,
 				AFB4A14823E5A250001900DF /* SearchViewModel.swift */,
 				AFB4A14A23E5A26E001900DF /* Search.storyboard */,
 			);
@@ -449,6 +452,7 @@
 				AFB4A16023E5A689001900DF /* SettingViewController.swift in Sources */,
 				AFB4A14F23E5A2D1001900DF /* ProfileViewModel.swift in Sources */,
 				AFB4A16423E5A96F001900DF /* ProfileDetailViewModel.swift in Sources */,
+				AF73700523F05ADF00B884A7 /* SearchTableViewDataSouce.swift in Sources */,
 				AFB4A13F23E5A0ED001900DF /* FeedViewModel.swift in Sources */,
 				AFB4A13D23E5A0DB001900DF /* FeedViewController.swift in Sources */,
 				AFB4A16A23E5AA1D001900DF /* ArticleDetailViewController.swift in Sources */,
