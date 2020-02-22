@@ -21,22 +21,22 @@
 		AF5F642B23CB3D8900FAD371 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF5F642A23CB3D8900FAD371 /* Assets.xcassets */; };
 		AF5F642E23CB3D8900FAD371 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF5F642C23CB3D8900FAD371 /* LaunchScreen.storyboard */; };
 		AFB4A13723E5A056001900DF /* TabsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A13623E5A056001900DF /* TabsViewModel.swift */; };
-		AFB4A13923E5A090001900DF /* Tabs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A13823E5A090001900DF /* Tabs.storyboard */; };
+		AFB4A13923E5A090001900DF /* TabsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A13823E5A090001900DF /* TabsViewController.storyboard */; };
 		AFB4A13D23E5A0DB001900DF /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A13C23E5A0DB001900DF /* FeedViewController.swift */; };
 		AFB4A13F23E5A0ED001900DF /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A13E23E5A0ED001900DF /* FeedViewModel.swift */; };
-		AFB4A14123E5A170001900DF /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A14023E5A170001900DF /* Feed.storyboard */; };
+		AFB4A14123E5A170001900DF /* FeedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A14023E5A170001900DF /* FeedViewController.storyboard */; };
 		AFB4A14723E5A23E001900DF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A14623E5A23E001900DF /* SearchViewController.swift */; };
 		AFB4A14923E5A250001900DF /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A14823E5A250001900DF /* SearchViewModel.swift */; };
-		AFB4A14B23E5A26E001900DF /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A14A23E5A26E001900DF /* Search.storyboard */; };
+		AFB4A14B23E5A26E001900DF /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A14A23E5A26E001900DF /* SearchViewController.storyboard */; };
 		AFB4A14D23E5A2BA001900DF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A14C23E5A2BA001900DF /* ProfileViewController.swift */; };
 		AFB4A14F23E5A2D1001900DF /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A14E23E5A2D1001900DF /* ProfileViewModel.swift */; };
-		AFB4A15123E5A2E1001900DF /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A15023E5A2E1001900DF /* Profile.storyboard */; };
+		AFB4A15123E5A2E1001900DF /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A15023E5A2E1001900DF /* ProfileViewController.storyboard */; };
 		AFB4A15C23E5A667001900DF /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A15B23E5A667001900DF /* Setting.storyboard */; };
 		AFB4A15E23E5A675001900DF /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A15D23E5A675001900DF /* SettingViewModel.swift */; };
 		AFB4A16023E5A689001900DF /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A15F23E5A689001900DF /* SettingViewController.swift */; };
 		AFB4A16223E5A958001900DF /* ProfileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A16123E5A958001900DF /* ProfileDetailViewController.swift */; };
 		AFB4A16423E5A96F001900DF /* ProfileDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A16323E5A96F001900DF /* ProfileDetailViewModel.swift */; };
-		AFB4A16623E5A97A001900DF /* ProfileDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A16523E5A97A001900DF /* ProfileDetail.storyboard */; };
+		AFB4A16623E5A97A001900DF /* ProfileDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A16523E5A97A001900DF /* ProfileDetailViewController.storyboard */; };
 		AFB4A16A23E5AA1D001900DF /* ArticleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A16923E5AA1D001900DF /* ArticleDetailViewController.swift */; };
 		AFB4A16C23E5AA33001900DF /* ArticleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A16B23E5AA33001900DF /* ArticleDetailViewModel.swift */; };
 		AFB4A16E23E5AA3D001900DF /* ArticleDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A16D23E5AA3D001900DF /* ArticleDetail.storyboard */; };
@@ -76,22 +76,22 @@
 		AF5F642D23CB3D8900FAD371 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF5F642F23CB3D8900FAD371 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFB4A13623E5A056001900DF /* TabsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsViewModel.swift; sourceTree = "<group>"; };
-		AFB4A13823E5A090001900DF /* Tabs.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Tabs.storyboard; sourceTree = "<group>"; };
+		AFB4A13823E5A090001900DF /* TabsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabsViewController.storyboard; sourceTree = "<group>"; };
 		AFB4A13C23E5A0DB001900DF /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		AFB4A13E23E5A0ED001900DF /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
-		AFB4A14023E5A170001900DF /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
+		AFB4A14023E5A170001900DF /* FeedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeedViewController.storyboard; sourceTree = "<group>"; };
 		AFB4A14623E5A23E001900DF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		AFB4A14823E5A250001900DF /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
-		AFB4A14A23E5A26E001900DF /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		AFB4A14A23E5A26E001900DF /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
 		AFB4A14C23E5A2BA001900DF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AFB4A14E23E5A2D1001900DF /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
-		AFB4A15023E5A2E1001900DF /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		AFB4A15023E5A2E1001900DF /* ProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
 		AFB4A15B23E5A667001900DF /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		AFB4A15D23E5A675001900DF /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		AFB4A15F23E5A689001900DF /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		AFB4A16123E5A958001900DF /* ProfileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewController.swift; sourceTree = "<group>"; };
 		AFB4A16323E5A96F001900DF /* ProfileDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewModel.swift; sourceTree = "<group>"; };
-		AFB4A16523E5A97A001900DF /* ProfileDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileDetail.storyboard; sourceTree = "<group>"; };
+		AFB4A16523E5A97A001900DF /* ProfileDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileDetailViewController.storyboard; sourceTree = "<group>"; };
 		AFB4A16923E5AA1D001900DF /* ArticleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewController.swift; sourceTree = "<group>"; };
 		AFB4A16B23E5AA33001900DF /* ArticleDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewModel.swift; sourceTree = "<group>"; };
 		AFB4A16D23E5AA3D001900DF /* ArticleDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ArticleDetail.storyboard; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 			children = (
 				AF5F642523CB3D8700FAD371 /* TabsViewController.swift */,
 				AFB4A13623E5A056001900DF /* TabsViewModel.swift */,
-				AFB4A13823E5A090001900DF /* Tabs.storyboard */,
+				AFB4A13823E5A090001900DF /* TabsViewController.storyboard */,
 				AFB4A13B23E5A0AB001900DF /* Feed */,
 				AFB4A14423E5A211001900DF /* Search */,
 				AFB4A14523E5A218001900DF /* Profile */,
@@ -184,7 +184,7 @@
 			children = (
 				AFB4A13C23E5A0DB001900DF /* FeedViewController.swift */,
 				AFB4A13E23E5A0ED001900DF /* FeedViewModel.swift */,
-				AFB4A14023E5A170001900DF /* Feed.storyboard */,
+				AFB4A14023E5A170001900DF /* FeedViewController.storyboard */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -194,7 +194,7 @@
 			children = (
 				AFB4A14623E5A23E001900DF /* SearchViewController.swift */,
 				AFB4A14823E5A250001900DF /* SearchViewModel.swift */,
-				AFB4A14A23E5A26E001900DF /* Search.storyboard */,
+				AFB4A14A23E5A26E001900DF /* SearchViewController.storyboard */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -204,7 +204,7 @@
 			children = (
 				AFB4A14C23E5A2BA001900DF /* ProfileViewController.swift */,
 				AFB4A14E23E5A2D1001900DF /* ProfileViewModel.swift */,
-				AFB4A15023E5A2E1001900DF /* Profile.storyboard */,
+				AFB4A15023E5A2E1001900DF /* ProfileViewController.storyboard */,
 				AFB4A16F23E5AA52001900DF /* Authentication */,
 				AFB4A15923E5A647001900DF /* ProfileDetail */,
 				AFB4A15A23E5A64C001900DF /* Setting */,
@@ -217,7 +217,7 @@
 			children = (
 				AFB4A16123E5A958001900DF /* ProfileDetailViewController.swift */,
 				AFB4A16323E5A96F001900DF /* ProfileDetailViewModel.swift */,
-				AFB4A16523E5A97A001900DF /* ProfileDetail.storyboard */,
+				AFB4A16523E5A97A001900DF /* ProfileDetailViewController.storyboard */,
 			);
 			path = ProfileDetail;
 			sourceTree = "<group>";
@@ -329,15 +329,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFB4A15123E5A2E1001900DF /* Profile.storyboard in Resources */,
+				AFB4A15123E5A2E1001900DF /* ProfileViewController.storyboard in Resources */,
 				AFB4A17823E5AB9F001900DF /* ArticleList.storyboard in Resources */,
-				AFB4A14123E5A170001900DF /* Feed.storyboard in Resources */,
+				AFB4A14123E5A170001900DF /* FeedViewController.storyboard in Resources */,
 				AFB4A16E23E5AA3D001900DF /* ArticleDetail.storyboard in Resources */,
-				AFB4A13923E5A090001900DF /* Tabs.storyboard in Resources */,
+				AFB4A13923E5A090001900DF /* TabsViewController.storyboard in Resources */,
 				AF5F642E23CB3D8900FAD371 /* LaunchScreen.storyboard in Resources */,
 				AF5F642B23CB3D8900FAD371 /* Assets.xcassets in Resources */,
-				AFB4A14B23E5A26E001900DF /* Search.storyboard in Resources */,
-				AFB4A16623E5A97A001900DF /* ProfileDetail.storyboard in Resources */,
+				AFB4A14B23E5A26E001900DF /* SearchViewController.storyboard in Resources */,
+				AFB4A16623E5A97A001900DF /* ProfileDetailViewController.storyboard in Resources */,
 				AFB4A15C23E5A667001900DF /* Setting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
