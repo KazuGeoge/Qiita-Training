@@ -28,7 +28,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
        
         self.tableView.reloadData()
         
-        RouteAction.shared.show(routeType: .articleDetaile)
+        RouteAction.shared.show(routeType: .articleList)
     }
 
     // キャンセルボタンが押された時に呼ばれる

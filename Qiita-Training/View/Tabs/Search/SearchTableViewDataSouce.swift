@@ -21,7 +21,7 @@ class SearchTableViewDataSouce: NSObject {
 extension SearchTableViewDataSouce: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        RouteAction.shared.show(routeType: .articleDetaile)
+        RouteAction.shared.show(routeType: .articleList)
         print("遷移")
     }
 }

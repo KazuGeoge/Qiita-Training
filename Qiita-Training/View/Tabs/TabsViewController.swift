@@ -43,13 +43,13 @@ class TabsViewController: UITabBarController {
             .subscribe(onNext: { routeType in
                 guard let routeType = routeType else { return }
                 switch routeType {
-                case .article:
+                case .articleDetail:
                     guard let articleDetailViewController = UIStoryboard(name: "ArticleDetail", bundle: nil)
                         .instantiateViewController(withIdentifier: "ArticleDetail") as? ArticleDetailViewController,
                         let topViewController = UIApplication.topViewController() else { return }
                     
                     topViewController.navigationController?.pushViewController(articleDetailViewController, animated: true)
-                case .articleDetaile:
+                case .articleList:
                     guard let articleListViewController = UIStoryboard(name: "ArticleList", bundle: nil)
                         .instantiateViewController(withIdentifier: "ArticleList") as? ArticleListViewController,
                         let topViewController = UIApplication.topViewController() else { return }

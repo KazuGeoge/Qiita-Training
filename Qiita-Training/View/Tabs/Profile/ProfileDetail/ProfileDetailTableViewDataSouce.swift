@@ -33,9 +33,9 @@ extension ProfileDetailTableViewDataSouce: UITableViewDelegate {
         case .follower:
             RouteAction.shared.show(routeType: .profile)
         case .stock:
-            RouteAction.shared.show(routeType: .article)
+            RouteAction.shared.show(routeType: .articleDetail)
         case .tag:
-            RouteAction.shared.show(routeType: .article)
+            RouteAction.shared.show(routeType: .articleDetail)
         default:
             break
         }
