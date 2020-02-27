@@ -20,6 +20,7 @@
 		AF5F642623CB3D8700FAD371 /* TabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F642523CB3D8700FAD371 /* TabsViewController.swift */; };
 		AF5F642B23CB3D8900FAD371 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF5F642A23CB3D8900FAD371 /* Assets.xcassets */; };
 		AF5F642E23CB3D8900FAD371 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF5F642C23CB3D8900FAD371 /* LaunchScreen.storyboard */; };
+		AFABC8CF2407E9F400BD10D3 /* TabsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFABC8CE2407E9F400BD10D3 /* TabsViewController.storyboard */; };
 		AFB4A13723E5A056001900DF /* TabsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A13623E5A056001900DF /* TabsViewModel.swift */; };
 		AFB4A13923E5A090001900DF /* TabsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A13823E5A090001900DF /* TabsViewController.storyboard */; };
 		AFB4A13D23E5A0DB001900DF /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A13C23E5A0DB001900DF /* FeedViewController.swift */; };
@@ -44,6 +45,10 @@
 		AFB4A17423E5AB7C001900DF /* ArticleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A17323E5AB7C001900DF /* ArticleListViewController.swift */; };
 		AFB4A17623E5AB8E001900DF /* ArticleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A17523E5AB8E001900DF /* ArticleListViewModel.swift */; };
 		AFB4A17823E5AB9F001900DF /* ArticleListViewContoroller.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A17723E5AB9F001900DF /* ArticleListViewContoroller.storyboard */; };
+		AFB4A18623E5BA17001900DF /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A18523E5BA17001900DF /* Dispatcher.swift */; };
+		AFB4A18823E5BA25001900DF /* RouteAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A18723E5BA25001900DF /* RouteAction.swift */; };
+		AFB4A18A23E5BA3B001900DF /* RouteDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A18923E5BA3B001900DF /* RouteDispatcher.swift */; };
+		AFB4A18C23E5BA4B001900DF /* RouteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A18B23E5BA4B001900DF /* RouteStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -75,6 +80,7 @@
 		AF5F642A23CB3D8900FAD371 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF5F642D23CB3D8900FAD371 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF5F642F23CB3D8900FAD371 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFABC8CE2407E9F400BD10D3 /* TabsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabsViewController.storyboard; sourceTree = "<group>"; };
 		AFB4A13623E5A056001900DF /* TabsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsViewModel.swift; sourceTree = "<group>"; };
 		AFB4A13823E5A090001900DF /* TabsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabsViewController.storyboard; sourceTree = "<group>"; };
 		AFB4A13C23E5A0DB001900DF /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +105,10 @@
 		AFB4A17323E5AB7C001900DF /* ArticleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewController.swift; sourceTree = "<group>"; };
 		AFB4A17523E5AB8E001900DF /* ArticleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModel.swift; sourceTree = "<group>"; };
 		AFB4A17723E5AB9F001900DF /* ArticleListViewContoroller.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ArticleListViewContoroller.storyboard; sourceTree = "<group>"; };
+		AFB4A18523E5BA17001900DF /* Dispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatcher.swift; sourceTree = "<group>"; };
+		AFB4A18723E5BA25001900DF /* RouteAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteAction.swift; sourceTree = "<group>"; };
+		AFB4A18923E5BA3B001900DF /* RouteDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDispatcher.swift; sourceTree = "<group>"; };
+		AFB4A18B23E5BA4B001900DF /* RouteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +160,7 @@
 				AF5F642123CB3D8700FAD371 /* AppDelegate.swift */,
 				AF5F642323CB3D8700FAD371 /* SceneDelegate.swift */,
 				AFB4A13523E59FEA001900DF /* View */,
+				AFB4A18023E5B9BA001900DF /* Flux */,
 				AF5F642A23CB3D8900FAD371 /* Assets.xcassets */,
 				AF5F642C23CB3D8900FAD371 /* LaunchScreen.storyboard */,
 				AF5F642F23CB3D8900FAD371 /* Info.plist */,
@@ -269,6 +280,49 @@
 			path = Article;
 			sourceTree = "<group>";
 		};
+		AFB4A18023E5B9BA001900DF /* Flux */ = {
+			isa = PBXGroup;
+			children = (
+				AFB4A18123E5B9CB001900DF /* Core */,
+				AFB4A18223E5B9D2001900DF /* Action */,
+				AFB4A18323E5B9E0001900DF /* Dispatcher */,
+				AFB4A18423E5B9F9001900DF /* Store */,
+			);
+			path = Flux;
+			sourceTree = "<group>";
+		};
+		AFB4A18123E5B9CB001900DF /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				AFB4A18523E5BA17001900DF /* Dispatcher.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		AFB4A18223E5B9D2001900DF /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				AFB4A18723E5BA25001900DF /* RouteAction.swift */,
+			);
+			path = Action;
+			sourceTree = "<group>";
+		};
+		AFB4A18323E5B9E0001900DF /* Dispatcher */ = {
+			isa = PBXGroup;
+			children = (
+				AFB4A18923E5BA3B001900DF /* RouteDispatcher.swift */,
+			);
+			path = Dispatcher;
+			sourceTree = "<group>";
+		};
+		AFB4A18423E5B9F9001900DF /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				AFB4A18B23E5BA4B001900DF /* RouteStore.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -379,9 +433,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFB4A18A23E5BA3B001900DF /* RouteDispatcher.swift in Sources */,
 				AFB4A13723E5A056001900DF /* TabsViewModel.swift in Sources */,
 				AFB4A14723E5A23E001900DF /* SearchViewController.swift in Sources */,
 				AFB4A14923E5A250001900DF /* SearchViewModel.swift in Sources */,
+				AFB4A18823E5BA25001900DF /* RouteAction.swift in Sources */,
 				AFB4A17623E5AB8E001900DF /* ArticleListViewModel.swift in Sources */,
 				AFB4A15E23E5A675001900DF /* SettingViewModel.swift in Sources */,
 				AF5F642623CB3D8700FAD371 /* TabsViewController.swift in Sources */,
@@ -393,8 +449,10 @@
 				AFB4A16A23E5AA1D001900DF /* ArticleDetailViewController.swift in Sources */,
 				AFB4A16223E5A958001900DF /* ProfileDetailViewController.swift in Sources */,
 				AFB4A14D23E5A2BA001900DF /* ProfileViewController.swift in Sources */,
+				AFB4A18623E5BA17001900DF /* Dispatcher.swift in Sources */,
 				AF5F642223CB3D8700FAD371 /* AppDelegate.swift in Sources */,
 				AFB4A17123E5AA80001900DF /* AuthenticationViewController.swift in Sources */,
+				AFB4A18C23E5BA4B001900DF /* RouteStore.swift in Sources */,
 				AFB4A17423E5AB7C001900DF /* ArticleListViewController.swift in Sources */,
 				AFB4A16C23E5AA33001900DF /* ArticleDetailViewModel.swift in Sources */,
 				AF5F642423CB3D8700FAD371 /* SceneDelegate.swift in Sources */,
