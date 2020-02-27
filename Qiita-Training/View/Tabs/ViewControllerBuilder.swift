@@ -16,24 +16,27 @@ enum ViewControllerType {
     case articleList
     case profileDetail
     case profile
+    case login
     
     // TODO: マージ後storyboardNameをViewControllerに合わせる
     var storyboardName: String {
         switch self {
         case .feed:
-            return "Feed"
+            return "FeedViewController"
         case .search:
-            return "Search"
+            return "SearchViewController"
         case .setting:
-            return "Setting"
+            return "SettingViewController"
         case .articleDetail:
-            return "ArticleDetail"
+            return "ArticleDetailViewController"
         case .articleList:
-            return "ArticleList"
+            return "ArticleListViewController"
         case .profileDetail:
-            return "ProfileDetail"
+            return "ProfileDetailViewController"
         case .profile:
-            return "Profile"
+            return "ProfileViewController"
+        case .login:
+            return "AuthenticationViewController"
         }
     }
 }

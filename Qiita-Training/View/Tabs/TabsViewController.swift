@@ -23,9 +23,9 @@ class TabsViewController: UITabBarController {
     }
     
     private func configureTabBarItem() {
-        guard let feed = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "Feed") as? FeedViewController,
-            let search =  UIStoryboard(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "Search") as? SearchViewController,
-            let setting = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "Profile") as? ProfileViewController else { return }
+        guard let feed = UIStoryboard(name: ViewControllerType.feed.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ViewControllerType.feed.storyboardName) as? FeedViewController,
+            let search =  UIStoryboard(name: ViewControllerType.search.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ViewControllerType.search.storyboardName) as? SearchViewController,
+            let setting = UIStoryboard(name: ViewControllerType.profile.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ViewControllerType.profile.storyboardName) as? ProfileViewController else { return }
         
         feed.tabBarItem = UITabBarItem(tabBarSystemItem: .mostRecent, tag: 1)
         search.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 2)
@@ -40,7 +40,7 @@ class TabsViewController: UITabBarController {
         
         viewModel.display.asObservable()
             .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { routeType in
+            .subscribe(onNext: { [weak self] routeType in
                 guard let routeType = routeType, let topViewController = UIApplication.topViewController() else { return }
                 
                 var viewContoroller: UIViewController?
@@ -55,8 +55,11 @@ class TabsViewController: UITabBarController {
                 case .profileDetail(let profileType):
                     let profileDetailViewController = ViewControllerBuilder.shared.configureViewController(viewControllerType: .profileDetail) as? ProfileDetailViewController
                     profileDetailViewController?.viewModel.profileType = profileType
+                case .login:
+                    if let loginViewContoroller = ViewControllerBuilder.shared.configureViewController(viewControllerType: .login) as? AuthenticationViewController {
                     
-                    viewContoroller = profileDetailViewController
+                        self?.present(loginViewContoroller, animated: true, completion: nil)
+                    }
                 }
                 
                 if let viewContoroller = viewContoroller {

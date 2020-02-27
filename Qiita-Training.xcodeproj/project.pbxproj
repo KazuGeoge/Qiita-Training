@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF25FCAB2402A71500CB1CB7 /* AuthenticationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF25FCAA2402A71500CB1CB7 /* AuthenticationViewController.storyboard */; };
 		AF44DB3C23D9AB080001048A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF44DB3823D9AB080001048A /* RxSwift.framework */; };
 		AF44DB3D23D9AB080001048A /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF44DB3823D9AB080001048A /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AF44DB3E23D9AB080001048A /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF44DB3923D9AB080001048A /* Moya.framework */; };
@@ -16,7 +17,6 @@
 		AF44DB4223D9AB080001048A /* RxMoya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF44DB3B23D9AB080001048A /* RxMoya.framework */; };
 		AF44DB4323D9AB080001048A /* RxMoya.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF44DB3B23D9AB080001048A /* RxMoya.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AF5F5BA323F06C520055C672 /* ProfileTableViewDataSouce.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F5BA223F06C520055C672 /* ProfileTableViewDataSouce.swift */; };
-		AF5F5BA523F086BF0055C672 /* ProfileDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F5BA423F086BF0055C672 /* ProfileDetailViewModel.swift */; };
 		AF5F642223CB3D8700FAD371 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F642123CB3D8700FAD371 /* AppDelegate.swift */; };
 		AF5F642423CB3D8700FAD371 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F642323CB3D8700FAD371 /* SceneDelegate.swift */; };
 		AF5F642623CB3D8700FAD371 /* TabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F642523CB3D8700FAD371 /* TabsViewController.swift */; };
@@ -25,6 +25,11 @@
 		AF73700523F05ADF00B884A7 /* SearchTableViewDataSouce.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF73700423F05ADF00B884A7 /* SearchTableViewDataSouce.swift */; };
 		AFABC8CD2407949000BD10D3 /* ViewControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABC8CC2407949000BD10D3 /* ViewControllerBuilder.swift */; };
 		AFABC8D22407ED6400BD10D3 /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFABC8D12407ED6400BD10D3 /* ProfileViewController.storyboard */; };
+		AFABC8D42407F4BE00BD10D3 /* ArticleListTableViewDataSouce.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABC8D32407F4BE00BD10D3 /* ArticleListTableViewDataSouce.swift */; };
+		AFABC8D62407F54F00BD10D3 /* ProfileDetailTableViewDataSouce.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABC8D52407F54F00BD10D3 /* ProfileDetailTableViewDataSouce.swift */; };
+		AFABC8D82407F58F00BD10D3 /* ProfileDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABC8D72407F58F00BD10D3 /* ProfileDetailViewModel.swift */; };
+		AFABC8DA2407F5FA00BD10D3 /* SwipeMenuViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFABC8D92407F5FA00BD10D3 /* SwipeMenuViewController.framework */; };
+		AFABC8DB2407F5FB00BD10D3 /* SwipeMenuViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AFABC8D92407F5FA00BD10D3 /* SwipeMenuViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AFB4A13723E5A056001900DF /* TabsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A13623E5A056001900DF /* TabsViewModel.swift */; };
 		AFB4A13923E5A090001900DF /* TabsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A13823E5A090001900DF /* TabsViewController.storyboard */; };
 		AFB4A13D23E5A0DB001900DF /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A13C23E5A0DB001900DF /* FeedViewController.swift */; };
@@ -39,15 +44,13 @@
 		AFB4A15E23E5A675001900DF /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A15D23E5A675001900DF /* SettingViewModel.swift */; };
 		AFB4A16023E5A689001900DF /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A15F23E5A689001900DF /* SettingViewController.swift */; };
 		AFB4A16223E5A958001900DF /* ProfileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A16123E5A958001900DF /* ProfileDetailViewController.swift */; };
-		AFB4A16423E5A96F001900DF /* ProfileDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A16323E5A96F001900DF /* ProfileDetailViewModel.swift */; };
 		AFB4A16623E5A97A001900DF /* ProfileDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A16523E5A97A001900DF /* ProfileDetailViewController.storyboard */; };
 		AFB4A16A23E5AA1D001900DF /* ArticleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A16923E5AA1D001900DF /* ArticleDetailViewController.swift */; };
 		AFB4A16C23E5AA33001900DF /* ArticleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A16B23E5AA33001900DF /* ArticleDetailViewModel.swift */; };
 		AFB4A16E23E5AA3D001900DF /* ArticleDetailViewContoroller..storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A16D23E5AA3D001900DF /* ArticleDetailViewContoroller..storyboard */; };
 		AFB4A17123E5AA80001900DF /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A17023E5AA80001900DF /* AuthenticationViewController.swift */; };
 		AFB4A17423E5AB7C001900DF /* ArticleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A17323E5AB7C001900DF /* ArticleListViewController.swift */; };
-		AFB4A17623E5AB8E001900DF /* ArticleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A17523E5AB8E001900DF /* ArticleListViewModel.swift */; };
-		AFB4A17823E5AB9F001900DF /* ArticleListViewContoroller.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A17723E5AB9F001900DF /* ArticleListViewContoroller.storyboard */; };
+		AFB4A17823E5AB9F001900DF /* ArticleListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A17723E5AB9F001900DF /* ArticleListViewController.storyboard */; };
 		AFB4A18623E5BA17001900DF /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A18523E5BA17001900DF /* Dispatcher.swift */; };
 		AFB4A18823E5BA25001900DF /* RouteAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A18723E5BA25001900DF /* RouteAction.swift */; };
 		AFB4A18A23E5BA3B001900DF /* RouteDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A18923E5BA3B001900DF /* RouteDispatcher.swift */; };
@@ -64,6 +67,7 @@
 				AF44DB4323D9AB080001048A /* RxMoya.framework in Embed Frameworks */,
 				AF44DB4123D9AB080001048A /* RxCocoa.framework in Embed Frameworks */,
 				AF44DB3F23D9AB080001048A /* Moya.framework in Embed Frameworks */,
+				AFABC8DB2407F5FB00BD10D3 /* SwipeMenuViewController.framework in Embed Frameworks */,
 				AF44DB3D23D9AB080001048A /* RxSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -72,12 +76,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AF25FCAA2402A71500CB1CB7 /* AuthenticationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthenticationViewController.storyboard; sourceTree = "<group>"; };
 		AF44DB3823D9AB080001048A /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		AF44DB3923D9AB080001048A /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = Carthage/Build/iOS/Moya.framework; sourceTree = "<group>"; };
 		AF44DB3A23D9AB080001048A /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		AF44DB3B23D9AB080001048A /* RxMoya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMoya.framework; path = Carthage/Build/iOS/RxMoya.framework; sourceTree = "<group>"; };
 		AF5F5BA223F06C520055C672 /* ProfileTableViewDataSouce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewDataSouce.swift; sourceTree = "<group>"; };
-		AF5F5BA423F086BF0055C672 /* ProfileDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewModel.swift; sourceTree = "<group>"; };
 		AF5F641E23CB3D8700FAD371 /* Qiita-Training.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Qiita-Training.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF5F642123CB3D8700FAD371 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF5F642323CB3D8700FAD371 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +92,10 @@
 		AF73700423F05ADF00B884A7 /* SearchTableViewDataSouce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewDataSouce.swift; sourceTree = "<group>"; };
 		AFABC8CC2407949000BD10D3 /* ViewControllerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerBuilder.swift; sourceTree = "<group>"; };
 		AFABC8D12407ED6400BD10D3 /* ProfileViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
+		AFABC8D32407F4BE00BD10D3 /* ArticleListTableViewDataSouce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleListTableViewDataSouce.swift; sourceTree = "<group>"; };
+		AFABC8D52407F54F00BD10D3 /* ProfileDetailTableViewDataSouce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDetailTableViewDataSouce.swift; sourceTree = "<group>"; };
+		AFABC8D72407F58F00BD10D3 /* ProfileDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewModel.swift; sourceTree = "<group>"; };
+		AFABC8D92407F5FA00BD10D3 /* SwipeMenuViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipeMenuViewController.framework; path = Carthage/Build/iOS/SwipeMenuViewController.framework; sourceTree = "<group>"; };
 		AFB4A13623E5A056001900DF /* TabsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsViewModel.swift; sourceTree = "<group>"; };
 		AFB4A13823E5A090001900DF /* TabsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabsViewController.storyboard; sourceTree = "<group>"; };
 		AFB4A13C23E5A0DB001900DF /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -102,15 +110,13 @@
 		AFB4A15D23E5A675001900DF /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		AFB4A15F23E5A689001900DF /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		AFB4A16123E5A958001900DF /* ProfileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewController.swift; sourceTree = "<group>"; };
-		AFB4A16323E5A96F001900DF /* ProfileDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewModel.swift; sourceTree = "<group>"; };
 		AFB4A16523E5A97A001900DF /* ProfileDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileDetailViewController.storyboard; sourceTree = "<group>"; };
 		AFB4A16923E5AA1D001900DF /* ArticleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewController.swift; sourceTree = "<group>"; };
 		AFB4A16B23E5AA33001900DF /* ArticleDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewModel.swift; sourceTree = "<group>"; };
 		AFB4A16D23E5AA3D001900DF /* ArticleDetailViewContoroller..storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ArticleDetailViewContoroller..storyboard; sourceTree = "<group>"; };
 		AFB4A17023E5AA80001900DF /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		AFB4A17323E5AB7C001900DF /* ArticleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewController.swift; sourceTree = "<group>"; };
-		AFB4A17523E5AB8E001900DF /* ArticleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModel.swift; sourceTree = "<group>"; };
-		AFB4A17723E5AB9F001900DF /* ArticleListViewContoroller.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ArticleListViewContoroller.storyboard; sourceTree = "<group>"; };
+		AFB4A17723E5AB9F001900DF /* ArticleListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ArticleListViewController.storyboard; sourceTree = "<group>"; };
 		AFB4A18523E5BA17001900DF /* Dispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatcher.swift; sourceTree = "<group>"; };
 		AFB4A18723E5BA25001900DF /* RouteAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteAction.swift; sourceTree = "<group>"; };
 		AFB4A18923E5BA3B001900DF /* RouteDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDispatcher.swift; sourceTree = "<group>"; };
@@ -125,6 +131,7 @@
 				AF44DB4223D9AB080001048A /* RxMoya.framework in Frameworks */,
 				AF44DB4023D9AB080001048A /* RxCocoa.framework in Frameworks */,
 				AF44DB3E23D9AB080001048A /* Moya.framework in Frameworks */,
+				AFABC8DA2407F5FA00BD10D3 /* SwipeMenuViewController.framework in Frameworks */,
 				AF44DB3C23D9AB080001048A /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,6 +142,7 @@
 		AF44DB3723D9AB080001048A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AFABC8D92407F5FA00BD10D3 /* SwipeMenuViewController.framework */,
 				AF44DB3923D9AB080001048A /* Moya.framework */,
 				AF44DB3A23D9AB080001048A /* RxCocoa.framework */,
 				AF44DB3B23D9AB080001048A /* RxMoya.framework */,
@@ -236,8 +244,8 @@
 			isa = PBXGroup;
 			children = (
 				AFB4A16123E5A958001900DF /* ProfileDetailViewController.swift */,
-				AF5F5BA423F086BF0055C672 /* ProfileDetailViewModel.swift */,
-				AFB4A16323E5A96F001900DF /* ProfileDetailViewModel.swift */,
+				AFABC8D72407F58F00BD10D3 /* ProfileDetailViewModel.swift */,
+				AFABC8D52407F54F00BD10D3 /* ProfileDetailTableViewDataSouce.swift */,
 				AFB4A16523E5A97A001900DF /* ProfileDetailViewController.storyboard */,
 			);
 			path = ProfileDetail;
@@ -267,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				AFB4A17023E5AA80001900DF /* AuthenticationViewController.swift */,
+				AF25FCAA2402A71500CB1CB7 /* AuthenticationViewController.storyboard */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -275,8 +284,8 @@
 			isa = PBXGroup;
 			children = (
 				AFB4A17323E5AB7C001900DF /* ArticleListViewController.swift */,
-				AFB4A17523E5AB8E001900DF /* ArticleListViewModel.swift */,
-				AFB4A17723E5AB9F001900DF /* ArticleListViewContoroller.storyboard */,
+				AFABC8D32407F4BE00BD10D3 /* ArticleListTableViewDataSouce.swift */,
+				AFB4A17723E5AB9F001900DF /* ArticleListViewController.storyboard */,
 			);
 			path = ArticleList;
 			sourceTree = "<group>";
@@ -393,11 +402,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFB4A17823E5AB9F001900DF /* ArticleListViewContoroller.storyboard in Resources */,
+				AFB4A17823E5AB9F001900DF /* ArticleListViewController.storyboard in Resources */,
 				AFB4A14123E5A170001900DF /* FeedViewController.storyboard in Resources */,
 				AFB4A16E23E5AA3D001900DF /* ArticleDetailViewContoroller..storyboard in Resources */,
 				AFB4A13923E5A090001900DF /* TabsViewController.storyboard in Resources */,
 				AF5F642E23CB3D8900FAD371 /* LaunchScreen.storyboard in Resources */,
+				AF25FCAB2402A71500CB1CB7 /* AuthenticationViewController.storyboard in Resources */,
 				AF5F642B23CB3D8900FAD371 /* Assets.xcassets in Resources */,
 				AFB4A14B23E5A26E001900DF /* SearchViewController.storyboard in Resources */,
 				AFB4A16623E5A97A001900DF /* ProfileDetailViewController.storyboard in Resources */,
@@ -427,6 +437,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxTest.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwipeMenuViewController.framework",
 			);
 			outputFileListPaths = (
 			);
@@ -448,20 +459,20 @@
 				AFB4A14723E5A23E001900DF /* SearchViewController.swift in Sources */,
 				AFB4A14923E5A250001900DF /* SearchViewModel.swift in Sources */,
 				AFB4A18823E5BA25001900DF /* RouteAction.swift in Sources */,
-				AFB4A17623E5AB8E001900DF /* ArticleListViewModel.swift in Sources */,
 				AFB4A15E23E5A675001900DF /* SettingViewModel.swift in Sources */,
 				AF5F642623CB3D8700FAD371 /* TabsViewController.swift in Sources */,
 				AFABC8CD2407949000BD10D3 /* ViewControllerBuilder.swift in Sources */,
 				AF5F5BA323F06C520055C672 /* ProfileTableViewDataSouce.swift in Sources */,
-				AF5F5BA523F086BF0055C672 /* ProfileDetailViewModel.swift in Sources */,
+				AFABC8D82407F58F00BD10D3 /* ProfileDetailViewModel.swift in Sources */,
 				AFB4A16023E5A689001900DF /* SettingViewController.swift in Sources */,
 				AFB4A14F23E5A2D1001900DF /* ProfileViewModel.swift in Sources */,
-				AFB4A16423E5A96F001900DF /* ProfileDetailViewModel.swift in Sources */,
 				AF73700523F05ADF00B884A7 /* SearchTableViewDataSouce.swift in Sources */,
 				AFB4A13F23E5A0ED001900DF /* FeedViewModel.swift in Sources */,
 				AFB4A13D23E5A0DB001900DF /* FeedViewController.swift in Sources */,
 				AFB4A16A23E5AA1D001900DF /* ArticleDetailViewController.swift in Sources */,
+				AFABC8D42407F4BE00BD10D3 /* ArticleListTableViewDataSouce.swift in Sources */,
 				AFB4A16223E5A958001900DF /* ProfileDetailViewController.swift in Sources */,
+				AFABC8D62407F54F00BD10D3 /* ProfileDetailTableViewDataSouce.swift in Sources */,
 				AFB4A14D23E5A2BA001900DF /* ProfileViewController.swift in Sources */,
 				AFB4A18623E5BA17001900DF /* Dispatcher.swift in Sources */,
 				AF5F642223CB3D8700FAD371 /* AppDelegate.swift in Sources */,
@@ -537,7 +548,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -591,7 +602,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

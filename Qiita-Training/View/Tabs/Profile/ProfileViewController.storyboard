@@ -215,6 +215,11 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7kr-HS-gCv">
                                 <rect key="frame" x="0.0" y="252" width="414" height="610"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xrM-Lz-BZh">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="ログイン"/>
+                                </button>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -232,6 +237,7 @@
                     <connections>
                         <outlet property="followButton" destination="rJA-Q5-2uQ" id="AAq-6v-6v8"/>
                         <outlet property="followerButton" destination="EAo-lu-uns" id="25J-g0-Qfl"/>
+                        <outlet property="loginButton" destination="xrM-Lz-BZh" id="vGr-pw-ham"/>
                         <outlet property="stockButton" destination="CK4-IK-hFL" id="G37-j8-IMk"/>
                         <outlet property="tableView" destination="7kr-HS-gCv" id="loq-k1-qwB"/>
                         <outlet property="tagButton" destination="djK-CX-S7o" id="11q-EP-97x"/>

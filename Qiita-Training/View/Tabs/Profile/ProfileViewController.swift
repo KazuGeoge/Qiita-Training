@@ -19,6 +19,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet private weak var stockButton: UIButton!
     @IBOutlet private weak var tagButton: UIButton!
     private let disposeBag = DisposeBag()
+    @IBOutlet weak var loginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +51,12 @@ class ProfileViewController: UIViewController {
         tagButton.rx.tap
             .subscribe({ _ in
                 RouteAction.shared.show(routeType: .profileDetail(.tag))
+            })
+            .disposed(by: disposeBag)
+        
+        loginButton.rx.tap
+            .subscribe({ _ in
+                RouteAction.shared.show(routeType: .login)
             })
             .disposed(by: disposeBag)
     }

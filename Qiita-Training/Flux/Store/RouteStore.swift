@@ -14,6 +14,7 @@ enum RouteType {
    case articleList
    case profile
    case profileDetail(ProfileType)
+   case login
 }
 
 final class RouteStore {
