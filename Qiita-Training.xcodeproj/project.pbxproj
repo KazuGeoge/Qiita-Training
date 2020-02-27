@@ -22,6 +22,7 @@
 		AF5F642E23CB3D8900FAD371 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF5F642C23CB3D8900FAD371 /* LaunchScreen.storyboard */; };
 		AFABC8CF2407E9F400BD10D3 /* TabsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFABC8CE2407E9F400BD10D3 /* TabsViewController.storyboard */; };
 		AFB4A13723E5A056001900DF /* TabsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A13623E5A056001900DF /* TabsViewModel.swift */; };
+		AFB4A13923E5A090001900DF /* TabsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A13823E5A090001900DF /* TabsViewController.storyboard */; };
 		AFB4A13D23E5A0DB001900DF /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A13C23E5A0DB001900DF /* FeedViewController.swift */; };
 		AFB4A13F23E5A0ED001900DF /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A13E23E5A0ED001900DF /* FeedViewModel.swift */; };
 		AFB4A14123E5A170001900DF /* FeedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A14023E5A170001900DF /* FeedViewController.storyboard */; };
@@ -81,6 +82,7 @@
 		AF5F642F23CB3D8900FAD371 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AFABC8CE2407E9F400BD10D3 /* TabsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabsViewController.storyboard; sourceTree = "<group>"; };
 		AFB4A13623E5A056001900DF /* TabsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsViewModel.swift; sourceTree = "<group>"; };
+		AFB4A13823E5A090001900DF /* TabsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabsViewController.storyboard; sourceTree = "<group>"; };
 		AFB4A13C23E5A0DB001900DF /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		AFB4A13E23E5A0ED001900DF /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		AFB4A14023E5A170001900DF /* FeedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeedViewController.storyboard; sourceTree = "<group>"; };
@@ -179,7 +181,7 @@
 			children = (
 				AF5F642523CB3D8700FAD371 /* TabsViewController.swift */,
 				AFB4A13623E5A056001900DF /* TabsViewModel.swift */,
-				AFABC8CE2407E9F400BD10D3 /* TabsViewController.storyboard */,
+				AFB4A13823E5A090001900DF /* TabsViewController.storyboard */,
 				AFB4A13B23E5A0AB001900DF /* Feed */,
 				AFB4A14423E5A211001900DF /* Search */,
 				AFB4A14523E5A218001900DF /* Profile */,
@@ -389,6 +391,9 @@
 				AF5F642B23CB3D8900FAD371 /* Assets.xcassets in Resources */,
 				AFB4A14B23E5A26E001900DF /* SearchViewController.storyboard in Resources */,
 				AFABC8CF2407E9F400BD10D3 /* TabsViewController.storyboard in Resources */,
+				AF5F642E23CB3D8900FAD371 /* LaunchScreen.storyboard in Resources */,
+				AF5F642B23CB3D8900FAD371 /* Assets.xcassets in Resources */,
+				AFB4A14B23E5A26E001900DF /* SearchViewController.storyboard in Resources */,
 				AFB4A16623E5A97A001900DF /* ProfileDetailViewController.storyboard in Resources */,
 				AFB4A15C23E5A667001900DF /* SettingViewContoroller.storyboard in Resources */,
 			);
