@@ -16,7 +16,7 @@ class AuthenticationViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        loadURL(urlString: "https://qiita.com/login?redirect_to=https%3A%2F%2Fqiita.com%2Fsettings%2Fapplications")
+        loadURL(urlString: Const.QIITA_AUTHENTICATION_LINK)
         webView.navigationDelegate = self
     }
     
@@ -32,7 +32,7 @@ class AuthenticationViewController: UIViewController, WKNavigationDelegate {
         
         guard let url =  navigationAction.request.url else { return }
                 
-        let result = url.absoluteString.hasPrefix("https://github.com/login/oauth/authorize?client_id=")
+        let result = url.absoluteString.hasPrefix(Const.TOKEN_LINK_PREFIX)
         
         if result {
             let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)

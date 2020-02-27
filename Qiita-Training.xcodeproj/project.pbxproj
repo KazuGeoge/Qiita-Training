@@ -30,6 +30,7 @@
 		AFABC8D82407F58F00BD10D3 /* ProfileDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABC8D72407F58F00BD10D3 /* ProfileDetailViewModel.swift */; };
 		AFABC8DA2407F5FA00BD10D3 /* SwipeMenuViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFABC8D92407F5FA00BD10D3 /* SwipeMenuViewController.framework */; };
 		AFABC8DB2407F5FB00BD10D3 /* SwipeMenuViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AFABC8D92407F5FA00BD10D3 /* SwipeMenuViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AFABC8DE240884A300BD10D3 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABC8DD240884A300BD10D3 /* Const.swift */; };
 		AFB4A13723E5A056001900DF /* TabsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A13623E5A056001900DF /* TabsViewModel.swift */; };
 		AFB4A13923E5A090001900DF /* TabsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A13823E5A090001900DF /* TabsViewController.storyboard */; };
 		AFB4A13D23E5A0DB001900DF /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A13C23E5A0DB001900DF /* FeedViewController.swift */; };
@@ -96,6 +97,7 @@
 		AFABC8D52407F54F00BD10D3 /* ProfileDetailTableViewDataSouce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDetailTableViewDataSouce.swift; sourceTree = "<group>"; };
 		AFABC8D72407F58F00BD10D3 /* ProfileDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewModel.swift; sourceTree = "<group>"; };
 		AFABC8D92407F5FA00BD10D3 /* SwipeMenuViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipeMenuViewController.framework; path = Carthage/Build/iOS/SwipeMenuViewController.framework; sourceTree = "<group>"; };
+		AFABC8DD240884A300BD10D3 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		AFB4A13623E5A056001900DF /* TabsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsViewModel.swift; sourceTree = "<group>"; };
 		AFB4A13823E5A090001900DF /* TabsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabsViewController.storyboard; sourceTree = "<group>"; };
 		AFB4A13C23E5A0DB001900DF /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -175,11 +177,20 @@
 				AF5F642323CB3D8700FAD371 /* SceneDelegate.swift */,
 				AFB4A13523E59FEA001900DF /* View */,
 				AFB4A18023E5B9BA001900DF /* Flux */,
+				AFABC8DC2408848800BD10D3 /* Model */,
 				AF5F642A23CB3D8900FAD371 /* Assets.xcassets */,
 				AF5F642C23CB3D8900FAD371 /* LaunchScreen.storyboard */,
 				AF5F642F23CB3D8900FAD371 /* Info.plist */,
 			);
 			path = "Qiita-Training";
+			sourceTree = "<group>";
+		};
+		AFABC8DC2408848800BD10D3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AFABC8DD240884A300BD10D3 /* Const.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		AFB4A13523E59FEA001900DF /* View */ = {
@@ -467,6 +478,7 @@
 				AFB4A16023E5A689001900DF /* SettingViewController.swift in Sources */,
 				AFB4A14F23E5A2D1001900DF /* ProfileViewModel.swift in Sources */,
 				AF73700523F05ADF00B884A7 /* SearchTableViewDataSouce.swift in Sources */,
+				AFABC8DE240884A300BD10D3 /* Const.swift in Sources */,
 				AFB4A13F23E5A0ED001900DF /* FeedViewModel.swift in Sources */,
 				AFB4A13D23E5A0DB001900DF /* FeedViewController.swift in Sources */,
 				AFB4A16A23E5AA1D001900DF /* ArticleDetailViewController.swift in Sources */,
