@@ -41,33 +41,26 @@ class TabsViewController: UITabBarController {
         viewModel.display.asObservable()
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { routeType in
-                guard let routeType = routeType else { return }
+                guard let routeType = routeType, let topViewController = UIApplication.topViewController() else { return }
+                
+                var viewContoroller: UIViewController?
+                
                 switch routeType {
                 case .articleDetail:
-                    guard let articleDetailViewController = UIStoryboard(name: "ArticleDetail", bundle: nil)
-                        .instantiateViewController(withIdentifier: "ArticleDetail") as? ArticleDetailViewController,
-                        let topViewController = UIApplication.topViewController() else { return }
-                    
-                    topViewController.navigationController?.pushViewController(articleDetailViewController, animated: true)
+                    viewContoroller = ViewControllerBuilder.shared.configureViewController(viewControllerType: .articleDetail) as? ArticleDetailViewController
                 case .articleList:
-                    guard let articleListViewController = UIStoryboard(name: "ArticleList", bundle: nil)
-                        .instantiateViewController(withIdentifier: "ArticleList") as? ArticleListViewController,
-                        let topViewController = UIApplication.topViewController() else { return }
-                    
-                    topViewController.navigationController?.pushViewController(articleListViewController, animated: true)
-                case .profileDetail(let profileType):
-                    guard let profileDetailViewController = UIStoryboard(name: "ProfileDetail", bundle: nil)
-                        .instantiateViewController(withIdentifier: "ProfileDetail") as? ProfileDetailViewController,
-                        let topViewController = UIApplication.topViewController() else { return }
-                    
-                    profileDetailViewController.viewModel.profileType = profileType
-                    topViewController.navigationController?.pushViewController(profileDetailViewController, animated: true)
+                    viewContoroller = ViewControllerBuilder.shared.configureViewController(viewControllerType: .articleList) as? ArticleListViewController
                 case .profile:
-                    guard let profileDetailViewController = UIStoryboard(name: "Profile", bundle: nil)
-                        .instantiateViewController(withIdentifier: "Profile") as? ProfileViewController,
-                        let topViewController = UIApplication.topViewController() else { return }
+                    viewContoroller = ViewControllerBuilder.shared.configureViewController(viewControllerType: .profile) as? ProfileViewController
+                case .profileDetail(let profileType):
+                    let profileDetailViewController = ViewControllerBuilder.shared.configureViewController(viewControllerType: .profileDetail) as? ProfileDetailViewController
+                    profileDetailViewController?.viewModel.profileType = profileType
                     
-                    topViewController.navigationController?.pushViewController(profileDetailViewController, animated: true)
+                    viewContoroller = profileDetailViewController
+                }
+                
+                if let viewContoroller = viewContoroller {
+                    topViewController.navigationController?.pushViewController(viewContoroller, animated: true)
                 }
             })
             .disposed(by: disposeBag)
