@@ -12,7 +12,7 @@ import RxCocoa
 import Moya
 import RxMoya
 
-class ViewController: UIViewController {
+class TabsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
