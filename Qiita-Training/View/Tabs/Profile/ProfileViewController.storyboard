@@ -10,8 +10,9 @@
         <!--Profile View Controller-->
         <scene sceneID="d0g-jH-Jj3">
             <objects>
-                <viewController storyboardIdentifier="Profile" id="Yib-0N-lTA" customClass="ProfileViewController" customModule="Qiita_Training" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="pJ6-bA-1vf">
+
+                <viewController storyboardIdentifier="ProfileViewController" id="9mN-Jp-Tu4" customClass="ProfileViewController" customModule="Qiita_Training" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Y0-29-x0L">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
