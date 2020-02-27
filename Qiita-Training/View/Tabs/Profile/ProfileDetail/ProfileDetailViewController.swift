@@ -8,23 +8,22 @@
 
 import UIKit
 
+enum ProfileType {
+    case follow
+    case follower
+    case stock
+    case tag
+}
+
 class ProfileDetailViewController: UIViewController {
 
+    @IBOutlet private weak var tableView: UITableView!
+    lazy var viewModel = ProfileDetailViewModel()
+    private lazy var dataSouce = ProfileDetailTableViewDataSouce(viewModel: self.viewModel)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        dataSouce.configure(tableView: tableView)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -10,7 +10,10 @@ import RxSwift
 import RxCocoa
 
 enum RouteType {
-   
+   case articleDetail
+   case articleList
+   case profile
+   case profileDetail(ProfileType)
 }
 
 final class RouteStore {

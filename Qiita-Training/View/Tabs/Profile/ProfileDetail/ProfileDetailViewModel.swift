@@ -6,6 +6,9 @@
 //  Copyright © 2020 城島一輝. All rights reserved.
 //
 
+import UIKit
+
 final class ProfileDetailViewModel {
 
+    var profileType: ProfileType?    
 }

@@ -10,12 +10,13 @@ import UIKit
 
 class ArticleListViewController: UIViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
+    private let dataSouce = ArticleListTableViewDataSouce()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        dataSouce.configure(tableView: tableView)
     }
     
 

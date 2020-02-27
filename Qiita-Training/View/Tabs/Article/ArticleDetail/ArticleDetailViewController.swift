@@ -11,8 +11,8 @@ import WebKit
 
 class ArticleDetailViewController: UIViewController {
 
-    @IBOutlet weak var webView: WKWebView!
-    @IBOutlet weak var webViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var webView: WKWebView!
+    @IBOutlet private weak var webViewTopConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
