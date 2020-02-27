@@ -31,16 +31,18 @@ class AuthenticationViewController: UIViewController, WKNavigationDelegate {
                  decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         
         guard let url =  navigationAction.request.url else { return }
-        
-        let urlString = url.absoluteString
-        
-        let result = urlString.hasPrefix("https://github.com/login/oauth/authorize?client_id=")
+                
+        let result = url.absoluteString.hasPrefix("https://github.com/login/oauth/authorize?client_id=")
         
         if result {
             let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
             if let queryValue = urlComponents?.queryItems?.first?.value {
                 
+                // Tokenを取得したら保存して認証画面を閉じる。
                 print("token:\(queryValue)")
+                UserDefaults.standard.set(queryValue, forKey: "token")
+                dismiss(animated: true, completion: nil)
+                
                 decisionHandler(.cancel)
             }
         } else {
