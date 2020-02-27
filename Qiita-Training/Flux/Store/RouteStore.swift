@@ -6,8 +6,27 @@
 //  Copyright © 2020 城島一輝. All rights reserved.
 //
 
-import UIKit
+import RxSwift
+import RxCocoa
 
-class RouteStore: NSObject {
+enum RouteType {
+   
+}
 
+final class RouteStore {
+    static let shared = RouteStore()
+    
+    var routeStream: Observable<RouteType?> {
+        return routeState.asObservable()
+    }
+
+    let routeState = BehaviorRelay<RouteType?>(value: nil)
+    private let disposeBag = DisposeBag()
+    
+    init(dispatcher: AnyObservableDispatcher<RouteDispatcher> = .init(.shared)) {
+        
+        dispatcher.routeStream
+            .bind(to: routeState)
+            .disposed(by: disposeBag)
+    }
 }
