@@ -32,16 +32,17 @@ class FeedViewController: UIViewController {
     
     private let disposeBag = DisposeBag()
     @IBOutlet private weak var swipeMenuView: SwipeMenuView!
+    private let viewModel = FeedViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpSwipeMenuView()
-        observeLoginStore()
+        observeViewModel()
     }
     
-    private func observeLoginStore() {
-        LoginStore.shared.loginStream
+    private func observeViewModel() {
+        viewModel.login.asObservable()
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] _ in
                 self?.setUpSwipeMenuView()
@@ -78,7 +79,6 @@ extension FeedViewController: SwipeMenuViewDataSource {
         let childViewController =  UIStoryboard(name: stiryboardName, bundle: nil).instantiateViewController(withIdentifier: stiryboardName)
         childViewController.title = FeedType.allCases[index].text
         
-        // ログインしているかどうかでキャストするViewContorollerを決める
         let castedChildViewController = isArticleList ? childViewController as? ArticleListViewController:
                                                         childViewController as? StillLoginUserViewController
         
