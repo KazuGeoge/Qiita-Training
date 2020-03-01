@@ -17,6 +17,7 @@ enum ViewControllerType {
     case profileDetail
     case profile
     case login
+    case stillLogin
     
     // TODO: マージ後storyboardNameをViewControllerに合わせる
     var storyboardName: String {
@@ -37,6 +38,8 @@ enum ViewControllerType {
             return "ProfileViewController"
         case .login:
             return "AuthenticationViewController"
+        case .stillLogin:
+            return "StillLoginUserViewController"
         }
     }
 }

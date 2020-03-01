@@ -31,7 +31,7 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       setUpSwipeMenuView()
+        setUpSwipeMenuView()
     }
     
     func setUpSwipeMenuView() {
@@ -61,18 +61,25 @@ extension FeedViewController: SwipeMenuViewDataSource {
         return FeedType.allCases[index].text
     }
 
+    // ログイン状況に合わせてと返すViewContorollerを制御する
     func swipeMenuView(_ swipeMenuView: SwipeMenuView, viewControllerForPageAt index: Int) -> UIViewController {
-        
+       
         var viewController = UIViewController()
+        // 新着記事はログイン状態に関わるず出すため、indexが0の時は必ずtrueになるようにする。
+        let isArticleList = UserDefaults.standard.bool(forKey: "is_login_user") || index == 0
+        let stiryboardName = isArticleList ? ViewControllerType.articleList.storyboardName : ViewControllerType.stillLogin.storyboardName
+        let childViewController =  UIStoryboard(name: stiryboardName, bundle: nil).instantiateViewController(withIdentifier: stiryboardName)
+        childViewController.title = FeedType.allCases[index].text
         
-        if let articleListViewController =  UIStoryboard(name: ViewControllerType.articleList.storyboardName, bundle: nil)
-            .instantiateViewController(withIdentifier: ViewControllerType.articleList.storyboardName) as? ArticleListViewController {
-            
-            articleListViewController.title = FeedType.allCases[index].text
-            
-            addChild(articleListViewController)
-            viewController = articleListViewController
+        // ログインしているかどうかでキャストするViewContorollerを決める
+        let castedChildViewController = isArticleList ? childViewController as? ArticleListViewController:
+                                                        childViewController as? StillLoginUserViewController
+        
+        if let castedChildViewController = castedChildViewController {
+            addChild(castedChildViewController)
+            viewController = castedChildViewController
         }
+        
         return viewController
     }
 }

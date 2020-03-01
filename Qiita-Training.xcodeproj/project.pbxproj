@@ -31,6 +31,8 @@
 		AFABC8DA2407F5FA00BD10D3 /* SwipeMenuViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFABC8D92407F5FA00BD10D3 /* SwipeMenuViewController.framework */; };
 		AFABC8DB2407F5FB00BD10D3 /* SwipeMenuViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AFABC8D92407F5FA00BD10D3 /* SwipeMenuViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AFABC8DE240884A300BD10D3 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABC8DD240884A300BD10D3 /* Const.swift */; };
+		AFABC8E1240887E500BD10D3 /* StillLoginUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFABC8E0240887E500BD10D3 /* StillLoginUserViewController.swift */; };
+		AFABC8E3240887EE00BD10D3 /* StillLoginUserViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFABC8E2240887EE00BD10D3 /* StillLoginUserViewController.storyboard */; };
 		AFB4A13723E5A056001900DF /* TabsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A13623E5A056001900DF /* TabsViewModel.swift */; };
 		AFB4A13923E5A090001900DF /* TabsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A13823E5A090001900DF /* TabsViewController.storyboard */; };
 		AFB4A13D23E5A0DB001900DF /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A13C23E5A0DB001900DF /* FeedViewController.swift */; };
@@ -98,6 +100,8 @@
 		AFABC8D72407F58F00BD10D3 /* ProfileDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewModel.swift; sourceTree = "<group>"; };
 		AFABC8D92407F5FA00BD10D3 /* SwipeMenuViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwipeMenuViewController.framework; path = Carthage/Build/iOS/SwipeMenuViewController.framework; sourceTree = "<group>"; };
 		AFABC8DD240884A300BD10D3 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		AFABC8E0240887E500BD10D3 /* StillLoginUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StillLoginUserViewController.swift; sourceTree = "<group>"; };
+		AFABC8E2240887EE00BD10D3 /* StillLoginUserViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StillLoginUserViewController.storyboard; sourceTree = "<group>"; };
 		AFB4A13623E5A056001900DF /* TabsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsViewModel.swift; sourceTree = "<group>"; };
 		AFB4A13823E5A090001900DF /* TabsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabsViewController.storyboard; sourceTree = "<group>"; };
 		AFB4A13C23E5A0DB001900DF /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +197,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		AFABC8DF2408876200BD10D3 /* StillLoginUser */ = {
+			isa = PBXGroup;
+			children = (
+				AFABC8E0240887E500BD10D3 /* StillLoginUserViewController.swift */,
+				AFABC8E2240887EE00BD10D3 /* StillLoginUserViewController.storyboard */,
+			);
+			path = StillLoginUser;
+			sourceTree = "<group>";
+		};
 		AFB4A13523E59FEA001900DF /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +225,7 @@
 				AFB4A14423E5A211001900DF /* Search */,
 				AFB4A14523E5A218001900DF /* Profile */,
 				AFB4A17A23E5ABAD001900DF /* Article */,
+				AFABC8DF2408876200BD10D3 /* StillLoginUser */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -414,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFB4A17823E5AB9F001900DF /* ArticleListViewController.storyboard in Resources */,
+				AFABC8E3240887EE00BD10D3 /* StillLoginUserViewController.storyboard in Resources */,
 				AFB4A14123E5A170001900DF /* FeedViewController.storyboard in Resources */,
 				AFB4A16E23E5AA3D001900DF /* ArticleDetailViewContoroller..storyboard in Resources */,
 				AFB4A13923E5A090001900DF /* TabsViewController.storyboard in Resources */,
@@ -489,6 +504,7 @@
 				AFB4A18623E5BA17001900DF /* Dispatcher.swift in Sources */,
 				AF5F642223CB3D8700FAD371 /* AppDelegate.swift in Sources */,
 				AFB4A17123E5AA80001900DF /* AuthenticationViewController.swift in Sources */,
+				AFABC8E1240887E500BD10D3 /* StillLoginUserViewController.swift in Sources */,
 				AFB4A18C23E5BA4B001900DF /* RouteStore.swift in Sources */,
 				AFB4A17423E5AB7C001900DF /* ArticleListViewController.swift in Sources */,
 				AFB4A16C23E5AA33001900DF /* ArticleDetailViewModel.swift in Sources */,

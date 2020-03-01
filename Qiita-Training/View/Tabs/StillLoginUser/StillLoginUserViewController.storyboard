@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Still Login User View Controller-->
+        <scene sceneID="rMf-cc-dM3">
+            <objects>
+                <viewController storyboardIdentifier="StillLoginUserViewController" id="JNq-BI-AVV" customClass="StillLoginUserViewController" customModule="Qiita_Training" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="URs-LH-gyR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="OgW-Og-xAD">
+                                <rect key="frame" x="186.5" y="291.5" width="41" height="43.5"/>
+                                <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ログインするとストックした記事の一覧が ご覧いただけます。" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vgl-c2-P0W">
+                                <rect key="frame" x="30" y="366" width="354" height="43"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uf8-53-HgL">
+                                <rect key="frame" x="0.0" y="439" width="414" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Qiitaアカウントでログイン">
+                                    <color key="titleColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Uf8-53-HgL" firstAttribute="width" secondItem="URs-LH-gyR" secondAttribute="width" id="5CF-Gz-Ayb"/>
+                            <constraint firstItem="OgW-Og-xAD" firstAttribute="centerX" secondItem="URs-LH-gyR" secondAttribute="centerX" id="BeH-5k-qH9"/>
+                            <constraint firstItem="OgW-Og-xAD" firstAttribute="width" secondItem="URs-LH-gyR" secondAttribute="width" multiplier="0.1" id="BoR-rg-10q"/>
+                            <constraint firstItem="Vgl-c2-P0W" firstAttribute="leading" secondItem="uHr-AX-6Rf" secondAttribute="leading" constant="30" id="COh-Ej-VYv"/>
+                            <constraint firstItem="Uf8-53-HgL" firstAttribute="top" secondItem="Vgl-c2-P0W" secondAttribute="bottom" constant="30" id="Gc2-M3-uzG"/>
+                            <constraint firstItem="Vgl-c2-P0W" firstAttribute="top" secondItem="OgW-Og-xAD" secondAttribute="bottom" constant="30" id="Ji1-Cu-dfn"/>
+                            <constraint firstItem="OgW-Og-xAD" firstAttribute="centerY" secondItem="URs-LH-gyR" secondAttribute="centerY" multiplier="0.7" id="aDb-hx-kLi"/>
+                            <constraint firstItem="uHr-AX-6Rf" firstAttribute="trailing" secondItem="Vgl-c2-P0W" secondAttribute="trailing" constant="30" id="dfA-g2-esQ"/>
+                            <constraint firstItem="Uf8-53-HgL" firstAttribute="centerX" secondItem="URs-LH-gyR" secondAttribute="centerX" id="hw8-2b-KUb"/>
+                            <constraint firstItem="OgW-Og-xAD" firstAttribute="height" secondItem="URs-LH-gyR" secondAttribute="height" multiplier="0.05" id="vC3-DB-X1v"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="uHr-AX-6Rf"/>
+                    </view>
+                    <connections>
+                        <outlet property="loginButton" destination="Uf8-53-HgL" id="uRb-K7-o4f"/>
+                        <outlet property="textLabel" destination="Vgl-c2-P0W" id="eX0-8k-fI3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pik-0z-DGP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-386.95652173913044" y="90.401785714285708"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="lock.fill" catalog="system" width="64" height="64"/>
+    </resources>
+</document>

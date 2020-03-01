@@ -55,6 +55,8 @@ class TabsViewController: UITabBarController {
                 case .profileDetail(let profileType):
                     let profileDetailViewController = ViewControllerBuilder.shared.configureViewController(viewControllerType: .profileDetail) as? ProfileDetailViewController
                     profileDetailViewController?.viewModel.profileType = profileType
+                case .stillLogin:
+                    viewContoroller =  ViewControllerBuilder.shared.configureViewController(viewControllerType: .stillLogin) as? StillLoginUserViewController
                 case .login:
                     if let loginViewContoroller = ViewControllerBuilder.shared.configureViewController(viewControllerType: .login) as? AuthenticationViewController {
                     
