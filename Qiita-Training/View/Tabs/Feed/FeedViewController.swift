@@ -8,6 +8,8 @@
 
 import UIKit
 import SwipeMenuViewController
+import RxSwift
+import RxCocoa
 
 enum FeedType: CaseIterable {
     case new
@@ -28,26 +30,31 @@ enum FeedType: CaseIterable {
 
 class FeedViewController: UIViewController {
     
+    private let disposeBag = DisposeBag()
+    @IBOutlet private weak var swipeMenuView: SwipeMenuView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpSwipeMenuView()
+        observeLoginStore()
+    }
+    
+    private func observeLoginStore() {
+        LoginStore.shared.loginStream
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] _ in
+                self?.setUpSwipeMenuView()
+            })
+            .disposed(by: disposeBag)
     }
     
     func setUpSwipeMenuView() {
-        
-        let statusBarHeight = UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
-        let navigationBarHeight = navigationController?.navigationBar.frame.size.height ?? 0
-        
-        let swipeMenuView = SwipeMenuView(frame: CGRect(x: 0, y: statusBarHeight + navigationBarHeight, width: view.frame.width, height: view.frame.height))
-        swipeMenuView.dataSource = self
-                
-        view.addSubview(swipeMenuView)
-        
         var options: SwipeMenuViewOptions = .init()
         options.tabView.style = .segmented
         options.tabView.additionView.backgroundColor = .green
         
+        swipeMenuView.dataSource = self
         swipeMenuView.reloadData(options: options)
     }
 }

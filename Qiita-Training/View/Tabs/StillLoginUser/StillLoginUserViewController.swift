@@ -14,7 +14,6 @@ class StillLoginUserViewController: UIViewController {
 
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var loginButton: UIButton!
-    var feed: FeedViewController?
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -26,7 +25,7 @@ class StillLoginUserViewController: UIViewController {
     private func observeButton() {
         loginButton.rx.tap
         .subscribe({ _ in
-            self.feed!.setUpSwipeMenuView()
+            RouteAction.shared.show(routeType: .login)
         })
         .disposed(by: disposeBag)
     }
