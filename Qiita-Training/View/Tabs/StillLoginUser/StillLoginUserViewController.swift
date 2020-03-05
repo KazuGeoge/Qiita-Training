@@ -24,6 +24,7 @@ class StillLoginUserViewController: UIViewController {
     
     private func observeButton() {
         loginButton.rx.tap
+        .take(1)
         .subscribe({ _ in
             RouteAction.shared.show(routeType: .login)
         })

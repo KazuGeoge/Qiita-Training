@@ -10,10 +10,14 @@ import RxCocoa
 
 final class TabsViewModel {
     let display: Observable<RouteType?>
+    let login: Observable<()>
     private let routeStore: RouteStore
+    private let loginStore: LoginStore
     
-    init(routeStore: RouteStore = .shared) {
+    init(routeStore: RouteStore = .shared, loginStore: LoginStore = .shared) {
         display = RouteStore.shared.routeStream.asObservable()
+        login = LoginStore.shared.loginStream.asObservable()
         self.routeStore = routeStore
+        self.loginStore = loginStore
     }
 }

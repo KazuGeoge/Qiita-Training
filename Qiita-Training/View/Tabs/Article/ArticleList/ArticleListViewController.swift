@@ -17,6 +17,5 @@ class ArticleListViewController: UIViewController {
         super.viewDidLoad()
 
         dataSouce.configure(tableView: tableView)
-//        judgeIsLoginUser()
     }
 }

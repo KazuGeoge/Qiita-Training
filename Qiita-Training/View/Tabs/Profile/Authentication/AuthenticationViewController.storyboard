@@ -10,7 +10,7 @@
         <!--Authentication View Controller-->
         <scene sceneID="inD-rT-7iB">
             <objects>
-                <viewController storyboardIdentifier="AuthenticationViewController" id="w51-p7-CId" customClass="AuthenticationViewController" customModule="Qiita_Training" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthenticationViewController" modalPresentationStyle="fullScreen" id="w51-p7-CId" customClass="AuthenticationViewController" customModule="Qiita_Training" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c0p-k6-mvN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -14,26 +14,59 @@ class TabsViewController: UITabBarController {
 
     private let disposeBag = DisposeBag()
     private let viewModel = TabsViewModel()
+    private var viewControllerArray: [UIViewController] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureTabBarItem()
         observeViewModel()
+        login()
     }
     
     private func configureTabBarItem() {
         guard let feed = UIStoryboard(name: ViewControllerType.feed.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ViewControllerType.feed.storyboardName) as? FeedViewController,
             let search =  UIStoryboard(name: ViewControllerType.search.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ViewControllerType.search.storyboardName) as? SearchViewController,
-            let setting = UIStoryboard(name: ViewControllerType.profile.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ViewControllerType.profile.storyboardName) as? ProfileViewController else { return }
+            let stillLogin = UIStoryboard(name: ViewControllerType.stillLogin.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ViewControllerType.stillLogin.storyboardName) as? StillLoginUserViewController else { return }
         
         feed.tabBarItem = UITabBarItem(tabBarSystemItem: .mostRecent, tag: 1)
         search.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 2)
-        setting.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 3)
+        stillLogin.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 3)
         
-        self.viewControllers = [feed, search, setting].map {
+        viewControllerArray = [feed, search, stillLogin]
+        resisterRootViewController()
+        
+        if !UserDefaults.standard.bool(forKey: "is_login_user") {
+            login()
+        }
+    }
+    
+    private func resisterRootViewController() {
+        self.viewControllers = viewControllerArray.map {
             UINavigationController(rootViewController: $0)
         }
+    }
+    
+    private func login() {
+        viewModel.login.asObservable()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] _ in
+                
+                if let setting = UIStoryboard(name: ViewControllerType.profile.storyboardName, bundle: nil)
+                    .instantiateViewController(withIdentifier: ViewControllerType.profile.storyboardName) as? ProfileViewController {
+                    
+                    setting.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 3)
+                    self?.viewControllerArray.remove(at: 2)
+                    self?.viewControllerArray.append(setting)
+                    
+                    self?.viewControllers = self?.viewControllerArray.map {
+                        UINavigationController(rootViewController: $0)
+                    }
+                    
+                    self?.resisterRootViewController()
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     private func observeViewModel() {
@@ -56,7 +89,7 @@ class TabsViewController: UITabBarController {
                     let profileDetailViewController = ViewControllerBuilder.shared.configureViewController(viewControllerType: .profileDetail) as? ProfileDetailViewController
                     profileDetailViewController?.viewModel.profileType = profileType
                 case .stillLogin:
-                    viewContoroller =  ViewControllerBuilder.shared.configureViewController(viewControllerType: .stillLogin) as? StillLoginUserViewController
+                    viewContoroller = ViewControllerBuilder.shared.configureViewController(viewControllerType: .stillLogin) as? StillLoginUserViewController
                 case .login:
                     if let loginViewContoroller = ViewControllerBuilder.shared.configureViewController(viewControllerType: .login) as? AuthenticationViewController {
                     
