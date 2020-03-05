@@ -52,12 +52,12 @@ class TabsViewController: UITabBarController {
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] _ in
                 
-                if let setting = UIStoryboard(name: ViewControllerType.profile.storyboardName, bundle: nil)
+                if let profile = UIStoryboard(name: ViewControllerType.profile.storyboardName, bundle: nil)
                     .instantiateViewController(withIdentifier: ViewControllerType.profile.storyboardName) as? ProfileViewController {
                     
-                    setting.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 3)
+                    profile.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 3)
                     self?.viewControllerArray.remove(at: 2)
-                    self?.viewControllerArray.append(setting)
+                    self?.viewControllerArray.append(profile)
                     
                     self?.viewControllers = self?.viewControllerArray.map {
                         UINavigationController(rootViewController: $0)
