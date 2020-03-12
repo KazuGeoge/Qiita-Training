@@ -11,10 +11,8 @@ import RxCocoa
 
 final class FeedViewModel {
     let login: Observable<()>
-    private let loginStore: LoginStore
     
-    init(loginStore: LoginStore = .shared) {
+    init() {
         login = LoginStore.shared.loginStream.asObservable()
-        self.loginStore = loginStore
     }
 }
