@@ -21,7 +21,6 @@ class TabsViewController: UITabBarController {
         
         configureTabBarItem()
         observeViewModel()
-        login()
     }
     
     private func configureTabBarItem() {
@@ -37,7 +36,7 @@ class TabsViewController: UITabBarController {
         resisterRootViewController()
         
         if !UserDefaults.standard.bool(forKey: "is_login_user") {
-            login()
+            LoginAction.shared.login()
         }
     }
     
@@ -45,28 +44,6 @@ class TabsViewController: UITabBarController {
         self.viewControllers = viewControllerArray.map {
             UINavigationController(rootViewController: $0)
         }
-    }
-    
-    private func login() {
-        viewModel.login.asObservable()
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] _ in
-                
-                if let profile = UIStoryboard(name: ViewControllerType.profile.storyboardName, bundle: nil)
-                    .instantiateViewController(withIdentifier: ViewControllerType.profile.storyboardName) as? ProfileViewController {
-                    
-                    profile.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 3)
-                    self?.viewControllerArray.remove(at: 2)
-                    self?.viewControllerArray.append(profile)
-                    
-                    self?.viewControllers = self?.viewControllerArray.map {
-                        UINavigationController(rootViewController: $0)
-                    }
-                    
-                    self?.resisterRootViewController()
-                }
-            })
-            .disposed(by: disposeBag)
     }
     
     private func observeViewModel() {
@@ -99,6 +76,26 @@ class TabsViewController: UITabBarController {
                 
                 if let viewContoroller = viewContoroller {
                     topViewController.navigationController?.pushViewController(viewContoroller, animated: true)
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.loginStream.asObservable()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] _ in
+                
+                if let profile = UIStoryboard(name: ViewControllerType.profile.storyboardName, bundle: nil)
+                    .instantiateViewController(withIdentifier: ViewControllerType.profile.storyboardName) as? ProfileViewController {
+                    
+                    profile.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 3)
+                    self?.viewControllerArray.remove(at: 2)
+                    self?.viewControllerArray.append(profile)
+                    
+                    self?.viewControllers = self?.viewControllerArray.map {
+                        UINavigationController(rootViewController: $0)
+                    }
+                    
+                    self?.resisterRootViewController()
                 }
             })
             .disposed(by: disposeBag)
