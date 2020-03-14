@@ -13,6 +13,7 @@
 		AF384E51241D7B6F006D30F1 /* ArticleAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF384E50241D7B6F006D30F1 /* ArticleAction.swift */; };
 		AF384E53241D7B7E006D30F1 /* ArticleDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF384E52241D7B7E006D30F1 /* ArticleDispatcher.swift */; };
 		AF384E55241D7B88006D30F1 /* ArticleStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF384E54241D7B88006D30F1 /* ArticleStore.swift */; };
+		AF384E57241D7CA2006D30F1 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF384E56241D7CA2006D30F1 /* Article.swift */; };
 		AF3D52CA241A45AA00F38DAF /* SwiftyUserDefaults.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3D52C9241A45AA00F38DAF /* SwiftyUserDefaults.framework */; };
 		AF3D52CB241A45AA00F38DAF /* SwiftyUserDefaults.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF3D52C9241A45AA00F38DAF /* SwiftyUserDefaults.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AF3D52CD241A4A9900F38DAF /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3D52CC241A4A9900F38DAF /* UserDefaults.swift */; };
@@ -97,6 +98,7 @@
 		AF384E50241D7B6F006D30F1 /* ArticleAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleAction.swift; sourceTree = "<group>"; };
 		AF384E52241D7B7E006D30F1 /* ArticleDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDispatcher.swift; sourceTree = "<group>"; };
 		AF384E54241D7B88006D30F1 /* ArticleStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleStore.swift; sourceTree = "<group>"; };
+		AF384E56241D7CA2006D30F1 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		AF3D52C9241A45AA00F38DAF /* SwiftyUserDefaults.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyUserDefaults.framework; path = Carthage/Build/iOS/SwiftyUserDefaults.framework; sourceTree = "<group>"; };
 		AF3D52CC241A4A9900F38DAF /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		AF44DB3823D9AB080001048A /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 			children = (
 				AFABC8DD240884A300BD10D3 /* Const.swift */,
 				AF384E4C241D7B42006D30F1 /* QiitaAPITargetType.swift */,
+				AF384E56241D7CA2006D30F1 /* Article.swift */,
 				AF384E4E241D7B4E006D30F1 /* APIClient.swift */,
 				AF3D52CC241A4A9900F38DAF /* UserDefaults.swift */,
 			);
@@ -540,6 +543,7 @@
 				AFB4A16A23E5AA1D001900DF /* ArticleDetailViewController.swift in Sources */,
 				AFABC8D42407F4BE00BD10D3 /* ArticleListTableViewDataSouce.swift in Sources */,
 				AFB4A16223E5A958001900DF /* ProfileDetailViewController.swift in Sources */,
+				AF384E57241D7CA2006D30F1 /* Article.swift in Sources */,
 				AF785918240BC3EB008B7BE9 /* LoginDispatcher.swift in Sources */,
 				AFABC8D62407F54F00BD10D3 /* ProfileDetailTableViewDataSouce.swift in Sources */,
 				AFB4A14D23E5A2BA001900DF /* ProfileViewController.swift in Sources */,
