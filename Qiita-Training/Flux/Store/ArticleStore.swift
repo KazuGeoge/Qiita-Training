@@ -6,8 +6,15 @@
 //  Copyright © 2020 城島一輝. All rights reserved.
 //
 
-import UIKit
+import RxSwift
+import RxCocoa
 
-class ArticleStore: NSObject {
-
+final class ArticleStore {
+    static let shared = ArticleStore()
+    var articleStream: Observable<([Article])>
+    
+    init(dispatcher: AnyObservableDispatcher<ArticleDispatcher> = .init(.shared)) {
+        
+        articleStream = dispatcher.articleStream
+    }
 }

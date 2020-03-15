@@ -11,6 +11,8 @@ import Foundation
 
 enum QiitaAPI {
     case newArticle
+    case followArticle
+    case stockArticle
 }
 
 extension QiitaAPI: TargetType {
@@ -24,12 +26,16 @@ extension QiitaAPI: TargetType {
         switch self {
         case .newArticle:
             return "/api/v2/items"
+        case .followArticle:
+            return ""
+        case .stockArticle:
+            return ""
         }
     }
 
     var method: Moya.Method {
         switch self {
-        case .newArticle:
+        case .newArticle, .followArticle, .stockArticle:
             return .get
         }
     }

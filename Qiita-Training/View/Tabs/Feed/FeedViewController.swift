@@ -76,8 +76,8 @@ extension FeedViewController: SwipeMenuViewDataSource {
         var viewController = UIViewController()
         // 新着記事はログイン状態に関わるず出すため、indexが0の時は必ずtrueになるようにする。
         let isArticleList = Defaults.isLoginUdser || index == 0
-        let stiryboardName = isArticleList ? ViewControllerType.articleList.storyboardName : ViewControllerType.stillLogin.storyboardName
-        let childViewController =  UIStoryboard(name: stiryboardName, bundle: nil).instantiateViewController(withIdentifier: stiryboardName)
+        let storyboardName = isArticleList ? ViewControllerType.articleList.storyboardName : ViewControllerType.stillLogin.storyboardName
+        let childViewController =  UIStoryboard(name: storyboardName, bundle: nil).instantiateViewController(withIdentifier: storyboardName)
         childViewController.title = FeedType.allCases[index].text
         
         let castedChildViewController = isArticleList ? childViewController as? ArticleListViewController:
@@ -86,6 +86,10 @@ extension FeedViewController: SwipeMenuViewDataSource {
         if let castedChildViewController = castedChildViewController {
             addChild(castedChildViewController)
             viewController = castedChildViewController
+        }
+        
+        if index == 0 {
+            viewModel.getAPI(qiitaAPI: .newArticle)
         }
         
         return viewController

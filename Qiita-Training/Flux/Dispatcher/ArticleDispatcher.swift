@@ -6,8 +6,28 @@
 //  Copyright © 2020 城島一輝. All rights reserved.
 //
 
-import UIKit
+import RxSwift
+import RxCocoa
 
-class ArticleDispatcher: NSObject {
+// データフローを単一方向に保つ
+final class ArticleDispatcher: DispatcherType {
+       static let shared = ArticleDispatcher()
+        
+        fileprivate let articleStream = PublishSubject<([Article])>()
+        
+        private init() {}
+}
 
+// onNextだけができるDispathcher
+extension AnyObserverDispatcher where Dispatcher: ArticleDispatcher {
+    var articleStream: AnyObserver<([Article])> {
+        return dispatcher.articleStream.asObserver()
+    }
+}
+
+// subscribeだけができるDispatcher
+extension AnyObservableDispatcher where Dispatcher: ArticleDispatcher {
+    var articleStream: Observable<([Article])> {
+        return dispatcher.articleStream
+    }
 }

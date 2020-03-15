@@ -8,6 +8,6 @@
 
 import UIKit
 
-class Article: NSObject {
-
+struct Article: Codable {
+    var title: String
 }
