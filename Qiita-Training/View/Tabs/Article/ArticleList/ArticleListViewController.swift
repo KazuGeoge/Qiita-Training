@@ -15,6 +15,7 @@ class ArticleListViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     private let dataSouce = ArticleListTableViewDataSouce()
     private let disposeBag = DisposeBag()
+    var qiitaAPIType: QiitaAPI?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +27,9 @@ class ArticleListViewController: UIViewController {
     private func observeArticleStore() {
         ArticleStore.shared.articleStream.asObservable()
             .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] articleList in
-                self?.dataSouce.articleList = articleList
+            .filter { [weak self] in $0.1 == self?.qiitaAPIType }
+            .subscribe(onNext: { [weak self] articleStream in
+                self?.dataSouce.articleList = articleStream.0
                 self?.tableView.reloadData()
             })
             .disposed(by: disposeBag)

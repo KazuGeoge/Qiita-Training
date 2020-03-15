@@ -13,21 +13,21 @@ import RxCocoa
 final class ArticleDispatcher: DispatcherType {
        static let shared = ArticleDispatcher()
         
-        fileprivate let articleStream = PublishSubject<([Article])>()
+        fileprivate let articleStream = PublishSubject<(([Article], QiitaAPI))>()
         
         private init() {}
 }
 
 // onNextだけができるDispathcher
 extension AnyObserverDispatcher where Dispatcher: ArticleDispatcher {
-    var articleStream: AnyObserver<([Article])> {
+    var articleStream: AnyObserver<(([Article], QiitaAPI))> {
         return dispatcher.articleStream.asObserver()
     }
 }
 
 // subscribeだけができるDispatcher
 extension AnyObservableDispatcher where Dispatcher: ArticleDispatcher {
-    var articleStream: Observable<([Article])> {
+    var articleStream: Observable<(([Article], QiitaAPI))> {
         return dispatcher.articleStream
     }
 }

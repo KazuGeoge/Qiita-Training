@@ -80,16 +80,33 @@ extension FeedViewController: SwipeMenuViewDataSource {
         let childViewController =  UIStoryboard(name: storyboardName, bundle: nil).instantiateViewController(withIdentifier: storyboardName)
         childViewController.title = FeedType.allCases[index].text
         
-        let castedChildViewController = isArticleList ? childViewController as? ArticleListViewController:
-                                                        childViewController as? StillLoginUserViewController
+        var castedChildViewController: UIViewController?
+        
+        if isArticleList {
+            let articleListViewController = childViewController as? ArticleListViewController
+            
+            var qiitaAPI: QiitaAPI?
+            switch index {
+            case 0:
+                qiitaAPI = .newArticle
+            case 1:
+                qiitaAPI = .followArticle
+            case 2:
+                qiitaAPI = .stockArticle
+            default:
+                break
+            }
+            
+            articleListViewController?.qiitaAPIType = qiitaAPI
+            viewModel.getAPI(qiitaAPI: qiitaAPI)
+            castedChildViewController = articleListViewController
+        } else {
+            castedChildViewController = childViewController as? StillLoginUserViewController
+        }
         
         if let castedChildViewController = castedChildViewController {
             addChild(castedChildViewController)
             viewController = castedChildViewController
-        }
-        
-        if index == 0 {
-            viewModel.getAPI(qiitaAPI: .newArticle)
         }
         
         return viewController

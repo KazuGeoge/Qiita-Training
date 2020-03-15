@@ -16,7 +16,7 @@ final class ArticleAction {
         self.dispatcher = dispatcher
     }
     
-    func article(articleList: [Article]) {
-        dispatcher.articleStream.onNext(articleList)
+    func article(articleList: [Article], qiitaAPIType: QiitaAPI) {
+        dispatcher.articleStream.onNext((articleList, qiitaAPIType))
     }
 }

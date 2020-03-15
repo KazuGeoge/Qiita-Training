@@ -8,6 +8,7 @@
 
 import Moya
 import Foundation
+import SwiftyUserDefaults
 
 enum QiitaAPI {
     case newArticle
@@ -27,9 +28,9 @@ extension QiitaAPI: TargetType {
         case .newArticle:
             return "/api/v2/items"
         case .followArticle:
-            return ""
+            return "/users/\(Defaults.token)/items?page=1&per_page=20"
         case .stockArticle:
-            return ""
+            return "/users/\(Defaults.token)/stocks?page=1&per_page=20"
         }
     }
 

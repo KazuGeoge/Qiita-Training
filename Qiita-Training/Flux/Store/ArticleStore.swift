@@ -11,7 +11,7 @@ import RxCocoa
 
 final class ArticleStore {
     static let shared = ArticleStore()
-    var articleStream: Observable<([Article])>
+    var articleStream: Observable<(([Article], QiitaAPI))>
     
     init(dispatcher: AnyObservableDispatcher<ArticleDispatcher> = .init(.shared)) {
         

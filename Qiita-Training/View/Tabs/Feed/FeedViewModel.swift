@@ -17,13 +17,14 @@ final class FeedViewModel {
         login = LoginStore.shared.loginStream.asObservable()
     }
     
-    func getAPI(qiitaAPI: QiitaAPI) {
+    func getAPI(qiitaAPI: QiitaAPI?) {
+        
+        guard let qiitaAPI = qiitaAPI else { return }
         
         APIClient.shared.call(qiitaAPI: qiitaAPI).asObservable()
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { (articleList: [Article]) in
-                
-                ArticleAction.shared.article(articleList: articleList)
+                ArticleAction.shared.article(articleList: articleList, qiitaAPIType: qiitaAPI)
             })
             .disposed(by: disposeBag)
     }
