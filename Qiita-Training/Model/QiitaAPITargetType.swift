@@ -7,7 +7,6 @@
 //
 
 import Moya
-import Foundation
 import SwiftyUserDefaults
 
 enum QiitaAPI {
@@ -23,6 +22,7 @@ extension QiitaAPI: TargetType {
         return URL(string:"https://qiita.com")!
     }
     
+    // TODO: ページングするため、叩くAPIは指定するページを更新出来るようにする
     var path: String {
         switch self {
         case .newArticle:
@@ -39,11 +39,6 @@ extension QiitaAPI: TargetType {
         case .newArticle, .followArticle, .stockArticle:
             return .get
         }
-    }
-
-    //テストの際テスト用のjsonを返すことができるメソッド
-    var sampleData: Data {
-        return Data()
     }
 
     var task: Task {
