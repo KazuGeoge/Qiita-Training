@@ -35,9 +35,7 @@ class TabsViewController: UITabBarController {
         viewControllerArray = [feed, search, stillLogin]
         resisterRootViewController()
         
-        if !UserDefaults.standard.bool(forKey: "is_login_user") {
-            LoginAction.shared.login()
-        }
+        viewModel.loginActionIfNeeded()
     }
     
     private func resisterRootViewController() {
