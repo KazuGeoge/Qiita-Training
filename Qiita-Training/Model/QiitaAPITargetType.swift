@@ -41,6 +41,11 @@ extension QiitaAPI: TargetType {
         }
     }
 
+    //テストの際テスト用のjsonを返すことができるメソッド
+    var sampleData: Data {
+        return Data()
+    }
+    
     var task: Task {
         return .requestPlain
     }
