@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import SwiftyUserDefaults
 
 class TabsViewController: UITabBarController {
 
@@ -35,6 +36,10 @@ class TabsViewController: UITabBarController {
         viewControllerArray = [feed, search, stillLogin]
         resisterRootViewController()
         
+        if Defaults.isLoginUdser {
+            LoginAction.shared.login()
+        }
+
         viewModel.loginActionIfNeeded()
     }
     

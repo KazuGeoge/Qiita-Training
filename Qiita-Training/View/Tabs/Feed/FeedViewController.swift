@@ -10,6 +10,7 @@ import UIKit
 import SwipeMenuViewController
 import RxSwift
 import RxCocoa
+import SwiftyUserDefaults
 
 enum FeedType: CaseIterable {
     case new
@@ -74,7 +75,7 @@ extension FeedViewController: SwipeMenuViewDataSource {
        
         var viewController = UIViewController()
         // 新着記事はログイン状態に関わるず出すため、indexが0の時は必ずtrueになるようにする。
-        let isArticleList = UserDefaults.standard.bool(forKey: "is_login_user") || index == 0
+        let isArticleList = Defaults.isLoginUdser || index == 0
         let stiryboardName = isArticleList ? ViewControllerType.articleList.storyboardName : ViewControllerType.stillLogin.storyboardName
         let childViewController =  UIStoryboard(name: stiryboardName, bundle: nil).instantiateViewController(withIdentifier: stiryboardName)
         childViewController.title = FeedType.allCases[index].text
