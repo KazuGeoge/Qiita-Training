@@ -26,9 +26,8 @@ class ProfileViewController: UIViewController {
         dataSouce.configure(tableView: tableView)
         configureButton()
     }
-    
-    
-    func configureButton() {
+
+    private func configureButton() {
         followButton.rx.tap
             .subscribe({ _ in
                 RouteAction.shared.show(routeType: .profileDetail(.follow))

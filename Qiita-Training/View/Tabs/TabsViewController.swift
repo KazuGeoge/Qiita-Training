@@ -14,6 +14,7 @@ class TabsViewController: UITabBarController {
 
     private let disposeBag = DisposeBag()
     private let viewModel = TabsViewModel()
+    private var viewControllerArray: [UIViewController] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,15 +24,22 @@ class TabsViewController: UITabBarController {
     }
     
     private func configureTabBarItem() {
-        guard let feed = UIStoryboard(name: "Feed", bundle: nil).instantiateViewController(withIdentifier: "Feed") as? FeedViewController,
-            let search =  UIStoryboard(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "Search") as? SearchViewController,
-            let setting = UIStoryboard(name: "Profile", bundle: nil).instantiateViewController(withIdentifier: "Profile") as? ProfileViewController else { return }
+        guard let feed = UIStoryboard(name: ViewControllerType.feed.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ViewControllerType.feed.storyboardName) as? FeedViewController,
+            let search =  UIStoryboard(name: ViewControllerType.search.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ViewControllerType.search.storyboardName) as? SearchViewController,
+            let stillLogin = UIStoryboard(name: ViewControllerType.stillLogin.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ViewControllerType.stillLogin.storyboardName) as? StillLoginUserViewController else { return }
         
         feed.tabBarItem = UITabBarItem(tabBarSystemItem: .mostRecent, tag: 1)
         search.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 2)
-        setting.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 3)
+        stillLogin.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 3)
         
-        self.viewControllers = [feed, search, setting].map {
+        viewControllerArray = [feed, search, stillLogin]
+        resisterRootViewController()
+        
+        viewModel.loginActionIfNeeded()
+    }
+    
+    private func resisterRootViewController() {
+        self.viewControllers = viewControllerArray.map {
             UINavigationController(rootViewController: $0)
         }
     }
@@ -40,7 +48,7 @@ class TabsViewController: UITabBarController {
         
         viewModel.display.asObservable()
             .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { routeType in
+            .subscribe(onNext: { [weak self] routeType in
                 guard let routeType = routeType, let topViewController = UIApplication.topViewController() else { return }
                 
                 var viewContoroller: UIViewController?
@@ -55,12 +63,37 @@ class TabsViewController: UITabBarController {
                 case .profileDetail(let profileType):
                     let profileDetailViewController = ViewControllerBuilder.shared.configureViewController(viewControllerType: .profileDetail) as? ProfileDetailViewController
                     profileDetailViewController?.viewModel.profileType = profileType
+                case .stillLogin:
+                    viewContoroller = ViewControllerBuilder.shared.configureViewController(viewControllerType: .stillLogin) as? StillLoginUserViewController
+                case .login:
+                    if let loginViewContoroller = ViewControllerBuilder.shared.configureViewController(viewControllerType: .login) as? AuthenticationViewController {
                     
-                    viewContoroller = profileDetailViewController
+                        self?.present(loginViewContoroller, animated: true, completion: nil)
+                    }
                 }
                 
                 if let viewContoroller = viewContoroller {
                     topViewController.navigationController?.pushViewController(viewContoroller, animated: true)
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.loginStream.asObservable()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] _ in
+                
+                if let profile = UIStoryboard(name: ViewControllerType.profile.storyboardName, bundle: nil)
+                    .instantiateViewController(withIdentifier: ViewControllerType.profile.storyboardName) as? ProfileViewController {
+                    
+                    profile.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 3)
+                    self?.viewControllerArray.remove(at: 2)
+                    self?.viewControllerArray.append(profile)
+                    
+                    self?.viewControllers = self?.viewControllerArray.map {
+                        UINavigationController(rootViewController: $0)
+                    }
+                    
+                    self?.resisterRootViewController()
                 }
             })
             .disposed(by: disposeBag)

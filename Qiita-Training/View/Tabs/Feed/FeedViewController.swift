@@ -8,6 +8,8 @@
 
 import UIKit
 import SwipeMenuViewController
+import RxSwift
+import RxCocoa
 
 enum FeedType: CaseIterable {
     case new
@@ -28,26 +30,32 @@ enum FeedType: CaseIterable {
 
 class FeedViewController: UIViewController {
     
+    private let disposeBag = DisposeBag()
+    @IBOutlet private weak var swipeMenuView: SwipeMenuView!
+    private let viewModel = FeedViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       setUpSwipeMenuView()
+        setUpSwipeMenuView()
+        observeViewModel()
+    }
+    
+    private func observeViewModel() {
+        viewModel.login.asObservable()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] _ in
+                self?.setUpSwipeMenuView()
+            })
+            .disposed(by: disposeBag)
     }
     
     func setUpSwipeMenuView() {
-        
-        let statusBarHeight = UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
-        let navigationBarHeight = navigationController?.navigationBar.frame.size.height ?? 0
-        
-        let swipeMenuView = SwipeMenuView(frame: CGRect(x: 0, y: statusBarHeight + navigationBarHeight, width: view.frame.width, height: view.frame.height))
-        swipeMenuView.dataSource = self
-                
-        view.addSubview(swipeMenuView)
-        
         var options: SwipeMenuViewOptions = .init()
         options.tabView.style = .segmented
         options.tabView.additionView.backgroundColor = .green
         
+        swipeMenuView.dataSource = self
         swipeMenuView.reloadData(options: options)
     }
 }
@@ -61,18 +69,24 @@ extension FeedViewController: SwipeMenuViewDataSource {
         return FeedType.allCases[index].text
     }
 
+    // ログイン状況に合わせてと返すViewContorollerを制御する
     func swipeMenuView(_ swipeMenuView: SwipeMenuView, viewControllerForPageAt index: Int) -> UIViewController {
-        
+       
         var viewController = UIViewController()
+        // 新着記事はログイン状態に関わるず出すため、indexが0の時は必ずtrueになるようにする。
+        let isArticleList = UserDefaults.standard.bool(forKey: "is_login_user") || index == 0
+        let stiryboardName = isArticleList ? ViewControllerType.articleList.storyboardName : ViewControllerType.stillLogin.storyboardName
+        let childViewController =  UIStoryboard(name: stiryboardName, bundle: nil).instantiateViewController(withIdentifier: stiryboardName)
+        childViewController.title = FeedType.allCases[index].text
         
-        if let articleListViewController =  UIStoryboard(name: "ArticleList", bundle: nil)
-            .instantiateViewController(withIdentifier: "ArticleList") as? ArticleListViewController {
-            
-            articleListViewController.title = FeedType.allCases[index].text
-            
-            addChild(articleListViewController)
-            viewController = articleListViewController
+        let castedChildViewController = isArticleList ? childViewController as? ArticleListViewController:
+                                                        childViewController as? StillLoginUserViewController
+        
+        if let castedChildViewController = castedChildViewController {
+            addChild(castedChildViewController)
+            viewController = castedChildViewController
         }
+        
         return viewController
     }
 }

@@ -14,9 +14,24 @@
                     <view key="view" contentMode="scaleToFill" id="yUS-fd-b0z">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PxU-Bq-eLq" customClass="SwipeMenuView" customModule="SwipeMenuViewController">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="PxU-Bq-eLq" firstAttribute="top" secondItem="r3i-l5-Qx0" secondAttribute="top" id="0Us-GX-R24"/>
+                            <constraint firstItem="r3i-l5-Qx0" firstAttribute="bottom" secondItem="PxU-Bq-eLq" secondAttribute="bottom" id="2VX-fB-qSa"/>
+                            <constraint firstItem="PxU-Bq-eLq" firstAttribute="leading" secondItem="r3i-l5-Qx0" secondAttribute="leading" id="Ytt-fm-iu7"/>
+                            <constraint firstItem="r3i-l5-Qx0" firstAttribute="trailing" secondItem="PxU-Bq-eLq" secondAttribute="trailing" id="sKC-9H-RNX"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="r3i-l5-Qx0"/>
                     </view>
+                    <connections>
+                        <outlet property="swipeMenuView" destination="PxU-Bq-eLq" id="czK-Dd-alw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xzc-iV-7wd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -10,7 +10,6 @@
         <!--Profile View Controller-->
         <scene sceneID="d0g-jH-Jj3">
             <objects>
-
                 <viewController storyboardIdentifier="ProfileViewController" id="9mN-Jp-Tu4" customClass="ProfileViewController" customModule="Qiita_Training" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Y0-29-x0L">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>

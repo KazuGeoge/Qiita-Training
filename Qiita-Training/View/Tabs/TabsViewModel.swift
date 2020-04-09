@@ -10,10 +10,16 @@ import RxCocoa
 
 final class TabsViewModel {
     let display: Observable<RouteType?>
-    private let routeStore: RouteStore
+    let loginStream: Observable<()>
     
-    init(routeStore: RouteStore = .shared) {
+    init() {
         display = RouteStore.shared.routeStream.asObservable()
-        self.routeStore = routeStore
+        loginStream = LoginStore.shared.loginStream.asObservable()
+    }
+    
+    func loginActionIfNeeded() {
+        if !UserDefaults.standard.bool(forKey: "is_login_user") {
+            LoginAction.shared.login()
+        }
     }
 }
