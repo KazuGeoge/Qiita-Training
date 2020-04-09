@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+import SwiftyUserDefaults
 
 class AuthenticationViewController: UIViewController, WKNavigationDelegate {
 
@@ -40,8 +41,8 @@ class AuthenticationViewController: UIViewController, WKNavigationDelegate {
                 
                 // Tokenを取得したら保存して認証画面を閉じる。
                 print("token:\(queryValue)")
-                UserDefaults.standard.set(queryValue, forKey: "token")
-                UserDefaults.standard.set(true, forKey: "is_login_user")
+                Defaults.token = queryValue
+                Defaults.isLoginUdser = true
                 dismiss(animated: true, completion: nil)
                 LoginAction.shared.login()
                 decisionHandler(.cancel)

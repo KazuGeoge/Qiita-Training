@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import SwiftyUserDefaults
 
 class TabsViewController: UITabBarController {
 
@@ -35,7 +36,7 @@ class TabsViewController: UITabBarController {
         viewControllerArray = [feed, search, stillLogin]
         resisterRootViewController()
         
-        if !UserDefaults.standard.bool(forKey: "is_login_user") {
+        if Defaults.isLoginUdser {
             LoginAction.shared.login()
         }
     }
