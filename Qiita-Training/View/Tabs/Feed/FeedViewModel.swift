@@ -8,6 +8,7 @@
 
 import RxSwift
 import RxCocoa
+import RxMoya
 
 final class FeedViewModel {
     let login: Observable<()>
@@ -20,12 +21,16 @@ final class FeedViewModel {
     func getAPI(qiitaAPI: QiitaAPI?) {
         
         guard let qiitaAPI = qiitaAPI else { return }
-        
-        APIClient.shared.call(qiitaAPI: qiitaAPI).asObservable()
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { (articleList: [Article]) in
+                
+        APIClient.shared.provider.rx.request(qiitaAPI)
+            .filterSuccessfulStatusCodes()
+            .map([Article].self)
+            .subscribe(onSuccess: { articleList in
                 ArticleAction.shared.article(articleList: articleList, qiitaAPIType: qiitaAPI)
-            })
-            .disposed(by: disposeBag)
+            }) { (error) in
+                // TODO: エラーイベントを流す
+                print(error)
+        }
+        .disposed(by: self.disposeBag)
     }
 }
