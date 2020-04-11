@@ -17,6 +17,7 @@ class ArticleDetailViewController: UIViewController {
     @IBOutlet private weak var userNameLabel: UILabel!
     @IBOutlet private weak var timeLabel: UILabel!
     @IBOutlet private weak var tagCollectionView: UICollectionView!
+    @IBOutlet private weak var tagLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
