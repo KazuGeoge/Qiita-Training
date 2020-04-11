@@ -57,8 +57,10 @@ class TabsViewController: UITabBarController {
                 var viewContoroller: UIViewController?
                 
                 switch routeType {
-                case .articleDetail:
-                    viewContoroller = ViewControllerBuilder.shared.configureViewController(viewControllerType: .articleDetail) as? ArticleDetailViewController
+                case .articleDetail(let article):
+                    let articleDetailViewController = ViewControllerBuilder.shared.configureViewController(viewControllerType: .articleDetail) as? ArticleDetailViewController
+                    articleDetailViewController?.article = article
+                    viewContoroller = articleDetailViewController
                 case .articleList:
                     viewContoroller = ViewControllerBuilder.shared.configureViewController(viewControllerType: .articleList) as? ArticleListViewController
                 case .profile:

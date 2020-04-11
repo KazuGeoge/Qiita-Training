@@ -31,9 +31,11 @@ struct Article: Codable {
     
     struct User: Codable {
         var profileImageURL: String
+        var id: String
         
         enum CodingKeys: String, CodingKey {
             case profileImageURL = "profile_image_url"
+            case id
         }
     }
 }
