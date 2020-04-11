@@ -11,7 +11,7 @@
         <!--Article Detail View Controller-->
         <scene sceneID="mzc-L8-b7d">
             <objects>
-                <viewController storyboardIdentifier="ArticleDetailViewContoroller" id="PE1-uF-ZCp" customClass="ArticleDetailViewController" customModule="Qiita_Training" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ArticleDetailViewController" id="PE1-uF-ZCp" customClass="ArticleDetailViewController" customModule="Qiita_Training" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7cW-iH-tFK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
