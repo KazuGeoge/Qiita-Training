@@ -11,7 +11,7 @@
         <!--Article Detail View Controller-->
         <scene sceneID="mzc-L8-b7d">
             <objects>
-                <viewController storyboardIdentifier="ArticleDetailViewContoroller" id="PE1-uF-ZCp" customClass="ArticleDetailViewController" customModule="Qiita_Training" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ArticleDetailViewController" id="PE1-uF-ZCp" customClass="ArticleDetailViewController" customModule="Qiita_Training" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7cW-iH-tFK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -213,7 +213,6 @@
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="p6M-8p-rtf">
                                                 <rect key="frame" x="0.0" y="0.0" width="355" height="99"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vIw-Q6-Hu4">
                                                     <size key="itemSize" width="50" height="50"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -222,11 +221,26 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="med-bY-Z0u" customClass="TagCollectionViewCell" customModule="Qiita_Training" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="35" height="20.5"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gsP-o6-iYo">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="35" height="20.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タグ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zeL-bs-toE">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="35" height="20.5"/>
+                                                                    <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="zeL-bs-toE" secondAttribute="bottom" id="B8L-7a-dGv"/>
+                                                                <constraint firstItem="zeL-bs-toE" firstAttribute="top" secondItem="gsP-o6-iYo" secondAttribute="top" id="Evi-tw-7o7"/>
+                                                                <constraint firstItem="zeL-bs-toE" firstAttribute="leading" secondItem="gsP-o6-iYo" secondAttribute="leading" id="PCm-lF-ZaL"/>
+                                                                <constraint firstAttribute="trailing" secondItem="zeL-bs-toE" secondAttribute="trailing" id="gTs-94-B2k"/>
+                                                            </constraints>
                                                         </collectionViewCellContentView>
                                                     </collectionViewCell>
                                                 </cells>
@@ -277,6 +291,7 @@
                     <connections>
                         <outlet property="iconImageView" destination="JfX-VZ-jaJ" id="mLR-nB-eH4"/>
                         <outlet property="tagCollectionView" destination="p6M-8p-rtf" id="4YZ-oN-T3P"/>
+                        <outlet property="tagLabel" destination="zeL-bs-toE" id="eDn-G3-WY4"/>
                         <outlet property="timeLabel" destination="8wq-Fj-mYJ" id="z1g-aU-4Yx"/>
                         <outlet property="titleLabel" destination="5GO-ba-d94" id="azl-HT-6Hp"/>
                         <outlet property="userNameLabel" destination="wUE-fS-kSb" id="SFz-Km-BKi"/>

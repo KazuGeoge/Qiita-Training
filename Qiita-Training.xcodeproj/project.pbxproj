@@ -67,7 +67,7 @@
 		AFB4A16623E5A97A001900DF /* ProfileDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A16523E5A97A001900DF /* ProfileDetailViewController.storyboard */; };
 		AFB4A16A23E5AA1D001900DF /* ArticleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A16923E5AA1D001900DF /* ArticleDetailViewController.swift */; };
 		AFB4A16C23E5AA33001900DF /* ArticleDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A16B23E5AA33001900DF /* ArticleDetailViewModel.swift */; };
-		AFB4A16E23E5AA3D001900DF /* ArticleDetailViewContoroller..storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A16D23E5AA3D001900DF /* ArticleDetailViewContoroller..storyboard */; };
+		AFB4A16E23E5AA3D001900DF /* ArticleDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A16D23E5AA3D001900DF /* ArticleDetailViewController.storyboard */; };
 		AFB4A17123E5AA80001900DF /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A17023E5AA80001900DF /* AuthenticationViewController.swift */; };
 		AFB4A17423E5AB7C001900DF /* ArticleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A17323E5AB7C001900DF /* ArticleListViewController.swift */; };
 		AFB4A17823E5AB9F001900DF /* ArticleListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB4A17723E5AB9F001900DF /* ArticleListViewController.storyboard */; };
@@ -153,7 +153,7 @@
 		AFB4A16523E5A97A001900DF /* ProfileDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileDetailViewController.storyboard; sourceTree = "<group>"; };
 		AFB4A16923E5AA1D001900DF /* ArticleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewController.swift; sourceTree = "<group>"; };
 		AFB4A16B23E5AA33001900DF /* ArticleDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewModel.swift; sourceTree = "<group>"; };
-		AFB4A16D23E5AA3D001900DF /* ArticleDetailViewContoroller..storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ArticleDetailViewContoroller..storyboard; sourceTree = "<group>"; };
+		AFB4A16D23E5AA3D001900DF /* ArticleDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ArticleDetailViewController.storyboard; sourceTree = "<group>"; };
 		AFB4A17023E5AA80001900DF /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		AFB4A17323E5AB7C001900DF /* ArticleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewController.swift; sourceTree = "<group>"; };
 		AFB4A17723E5AB9F001900DF /* ArticleListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ArticleListViewController.storyboard; sourceTree = "<group>"; };
@@ -350,7 +350,7 @@
 			children = (
 				AFB4A16923E5AA1D001900DF /* ArticleDetailViewController.swift */,
 				AFB4A16B23E5AA33001900DF /* ArticleDetailViewModel.swift */,
-				AFB4A16D23E5AA3D001900DF /* ArticleDetailViewContoroller..storyboard */,
+				AFB4A16D23E5AA3D001900DF /* ArticleDetailViewController.storyboard */,
 				AFA30C602435EF8000FCABDF /* TagCollectionViewDataSouce.swift */,
 				AF384E5B24217BB3006D30F1 /* Comment */,
 			);
@@ -498,7 +498,7 @@
 				AFA30C662435EFAB00FCABDF /* TagCollectionViewCell.xib in Resources */,
 				AFABC8E3240887EE00BD10D3 /* StillLoginUserViewController.storyboard in Resources */,
 				AFB4A14123E5A170001900DF /* FeedViewController.storyboard in Resources */,
-				AFB4A16E23E5AA3D001900DF /* ArticleDetailViewContoroller..storyboard in Resources */,
+				AFB4A16E23E5AA3D001900DF /* ArticleDetailViewController.storyboard in Resources */,
 				AFB4A13923E5A090001900DF /* TabsViewController.storyboard in Resources */,
 				AF5F642E23CB3D8900FAD371 /* LaunchScreen.storyboard in Resources */,
 				AF25FCAB2402A71500CB1CB7 /* AuthenticationViewController.storyboard in Resources */,
