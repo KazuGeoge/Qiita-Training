@@ -8,6 +8,8 @@
 
 import UIKit
 import WebKit
+import RxSwift
+import RxCocoa
 
 class ArticleDetailViewController: UIViewController {
 
@@ -17,18 +19,45 @@ class ArticleDetailViewController: UIViewController {
     @IBOutlet private weak var userNameLabel: UILabel!
     @IBOutlet private weak var timeLabel: UILabel!
     @IBOutlet private weak var tagCollectionView: UICollectionView!
-    @IBOutlet private weak var tagLabel: UILabel!
+    @IBOutlet private weak var tagCollectionViewHeight: NSLayoutConstraint!
+    private var dataSouce: TagCollectionViewDataSouce?
+    private let disposeBag = DisposeBag()
+    private let viewModel = ArticleDetailViewModel()
     var article: Article?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        observeViewModel()
         configureUI()
+        configureDataSouce()
     }
 
     private func configureUI() {
         titleLabel.text = article?.title
         userNameLabel.text = article?.user.id
         timeLabel.text = article?.createdAt
+    }
+    
+    private func configureDataSouce() {
+        dataSouce = TagCollectionViewDataSouce(tagCollectionView: tagCollectionView)
+        dataSouce?.configure(tagArray: article?.tags.map { $0.name } ?? [])
+    }
+    
+    // HACK: 壁画前にCollectionViewのheightを決定出来る方法
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+
+        dataSouce?.tagAllWidth = 10
+        tagCollectionView.reloadData()
+    }
+    
+    private func observeViewModel() {
+        viewModel.heightStream.asObservable()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] height in
+                self?.tagCollectionViewHeight.constant = height
+            })
+            .disposed(by: disposeBag)
     }
 }

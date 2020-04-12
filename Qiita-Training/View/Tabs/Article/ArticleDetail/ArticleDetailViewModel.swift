@@ -6,6 +6,15 @@
 //  Copyright © 2020 城島一輝. All rights reserved.
 //
 
-final class ArticleDetailViewModel {
+import RxSwift
+import RxCocoa
+import UIKit
 
+final class ArticleDetailViewModel: NSObject {
+
+    var heightStream: Observable<CGFloat>
+    
+    override init() {
+        heightStream = ArticleStore.shared.heightStream.asObservable()
+    }
 }
