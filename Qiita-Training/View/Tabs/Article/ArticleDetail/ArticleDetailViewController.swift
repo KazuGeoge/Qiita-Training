@@ -11,7 +11,7 @@ import WebKit
 import RxSwift
 import RxCocoa
 
-class ArticleDetailViewController: UIViewController {
+class ArticleDetailViewController: UIViewController, WKUIDelegate {
 
     @IBOutlet private weak var webView: WKWebView!
     @IBOutlet private weak var titleLabel: UILabel!
@@ -31,6 +31,7 @@ class ArticleDetailViewController: UIViewController {
         observeViewModel()
         configureUI()
         configureDataSouce()
+        openWeb()
     }
 
     private func configureUI() {
@@ -59,5 +60,16 @@ class ArticleDetailViewController: UIViewController {
                 self?.tagCollectionViewHeight.constant = height
             })
             .disposed(by: disposeBag)
+    }
+    
+    func openWeb() {
+        webView.uiDelegate = self
+        loadURL(urlString: article?.url ?? "")
+    }
+    
+    func loadURL(urlString: String) {
+        if let url = URL(string: urlString) {
+            webView.load(URLRequest(url: url))
+        }
     }
 }
