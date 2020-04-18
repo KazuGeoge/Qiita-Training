@@ -104,7 +104,7 @@
                                                                 <rect key="frame" x="0.0" y="10" width="394" height="50"/>
                                                                 <color key="backgroundColor" red="0.92384714079999997" green="0.92384714079999997" blue="0.92384714079999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="50" id="C9n-aR-JMo"/>
+                                                                    <constraint firstAttribute="height" constant="50" id="F41-eA-1hd"/>
                                                                 </constraints>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4Y9-7N-HzP" customClass="TagCollectionViewFlowLayout" customModule="Qiita_Training" customModuleProvider="target">
                                                                     <size key="itemSize" width="50" height="50"/>
@@ -296,7 +296,7 @@
                     <connections>
                         <outlet property="iconImageView" destination="hMd-Wj-F5e" id="doo-DN-Zvx"/>
                         <outlet property="tagCollectionView" destination="ujm-4X-pAp" id="0G1-w0-717"/>
-                        <outlet property="tagCollectionViewHeight" destination="C9n-aR-JMo" id="LFg-C5-kiZ"/>
+                        <outlet property="tagCollectionViewHeight" destination="F41-eA-1hd" id="ceG-H1-NVe"/>
                         <outlet property="timeLabel" destination="YiY-wG-rN3" id="dtn-MY-nQT"/>
                         <outlet property="titleLabel" destination="Fxi-yk-bIt" id="bQQ-FK-cv8"/>
                         <outlet property="userNameLabel" destination="pZd-uz-UkE" id="3yM-Xv-uBz"/>

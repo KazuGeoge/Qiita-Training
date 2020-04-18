@@ -12,7 +12,6 @@ class TagCollectionViewDataSouce: NSObject {
 
     private var tagArray: [String] = []
     private var tagCollectionView: UICollectionView
-    var tagAllWidth: CGFloat = 10
     
     init(tagCollectionView: UICollectionView) {
         self.tagCollectionView = tagCollectionView
@@ -37,16 +36,9 @@ extension TagCollectionViewDataSouce: UICollectionViewDataSource {
         
         if let tagCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCollectionViewCell", for: indexPath) as? TagCollectionViewCell {
             tagCollectionViewCell.tagLabel.text = tagArray[indexPath.row]
-            tagAllWidth += tagCollectionViewCell.tagLabel.frame.width + 10
-            
-            // CollectionViewに必要な高さが計算したらActionに流す
-            if indexPath.row == tagArray.count - 1 {
-                let rowCount = Int(tagAllWidth / tagCollectionView.frame.width) + 1
-                let height = (tagCollectionViewCell.tagLabel.frame.height + 10) * CGFloat(rowCount) + 10
-                ArticleAction.shared.informHeight(height: height)
-            }
             cell = tagCollectionViewCell
         }
+        
         return cell
     }
 }

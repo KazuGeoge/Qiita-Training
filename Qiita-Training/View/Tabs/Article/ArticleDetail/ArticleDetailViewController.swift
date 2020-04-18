@@ -27,8 +27,6 @@ class ArticleDetailViewController: UIViewController, WKUIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        observeViewModel()
         configureUI()
         configureDataSouce()
         openWeb()
@@ -45,25 +43,17 @@ class ArticleDetailViewController: UIViewController, WKUIDelegate {
         dataSouce?.configure(tagArray: article?.tags.map { $0.name } ?? [])
     }
     
-    // HACK: 壁画前にCollectionViewのheightを決定出来る方法
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-
-        dataSouce?.tagAllWidth = 10
-        tagCollectionView.reloadData()
-    }
-    
-    private func observeViewModel() {
-        viewModel.heightStream.asObservable()
-            .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { [weak self] height in
-                self?.tagCollectionViewHeight.constant = height
-            })
-            .disposed(by: disposeBag)
+       override func viewDidLayoutSubviews() {
+        
+        self.tagCollectionView.reloadData()
+        self.tagCollectionView.performBatchUpdates(nil, completion: { [weak self] _ in
+            self?.tagCollectionViewHeight.constant = (self?.tagCollectionView.collectionViewLayout.collectionViewContentSize.height ?? 0) + 10
+        })
     }
     
     func openWeb() {
         webView.uiDelegate = self
+        webView.scrollView.isScrollEnabled = false
         loadURL(urlString: article?.url ?? "")
     }
     
