@@ -36,6 +36,8 @@ class ArticleDetailViewController: UIViewController, WKUIDelegate {
         titleLabel.text = article?.title
         userNameLabel.text = article?.user.id
         timeLabel.text = article?.createdAt
+        
+        tabBarController?.tabBar.isHidden = true
     }
     
     private func configureDataSouce() {
