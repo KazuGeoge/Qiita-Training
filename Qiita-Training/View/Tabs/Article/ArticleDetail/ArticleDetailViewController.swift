@@ -45,7 +45,7 @@ class ArticleDetailViewController: UIViewController, WKUIDelegate {
         dataSouce?.configure(tagArray: article?.tags.map { $0.name } ?? [])
     }
     
-       override func viewDidLayoutSubviews() {
+    override func viewDidLayoutSubviews() {
         
         self.tagCollectionView.reloadData()
         self.tagCollectionView.performBatchUpdates(nil, completion: { [weak self] _ in
