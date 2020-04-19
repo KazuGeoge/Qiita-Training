@@ -8,11 +8,29 @@
 
 import RxSwift
 import RxCocoa
+import RxMoya
 
 final class FeedViewModel {
     let login: Observable<()>
+    private let disposeBag = DisposeBag()
     
     init() {
         login = LoginStore.shared.loginStream.asObservable()
+    }
+    
+    func getAPI(qiitaAPI: QiitaAPI?) {
+        
+        guard let qiitaAPI = qiitaAPI else { return }
+                
+        APIClient.shared.provider.rx.request(qiitaAPI)
+            .filterSuccessfulStatusCodes()
+            .map([Article].self)
+            .subscribe(onSuccess: { articleList in
+                ArticleAction.shared.article(articleList: articleList, qiitaAPIType: qiitaAPI)
+            }) { (error) in
+                // TODO: エラーイベントを流す
+                print(error)
+        }
+        .disposed(by: self.disposeBag)
     }
 }

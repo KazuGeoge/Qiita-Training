@@ -76,12 +76,33 @@ extension FeedViewController: SwipeMenuViewDataSource {
         var viewController = UIViewController()
         // 新着記事はログイン状態に関わるず出すため、indexが0の時は必ずtrueになるようにする。
         let isArticleList = Defaults.isLoginUdser || index == 0
-        let stiryboardName = isArticleList ? ViewControllerType.articleList.storyboardName : ViewControllerType.stillLogin.storyboardName
-        let childViewController =  UIStoryboard(name: stiryboardName, bundle: nil).instantiateViewController(withIdentifier: stiryboardName)
+        let storyboardName = isArticleList ? ViewControllerType.articleList.storyboardName : ViewControllerType.stillLogin.storyboardName
+        let childViewController =  UIStoryboard(name: storyboardName, bundle: nil).instantiateViewController(withIdentifier: storyboardName)
         childViewController.title = FeedType.allCases[index].text
         
-        let castedChildViewController = isArticleList ? childViewController as? ArticleListViewController:
-                                                        childViewController as? StillLoginUserViewController
+        var castedChildViewController: UIViewController?
+        
+        if isArticleList {
+            let articleListViewController = childViewController as? ArticleListViewController
+            
+            var qiitaAPI: QiitaAPI?
+            switch index {
+            case 0:
+                qiitaAPI = .newArticle
+            case 1:
+                qiitaAPI = .followArticle
+            case 2:
+                qiitaAPI = .stockArticle
+            default:
+                break
+            }
+            
+            articleListViewController?.qiitaAPIType = qiitaAPI
+            viewModel.getAPI(qiitaAPI: qiitaAPI)
+            castedChildViewController = articleListViewController
+        } else {
+            castedChildViewController = childViewController as? StillLoginUserViewController
+        }
         
         if let castedChildViewController = castedChildViewController {
             addChild(castedChildViewController)
