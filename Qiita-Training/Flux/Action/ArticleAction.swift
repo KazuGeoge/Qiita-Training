@@ -19,8 +19,4 @@ final class ArticleAction {
     func article(articleList: [Article], qiitaAPIType: QiitaAPI) {
         dispatcher.articleStream.onNext((articleList, qiitaAPIType))
     }
-    
-    func informHeight(height: CGFloat) {
-        dispatcher.heightStream.onNext(height)
-    }
 }

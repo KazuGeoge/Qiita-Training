@@ -12,9 +12,5 @@ import UIKit
 
 final class ArticleDetailViewModel: NSObject {
 
-    var heightStream: Observable<CGFloat>
-    
-    override init() {
-        heightStream = ArticleStore.shared.heightStream.asObservable()
-    }
+   
 }

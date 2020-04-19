@@ -13,11 +13,9 @@ import UIKit
 final class ArticleStore {
     static let shared = ArticleStore()
     var articleStream: Observable<(([Article], QiitaAPI))>
-    var heightStream: Observable<CGFloat>
     
     init(dispatcher: AnyObservableDispatcher<ArticleDispatcher> = .init(.shared)) {
         
         articleStream = dispatcher.articleStream
-        heightStream = dispatcher.heightStream
     }
 }
