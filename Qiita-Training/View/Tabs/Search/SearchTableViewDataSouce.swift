@@ -9,6 +9,13 @@
 import UIKit
 
 class SearchTableViewDataSouce: NSObject {
+    
+    private let viewModel: SearchViewModel
+    
+    init(viewModel: SearchViewModel) {
+        self.viewModel = viewModel
+    }
+    
     func configure(tableView: UITableView) {
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -33,22 +40,23 @@ extension SearchTableViewDataSouce: UITableViewDataSource {
     }
   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return section == 0 ? viewModel.searchedArray.count : viewModel.tagArray.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return "最近の検索"
-        } else {
-            return "最近閲覧したタグ"
-        }
+        return section == 0 ? "最近の検索" : "最近閲覧したタグ"
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell = UITableViewCell()
         cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "テスト"
+        
+        if indexPath.section == 0 {
+            cell.textLabel?.text = viewModel.searchedArray[indexPath.row]
+        } else {
+            cell.textLabel?.text = viewModel.tagArray[indexPath.row]
+        }
         
         return cell
     }

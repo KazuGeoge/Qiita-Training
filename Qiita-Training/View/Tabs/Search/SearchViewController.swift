@@ -12,13 +12,21 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
 
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var tableView: UITableView!
-    private let dataSouce = SearchTableViewDataSouce()
+    private lazy var viewModel = SearchViewModel()
+    private lazy var dataSouce = SearchTableViewDataSouce(viewModel: viewModel)
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         dataSouce.configure(tableView: tableView)
         searchBar.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        viewModel.updateSearchHistory()
+        tableView.reloadData()
     }
     
     // 検索ボタンが押された時に呼ばれる
