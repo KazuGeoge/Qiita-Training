@@ -13,21 +13,21 @@ import UIKit
 final class ArticleDispatcher: DispatcherType {
        static let shared = ArticleDispatcher()
         
-        fileprivate let articleStream = PublishSubject<(([Article], QiitaAPI))>()
+        fileprivate let article = PublishSubject<(([Article], QiitaAPI))>()
         
         private init() {}
 }
 
 // onNextだけができるDispathcher
 extension AnyObserverDispatcher where Dispatcher: ArticleDispatcher {
-    var articleStream: AnyObserver<(([Article], QiitaAPI))> {
-        return dispatcher.articleStream.asObserver()
+    var article: AnyObserver<(([Article], QiitaAPI))> {
+        return dispatcher.article.asObserver()
     }
 }
 
 // subscribeだけができるDispatcher
 extension AnyObservableDispatcher where Dispatcher: ArticleDispatcher {
-    var articleStream: Observable<(([Article], QiitaAPI))> {
-        return dispatcher.articleStream
+    var article: Observable<(([Article], QiitaAPI))> {
+        return dispatcher.article
     }
 }

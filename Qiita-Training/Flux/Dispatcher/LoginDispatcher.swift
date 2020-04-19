@@ -13,21 +13,21 @@ import RxCocoa
 final class LoginDispatcher: DispatcherType {
        static let shared = LoginDispatcher()
         
-        fileprivate let loginStream = PublishSubject<()>()
+        fileprivate let login = PublishSubject<()>()
         
         private init() {}
 }
 
 // onNextだけができるDispathcher
 extension AnyObserverDispatcher where Dispatcher: LoginDispatcher {
-    var loginStream: AnyObserver<()> {
-        return dispatcher.loginStream.asObserver()
+    var login: AnyObserver<()> {
+        return dispatcher.login.asObserver()
     }
 }
 
 // subscribeだけができるDispatcher
 extension AnyObservableDispatcher where Dispatcher: LoginDispatcher {
-    var loginStream: Observable<()> {
-        return dispatcher.loginStream
+    var login: Observable<()> {
+        return dispatcher.login
     }
 }

@@ -16,6 +16,6 @@ final class RouteAction {
     }
     
     func show(routeType: RouteType) {
-        dispatcher.routeStream.onNext(routeType)
+        dispatcher.route.onNext(routeType)
     }
 }

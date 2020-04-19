@@ -17,6 +17,6 @@ final class LoginAction {
     }
     
     func login() {
-        dispatcher.loginStream.onNext(())
+        dispatcher.login.onNext(())
     }
 }

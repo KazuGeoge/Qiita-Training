@@ -25,11 +25,11 @@ class ArticleListViewController: UIViewController {
     }
     
     private func observeArticleStore() {
-        ArticleStore.shared.articleStream.asObservable()
+        ArticleStore.shared.article.asObservable()
             .observeOn(MainScheduler.instance)
             .filter { [weak self] in $0.1 == self?.qiitaAPIType }
-            .subscribe(onNext: { [weak self] articleStream in
-                self?.dataSouce.articleList = articleStream.0
+            .subscribe(onNext: { [weak self] article in
+                self?.dataSouce.articleList = article.0
                 self?.tableView.reloadData()
             })
             .disposed(by: disposeBag)

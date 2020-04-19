@@ -15,7 +15,7 @@ final class FeedViewModel {
     private let disposeBag = DisposeBag()
     
     init() {
-        login = LoginStore.shared.loginStream.asObservable()
+        login = LoginStore.shared.login.asObservable()
     }
     
     func getAPI(qiitaAPI: QiitaAPI?) {

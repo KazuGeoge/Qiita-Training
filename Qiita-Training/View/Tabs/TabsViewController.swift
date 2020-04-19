@@ -83,7 +83,7 @@ class TabsViewController: UITabBarController {
             })
             .disposed(by: disposeBag)
         
-        viewModel.loginStream.asObservable()
+        viewModel.login.asObservable()
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] _ in
                 

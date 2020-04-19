@@ -21,7 +21,7 @@ enum RouteType {
 final class RouteStore {
     static let shared = RouteStore()
     
-    var routeStream: Observable<RouteType?> {
+    var route: Observable<RouteType?> {
         return routeState.asObservable()
     }
 
@@ -30,7 +30,7 @@ final class RouteStore {
     
     init(dispatcher: AnyObservableDispatcher<RouteDispatcher> = .init(.shared)) {
         
-        dispatcher.routeStream
+        dispatcher.route
             .bind(to: routeState)
             .disposed(by: disposeBag)
     }
