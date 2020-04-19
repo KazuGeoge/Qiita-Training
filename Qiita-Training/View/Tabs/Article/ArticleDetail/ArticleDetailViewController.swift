@@ -30,6 +30,7 @@ class ArticleDetailViewController: UIViewController, WKUIDelegate {
         configureUI()
         configureDataSouce()
         openWeb()
+        viewModel.appendTagArray(tagArray:  article?.tags.map { $0.name } ?? [])
     }
 
     private func configureUI() {
@@ -51,6 +52,12 @@ class ArticleDetailViewController: UIViewController, WKUIDelegate {
         self.tagCollectionView.performBatchUpdates(nil, completion: { [weak self] _ in
             self?.tagCollectionViewHeight.constant = (self?.tagCollectionView.collectionViewLayout.collectionViewContentSize.height ?? 0) + 10
         })
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        tabBarController?.tabBar.isHidden = false
     }
     
     func openWeb() {

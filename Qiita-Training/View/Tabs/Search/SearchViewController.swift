@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
 
 class SearchViewController: UIViewController, UISearchBarDelegate {
 
@@ -34,17 +35,20 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         self.view.endEditing(true)
         searchBar.showsCancelButton = true
        
-        self.tableView.reloadData()
+        if let text = searchBar.text {
+            Defaults.searchedArray.append(text)
+        }
         
+        tableView.reloadData()
         RouteAction.shared.show(routeType: .articleList)
     }
 
     // キャンセルボタンが押された時に呼ばれる
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = false
-        self.view.endEditing(true)
+        view.endEditing(true)
         searchBar.text = ""
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
 
     // テキストフィールド入力開始前に呼ばれる

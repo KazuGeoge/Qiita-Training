@@ -9,8 +9,13 @@
 import RxSwift
 import RxCocoa
 import UIKit
+import SwiftyUserDefaults
 
 final class ArticleDetailViewModel: NSObject {
 
-   
+    func appendTagArray(tagArray: [String]) {
+        tagArray.forEach { tag in
+            Defaults.tagArray.append(tag)
+        }
+    }
 }
