@@ -52,13 +52,13 @@ class ArticleDetailViewController: UIViewController, WKUIDelegate {
         })
     }
     
-    func openWeb() {
+    private func openWeb() {
         webView.uiDelegate = self
         webView.scrollView.isScrollEnabled = false
         loadURL(urlString: article?.url ?? "")
     }
     
-    func loadURL(urlString: String) {
+    private func loadURL(urlString: String) {
         if let url = URL(string: urlString) {
             webView.load(URLRequest(url: url))
         }
