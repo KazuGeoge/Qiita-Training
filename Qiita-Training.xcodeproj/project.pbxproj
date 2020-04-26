@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF1040EC24561E8800713641 /* ArticleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1040EB24561E8800713641 /* ArticleListViewModel.swift */; };
 		AF25FCAB2402A71500CB1CB7 /* AuthenticationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF25FCAA2402A71500CB1CB7 /* AuthenticationViewController.storyboard */; };
 		AF384E4D241D7B42006D30F1 /* QiitaAPITargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF384E4C241D7B42006D30F1 /* QiitaAPITargetType.swift */; };
 		AF384E4F241D7B4E006D30F1 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF384E4E241D7B4E006D30F1 /* APIClient.swift */; };
@@ -98,6 +99,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AF1040EB24561E8800713641 /* ArticleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModel.swift; sourceTree = "<group>"; };
 		AF25FCAA2402A71500CB1CB7 /* AuthenticationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthenticationViewController.storyboard; sourceTree = "<group>"; };
 		AF384E4C241D7B42006D30F1 /* QiitaAPITargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiitaAPITargetType.swift; sourceTree = "<group>"; };
 		AF384E4E241D7B4E006D30F1 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 			isa = PBXGroup;
 			children = (
 				AFB4A17323E5AB7C001900DF /* ArticleListViewController.swift */,
+				AF1040EB24561E8800713641 /* ArticleListViewModel.swift */,
 				AFABC8D32407F4BE00BD10D3 /* ArticleListTableViewDataSouce.swift */,
 				AFB4A17723E5AB9F001900DF /* ArticleListViewController.storyboard */,
 			);
@@ -562,6 +565,7 @@
 				AF384E55241D7B88006D30F1 /* ArticleStore.swift in Sources */,
 				AFB4A18823E5BA25001900DF /* RouteAction.swift in Sources */,
 				AFB4A15E23E5A675001900DF /* SettingViewModel.swift in Sources */,
+				AF1040EC24561E8800713641 /* ArticleListViewModel.swift in Sources */,
 				AF5F642623CB3D8700FAD371 /* TabsViewController.swift in Sources */,
 				AFABC8CD2407949000BD10D3 /* ViewControllerBuilder.swift in Sources */,
 				AF384E4F241D7B4E006D30F1 /* APIClient.swift in Sources */,
