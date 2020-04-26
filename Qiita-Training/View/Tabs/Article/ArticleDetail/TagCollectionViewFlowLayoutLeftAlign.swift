@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class TagCollectionViewFlowLayout: UICollectionViewFlowLayout {
+final class TagCollectionViewFlowLayoutLeftAlign: UICollectionViewFlowLayout {
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         

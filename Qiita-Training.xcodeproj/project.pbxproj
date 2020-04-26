@@ -28,7 +28,7 @@
 		AF44DB4123D9AB080001048A /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF44DB3A23D9AB080001048A /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AF44DB4223D9AB080001048A /* RxMoya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF44DB3B23D9AB080001048A /* RxMoya.framework */; };
 		AF44DB4323D9AB080001048A /* RxMoya.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF44DB3B23D9AB080001048A /* RxMoya.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AF4A53792443611E00E39610 /* TagCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4A53782443611E00E39610 /* TagCollectionViewFlowLayout.swift */; };
+		AF4A53792443611E00E39610 /* TagCollectionViewFlowLayoutLeftAlign.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4A53782443611E00E39610 /* TagCollectionViewFlowLayoutLeftAlign.swift */; };
 		AF5F5BA323F06C520055C672 /* ProfileTableViewDataSouce.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F5BA223F06C520055C672 /* ProfileTableViewDataSouce.swift */; };
 		AF5F642223CB3D8700FAD371 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F642123CB3D8700FAD371 /* AppDelegate.swift */; };
 		AF5F642423CB3D8700FAD371 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F642323CB3D8700FAD371 /* SceneDelegate.swift */; };
@@ -115,7 +115,7 @@
 		AF44DB3923D9AB080001048A /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = Carthage/Build/iOS/Moya.framework; sourceTree = "<group>"; };
 		AF44DB3A23D9AB080001048A /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		AF44DB3B23D9AB080001048A /* RxMoya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMoya.framework; path = Carthage/Build/iOS/RxMoya.framework; sourceTree = "<group>"; };
-		AF4A53782443611E00E39610 /* TagCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		AF4A53782443611E00E39610 /* TagCollectionViewFlowLayoutLeftAlign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewFlowLayoutLeftAlign.swift; sourceTree = "<group>"; };
 		AF5F5BA223F06C520055C672 /* ProfileTableViewDataSouce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewDataSouce.swift; sourceTree = "<group>"; };
 		AF5F641E23CB3D8700FAD371 /* Qiita-Training.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Qiita-Training.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF5F642123CB3D8700FAD371 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -356,7 +356,7 @@
 				AFB4A16B23E5AA33001900DF /* ArticleDetailViewModel.swift */,
 				AFB4A16D23E5AA3D001900DF /* ArticleDetailViewController.storyboard */,
 				AFA30C602435EF8000FCABDF /* TagCollectionViewDataSouce.swift */,
-				AF4A53782443611E00E39610 /* TagCollectionViewFlowLayout.swift */,
+				AF4A53782443611E00E39610 /* TagCollectionViewFlowLayoutLeftAlign.swift */,
 				AF384E5B24217BB3006D30F1 /* Comment */,
 			);
 			path = ArticleDetail;
@@ -579,7 +579,7 @@
 				AF73700523F05ADF00B884A7 /* SearchTableViewDataSouce.swift in Sources */,
 				AF3D52CD241A4A9900F38DAF /* UserDefaults.swift in Sources */,
 				AFABC8DE240884A300BD10D3 /* Const.swift in Sources */,
-				AF4A53792443611E00E39610 /* TagCollectionViewFlowLayout.swift in Sources */,
+				AF4A53792443611E00E39610 /* TagCollectionViewFlowLayoutLeftAlign.swift in Sources */,
 				AFB4A13F23E5A0ED001900DF /* FeedViewModel.swift in Sources */,
 				AFB4A13D23E5A0DB001900DF /* FeedViewController.swift in Sources */,
 				AF78591A240BC3FB008B7BE9 /* LoginStore.swift in Sources */,
