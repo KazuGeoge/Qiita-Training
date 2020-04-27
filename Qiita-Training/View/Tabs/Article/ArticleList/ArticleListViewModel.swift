@@ -14,13 +14,13 @@ final class ArticleListViewModel: NSObject {
     private let disposeBag = DisposeBag()
     var articleList: [Article] = []
     
-    func observeArticleStore(qiitaAPIType: QiitaAPI?) {
+    func observeArticleStore(qiitaAPIType: QiitaAPI?, completion :@escaping () -> ()) {
         ArticleStore.shared.article.asObservable()
             .observeOn(MainScheduler.instance)
             .filter { $0.1 == qiitaAPIType }
             .subscribe(onNext: { [weak self] article in
                 self?.articleList = article.0
-//                self?.tableView.reloadData()
+                completion()
             })
             .disposed(by: disposeBag)
     }

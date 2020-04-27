@@ -21,6 +21,9 @@ class ArticleListViewController: UIViewController {
         super.viewDidLoad()
 
         dataSouce.configure(tableView: tableView)
-        viewModel.observeArticleStore(qiitaAPIType: qiitaAPIType)
+        
+        viewModel.observeArticleStore(qiitaAPIType: qiitaAPIType) { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
 }
