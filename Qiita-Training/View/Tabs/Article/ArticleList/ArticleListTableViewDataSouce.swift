@@ -10,7 +10,11 @@ import UIKit
 
 class ArticleListTableViewDataSouce: NSObject {
     
-    var articleList: [Article] = []
+    private let viewModel: ArticleListViewModel
+    
+    init(viewModel: ArticleListViewModel) {
+        self.viewModel = viewModel
+    }
     
     func configure(tableView: UITableView) {
      
@@ -24,21 +28,20 @@ class ArticleListTableViewDataSouce: NSObject {
 extension ArticleListTableViewDataSouce: UITableViewDelegate {
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        RouteAction.shared.show(routeType: .articleDetail(articleList[indexPath.row]))
-        print("遷移")
+        viewModel.showArticleDetail(article: viewModel.articleList[indexPath.row])
     }
 }
 
 extension ArticleListTableViewDataSouce: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return articleList.count
+        return viewModel.articleList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell = UITableViewCell()
         cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = articleList[indexPath.row].title
+        cell.textLabel?.text = viewModel.articleList[indexPath.row].title
         
         return cell
     }

@@ -20,7 +20,7 @@ class ArticleDetailViewController: UIViewController, WKUIDelegate {
     @IBOutlet private weak var timeLabel: UILabel!
     @IBOutlet private weak var tagCollectionView: UICollectionView!
     @IBOutlet private weak var tagCollectionViewHeight: NSLayoutConstraint!
-    private var dataSouce: TagCollectionViewDataSouce?
+    private lazy var dataSouce = TagCollectionViewDataSouce(tagCollectionView: tagCollectionView)
     private let disposeBag = DisposeBag()
     private let viewModel = ArticleDetailViewModel()
     var article: Article?
@@ -42,8 +42,7 @@ class ArticleDetailViewController: UIViewController, WKUIDelegate {
     }
     
     private func configureDataSouce() {
-        dataSouce = TagCollectionViewDataSouce(tagCollectionView: tagCollectionView)
-        dataSouce?.configure(tagArray: article?.tags.map { $0.name } ?? [])
+        dataSouce.configure(tagArray: article?.tags.map { $0.name } ?? [])
     }
     
     override func viewDidLayoutSubviews() {
@@ -60,13 +59,13 @@ class ArticleDetailViewController: UIViewController, WKUIDelegate {
         tabBarController?.tabBar.isHidden = false
     }
     
-    func openWeb() {
+    private func openWeb() {
         webView.uiDelegate = self
         webView.scrollView.isScrollEnabled = false
         loadURL(urlString: article?.url ?? "")
     }
     
-    func loadURL(urlString: String) {
+    private func loadURL(urlString: String) {
         if let url = URL(string: urlString) {
             webView.load(URLRequest(url: url))
         }
