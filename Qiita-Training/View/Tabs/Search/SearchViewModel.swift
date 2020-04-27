@@ -7,14 +7,20 @@
 //
 
 import SwiftyUserDefaults
+import Foundation
 
 final class SearchViewModel {
     
     var tagArray: [String] = []
     var searchedArray: [String] = []
     
+    // 検索履歴をUserDefaultsから取り出す。重複を排除する。
     func updateSearchHistory() {
-        tagArray = Defaults.tagArray
-        searchedArray = Defaults.searchedArray
+        tagArray = Defaults.tagArray.unique()
+        searchedArray = Defaults.searchedArray.unique()
+    }
+    
+    func showArticleList() {
+        RouteAction.shared.show(routeType: .articleList)
     }
 }

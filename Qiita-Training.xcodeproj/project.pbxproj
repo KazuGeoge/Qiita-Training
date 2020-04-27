@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AF1040EC24561E8800713641 /* ArticleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1040EB24561E8800713641 /* ArticleListViewModel.swift */; };
+		AF1040EF245660CA00713641 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1040EE245660CA00713641 /* Array.swift */; };
 		AF25FCAB2402A71500CB1CB7 /* AuthenticationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF25FCAA2402A71500CB1CB7 /* AuthenticationViewController.storyboard */; };
 		AF384E4D241D7B42006D30F1 /* QiitaAPITargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF384E4C241D7B42006D30F1 /* QiitaAPITargetType.swift */; };
 		AF384E4F241D7B4E006D30F1 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF384E4E241D7B4E006D30F1 /* APIClient.swift */; };
@@ -100,6 +101,7 @@
 
 /* Begin PBXFileReference section */
 		AF1040EB24561E8800713641 /* ArticleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModel.swift; sourceTree = "<group>"; };
+		AF1040EE245660CA00713641 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		AF25FCAA2402A71500CB1CB7 /* AuthenticationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthenticationViewController.storyboard; sourceTree = "<group>"; };
 		AF384E4C241D7B42006D30F1 /* QiitaAPITargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiitaAPITargetType.swift; sourceTree = "<group>"; };
 		AF384E4E241D7B4E006D30F1 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
@@ -184,6 +186,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF1040ED245660A600713641 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				AF1040EE245660CA00713641 /* Array.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		AF384E5B24217BB3006D30F1 /* Comment */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +238,7 @@
 			children = (
 				AF5F642123CB3D8700FAD371 /* AppDelegate.swift */,
 				AF5F642323CB3D8700FAD371 /* SceneDelegate.swift */,
+				AF1040ED245660A600713641 /* Extension */,
 				AFA30C622435EF8D00FCABDF /* Cell */,
 				AFB4A13523E59FEA001900DF /* View */,
 				AFB4A18023E5B9BA001900DF /* Flux */,
@@ -592,6 +603,7 @@
 				AFABC8D62407F54F00BD10D3 /* ProfileDetailTableViewDataSouce.swift in Sources */,
 				AFB4A14D23E5A2BA001900DF /* ProfileViewController.swift in Sources */,
 				AFB4A18623E5BA17001900DF /* Dispatcher.swift in Sources */,
+				AF1040EF245660CA00713641 /* Array.swift in Sources */,
 				AF5F642223CB3D8700FAD371 /* AppDelegate.swift in Sources */,
 				AFB4A17123E5AA80001900DF /* AuthenticationViewController.swift in Sources */,
 				AFABC8E1240887E500BD10D3 /* StillLoginUserViewController.swift in Sources */,
