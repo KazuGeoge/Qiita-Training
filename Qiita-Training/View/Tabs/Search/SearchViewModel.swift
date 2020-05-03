@@ -34,9 +34,14 @@ final class SearchViewModel {
 
         APIClient.shared.provider.rx.request(qiitaAPI)
             .filterSuccessfulStatusCodes()
-            .map([Article].self)
-            .subscribe(onSuccess: { articleList in
-                ArticleAction.shared.article(articleList: articleList, qiitaAPIType: qiitaAPI)
+            .subscribe(onSuccess: { articleListResponse in
+                do {
+                    let result = try [Article].decode(json: articleListResponse.data)
+                    ArticleAction.shared.article(articleList: result, qiitaAPIType: qiitaAPI)
+                } catch(let error) {
+                    // TODO: エラーイベントを流す
+                    print(error)
+                }
             }) { (error) in
                 // TODO: エラーイベントを流す
                 print(error)
