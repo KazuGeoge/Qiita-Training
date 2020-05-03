@@ -35,7 +35,7 @@ extension TagCollectionViewDataSouce: UICollectionViewDataSource {
         var cell = UICollectionViewCell()
         
         if let tagCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCollectionViewCell", for: indexPath) as? TagCollectionViewCell {
-            tagCollectionViewCell.tagLabel.text = tagArray[indexPath.row]
+            tagCollectionViewCell.configure(tagText: tagArray[indexPath.row])
             cell = tagCollectionViewCell
         }
         

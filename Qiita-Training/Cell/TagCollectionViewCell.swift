@@ -9,5 +9,9 @@
 import UIKit
 
 class TagCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var tagLabel: UILabel!
+    @IBOutlet private weak var tagLabel: UILabel!
+    
+    func configure(tagText: String) {
+        tagLabel.text = tagText
+    }
 }
