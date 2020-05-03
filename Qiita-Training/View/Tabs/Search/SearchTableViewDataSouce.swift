@@ -28,8 +28,11 @@ class SearchTableViewDataSouce: NSObject {
 extension SearchTableViewDataSouce: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        RouteAction.shared.show(routeType: .articleList)
-        print("遷移")
+        let qiitaAPI = indexPath.section == 0 ?
+            QiitaAPI.searchWord(viewModel.searchedArray[indexPath.row]) : QiitaAPI.searchTag(viewModel.tagArray[indexPath.row])
+        
+        RouteAction.shared.show(routeType: .articleList(qiitaAPI))
+        viewModel.getAPI(qiitaAPI: qiitaAPI)
     }
 }
 

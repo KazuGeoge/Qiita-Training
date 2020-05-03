@@ -37,10 +37,11 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
        
         if let text = searchBar.text {
             Defaults.searchedArray.append(text)
+            viewModel.showArticleList(qiitaAPI: .searchWord(text))
+            viewModel.getAPI(qiitaAPI: .searchWord(text))
         }
         
         tableView.reloadData()
-        viewModel.showArticleList()
     }
 
     // キャンセルボタンが押された時に呼ばれる
