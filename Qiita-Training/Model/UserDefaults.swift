@@ -10,6 +10,6 @@ import UIKit
 import SwiftyUserDefaults
 
 extension DefaultsKeys {
-    var isLoginUdser: DefaultsKey<Bool> { return .init("isLoginUser", defaultValue: false) }
-    var token: DefaultsKey<String?> { return .init("token") }
+    var isLoginUdser: DefaultsKey<Bool> { return .init("isLoginUdser", defaultValue: false) }
+    var token: DefaultsKey<String> { return .init("token", defaultValue: "") }
 }

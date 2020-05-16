@@ -8,6 +8,15 @@
 
 import UIKit
 
-class ArticleAction: NSObject {
-
+final class ArticleAction {
+    static let shared = ArticleAction()
+    private let dispatcher: AnyObserverDispatcher<ArticleDispatcher>
+    
+    init(dispatcher: AnyObserverDispatcher<ArticleDispatcher> = .init(.shared)) {
+        self.dispatcher = dispatcher
+    }
+    
+    func article(articleList: [Article], qiitaAPIType: QiitaAPI) {
+        dispatcher.articleStream.onNext((articleList, qiitaAPIType))
+    }
 }

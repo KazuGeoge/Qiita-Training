@@ -10,6 +10,8 @@ import UIKit
 
 class ArticleListTableViewDataSouce: NSObject {
     
+    var articleList: [Article] = []
+    
     func configure(tableView: UITableView) {
      
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -29,14 +31,14 @@ extension ArticleListTableViewDataSouce: UITableViewDelegate {
 
 extension ArticleListTableViewDataSouce: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return articleList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell = UITableViewCell()
         cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "テスト"
+        cell.textLabel?.text = articleList[indexPath.row].title
         
         return cell
     }

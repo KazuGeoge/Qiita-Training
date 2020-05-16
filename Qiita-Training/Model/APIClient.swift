@@ -6,8 +6,10 @@
 //  Copyright © 2020 城島一輝. All rights reserved.
 //
 
-import UIKit
+import Moya
 
 class APIClient: NSObject {
-
+    
+    static let shared = APIClient()
+    let provider = MoyaProvider<QiitaAPI>()
 }
