@@ -15,6 +15,7 @@ enum QiitaAPI: Equatable {
     case stockArticle
     case searchWord(String)
     case searchTag(String)
+    case authenticatedUser
 }
 
 extension QiitaAPI: TargetType {
@@ -30,15 +31,17 @@ extension QiitaAPI: TargetType {
         case .newArticle, .searchWord, .searchTag:
             return "/api/v2/items"
         case .followArticle:
-            return "/users/\(Defaults.token)/items?page=1&per_page=20"
+            return "/users/\(Defaults.userID)/items?page=1&per_page=20"
         case .stockArticle:
-            return "/users/\(Defaults.token)/stocks?page=1&per_page=20"
+            return "/api/v2/users/\(Defaults.userID)/stocks"
+        case .authenticatedUser:
+            return "/api/v2/authenticated_user"
         }
     }
 
     var method: Moya.Method {
         switch self {
-        case .newArticle, .followArticle, .stockArticle, .searchTag, .searchWord:
+        case .newArticle, .followArticle, .stockArticle, .searchTag, .searchWord, .authenticatedUser:
             return .get
         }
     }
@@ -56,7 +59,7 @@ extension QiitaAPI: TargetType {
             paramerter = ["query": searchWord]
         case .searchTag(let tagWord):
             paramerter = ["query": "tag:\(tagWord)"]
-        case .newArticle, .followArticle, .stockArticle:
+        case .newArticle, .followArticle, .stockArticle, .authenticatedUser:
             return .requestPlain
         }
         
@@ -64,6 +67,14 @@ extension QiitaAPI: TargetType {
     }
 
     var headers: [String : String]? {
-        return nil
+        var paramerter: [String: String] = [:]
+        
+        switch self {
+        case .newArticle, .searchWord, .searchTag:
+            break
+        case .followArticle, .stockArticle, .authenticatedUser:
+            paramerter = ["Authorization":"Bearer \(Defaults.token)"]
+        }
+        return  paramerter
     }
 }

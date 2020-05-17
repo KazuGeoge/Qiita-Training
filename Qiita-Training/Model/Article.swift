@@ -19,9 +19,4 @@ struct Article: Codable {
     struct Tag: Codable {
         var name: String
     }
-    
-    struct User: Codable {
-        var profileImageUrl: String
-        var id: String
-    }
 }

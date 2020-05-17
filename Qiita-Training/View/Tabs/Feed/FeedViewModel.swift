@@ -13,16 +13,21 @@ import RxMoya
 final class FeedViewModel {
     let login: Observable<()>
     private let disposeBag = DisposeBag()
+    private let loginStore: LoginStore
+    private let apiClient: APIClient
     
-    init() {
-        login = LoginStore.shared.login.asObservable()
+    init(loginStore: LoginStore = .shared, apiClient: APIClient = .shared) {
+        self.loginStore = loginStore
+        self.apiClient = apiClient
+        login = loginStore.login.asObservable()
+        observeLoginStore()
     }
     
     func getAPI(qiitaAPI: QiitaAPI?) {
         
         guard let qiitaAPI = qiitaAPI else { return }
                 
-        APIClient.shared.provider.rx.request(qiitaAPI)
+        apiClient.provider.rx.request(qiitaAPI)
             .filterSuccessfulStatusCodes()
             .subscribe(onSuccess: { articleListResponse in
                 do {
@@ -37,5 +42,13 @@ final class FeedViewModel {
                 print(error)
         }
         .disposed(by: self.disposeBag)
+    }
+    private func observeLoginStore() {
+        loginStore.login.asObservable()
+            .subscribe(onNext: { [weak self] _ in
+                self?.getAPI(qiitaAPI: .followArticle)
+                self?.getAPI(qiitaAPI: .stockArticle)
+            })
+            .disposed(by: self.disposeBag)
     }
 }

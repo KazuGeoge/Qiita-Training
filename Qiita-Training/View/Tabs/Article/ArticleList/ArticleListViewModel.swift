@@ -15,11 +15,12 @@ final class ArticleListViewModel: NSObject {
     private let articleStore: ArticleStore
     private let routeAction: RouteAction
     var articleList: [Article] = []
+    private let loginStore: LoginStore
     
-    
-    init(articleStore: ArticleStore = .shared, routeAction: RouteAction = .shared) {
+    init(articleStore: ArticleStore = .shared, routeAction: RouteAction = .shared, loginStore: LoginStore = .shared) {
         self.articleStore = articleStore
         self.routeAction = routeAction
+        self.loginStore = loginStore
     }
     
     func observeArticleStore(qiitaAPIType: QiitaAPI?) -> Observable<()> {

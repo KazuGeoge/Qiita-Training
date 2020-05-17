@@ -13,6 +13,7 @@ import SwiftyUserDefaults
 class AuthenticationViewController: UIViewController, WKNavigationDelegate {
 
     @IBOutlet weak var webView: WKWebView!
+    private let viewModel = AuthenticationViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,14 +38,11 @@ class AuthenticationViewController: UIViewController, WKNavigationDelegate {
         
         if result {
             let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
+            // TODO: 取得したアクセストークンを使用する。
             if let queryValue = urlComponents?.queryItems?.first?.value {
-                
                 // Tokenを取得したら保存して認証画面を閉じる。
-                print("token:\(queryValue)")
-                Defaults.token = queryValue
-                Defaults.isLoginUdser = true
+                viewModel.getUser()
                 dismiss(animated: true, completion: nil)
-                LoginAction.shared.login()
                 decisionHandler(.cancel)
             }
         } else {
