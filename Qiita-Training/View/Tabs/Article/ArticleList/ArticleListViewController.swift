@@ -23,10 +23,11 @@ class ArticleListViewController: UIViewController {
 
         dataSouce.configure(tableView: tableView)
         observeViewModel()
+        viewModel.qiitaAPIType = qiitaAPIType
     }
     
     private func observeViewModel() {
-        viewModel.observeArticleStore(qiitaAPIType: qiitaAPIType).asObservable()
+        viewModel.reload.asObservable()
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] _ in
                 self?.tableView.reloadData()
