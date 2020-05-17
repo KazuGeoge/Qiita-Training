@@ -8,6 +8,8 @@
 
 import UIKit
 import SwiftyUserDefaults
+import RxSwift
+import RxCocoa
 
 class SearchViewController: UIViewController, UISearchBarDelegate {
 
@@ -15,19 +17,20 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet private weak var tableView: UITableView!
     private lazy var viewModel = SearchViewModel()
     private lazy var dataSouce = SearchTableViewDataSouce(viewModel: viewModel)
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         dataSouce.configure(tableView: tableView)
+        observeViewModel()
         searchBar.delegate = self
     }
     
+    // TODO: ライフサイクルをobservableでviewModelに流す
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
         viewModel.updateSearchHistory()
-        tableView.reloadData()
     }
     
     // 検索ボタンが押された時に呼ばれる
@@ -57,5 +60,13 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         searchBar.showsCancelButton = true
         
         return true
+    }
+    
+    private func observeViewModel() {
+        viewModel.tableViewReload.asObservable()
+            .subscribe(onNext: { [weak self] _ in
+                self?.tableView.reloadData()
+            })
+            .disposed(by: self.disposeBag)
     }
 }

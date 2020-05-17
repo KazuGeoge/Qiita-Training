@@ -16,23 +16,33 @@ final class SearchViewModel {
     
     var tagArray: [String] = []
     var searchedArray: [String] = []
+    let tableViewReload = PublishSubject<()>()
     private let disposeBag = DisposeBag()
+    private let routeAction: RouteAction
+    private let apiClient: APIClient
     
+    
+    init(routeAction: RouteAction = .shared, apiClient: APIClient = .shared) {
+        self.routeAction = routeAction
+        self.apiClient = apiClient
+    }
     // 検索履歴をUserDefaultsから取り出す。重複を排除する。
     func updateSearchHistory() {
         tagArray = Defaults.tagArray.unique()
         searchedArray = Defaults.searchedArray.unique()
+        
+        tableViewReload.onNext(())
     }
     
     func showArticleList(qiitaAPI: QiitaAPI) {
-        RouteAction.shared.show(routeType: .articleList(qiitaAPI))
+        routeAction.show(routeType: .articleList(qiitaAPI))
     }
     
     func getAPI(qiitaAPI: QiitaAPI?) {
         
         guard let qiitaAPI = qiitaAPI else { return }
 
-        APIClient.shared.provider.rx.request(qiitaAPI)
+        apiClient.provider.rx.request(qiitaAPI)
             .filterSuccessfulStatusCodes()
             .subscribe(onSuccess: { articleListResponse in
                 do {
