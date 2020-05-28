@@ -14,30 +14,29 @@ final class ArticleListViewModel: NSObject {
     private let disposeBag = DisposeBag()
     private let articleStore: ArticleStore
     private let routeAction: RouteAction
-    private let loginStore: LoginStore
     var articleList: [Article] = []
-    var qiitaAPIType: QiitaAPI?
-    
-    private let reloadSubject = PublishSubject<()>()
-    var reload: Observable<()> {
-        return reloadSubject.asObservable()
-    }
+    private let loginStore: LoginStore
     
     init(articleStore: ArticleStore = .shared, routeAction: RouteAction = .shared, loginStore: LoginStore = .shared) {
         self.articleStore = articleStore
         self.routeAction = routeAction
         self.loginStore = loginStore
-        super.init()
-        observeReloadTriger()
     }
     
-    func observeReloadTriger() {
-        articleStore.article.asObservable()
-            .filter { [weak self] article in article.1 == self?.qiitaAPIType }
-            .do(onNext: { [weak self] article in self?.articleList = article.0 })
-            .map {_ in ()}
-            .bind(to: reloadSubject)
-            .disposed(by: disposeBag)
+    func observeArticleStore(qiitaAPIType: QiitaAPI?) -> Observable<()> {
+        return Observable.create { [weak self] observer in
+            
+            if let disposeBag = self?.disposeBag {
+                self?.articleStore.article.asObservable()
+                    .filter { $0.1 == qiitaAPIType }
+                    .subscribe(onNext: { [weak self] article in
+                        self?.articleList = article.0
+                        observer.onNext(())
+                    })
+                    .disposed(by: disposeBag)
+            }
+            return Disposables.create()
+        }
     }
     
     func showArticleDetail(article: Article) {
