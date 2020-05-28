@@ -15,27 +15,28 @@ final class ArticleListViewModel: NSObject {
     private let articleStore: ArticleStore
     private let routeAction: RouteAction
     var articleList: [Article] = []
+    var qiitaAPIType: QiitaAPI?
+    
+    private let reloadSubject = PublishSubject<()>()
+    var reload: Observable<()> {
+        return reloadSubject.asObservable()
+    }
     
     
     init(articleStore: ArticleStore = .shared, routeAction: RouteAction = .shared) {
         self.articleStore = articleStore
         self.routeAction = routeAction
+        super.init()
+        observeReloadTriger()
     }
     
-    func observeArticleStore(qiitaAPIType: QiitaAPI?) -> Observable<()> {
-        return Observable.create { [weak self] observer in
-            
-            if let disposeBag = self?.disposeBag {
-                self?.articleStore.article.asObservable()
-                    .filter { $0.1 == qiitaAPIType }
-                    .subscribe(onNext: { [weak self] article in
-                        self?.articleList = article.0
-                        observer.onNext(())
-                    })
-                    .disposed(by: disposeBag)
-            }
-            return Disposables.create()
-        }
+    func observeReloadTriger() {
+        articleStore.article.asObservable()
+            .filter { [weak self] article in article.1 == self?.qiitaAPIType }
+            .do(onNext: { [weak self] article in self?.articleList = article.0 })
+            .map {_ in ()}
+            .bind(to: reloadSubject)
+            .disposed(by: disposeBag)
     }
     
     func showArticleDetail(article: Article) {
