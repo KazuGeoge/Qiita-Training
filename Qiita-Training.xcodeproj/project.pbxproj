@@ -81,6 +81,7 @@
 		AFB4A18823E5BA25001900DF /* RouteAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A18723E5BA25001900DF /* RouteAction.swift */; };
 		AFB4A18A23E5BA3B001900DF /* RouteDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A18923E5BA3B001900DF /* RouteDispatcher.swift */; };
 		AFB4A18C23E5BA4B001900DF /* RouteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A18B23E5BA4B001900DF /* RouteStore.swift */; };
+		AFF6CEB62482D23400C80E4C /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF6CEB52482D23400C80E4C /* Tag.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -173,6 +174,7 @@
 		AFB4A18723E5BA25001900DF /* RouteAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteAction.swift; sourceTree = "<group>"; };
 		AFB4A18923E5BA3B001900DF /* RouteDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDispatcher.swift; sourceTree = "<group>"; };
 		AFB4A18B23E5BA4B001900DF /* RouteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteStore.swift; sourceTree = "<group>"; };
+		AFF6CEB52482D23400C80E4C /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +274,7 @@
 				AFABC8DD240884A300BD10D3 /* Const.swift */,
 				AF384E4C241D7B42006D30F1 /* QiitaAPITargetType.swift */,
 				AF384E56241D7CA2006D30F1 /* Article.swift */,
+				AFF6CEB52482D23400C80E4C /* Tag.swift */,
 				AF3FCD1824713184001E7C5A /* User.swift */,
 				AF384E4E241D7B4E006D30F1 /* APIClient.swift */,
 				AF3D52CC241A4A9900F38DAF /* UserDefaults.swift */,
@@ -621,6 +624,7 @@
 				AFABC8E1240887E500BD10D3 /* StillLoginUserViewController.swift in Sources */,
 				AF384E53241D7B7E006D30F1 /* ArticleDispatcher.swift in Sources */,
 				AFB4A18C23E5BA4B001900DF /* RouteStore.swift in Sources */,
+				AFF6CEB62482D23400C80E4C /* Tag.swift in Sources */,
 				AFB4A17423E5AB7C001900DF /* ArticleListViewController.swift in Sources */,
 				AFB4A16C23E5AA33001900DF /* ArticleDetailViewModel.swift in Sources */,
 				AF5F642423CB3D8700FAD371 /* SceneDelegate.swift in Sources */,
