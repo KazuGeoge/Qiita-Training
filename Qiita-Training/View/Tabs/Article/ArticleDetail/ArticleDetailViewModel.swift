@@ -15,7 +15,7 @@ final class ArticleDetailViewModel: NSObject {
 
     func appendTagArray(tagArray: [String]) {
         tagArray.forEach { tag in
-            Defaults.tagArray.append(tag)
+            Defaults.searchedTagArray.append(tag)
         }
     }
 }

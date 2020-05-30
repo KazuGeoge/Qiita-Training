@@ -28,7 +28,7 @@ final class SearchViewModel {
     }
     // 検索履歴をUserDefaultsから取り出す。重複を排除する。
     func updateSearchHistory() {
-        tagArray = Defaults.tagArray.unique()
+        tagArray = Defaults.searchedTagArray.unique()
         searchedArray = Defaults.searchedArray.unique()
         
         tableViewReload.onNext(())

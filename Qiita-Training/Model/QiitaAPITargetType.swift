@@ -11,7 +11,7 @@ import SwiftyUserDefaults
 
 enum QiitaAPI: Equatable {
     case newArticle
-    case followArticle
+    case followArticle([String])
     case stockArticle
     case searchWord(String)
     case searchTag(String)
@@ -28,12 +28,8 @@ extension QiitaAPI: TargetType {
     // TODO: ページングするため、叩くAPIは指定するページを更新出来るようにする
     var path: String {
         switch self {
-        case .newArticle, .searchWord, .searchTag:
+        case .newArticle, .followArticle, .stockArticle, .searchWord, .searchTag:
             return "/api/v2/items"
-        case .followArticle:
-            return "/users/\(Defaults.userID)/items?page=1&per_page=20"
-        case .stockArticle:
-            return "/api/v2/users/\(Defaults.userID)/stocks"
         case .authenticatedUser:
             return "/api/v2/authenticated_user"
         }
@@ -55,11 +51,15 @@ extension QiitaAPI: TargetType {
         var paramerter: [String: Any] = [:]
         
         switch self {
+        case .followArticle(let followedTagArray):
+            guard !followedTagArray.isEmpty else { return .requestPlain}
+            let joinedTagArray = followedTagArray.joined(separator:  " OR tag:")
+            paramerter = ["query": "tag:\(joinedTagArray)"]
         case .searchWord(let searchWord):
             paramerter = ["query": searchWord]
         case .searchTag(let tagWord):
             paramerter = ["query": "tag:\(tagWord)"]
-        case .newArticle, .followArticle, .stockArticle, .authenticatedUser:
+        case .newArticle, .stockArticle, .authenticatedUser:
             return .requestPlain
         }
         
