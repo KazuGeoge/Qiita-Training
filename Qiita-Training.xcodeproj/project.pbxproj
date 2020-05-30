@@ -271,11 +271,9 @@
 		AFABC8DC2408848800BD10D3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AFF6CEB72482D24700C80E4C /* APIModel */,
 				AFABC8DD240884A300BD10D3 /* Const.swift */,
 				AF384E4C241D7B42006D30F1 /* QiitaAPITargetType.swift */,
-				AF384E56241D7CA2006D30F1 /* Article.swift */,
-				AFF6CEB52482D23400C80E4C /* Tag.swift */,
-				AF3FCD1824713184001E7C5A /* User.swift */,
 				AF384E4E241D7B4E006D30F1 /* APIClient.swift */,
 				AF3D52CC241A4A9900F38DAF /* UserDefaults.swift */,
 			);
@@ -461,6 +459,16 @@
 				AF384E54241D7B88006D30F1 /* ArticleStore.swift */,
 			);
 			path = Store;
+			sourceTree = "<group>";
+		};
+		AFF6CEB72482D24700C80E4C /* APIModel */ = {
+			isa = PBXGroup;
+			children = (
+				AF384E56241D7CA2006D30F1 /* Article.swift */,
+				AFF6CEB52482D23400C80E4C /* Tag.swift */,
+				AF3FCD1824713184001E7C5A /* User.swift */,
+			);
+			path = APIModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
