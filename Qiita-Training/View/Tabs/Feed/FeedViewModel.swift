@@ -9,6 +9,7 @@
 import RxSwift
 import RxCocoa
 import RxMoya
+import SwiftyUserDefaults
 
 final class FeedViewModel {
     let login: Observable<()>
@@ -45,9 +46,10 @@ final class FeedViewModel {
     }
     private func observeLoginStore() {
         loginStore.login.asObservable()
+            .do { [weak self] in self?.getAPI(qiitaAPI: .stockArticle) }
             .subscribe(onNext: { [weak self] _ in
-                self?.getAPI(qiitaAPI: .followArticle)
-                self?.getAPI(qiitaAPI: .stockArticle)
+                guard let followedTagArray = Defaults.followedTagArray else { return }
+                self?.getAPI(qiitaAPI: .followArticle(followedTagArray))
             })
             .disposed(by: self.disposeBag)
     }
