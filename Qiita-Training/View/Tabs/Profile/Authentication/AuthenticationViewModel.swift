@@ -52,7 +52,7 @@ class AuthenticationViewModel: NSObject {
     }
     
     func getFollowedTagAPI() {
-        apiClient.provider.rx.request(.followTag)
+        apiClient.provider.rx.request(.followedTag)
                    .filterSuccessfulStatusCodes()
                    .subscribe(onSuccess: { [weak self] followedTagResponse in
                        do {

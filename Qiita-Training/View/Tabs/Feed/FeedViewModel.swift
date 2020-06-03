@@ -50,7 +50,7 @@ final class FeedViewModel {
             .do { [weak self] in self?.getAPI(qiitaAPI: .stockArticle) }
             .subscribe(onNext: { [weak self] _ in
                 guard let followedTagArray = Defaults.followedTagArray else { return }
-                self?.getAPI(qiitaAPI: .followTagArticle(followedTagArray))
+                self?.getAPI(qiitaAPI: .followedTagArticle(followedTagArray))
             })
             .disposed(by: self.disposeBag)
     }
