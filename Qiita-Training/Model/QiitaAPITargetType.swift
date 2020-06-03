@@ -16,6 +16,7 @@ enum QiitaAPI: Equatable {
     case searchWord(String)
     case searchTag(String)
     case authenticatedUser
+    case tag
 }
 
 extension QiitaAPI: TargetType {
@@ -28,16 +29,20 @@ extension QiitaAPI: TargetType {
     // TODO: ページングするため、叩くAPIは指定するページを更新出来るようにする
     var path: String {
         switch self {
-        case .newArticle, .followArticle, .stockArticle, .searchWord, .searchTag:
+        case .newArticle, .followArticle, .searchWord, .searchTag:
             return "/api/v2/items"
+        case .stockArticle:
+            return "/api/v2/users/\(Defaults.userID)/stocks"
         case .authenticatedUser:
             return "/api/v2/authenticated_user"
+        case .tag:
+            return "api/v2/users/\(Defaults.userID)/following_tags"
         }
     }
 
     var method: Moya.Method {
         switch self {
-        case .newArticle, .followArticle, .stockArticle, .searchTag, .searchWord, .authenticatedUser:
+        case .newArticle, .followArticle, .stockArticle, .searchTag, .searchWord, .authenticatedUser, .tag:
             return .get
         }
     }
@@ -52,14 +57,13 @@ extension QiitaAPI: TargetType {
         
         switch self {
         case .followArticle(let followedTagArray):
-            guard !followedTagArray.isEmpty else { return .requestPlain}
             let joinedTagArray = followedTagArray.joined(separator:  " OR tag:")
             paramerter = ["query": "tag:\(joinedTagArray)"]
         case .searchWord(let searchWord):
             paramerter = ["query": searchWord]
         case .searchTag(let tagWord):
             paramerter = ["query": "tag:\(tagWord)"]
-        case .newArticle, .stockArticle, .authenticatedUser:
+        case .newArticle, .stockArticle, .authenticatedUser, .tag:
             return .requestPlain
         }
         
@@ -70,7 +74,7 @@ extension QiitaAPI: TargetType {
         var paramerter: [String: String] = [:]
         
         switch self {
-        case .newArticle, .searchWord, .searchTag:
+        case .newArticle, .searchWord, .searchTag, .tag:
             break
         case .followArticle, .stockArticle, .authenticatedUser:
             paramerter = ["Authorization":"Bearer \(Defaults.token)"]

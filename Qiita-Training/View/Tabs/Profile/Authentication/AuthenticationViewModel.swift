@@ -39,7 +39,7 @@ class AuthenticationViewModel: NSObject {
                     let result = try User.decode(json: articleListResponse.data)
                     // UserActionで受け取ったユーザー情報を流す
                     Defaults.userID = result.id
-                    self?.loginAction.login()
+                    self?.getFollowedTag()
                 } catch(let error) {
                     // TODO: エラーイベントを流す
                     print(error)
@@ -49,5 +49,24 @@ class AuthenticationViewModel: NSObject {
                 print(error)
         }
         .disposed(by: self.disposeBag)
+    }
+    
+    func getFollowedTag() {
+        apiClient.provider.rx.request(.tag)
+                   .filterSuccessfulStatusCodes()
+                   .subscribe(onSuccess: { [weak self] followedTagResponse in
+                       do {
+                        let result = try [FollowedTag].decode(json: followedTagResponse.data)
+                        Defaults.followedTagArray = result.map {$0.id}
+                        self?.loginAction.login()
+                       } catch(let error) {
+                           // TODO: エラーイベントを流す
+                           print(error)
+                       }
+                   }) { (error) in
+                       // TODO: エラーイベントを流す
+                       print(error)
+               }
+               .disposed(by: self.disposeBag)
     }
 }

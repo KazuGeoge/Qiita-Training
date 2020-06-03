@@ -13,7 +13,7 @@ extension DefaultsKeys {
     var isLoginUdser: DefaultsKey<Bool> { return .init("isLoginUdser", defaultValue: false) }
     var token: DefaultsKey<String> { return .init("token", defaultValue: "") }
     var searchedTagArray: DefaultsKey<[String]> { return .init("searchedTagArray", defaultValue: []) }
-    var followedTagArray: DefaultsKey<[String]> { return .init("followedTagArray", defaultValue: []) }
+    var followedTagArray: DefaultsKey<[String]?> { return .init("followedTagArray", defaultValue: []) }
     var searchedArray: DefaultsKey<[String]> { return .init("searchedArray", defaultValue: []) }
     var userID: DefaultsKey<String> { return .init("userID", defaultValue: "") }
 }

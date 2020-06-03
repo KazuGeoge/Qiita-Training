@@ -15,4 +15,8 @@ struct Article: Codable {
     var tags: [Tag]
     var createdAt: String
     var user: User
+    
+    struct Tag: Codable {
+        var name: String
+    }
 }
