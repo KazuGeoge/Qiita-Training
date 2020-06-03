@@ -91,7 +91,7 @@ extension FeedViewController: SwipeMenuViewDataSource {
                 qiitaAPI = .newArticle
             case 1:
                 guard let followedTagArray = Defaults.followedTagArray else { break }
-                qiitaAPI = .followArticle(followedTagArray)
+                qiitaAPI = .followTagArticle(followedTagArray)
             case 2:
                 qiitaAPI = .stockArticle
             default:

@@ -44,12 +44,13 @@ final class FeedViewModel {
         }
         .disposed(by: self.disposeBag)
     }
+    
     private func observeLoginStore() {
         loginStore.login.asObservable()
             .do { [weak self] in self?.getAPI(qiitaAPI: .stockArticle) }
             .subscribe(onNext: { [weak self] _ in
                 guard let followedTagArray = Defaults.followedTagArray else { return }
-                self?.getAPI(qiitaAPI: .followArticle(followedTagArray))
+                self?.getAPI(qiitaAPI: .followTagArticle(followedTagArray))
             })
             .disposed(by: self.disposeBag)
     }
