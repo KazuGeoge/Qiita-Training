@@ -9,5 +9,7 @@
 import UIKit
 
 struct User: Codable {
-
+    var id :String
+    var profileImageUrl: String
+    var name: String
 }

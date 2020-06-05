@@ -14,18 +14,18 @@ final class ArticleListViewModel: NSObject {
     private let disposeBag = DisposeBag()
     private let articleStore: ArticleStore
     private let routeAction: RouteAction
+    private let loginStore: LoginStore
+    private let reloadSubject = PublishSubject<()>()
     var articleList: [Article] = []
     var qiitaAPIType: QiitaAPI?
-    
-    private let reloadSubject = PublishSubject<()>()
     var reload: Observable<()> {
         return reloadSubject.asObservable()
     }
     
-    
-    init(articleStore: ArticleStore = .shared, routeAction: RouteAction = .shared) {
+    init(articleStore: ArticleStore = .shared, routeAction: RouteAction = .shared, loginStore: LoginStore = .shared) {
         self.articleStore = articleStore
         self.routeAction = routeAction
+        self.loginStore = loginStore
         super.init()
         observeReloadTriger()
     }
