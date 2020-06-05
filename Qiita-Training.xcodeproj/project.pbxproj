@@ -21,6 +21,8 @@
 		AF3D52CA241A45AA00F38DAF /* SwiftyUserDefaults.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3D52C9241A45AA00F38DAF /* SwiftyUserDefaults.framework */; };
 		AF3D52CB241A45AA00F38DAF /* SwiftyUserDefaults.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF3D52C9241A45AA00F38DAF /* SwiftyUserDefaults.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AF3D52CD241A4A9900F38DAF /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3D52CC241A4A9900F38DAF /* UserDefaults.swift */; };
+		AF3FCD1924713184001E7C5A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3FCD1824713184001E7C5A /* User.swift */; };
+		AF3FCD1B24713A60001E7C5A /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3FCD1A24713A60001E7C5A /* AuthenticationViewModel.swift */; };
 		AF44DB3C23D9AB080001048A /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF44DB3823D9AB080001048A /* RxSwift.framework */; };
 		AF44DB3D23D9AB080001048A /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF44DB3823D9AB080001048A /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AF44DB3E23D9AB080001048A /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF44DB3923D9AB080001048A /* Moya.framework */; };
@@ -114,6 +116,8 @@
 		AF384E5E24217BEE006D30F1 /* CommentViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommentViewController.storyboard; sourceTree = "<group>"; };
 		AF3D52C9241A45AA00F38DAF /* SwiftyUserDefaults.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyUserDefaults.framework; path = Carthage/Build/iOS/SwiftyUserDefaults.framework; sourceTree = "<group>"; };
 		AF3D52CC241A4A9900F38DAF /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		AF3FCD1824713184001E7C5A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		AF3FCD1A24713A60001E7C5A /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		AF44DB3823D9AB080001048A /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		AF44DB3923D9AB080001048A /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = Carthage/Build/iOS/Moya.framework; sourceTree = "<group>"; };
 		AF44DB3A23D9AB080001048A /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
@@ -268,6 +272,7 @@
 				AFABC8DD240884A300BD10D3 /* Const.swift */,
 				AF384E4C241D7B42006D30F1 /* QiitaAPITargetType.swift */,
 				AF384E56241D7CA2006D30F1 /* Article.swift */,
+				AF3FCD1824713184001E7C5A /* User.swift */,
 				AF384E4E241D7B4E006D30F1 /* APIClient.swift */,
 				AF3D52CC241A4A9900F38DAF /* UserDefaults.swift */,
 			);
@@ -380,6 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				AFB4A17023E5AA80001900DF /* AuthenticationViewController.swift */,
+				AF3FCD1A24713A60001E7C5A /* AuthenticationViewModel.swift */,
 				AF25FCAA2402A71500CB1CB7 /* AuthenticationViewController.storyboard */,
 			);
 			path = Authentication;
@@ -572,6 +578,7 @@
 			files = (
 				AF384E5D24217BE5006D30F1 /* CommentViewController.swift in Sources */,
 				AFB4A18A23E5BA3B001900DF /* RouteDispatcher.swift in Sources */,
+				AF3FCD1924713184001E7C5A /* User.swift in Sources */,
 				AFB4A13723E5A056001900DF /* TabsViewModel.swift in Sources */,
 				AFA30C652435EFAB00FCABDF /* TagCollectionViewCell.swift in Sources */,
 				AFB4A14723E5A23E001900DF /* SearchViewController.swift in Sources */,
@@ -605,6 +612,7 @@
 				AF785918240BC3EB008B7BE9 /* LoginDispatcher.swift in Sources */,
 				AFABC8D62407F54F00BD10D3 /* ProfileDetailTableViewDataSouce.swift in Sources */,
 				AFB4A14D23E5A2BA001900DF /* ProfileViewController.swift in Sources */,
+				AF3FCD1B24713A60001E7C5A /* AuthenticationViewModel.swift in Sources */,
 				AFB4A18623E5BA17001900DF /* Dispatcher.swift in Sources */,
 				AF1040EF245660CA00713641 /* Array.swift in Sources */,
 				AF5F642223CB3D8700FAD371 /* AppDelegate.swift in Sources */,
