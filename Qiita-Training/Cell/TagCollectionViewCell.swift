@@ -9,10 +9,9 @@
 import UIKit
 
 class TagCollectionViewCell: UICollectionViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet private weak var tagLabel: UILabel!
+    
+    func configure(tagText: String) {
+        tagLabel.text = tagText
     }
-
 }

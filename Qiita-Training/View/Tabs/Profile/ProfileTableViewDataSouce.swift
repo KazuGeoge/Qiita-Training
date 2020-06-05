@@ -9,6 +9,9 @@
 import UIKit
 
 class ProfileTableViewDataSouce: NSObject {
+    
+    var articleList: [Article] = []
+    
     func configure(tableView: UITableView) {
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -21,7 +24,7 @@ class ProfileTableViewDataSouce: NSObject {
 extension ProfileTableViewDataSouce: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        RouteAction.shared.show(routeType: .articleDetail)
+        RouteAction.shared.show(routeType: .articleDetail(articleList[indexPath.row]))
         print("遷移")
     }
 }

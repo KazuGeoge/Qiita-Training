@@ -10,6 +10,7 @@ import UIKit
 class ProfileDetailTableViewDataSouce: NSObject {
     
     private let viewModel: ProfileDetailViewModel
+    var articleList: [Article] = []
     
     init(viewModel: ProfileDetailViewModel) {
         self.viewModel = viewModel
@@ -33,9 +34,9 @@ extension ProfileDetailTableViewDataSouce: UITableViewDelegate {
         case .follower:
             RouteAction.shared.show(routeType: .profile)
         case .stock:
-            RouteAction.shared.show(routeType: .articleDetail)
+            RouteAction.shared.show(routeType: .articleDetail(articleList[indexPath.row]))
         case .tag:
-            RouteAction.shared.show(routeType: .articleDetail)
+            RouteAction.shared.show(routeType: .articleDetail(articleList[indexPath.row]))
         default:
             break
         }

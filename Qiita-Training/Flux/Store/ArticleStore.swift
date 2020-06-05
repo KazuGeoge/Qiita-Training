@@ -8,13 +8,14 @@
 
 import RxSwift
 import RxCocoa
+import UIKit
 
 final class ArticleStore {
     static let shared = ArticleStore()
-    var articleStream: Observable<(([Article], QiitaAPI))>
+    var article: Observable<(([Article], QiitaAPI))>
     
     init(dispatcher: AnyObservableDispatcher<ArticleDispatcher> = .init(.shared)) {
         
-        articleStream = dispatcher.articleStream
+        article = dispatcher.article
     }
 }

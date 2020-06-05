@@ -11,11 +11,11 @@ import RxCocoa
 
 final class LoginStore {
     static let shared = LoginStore()
-    var loginStream: Observable<()>
+    var login: Observable<()>
     
     init(dispatcher: AnyObservableDispatcher<LoginDispatcher> = .init(.shared)) {
         
-        loginStream = dispatcher.loginStream
+        login = dispatcher.login
     }
 }
 

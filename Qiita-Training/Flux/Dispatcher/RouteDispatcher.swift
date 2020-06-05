@@ -12,20 +12,20 @@ import RxCocoa
 final class RouteDispatcher: DispatcherType {
     static let shared = RouteDispatcher()
     
-    fileprivate let routeStream = PublishSubject<RouteType>()
+    fileprivate let route = PublishSubject<RouteType>()
     
     private init() {}
 }
 // onNextだけができるDispathcher
 extension AnyObserverDispatcher where Dispatcher: RouteDispatcher {
-    var routeStream: AnyObserver<RouteType> {
-        return dispatcher.routeStream.asObserver()
+    var route: AnyObserver<RouteType> {
+        return dispatcher.route.asObserver()
     }
 }
 
 // subscribeだけができるDispatcher
 extension AnyObservableDispatcher where Dispatcher: RouteDispatcher {
-    var routeStream: Observable<RouteType> {
-        return dispatcher.routeStream
+    var route: Observable<RouteType> {
+        return dispatcher.route
     }
 }

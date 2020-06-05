@@ -13,7 +13,8 @@ import RxCocoa
 class ArticleListViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
-    private let dataSouce = ArticleListTableViewDataSouce()
+    private lazy var viewModel = ArticleListViewModel()
+    private lazy var dataSouce = ArticleListTableViewDataSouce(viewModel: viewModel)
     private let disposeBag = DisposeBag()
     var qiitaAPIType: QiitaAPI?
     
@@ -21,15 +22,14 @@ class ArticleListViewController: UIViewController {
         super.viewDidLoad()
 
         dataSouce.configure(tableView: tableView)
-        observeArticleStore()
+        observeViewModel()
+        viewModel.qiitaAPIType = qiitaAPIType
     }
     
-    private func observeArticleStore() {
-        ArticleStore.shared.articleStream.asObservable()
+    private func observeViewModel() {
+        viewModel.reload.asObservable()
             .observeOn(MainScheduler.instance)
-            .filter { [weak self] in $0.1 == self?.qiitaAPIType }
-            .subscribe(onNext: { [weak self] articleStream in
-                self?.dataSouce.articleList = articleStream.0
+            .subscribe(onNext: { [weak self] _ in
                 self?.tableView.reloadData()
             })
             .disposed(by: disposeBag)
