@@ -7,18 +7,30 @@
 //
 
 import UIKit
+import SwiftyUserDefaults
+import RxSwift
+import RxCocoa
 
 class SearchViewController: UIViewController, UISearchBarDelegate {
 
     @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var tableView: UITableView!
-    private let dataSouce = SearchTableViewDataSouce()
+    private lazy var viewModel = SearchViewModel()
+    private lazy var dataSouce = SearchTableViewDataSouce(viewModel: viewModel)
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         dataSouce.configure(tableView: tableView)
+        observeViewModel()
         searchBar.delegate = self
+    }
+    
+    // TODO: ライフサイクルをobservableでviewModelに流す
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        viewModel.updateSearchHistory()
     }
     
     // 検索ボタンが押された時に呼ばれる
@@ -26,17 +38,21 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         self.view.endEditing(true)
         searchBar.showsCancelButton = true
        
-        self.tableView.reloadData()
+        if let text = searchBar.text {
+            Defaults.searchedArray.append(text)
+            viewModel.showArticleList(qiitaAPI: .searchWord(text))
+            viewModel.getAPI(qiitaAPI: .searchWord(text))
+        }
         
-        RouteAction.shared.show(routeType: .articleList)
+        tableView.reloadData()
     }
 
     // キャンセルボタンが押された時に呼ばれる
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = false
-        self.view.endEditing(true)
+        view.endEditing(true)
         searchBar.text = ""
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
 
     // テキストフィールド入力開始前に呼ばれる
@@ -44,5 +60,13 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         searchBar.showsCancelButton = true
         
         return true
+    }
+    
+    private func observeViewModel() {
+        viewModel.tableViewReload.asObservable()
+            .subscribe(onNext: { [weak self] _ in
+                self?.tableView.reloadData()
+            })
+            .disposed(by: self.disposeBag)
     }
 }

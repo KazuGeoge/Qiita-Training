@@ -12,4 +12,6 @@ import SwiftyUserDefaults
 extension DefaultsKeys {
     var isLoginUdser: DefaultsKey<Bool> { return .init("isLoginUdser", defaultValue: false) }
     var token: DefaultsKey<String> { return .init("token", defaultValue: "") }
+    var tagArray: DefaultsKey<[String]> { return .init("tagArray", defaultValue: []) }
+    var searchedArray: DefaultsKey<[String]> { return .init("searchedArray", defaultValue: []) }
 }

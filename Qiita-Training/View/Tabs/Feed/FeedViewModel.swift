@@ -25,13 +25,11 @@ final class FeedViewModel {
         APIClient.shared.provider.rx.request(qiitaAPI)
             .filterSuccessfulStatusCodes()
             .subscribe(onSuccess: { articleListResponse in
-                let jsonDecoder = JSONDecoder()
-                jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
                 do {
-                    let result = try jsonDecoder.decode([Article].self, from: articleListResponse.data)
-                    
+                    let result = try [Article].decode(json: articleListResponse.data)
                     ArticleAction.shared.article(articleList: result, qiitaAPIType: qiitaAPI)
                 } catch(let error) {
+                    // TODO: エラーイベントを流す
                     print(error)
                 }
             }) { (error) in

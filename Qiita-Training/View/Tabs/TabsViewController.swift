@@ -63,8 +63,10 @@ class TabsViewController: UITabBarController {
                     let articleDetailViewController = ViewControllerBuilder.shared.configureViewController(viewControllerType: .articleDetail) as? ArticleDetailViewController
                     articleDetailViewController?.article = article
                     viewContoroller = articleDetailViewController
-                case .articleList:
-                    viewContoroller = ViewControllerBuilder.shared.configureViewController(viewControllerType: .articleList) as? ArticleListViewController
+                case .articleList(let qiitaAPI):
+                    let articleListViewController = ViewControllerBuilder.shared.configureViewController(viewControllerType: .articleList) as? ArticleListViewController
+                    articleListViewController?.qiitaAPIType = qiitaAPI
+                    viewContoroller = articleListViewController
                 case .profile:
                     viewContoroller = ViewControllerBuilder.shared.configureViewController(viewControllerType: .profile) as? ProfileViewController
                 case .profileDetail(let profileType):
