@@ -16,4 +16,10 @@ final class TabsViewModel {
         display = RouteStore.shared.route.asObservable()
         login = LoginStore.shared.login.asObservable()
     }
+    
+    func loginActionIfNeeded() {
+        if !UserDefaults.standard.bool(forKey: "is_login_user") {
+            LoginAction.shared.login()
+        }
+    }
 }
