@@ -28,10 +28,10 @@ class AuthenticationViewModel: NSObject {
         Defaults.token = token
         Defaults.isLoginUdser = true
         
-        getUseAPI()
+        getUserAPI()
     }
     
-    func getUseAPI() {
+    func getUserAPI() {
         apiClient.provider.rx.request(.authenticatedUser)
             .filterSuccessfulStatusCodes()
             .subscribe(onSuccess: { [weak self] articleListResponse in
