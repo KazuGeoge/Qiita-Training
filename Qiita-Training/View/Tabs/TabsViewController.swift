@@ -39,6 +39,8 @@ class TabsViewController: UITabBarController {
         if Defaults.isLoginUdser {
             LoginAction.shared.login()
         }
+
+        viewModel.loginActionIfNeeded()
     }
     
     private func resisterRootViewController() {

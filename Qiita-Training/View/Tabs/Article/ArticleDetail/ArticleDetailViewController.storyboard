@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -300,6 +301,11 @@
                         <outlet property="titleLabel" destination="Fxi-yk-bIt" id="bQQ-FK-cv8"/>
                         <outlet property="userNameLabel" destination="pZd-uz-UkE" id="3yM-Xv-uBz"/>
                         <outlet property="webView" destination="Dov-A2-ZwN" id="cFU-1d-Nv5"/>
+                        <outlet property="iconImageView" destination="JfX-VZ-jaJ" id="mLR-nB-eH4"/>
+                        <outlet property="tagCollectionView" destination="p6M-8p-rtf" id="4YZ-oN-T3P"/>
+                        <outlet property="timeLabel" destination="8wq-Fj-mYJ" id="z1g-aU-4Yx"/>
+                        <outlet property="titleLabel" destination="5GO-ba-d94" id="azl-HT-6Hp"/>
+                        <outlet property="userNameLabel" destination="wUE-fS-kSb" id="SFz-Km-BKi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I89-i7-VpD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -308,11 +314,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowshape.turn.up.right" catalog="system" width="64" height="52"/>
-        <image name="clock" catalog="system" width="64" height="60"/>
-        <image name="folder" catalog="system" width="64" height="46"/>
-        <image name="hand.thumbsup" catalog="system" width="64" height="64"/>
-        <image name="message" catalog="system" width="64" height="56"/>
-        <image name="person" catalog="system" width="64" height="58"/>
+        <image name="arrowshape.turn.up.right" catalog="system" width="128" height="106"/>
+        <image name="clock" catalog="system" width="128" height="121"/>
+        <image name="folder" catalog="system" width="128" height="95"/>
+        <image name="hand.thumbsup" catalog="system" width="128" height="128"/>
+        <image name="message" catalog="system" width="128" height="113"/>
+        <image name="person" catalog="system" width="128" height="117"/>
     </resources>
 </document>
