@@ -28,10 +28,10 @@ class AuthenticationViewModel: NSObject {
         Defaults.token = token
         Defaults.isLoginUdser = true
         
-        getUserAPI()
+        getUserData()
     }
     
-    func getUserAPI() {
+    func getUserData() {
         apiClient.provider.rx.request(.authenticatedUser)
             .filterSuccessfulStatusCodes()
             .subscribe(onSuccess: { [weak self] articleListResponse in
@@ -39,7 +39,7 @@ class AuthenticationViewModel: NSObject {
                     let result = try User.decode(json: articleListResponse.data)
                     // UserActionで受け取ったユーザー情報を流す
                     Defaults.userID = result.id
-                    self?.getFollowedTagAPI()
+                    self?.getFollowedTagData()
                 } catch(let error) {
                     // TODO: エラーイベントを流す
                     print(error)
@@ -51,7 +51,7 @@ class AuthenticationViewModel: NSObject {
         .disposed(by: self.disposeBag)
     }
     
-    func getFollowedTagAPI() {
+    func getFollowedTagData() {
         apiClient.provider.rx.request(.followedTag)
                    .filterSuccessfulStatusCodes()
                    .subscribe(onSuccess: { [weak self] followedTagResponse in
