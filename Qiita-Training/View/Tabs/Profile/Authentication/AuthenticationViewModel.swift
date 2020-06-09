@@ -23,7 +23,7 @@ class AuthenticationViewModel: NSObject {
     }
     
     // TODO: tokenは取得したtokenを使用。
-    func getUser(token: String = "cfd0c856460f4aa1cfa5d473a312091b5f86d2ed") {
+    func getUser(token: String = "298bfa9c40f01d3bcea2d5a39d04a578d4d4c312") {
         // Tokenを取得したら保存して認証画面を閉じる。
         Defaults.token = token
         Defaults.isLoginUdser = true
@@ -40,6 +40,7 @@ class AuthenticationViewModel: NSObject {
                     // UserActionで受け取ったユーザー情報を流す
                     Defaults.userID = result.id
                     self?.getFollowedTagData()
+                    self?.getUserPostedArticle()
                 } catch(let error) {
                     // TODO: エラーイベントを流す
                     print(error)
@@ -51,7 +52,7 @@ class AuthenticationViewModel: NSObject {
         .disposed(by: self.disposeBag)
     }
     
-    func getFollowedTagData() {
+    private func getFollowedTagData() {
         apiClient.provider.rx.request(.followedTag)
                    .filterSuccessfulStatusCodes()
                    .subscribe(onSuccess: { [weak self] followedTagResponse in
@@ -68,5 +69,22 @@ class AuthenticationViewModel: NSObject {
                        print(error)
                }
                .disposed(by: self.disposeBag)
+    }
+    
+    private func getUserPostedArticle() {
+        apiClient.provider.rx.request(.userPostedArticle)
+            .filterSuccessfulStatusCodes()
+            .subscribe(onSuccess: { articleAraayResponse in
+                do {
+                    let article = try [Article].decode(json: articleAraayResponse.data)
+                } catch(let error) {
+                    // TODO: エラーイベントを流す
+                    print(error)
+                }
+            }) { (error) in
+                // TODO: エラーイベントを流す
+                print(error)
+        }
+        .disposed(by: self.disposeBag)
     }
 }
