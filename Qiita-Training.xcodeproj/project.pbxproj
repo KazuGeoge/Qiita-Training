@@ -31,6 +31,9 @@
 		AF44DB4223D9AB080001048A /* RxMoya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF44DB3B23D9AB080001048A /* RxMoya.framework */; };
 		AF44DB4323D9AB080001048A /* RxMoya.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF44DB3B23D9AB080001048A /* RxMoya.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AF4A53792443611E00E39610 /* TagCollectionViewFlowLayoutLeftAlign.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4A53782443611E00E39610 /* TagCollectionViewFlowLayoutLeftAlign.swift */; };
+		AF5C37FB249000B800565FF3 /* UserAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5C37FA249000B800565FF3 /* UserAction.swift */; };
+		AF5C37FD249000C800565FF3 /* UserDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5C37FC249000C800565FF3 /* UserDispatcher.swift */; };
+		AF5C37FF249000D800565FF3 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5C37FE249000D800565FF3 /* UserStore.swift */; };
 		AF5F5BA323F06C520055C672 /* ProfileTableViewDataSouce.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F5BA223F06C520055C672 /* ProfileTableViewDataSouce.swift */; };
 		AF5F642223CB3D8700FAD371 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F642123CB3D8700FAD371 /* AppDelegate.swift */; };
 		AF5F642423CB3D8700FAD371 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F642323CB3D8700FAD371 /* SceneDelegate.swift */; };
@@ -124,6 +127,9 @@
 		AF44DB3A23D9AB080001048A /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		AF44DB3B23D9AB080001048A /* RxMoya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxMoya.framework; path = Carthage/Build/iOS/RxMoya.framework; sourceTree = "<group>"; };
 		AF4A53782443611E00E39610 /* TagCollectionViewFlowLayoutLeftAlign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewFlowLayoutLeftAlign.swift; sourceTree = "<group>"; };
+		AF5C37FA249000B800565FF3 /* UserAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAction.swift; sourceTree = "<group>"; };
+		AF5C37FC249000C800565FF3 /* UserDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDispatcher.swift; sourceTree = "<group>"; };
+		AF5C37FE249000D800565FF3 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		AF5F5BA223F06C520055C672 /* ProfileTableViewDataSouce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewDataSouce.swift; sourceTree = "<group>"; };
 		AF5F641E23CB3D8700FAD371 /* Qiita-Training.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Qiita-Training.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF5F642123CB3D8700FAD371 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -437,6 +443,7 @@
 				AFB4A18723E5BA25001900DF /* RouteAction.swift */,
 				AF785915240BC3D4008B7BE9 /* LoginAction.swift */,
 				AF384E50241D7B6F006D30F1 /* ArticleAction.swift */,
+				AF5C37FA249000B800565FF3 /* UserAction.swift */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -447,6 +454,7 @@
 				AFB4A18923E5BA3B001900DF /* RouteDispatcher.swift */,
 				AF785917240BC3EB008B7BE9 /* LoginDispatcher.swift */,
 				AF384E52241D7B7E006D30F1 /* ArticleDispatcher.swift */,
+				AF5C37FC249000C800565FF3 /* UserDispatcher.swift */,
 			);
 			path = Dispatcher;
 			sourceTree = "<group>";
@@ -457,6 +465,7 @@
 				AFB4A18B23E5BA4B001900DF /* RouteStore.swift */,
 				AF785919240BC3FB008B7BE9 /* LoginStore.swift */,
 				AF384E54241D7B88006D30F1 /* ArticleStore.swift */,
+				AF5C37FE249000D800565FF3 /* UserStore.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -589,10 +598,12 @@
 			files = (
 				AF384E5D24217BE5006D30F1 /* CommentViewController.swift in Sources */,
 				AFB4A18A23E5BA3B001900DF /* RouteDispatcher.swift in Sources */,
+				AF5C37FD249000C800565FF3 /* UserDispatcher.swift in Sources */,
 				AFB4A13723E5A056001900DF /* TabsViewModel.swift in Sources */,
 				AFA30C652435EFAB00FCABDF /* TagCollectionViewCell.swift in Sources */,
 				AFB4A14723E5A23E001900DF /* SearchViewController.swift in Sources */,
 				AFB4A14923E5A250001900DF /* SearchViewModel.swift in Sources */,
+				AF5C37FB249000B800565FF3 /* UserAction.swift in Sources */,
 				AF384E55241D7B88006D30F1 /* ArticleStore.swift in Sources */,
 				AFB4A18823E5BA25001900DF /* RouteAction.swift in Sources */,
 				AFB4A15E23E5A675001900DF /* SettingViewModel.swift in Sources */,
@@ -623,6 +634,7 @@
 				AFABC8D62407F54F00BD10D3 /* ProfileDetailTableViewDataSouce.swift in Sources */,
 				AFB4A14D23E5A2BA001900DF /* ProfileViewController.swift in Sources */,
 				AF3FCD1B24713A60001E7C5A /* AuthenticationViewModel.swift in Sources */,
+				AF5C37FF249000D800565FF3 /* UserStore.swift in Sources */,
 				AFB4A18623E5BA17001900DF /* Dispatcher.swift in Sources */,
 				AF1040EF245660CA00713641 /* Array.swift in Sources */,
 				AF5F642223CB3D8700FAD371 /* AppDelegate.swift in Sources */,
