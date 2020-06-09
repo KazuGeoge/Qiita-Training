@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     private let dataSouce = ProfileTableViewDataSouce()
+    private let viewModel = ProfileViewModel()
     @IBOutlet private weak var followButton: UIButton!
     @IBOutlet private weak var followerButton: UIButton!
     @IBOutlet private weak var stockButton: UIButton!
@@ -25,6 +26,7 @@ class ProfileViewController: UIViewController {
 
         dataSouce.configure(tableView: tableView)
         configureButton()
+        viewModel.getUserPostedArticle()
     }
 
     private func configureButton() {

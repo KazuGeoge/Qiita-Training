@@ -38,7 +38,6 @@ class AuthenticationViewModel: NSObject {
                     Defaults.userID = result.id
                     fetchComplete()
                     self?.getFollowedTagData()
-                    self?.getUserPostedArticle()
                 } catch(let error) {
                     // TODO: エラーイベントを流す
                     print(error)
@@ -67,22 +66,5 @@ class AuthenticationViewModel: NSObject {
                        print(error)
                }
                .disposed(by: self.disposeBag)
-    }
-    
-    private func getUserPostedArticle() {
-        apiClient.provider.rx.request(.userPostedArticle)
-            .filterSuccessfulStatusCodes()
-            .subscribe(onSuccess: { articleAraayResponse in
-                do {
-                    let article = try [Article].decode(json: articleAraayResponse.data)
-                } catch(let error) {
-                    // TODO: エラーイベントを流す
-                    print(error)
-                }
-            }) { (error) in
-                // TODO: エラーイベントを流す
-                print(error)
-        }
-        .disposed(by: self.disposeBag)
     }
 }
