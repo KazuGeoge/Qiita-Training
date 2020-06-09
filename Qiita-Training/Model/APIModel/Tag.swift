@@ -8,6 +8,6 @@
 
 import UIKit
 
-class Tag: NSObject {
-
+struct FollowedTag: Codable {
+    var id: String
 }

@@ -11,11 +11,12 @@ import SwiftyUserDefaults
 
 enum QiitaAPI: Equatable {
     case newArticle
-    case followArticle
+    case followedTagArticle([String])
     case stockArticle
     case searchWord(String)
     case searchTag(String)
     case authenticatedUser
+    case followedTag
 }
 
 extension QiitaAPI: TargetType {
@@ -28,20 +29,20 @@ extension QiitaAPI: TargetType {
     // TODO: ページングするため、叩くAPIは指定するページを更新出来るようにする
     var path: String {
         switch self {
-        case .newArticle, .searchWord, .searchTag:
+        case .newArticle, .followedTagArticle, .searchWord, .searchTag:
             return "/api/v2/items"
-        case .followArticle:
-            return "/users/\(Defaults.userID)/items?page=1&per_page=20"
         case .stockArticle:
             return "/api/v2/users/\(Defaults.userID)/stocks"
         case .authenticatedUser:
             return "/api/v2/authenticated_user"
+        case .followedTag:
+            return "api/v2/users/\(Defaults.userID)/following_tags"
         }
     }
 
     var method: Moya.Method {
         switch self {
-        case .newArticle, .followArticle, .stockArticle, .searchTag, .searchWord, .authenticatedUser:
+        case .newArticle, .followedTagArticle, .stockArticle, .searchTag, .searchWord, .authenticatedUser, .followedTag:
             return .get
         }
     }
@@ -55,11 +56,14 @@ extension QiitaAPI: TargetType {
         var paramerter: [String: Any] = [:]
         
         switch self {
+        case .followedTagArticle(let followedTagArray):
+            let joinedTagArray = followedTagArray.joined(separator:  " OR tag:")
+            paramerter = ["query": "tag:\(joinedTagArray)"]
         case .searchWord(let searchWord):
             paramerter = ["query": searchWord]
         case .searchTag(let tagWord):
             paramerter = ["query": "tag:\(tagWord)"]
-        case .newArticle, .followArticle, .stockArticle, .authenticatedUser:
+        case .newArticle, .stockArticle, .authenticatedUser, .followedTag:
             return .requestPlain
         }
         
@@ -70,9 +74,9 @@ extension QiitaAPI: TargetType {
         var paramerter: [String: String] = [:]
         
         switch self {
-        case .newArticle, .searchWord, .searchTag:
+        case .newArticle, .searchWord, .searchTag, .followedTag:
             break
-        case .followArticle, .stockArticle, .authenticatedUser:
+        case .followedTagArticle, .stockArticle, .authenticatedUser:
             paramerter = ["Authorization":"Bearer \(Defaults.token)"]
         }
         return  paramerter
