@@ -11,6 +11,11 @@ import UIKit
 class ProfileTableViewDataSouce: NSObject {
     
     var articleList: [Article] = []
+    private let viewModel: ProfileViewModel
+    
+    init(viewModel: ProfileViewModel) {
+        self.viewModel = viewModel
+    }
     
     func configure(tableView: UITableView) {
         
@@ -49,7 +54,11 @@ extension ProfileTableViewDataSouce: UITableViewDataSource {
         
         var cell = UITableViewCell()
         cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "テスト"
+        
+        // 作成したセルクラスを使用する
+        if !viewModel.articleList.isEmpty {
+            cell.textLabel?.text = viewModel.articleList[indexPath.row].title
+        }
         
         return cell
     }

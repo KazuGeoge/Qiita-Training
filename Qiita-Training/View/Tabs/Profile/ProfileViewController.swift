@@ -13,8 +13,8 @@ import RxCocoa
 class ProfileViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
-    private let dataSouce = ProfileTableViewDataSouce()
-    private let viewModel = ProfileViewModel()
+    private lazy var viewModel = ProfileViewModel()
+    private lazy var dataSouce = ProfileTableViewDataSouce(viewModel: viewModel)
     @IBOutlet private weak var followButton: UIButton!
     @IBOutlet private weak var followerButton: UIButton!
     @IBOutlet private weak var stockButton: UIButton!
@@ -24,9 +24,19 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        viewModel.getUserPostedArticle()
+        observeViewModel()
         dataSouce.configure(tableView: tableView)
         configureButton()
-        viewModel.getUserPostedArticle()
+    }
+    
+    private func observeViewModel() {
+        viewModel.reload.asObservable()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] _ in
+                self?.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
     }
 
     private func configureButton() {
