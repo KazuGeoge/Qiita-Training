@@ -22,16 +22,13 @@ class AuthenticationViewModel: NSObject {
         self.loginAction = loginAction
     }
     
-    // TODO: tokenは取得したtokenを使用。
-    func getUser(token: String = "298bfa9c40f01d3bcea2d5a39d04a578d4d4c312") {
+    func getUserData(token: String = "298bfa9c40f01d3bcea2d5a39d04a578d4d4c312",
+                     fetchComplete:@escaping () -> ()) {
+        
         // Tokenを取得したら保存して認証画面を閉じる。
         Defaults.token = token
         Defaults.isLoginUdser = true
         
-        getUserData()
-    }
-    
-    func getUserData() {
         apiClient.provider.rx.request(.authenticatedUser)
             .filterSuccessfulStatusCodes()
             .subscribe(onSuccess: { [weak self] articleListResponse in
@@ -39,6 +36,7 @@ class AuthenticationViewModel: NSObject {
                     let result = try User.decode(json: articleListResponse.data)
                     // UserActionで受け取ったユーザー情報を流す
                     Defaults.userID = result.id
+                    fetchComplete()
                     self?.getFollowedTagData()
                     self?.getUserPostedArticle()
                 } catch(let error) {

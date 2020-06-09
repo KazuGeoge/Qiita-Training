@@ -41,9 +41,10 @@ class AuthenticationViewController: UIViewController, WKNavigationDelegate {
             // TODO: 取得したアクセストークンを使用する。
             if let queryValue = urlComponents?.queryItems?.first?.value {
                 // Tokenを取得したら保存して認証画面を閉じる。
-                viewModel.getUser()
-                dismiss(animated: true, completion: nil)
-                decisionHandler(.cancel)
+                viewModel.getUserData(fetchComplete: { [weak self] in
+                    self?.dismiss(animated: true, completion: nil)
+                    decisionHandler(.cancel)
+                })
             }
         } else {
             decisionHandler(.allow)
