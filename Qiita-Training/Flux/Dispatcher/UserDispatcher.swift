@@ -13,21 +13,21 @@ import RxCocoa
 final class UserDispatcher: DispatcherType {
        static let shared = UserDispatcher()
         
-        fileprivate let user = PublishSubject<()>()
+        fileprivate let user = PublishSubject<(User)>()
         
         private init() {}
 }
 
 // onNextだけができるDispathcher
 extension AnyObserverDispatcher where Dispatcher: UserDispatcher {
-    var user: AnyObserver<()> {
+    var user: AnyObserver<(User)> {
         return dispatcher.user.asObserver()
     }
 }
 
 // subscribeだけができるDispatcher
 extension AnyObservableDispatcher where Dispatcher: UserDispatcher {
-    var user: Observable<()> {
+    var user: Observable<(User)> {
         return dispatcher.user
     }
 }

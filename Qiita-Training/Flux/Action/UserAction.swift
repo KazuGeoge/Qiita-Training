@@ -5,6 +5,7 @@
 //  Created by 城島一輝 on 2020/06/10.
 //  Copyright © 2020 城島一輝. All rights reserved.
 //
+import SwiftyUserDefaults
 
 final class UserAction {
     static let shared = UserAction()
@@ -14,7 +15,8 @@ final class UserAction {
         self.dispatcher = dispatcher
     }
     
-    func user() {
-        dispatcher.user.onNext(())
+    func user(user: User) {
+        Defaults.userID = user.id
+        dispatcher.user.onNext(user)
     }
 }

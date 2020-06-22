@@ -19,6 +19,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet private weak var followerButton: UIButton!
     @IBOutlet private weak var stockButton: UIButton!
     @IBOutlet private weak var tagButton: UIButton!
+    @IBOutlet private weak var followCountLabel: UILabel!
+    @IBOutlet private weak var followerCountLabel: UILabel!
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -30,6 +32,11 @@ class ProfileViewController: UIViewController {
         configureButton()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        configureFollowCountLabel()
+    }
+    
     private func observeViewModel() {
         viewModel.reload.asObservable()
             .observeOn(MainScheduler.instance)
@@ -37,6 +44,15 @@ class ProfileViewController: UIViewController {
                 self?.tableView.reloadData()
             })
             .disposed(by: disposeBag)
+    }
+    
+    private func configureFollowCountLabel() {
+        let user = UserStore.shared.userState.value
+        
+        guard let follow = user?.followeesCount, let followers = user?.followersCount else { return }
+        
+        followCountLabel.text = String(follow)
+        followerCountLabel.text = String(followers)
     }
 
     private func configureButton() {

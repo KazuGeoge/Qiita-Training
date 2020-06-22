@@ -11,9 +11,17 @@ import RxCocoa
 
 final class UserStore {
     static let shared = UserStore()
-    var user: Observable<()>
+    private let disposeBag = DisposeBag()
+    
+    var user: Observable<User?> {
+        return userState.asObservable()
+    }
+
+    let userState = BehaviorRelay<User?>(value: nil)
     
     init(dispatcher: AnyObservableDispatcher<UserDispatcher> = .init(.shared)) {
-        user = dispatcher.user
+        dispatcher.user
+            .bind(to: userState)
+            .disposed(by: disposeBag)
     }
 }
