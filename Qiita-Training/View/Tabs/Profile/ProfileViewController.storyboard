@@ -236,6 +236,8 @@
                         <outlet property="stockButton" destination="CK4-IK-hFL" id="G37-j8-IMk"/>
                         <outlet property="tableView" destination="7kr-HS-gCv" id="loq-k1-qwB"/>
                         <outlet property="tagButton" destination="djK-CX-S7o" id="11q-EP-97x"/>
+                        <outlet property="userImageView" destination="AeY-Ip-Y6T" id="UcJ-NX-KSc"/>
+                        <outlet property="userName" destination="fxP-Rg-V1I" id="24b-53-mFL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BZN-NB-CFS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

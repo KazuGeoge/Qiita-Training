@@ -32,6 +32,7 @@ class AuthenticationViewModel: NSObject {
         Defaults.isLoginUdser = true
         
         apiClient.provider.rx.request(.authenticatedUser)
+            .observeOn(MainScheduler.instance)
             .filterSuccessfulStatusCodes()
             .subscribe(onSuccess: { [weak self] articleListResponse in
                 do {

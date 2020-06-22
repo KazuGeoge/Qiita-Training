@@ -12,6 +12,8 @@ import RxCocoa
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet private weak var userImageView: UIImageView!
+    @IBOutlet private weak var userName: UILabel!
     @IBOutlet private weak var tableView: UITableView!
     private lazy var viewModel = ProfileViewModel()
     private lazy var dataSouce = ProfileTableViewDataSouce(viewModel: viewModel)
@@ -34,7 +36,7 @@ class ProfileViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        configureFollowCountLabel()
+        configureUI()
     }
     
     private func observeViewModel() {
@@ -46,13 +48,16 @@ class ProfileViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    private func configureFollowCountLabel() {
+    private func configureUI() {
         let user = UserStore.shared.userState.value
         
-        guard let follow = user?.followeesCount, let followers = user?.followersCount else { return }
+        userName.text = user?.id
         
-        followCountLabel.text = String(follow)
-        followerCountLabel.text = String(followers)
+        // TODO: 画像処理は別Issueで行う
+        if let follow = user?.followeesCount, let followers = user?.followersCount {
+            followCountLabel.text = String(follow)
+            followerCountLabel.text = String(followers)
+        }
     }
 
     private func configureButton() {
