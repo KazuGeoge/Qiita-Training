@@ -10,10 +10,11 @@ import UIKit
 
 class ProfileTableViewDataSouce: NSObject {
     
-    var articleList: [Article] = []
     private let viewModel: ProfileViewModel
+    private let routeAction: RouteAction
     
-    init(viewModel: ProfileViewModel) {
+    init(viewModel: ProfileViewModel, routeAction: RouteAction = .shared) {
+        self.routeAction = routeAction
         self.viewModel = viewModel
     }
     
@@ -29,7 +30,7 @@ class ProfileTableViewDataSouce: NSObject {
 extension ProfileTableViewDataSouce: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        RouteAction.shared.show(routeType: .articleDetail(articleList[indexPath.row]))
+        routeAction.show(routeType: .articleDetail(viewModel.articleList[indexPath.row]))
         print("遷移")
     }
 }
