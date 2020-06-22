@@ -17,6 +17,11 @@ class AuthenticationViewModel: NSObject {
     private let apiClient: APIClient
     private let userAction: UserAction
     private let disposeBag = DisposeBag()
+    private let viewDismissSubject = PublishSubject<()>()
+    
+    var viewDismiss: Observable<()> {
+        return viewDismissSubject.asObservable()
+    }
     
     init(loginAction: LoginAction = .shared, apiClient: APIClient = .shared, userAction: UserAction = .shared) {
         self.apiClient = apiClient
@@ -24,22 +29,19 @@ class AuthenticationViewModel: NSObject {
         self.userAction = userAction
     }
     
-    func getUserData(token: String = "298bfa9c40f01d3bcea2d5a39d04a578d4d4c312",
-                     fetchComplete:@escaping () -> ()) {
-        
+    func getUserData(token: String = "298bfa9c40f01d3bcea2d5a39d04a578d4d4c312") {
         // Tokenを取得したら保存して認証画面を閉じる。
         Defaults.token = token
         Defaults.isLoginUdser = true
         
         apiClient.provider.rx.request(.authenticatedUser)
-            .observeOn(MainScheduler.instance)
             .filterSuccessfulStatusCodes()
             .subscribe(onSuccess: { [weak self] articleListResponse in
                 do {
                     let result = try User.decode(json: articleListResponse.data)
                     // UserActionで受け取ったユーザー情報を流す
                     self?.userAction.user(user: result)
-                    fetchComplete()
+                    self?.viewDismissSubject.onNext(())
                     self?.getFollowedTagData()
                 } catch(let error) {
                     // TODO: エラーイベントを流す
