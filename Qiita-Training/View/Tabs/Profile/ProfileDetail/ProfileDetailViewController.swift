@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 enum ProfileType {
     case follow
@@ -20,10 +22,12 @@ class ProfileDetailViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     lazy var viewModel = ProfileDetailViewModel()
     private lazy var dataSouce = ProfileDetailTableViewDataSouce(viewModel: self.viewModel)
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         dataSouce.configure(tableView: tableView)
+        navigationItem.configure(navigationItemType: .profileDetail, disposeBag: disposeBag, title: viewModel.generateNavigationTitle())        
     }
 }
