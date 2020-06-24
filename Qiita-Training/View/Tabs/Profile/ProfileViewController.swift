@@ -49,12 +49,12 @@ class ProfileViewController: UIViewController {
     }
     
     private func configureUI() {
-        let user = UserStore.shared.userState.value
+        let user = viewModel.getUserStoreValue()
         
         userName.text = user?.id
         
         // TODO: 画像処理は別Issueで行う
-        if let follow = user?.followeesCount, let followers = user?.followersCount {
+        if let follow = user?.followsCount, let followers = user?.followersCount {
             followCountLabel.text = String(follow)
             followerCountLabel.text = String(followers)
         }
