@@ -13,7 +13,6 @@ final class ProfileViewModel {
     private let apiClient: APIClient
     private let articleAction: ArticleAction
     private let articleStore: ArticleStore
-    private let userStore: UserStore
     private let disposeBag = DisposeBag()
     private let reloadSubject = PublishSubject<()>()
     var reload: Observable<()> {
@@ -21,11 +20,10 @@ final class ProfileViewModel {
     }
     var articleList: [Article] = []
     
-    init(apiClient: APIClient = .shared, articleAction: ArticleAction = .shared, articleStore: ArticleStore = .shared, userStore: UserStore = .shared) {
+    init(apiClient: APIClient = .shared, articleAction: ArticleAction = .shared, articleStore: ArticleStore = .shared) {
         self.apiClient = apiClient
         self.articleAction = articleAction
         self.articleStore = articleStore
-        self.userStore = userStore
         
         observeReloadTriger()
     }
@@ -55,9 +53,5 @@ final class ProfileViewModel {
             .map {_ in ()}
             .bind(to: reloadSubject)
             .disposed(by: disposeBag)
-    }
-    
-    func getUserStoreValue() -> User? {
-        return userStore.user.value
     }
 }

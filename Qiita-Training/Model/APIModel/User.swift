@@ -12,6 +12,6 @@ struct User: Codable {
     var id :String
     var profileImageUrl: String
     var name: String
-    var followsCount: Int
+    var followeesCount: Int
     var followersCount: Int
 }

@@ -13,11 +13,15 @@ final class UserStore {
     static let shared = UserStore()
     private let disposeBag = DisposeBag()
     
-    let user = BehaviorRelay<User?>(value: nil)
+    var user: Observable<User?> {
+        return userState.asObservable()
+    }
+
+    let userState = BehaviorRelay<User?>(value: nil)
     
     init(dispatcher: AnyObservableDispatcher<UserDispatcher> = .init(.shared)) {
         dispatcher.user
-            .bind(to: user)
+            .bind(to: userState)
             .disposed(by: disposeBag)
     }
 }
