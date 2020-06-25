@@ -20,7 +20,7 @@ final class ProfileDetailViewModel {
         return reloadSubject.asObservable()
     }
     
-    var codableModel: [Codable] = []
+    var profileModel: [Codable] = []
     var profileType: ProfileType?
     
     init(apiClient: APIClient = .shared) {
@@ -74,11 +74,11 @@ final class ProfileDetailViewModel {
                 do {
                     switch self?.profileType {
                     case .follow, .follower:
-                        self?.codableModel = try [User].decode(json: response.data)
+                        self?.profileModel = try [User].decode(json: response.data)
                     case .stock:
-                        self?.codableModel = try [Article].decode(json: response.data)
+                        self?.profileModel = try [Article].decode(json: response.data)
                     case .tag:
-                        self?.codableModel = try [FollowedTag].decode(json: response.data)
+                        self?.profileModel = try [FollowedTag].decode(json: response.data)
                     case .none:
                         break
                     }

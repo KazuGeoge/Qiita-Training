@@ -47,7 +47,7 @@ extension ProfileDetailTableViewDataSouce: UITableViewDelegate {
 
 extension ProfileDetailTableViewDataSouce: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.codableModel.count
+        return viewModel.profileModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,13 +58,13 @@ extension ProfileDetailTableViewDataSouce: UITableViewDataSource {
         // TODO: 各セルにcodableModelごと渡してセルクラスごとに処理する形にする
         switch viewModel.profileType {
         case .follow, .follower:
-            let users = viewModel.codableModel as? [User]
+            let users = viewModel.profileModel as? [User]
             cell.textLabel?.text = users?[indexPath.row].id
         case .stock:
-            let stockArticles = viewModel.codableModel as? [Article]
+            let stockArticles = viewModel.profileModel as? [Article]
             cell.textLabel?.text = stockArticles?[indexPath.row].title
         case .tag:
-            let followedTags = viewModel.codableModel as? [FollowedTag]
+            let followedTags = viewModel.profileModel as? [FollowedTag]
             cell.textLabel?.text = followedTags?[indexPath.row].id
         case .none:
             break
