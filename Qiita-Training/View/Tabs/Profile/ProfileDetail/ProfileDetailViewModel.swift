@@ -9,15 +9,16 @@
 import UIKit
 import SwiftyUserDefaults
 import RxSwift
+import RxCocoa
 
 final class ProfileDetailViewModel {
 
     private let apiClient: APIClient
     private let disposeBag = DisposeBag()
     
-    private let reloadSubject = PublishSubject<()>()
+    private let reloadRelay = PublishRelay<()>()
     var reload: Observable<()> {
-        return reloadSubject.asObservable()
+        return reloadRelay.asObservable()
     }
     
     var profileModel: [Codable] = []
@@ -82,7 +83,7 @@ final class ProfileDetailViewModel {
                     case .none:
                         break
                     }
-                    self?.reloadSubject.onNext(())
+                    self?.reloadRelay.accept(())
                 } catch(let error) {
                     // TODO: エラーイベントを流す
                     print(error)
