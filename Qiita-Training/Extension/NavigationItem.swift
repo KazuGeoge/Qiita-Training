@@ -16,11 +16,14 @@ enum NavigationItemType {
     case profileDetail
     case rightBack
     case leftBack
+    case setting
 }
 
 extension UINavigationItem {
 
     func configure(navigationItemType: NavigationItemType, disposeBag: DisposeBag, title: String) {
+        
+        let routeAction = RouteAction.shared
         
         titleView = generateTitleLabel(title: title)
         // TODO: その他の分岐方法は後ほど実装する。
@@ -30,12 +33,22 @@ extension UINavigationItem {
             rightBarButtonItems = [shareButtonItem]
             shareButtonItem.rx.tap
                 .subscribe(onNext: { _ in
-                    print("設定のタップ")
+                    routeAction.show(routeType: .setting)
                 })
                 .disposed(by: disposeBag)
             
             backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
             backBarButtonItem?.tintColor = .white
+            
+        case .setting:
+            let backButton = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: nil)
+            
+            rightBarButtonItems = [backButton]
+            backButton.rx.tap
+                .subscribe(onNext: { _ in
+                    routeAction.show(routeType: .dismiss)
+                })
+                .disposed(by: disposeBag)
         default:
             break
         }

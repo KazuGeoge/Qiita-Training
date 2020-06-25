@@ -7,26 +7,20 @@
 //
 
 import UIKit
+import RxSwift
 
 class SettingViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
+    private lazy var viewModel = SettingViewModel()
+    private lazy var datasouce = SettingTableViewDataSouce(viewModel: viewModel)
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        datasouce.configure(tableView: tableView)
+        
+        navigationController?.navigationBar.barTintColor = .green
+        navigationItem.configure(navigationItemType: .setting, disposeBag: disposeBag, title: "設定")
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
