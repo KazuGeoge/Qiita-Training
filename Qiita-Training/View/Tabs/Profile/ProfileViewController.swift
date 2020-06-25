@@ -49,7 +49,7 @@ class ProfileViewController: UIViewController {
     }
     
     private func configureUI() {
-        let user = viewModel.getUserStoreValue()
+        let user = viewModel.user
         
         userName.text = user?.id
         
