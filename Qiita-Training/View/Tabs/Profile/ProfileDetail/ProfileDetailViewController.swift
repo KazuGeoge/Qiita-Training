@@ -44,6 +44,7 @@ class ProfileDetailViewController: UIViewController {
     
     private func observeViewModel() {
         viewModel.reload.asObservable()
+            .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] _ in
                 self?.tableView.reloadData()
             })
