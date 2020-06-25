@@ -33,13 +33,13 @@ final class ProfileDetailViewModel {
         
         switch profileType {
         case .follow:
-            title.append("フォロー")
+            title.append(profileType?.text ?? "")
         case .follower:
-            title.append("フォロワー")
+            title.append(profileType?.text ?? "")
         case .stock:
-            title.append("ストックした投稿")
+            title.append(profileType?.text ?? "")
         case .tag:
-            title.append("フォロー中タグ")
+            title.append(profileType?.text ?? "")
         case .none:
             break
         }

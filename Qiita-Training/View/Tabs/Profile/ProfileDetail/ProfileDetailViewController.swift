@@ -15,6 +15,15 @@ enum ProfileType {
     case follower
     case stock
     case tag
+    
+    var text: String {
+        switch self {
+        case .follow: return "フォロー"
+        case .follower: return "フォロワー"
+        case .stock: return "ストックした投稿"
+        case .tag: return "フォロー中タグ"
+        }
+    }
 }
 
 class ProfileDetailViewController: UIViewController {
