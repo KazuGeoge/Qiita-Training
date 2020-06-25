@@ -50,7 +50,7 @@ class ProfileViewController: UIViewController {
     }
     
     private func configureUI() {
-        let user = UserStore.shared.userState.value
+        let user = viewModel.getUserStoreValue()
         
         userName.text = user?.id
         
