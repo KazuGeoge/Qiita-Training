@@ -47,14 +47,28 @@ extension ProfileDetailTableViewDataSouce: UITableViewDelegate {
 
 extension ProfileDetailTableViewDataSouce: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return viewModel.codableModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell = UITableViewCell()
         cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "テスト"
+        
+        // TODO: 各セルにcodableModelごと渡してセルクラスごとに処理する形にする
+        switch viewModel.profileType {
+        case .follow, .follower:
+            let users = viewModel.codableModel as? [User]
+            cell.textLabel?.text = users?[indexPath.row].id
+        case .stock:
+            let stockArticles = viewModel.codableModel as? [Article]
+            cell.textLabel?.text = stockArticles?[indexPath.row].title
+        case .tag:
+            let followedTags = viewModel.codableModel as? [FollowedTag]
+            cell.textLabel?.text = followedTags?[indexPath.row].id
+        case .none:
+            break
+        }
         
         return cell
     }

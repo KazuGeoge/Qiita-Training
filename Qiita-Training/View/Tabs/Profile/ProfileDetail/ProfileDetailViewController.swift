@@ -28,6 +28,16 @@ class ProfileDetailViewController: UIViewController {
         super.viewDidLoad()
 
         dataSouce.configure(tableView: tableView)
-        navigationItem.configure(navigationItemType: .profileDetail, disposeBag: disposeBag, title: viewModel.generateNavigationTitle())        
+        navigationItem.configure(navigationItemType: .profileDetail, disposeBag: disposeBag, title: viewModel.generateNavigationTitle())
+        viewModel.getProfileData()
+        observeViewModel()
+    }
+    
+    private func observeViewModel() {
+        viewModel.reload.asObservable()
+            .subscribe(onNext: { [weak self] _ in
+                self?.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
     }
 }
