@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController {
 
     @IBOutlet private weak var userImageView: UIImageView!
     @IBOutlet private weak var userName: UILabel!
+    @IBOutlet private weak var smallUserName: UILabel!
     @IBOutlet private weak var tableView: UITableView!
     private lazy var viewModel = ProfileViewModel()
     private lazy var dataSouce = ProfileTableViewDataSouce(viewModel: viewModel)
