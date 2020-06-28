@@ -15,30 +15,33 @@ class AuthenticationViewModel: NSObject {
 
     private let loginAction: LoginAction
     private let apiClient: APIClient
+    private let userAction: UserAction
     private let disposeBag = DisposeBag()
+    private let viewDismissSubject = PublishSubject<()>()
     
-    init(loginAction: LoginAction = .shared, apiClient: APIClient = .shared) {
-        self.apiClient = apiClient
-        self.loginAction = loginAction
+    var viewDismiss: Observable<()> {
+        return viewDismissSubject.asObservable()
     }
     
-    // TODO: tokenは取得したtokenを使用。
-    func getUser(token: String = "cfd0c856460f4aa1cfa5d473a312091b5f86d2ed") {
+    init(loginAction: LoginAction = .shared, apiClient: APIClient = .shared, userAction: UserAction = .shared) {
+        self.apiClient = apiClient
+        self.loginAction = loginAction
+        self.userAction = userAction
+    }
+    
+    func getUserData(token: String = "298bfa9c40f01d3bcea2d5a39d04a578d4d4c312") {
         // Tokenを取得したら保存して認証画面を閉じる。
         Defaults.token = token
         Defaults.isLoginUdser = true
         
-        getUserData()
-    }
-    
-    func getUserData() {
         apiClient.provider.rx.request(.authenticatedUser)
             .filterSuccessfulStatusCodes()
             .subscribe(onSuccess: { [weak self] articleListResponse in
                 do {
                     let result = try User.decode(json: articleListResponse.data)
                     // UserActionで受け取ったユーザー情報を流す
-                    Defaults.userID = result.id
+                    self?.userAction.user(user: result)
+                    self?.viewDismissSubject.onNext(())
                     self?.getFollowedTagData()
                 } catch(let error) {
                     // TODO: エラーイベントを流す
@@ -51,7 +54,7 @@ class AuthenticationViewModel: NSObject {
         .disposed(by: self.disposeBag)
     }
     
-    func getFollowedTagData() {
+    private func getFollowedTagData() {
         apiClient.provider.rx.request(.followedTag)
                    .filterSuccessfulStatusCodes()
                    .subscribe(onSuccess: { [weak self] followedTagResponse in

@@ -10,7 +10,13 @@ import UIKit
 
 class ProfileTableViewDataSouce: NSObject {
     
-    var articleList: [Article] = []
+    private let viewModel: ProfileViewModel
+    private let routeAction: RouteAction
+    
+    init(viewModel: ProfileViewModel, routeAction: RouteAction = .shared) {
+        self.routeAction = routeAction
+        self.viewModel = viewModel
+    }
     
     func configure(tableView: UITableView) {
         
@@ -24,7 +30,7 @@ class ProfileTableViewDataSouce: NSObject {
 extension ProfileTableViewDataSouce: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        RouteAction.shared.show(routeType: .articleDetail(articleList[indexPath.row]))
+        routeAction.show(routeType: .articleDetail(viewModel.articleList[indexPath.row]))
         print("遷移")
     }
 }
@@ -49,7 +55,11 @@ extension ProfileTableViewDataSouce: UITableViewDataSource {
         
         var cell = UITableViewCell()
         cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "テスト"
+        
+        // 作成したセルクラスを使用する
+        if !viewModel.articleList.isEmpty {
+            cell.textLabel?.text = viewModel.articleList[indexPath.row].title
+        }
         
         return cell
     }

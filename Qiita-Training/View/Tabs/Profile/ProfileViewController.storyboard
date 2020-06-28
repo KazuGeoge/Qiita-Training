@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -230,10 +230,14 @@
                     </view>
                     <connections>
                         <outlet property="followButton" destination="rJA-Q5-2uQ" id="AAq-6v-6v8"/>
+                        <outlet property="followCountLabel" destination="dse-D7-13W" id="x1z-rI-U4s"/>
                         <outlet property="followerButton" destination="EAo-lu-uns" id="25J-g0-Qfl"/>
+                        <outlet property="followerCountLabel" destination="Clw-Cj-n9M" id="dZu-qX-8sH"/>
                         <outlet property="stockButton" destination="CK4-IK-hFL" id="G37-j8-IMk"/>
                         <outlet property="tableView" destination="7kr-HS-gCv" id="loq-k1-qwB"/>
                         <outlet property="tagButton" destination="djK-CX-S7o" id="11q-EP-97x"/>
+                        <outlet property="userImageView" destination="AeY-Ip-Y6T" id="UcJ-NX-KSc"/>
+                        <outlet property="userName" destination="fxP-Rg-V1I" id="24b-53-mFL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BZN-NB-CFS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -242,8 +246,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="folder.fill" catalog="system" width="64" height="46"/>
-        <image name="person.fill" catalog="system" width="64" height="60"/>
-        <image name="tag" catalog="system" width="64" height="58"/>
+        <image name="folder.fill" catalog="system" width="128" height="95"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="tag" catalog="system" width="128" height="116"/>
     </resources>
 </document>

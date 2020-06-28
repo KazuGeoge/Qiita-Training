@@ -27,13 +27,15 @@ class TabsViewController: UITabBarController {
     private func configureTabBarItem() {
         guard let feed = UIStoryboard(name: ViewControllerType.feed.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ViewControllerType.feed.storyboardName) as? FeedViewController,
             let search =  UIStoryboard(name: ViewControllerType.search.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ViewControllerType.search.storyboardName) as? SearchViewController,
-            let stillLogin = UIStoryboard(name: ViewControllerType.stillLogin.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ViewControllerType.stillLogin.storyboardName) as? StillLoginUserViewController else { return }
+            let profile = Defaults.isLoginUdser ?
+                UIStoryboard(name: ViewControllerType.profile.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ViewControllerType.profile.storyboardName) as? ProfileViewController :
+                UIStoryboard(name: ViewControllerType.stillLogin.storyboardName, bundle: nil).instantiateViewController(withIdentifier: ViewControllerType.stillLogin.storyboardName) as? StillLoginUserViewController else { return }
         
         feed.tabBarItem = UITabBarItem(tabBarSystemItem: .mostRecent, tag: 1)
         search.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 2)
-        stillLogin.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 3)
+        profile.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 3)
         
-        viewControllerArray = [feed, search, stillLogin]
+        viewControllerArray = [feed, search, profile]
         resisterRootViewController()
         
         if Defaults.isLoginUdser {
@@ -72,6 +74,7 @@ class TabsViewController: UITabBarController {
                 case .profileDetail(let profileType):
                     let profileDetailViewController = ViewControllerBuilder.shared.configureViewController(viewControllerType: .profileDetail) as? ProfileDetailViewController
                     profileDetailViewController?.viewModel.profileType = profileType
+                    viewContoroller = profileDetailViewController
                 case .stillLogin:
                     viewContoroller = ViewControllerBuilder.shared.configureViewController(viewControllerType: .stillLogin) as? StillLoginUserViewController
                 case .login:

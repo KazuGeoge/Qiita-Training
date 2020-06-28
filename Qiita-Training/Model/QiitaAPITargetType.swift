@@ -17,6 +17,7 @@ enum QiitaAPI: Equatable {
     case searchTag(String)
     case authenticatedUser
     case followedTag
+    case userPostedArticle
 }
 
 extension QiitaAPI: TargetType {
@@ -29,7 +30,7 @@ extension QiitaAPI: TargetType {
     // TODO: ページングするため、叩くAPIは指定するページを更新出来るようにする
     var path: String {
         switch self {
-        case .newArticle, .followedTagArticle, .searchWord, .searchTag:
+        case .newArticle, .followedTagArticle, .searchWord, .searchTag, .userPostedArticle:
             return "/api/v2/items"
         case .stockArticle:
             return "/api/v2/users/\(Defaults.userID)/stocks"
@@ -42,7 +43,7 @@ extension QiitaAPI: TargetType {
 
     var method: Moya.Method {
         switch self {
-        case .newArticle, .followedTagArticle, .stockArticle, .searchTag, .searchWord, .authenticatedUser, .followedTag:
+        case .newArticle, .followedTagArticle, .stockArticle, .searchTag, .searchWord, .authenticatedUser, .followedTag, .userPostedArticle:
             return .get
         }
     }
@@ -63,6 +64,8 @@ extension QiitaAPI: TargetType {
             paramerter = ["query": searchWord]
         case .searchTag(let tagWord):
             paramerter = ["query": "tag:\(tagWord)"]
+        case .userPostedArticle:
+            paramerter = ["query": "user:\(Defaults.userID)"]
         case .newArticle, .stockArticle, .authenticatedUser, .followedTag:
             return .requestPlain
         }
@@ -74,7 +77,7 @@ extension QiitaAPI: TargetType {
         var paramerter: [String: String] = [:]
         
         switch self {
-        case .newArticle, .searchWord, .searchTag, .followedTag:
+        case .newArticle, .searchWord, .searchTag, .followedTag, .userPostedArticle:
             break
         case .followedTagArticle, .stockArticle, .authenticatedUser:
             paramerter = ["Authorization":"Bearer \(Defaults.token)"]
