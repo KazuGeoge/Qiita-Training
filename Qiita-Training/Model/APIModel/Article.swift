@@ -15,6 +15,7 @@ struct Article: Codable {
     var tags: [Tag]
     var createdAt: String
     var user: User
+    var likesCount: Int
     
     struct Tag: Codable {
         var name: String
