@@ -17,5 +17,6 @@ class ArticleTableViewCell: UITableViewCell {
     @IBOutlet private weak var favCountLabel: UILabel!
     @IBOutlet private weak var tagsView: UIView!
     @IBOutlet private weak var tagsLabel: UILabel!
+    @IBOutlet private weak var timeLabel: UILabel!
     
 }
