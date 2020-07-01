@@ -43,6 +43,8 @@
 		AF5F642B23CB3D8900FAD371 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF5F642A23CB3D8900FAD371 /* Assets.xcassets */; };
 		AF5F642E23CB3D8900FAD371 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF5F642C23CB3D8900FAD371 /* LaunchScreen.storyboard */; };
 		AF6F7030245F803300184A11 /* Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6F702F245F803300184A11 /* Decodable.swift */; };
+		AF7339B324AC733800E61D97 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7339B124AC733800E61D97 /* ArticleTableViewCell.swift */; };
+		AF7339B424AC733800E61D97 /* ArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF7339B224AC733800E61D97 /* ArticleTableViewCell.xib */; };
 		AF73700523F05ADF00B884A7 /* SearchTableViewDataSouce.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF73700423F05ADF00B884A7 /* SearchTableViewDataSouce.swift */; };
 		AF785916240BC3D4008B7BE9 /* LoginAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF785915240BC3D4008B7BE9 /* LoginAction.swift */; };
 		AF785918240BC3EB008B7BE9 /* LoginDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF785917240BC3EB008B7BE9 /* LoginDispatcher.swift */; };
@@ -143,6 +145,8 @@
 		AF5F642D23CB3D8900FAD371 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF5F642F23CB3D8900FAD371 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF6F702F245F803300184A11 /* Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decodable.swift; sourceTree = "<group>"; };
+		AF7339B124AC733800E61D97 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
+		AF7339B224AC733800E61D97 /* ArticleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleTableViewCell.xib; sourceTree = "<group>"; };
 		AF73700423F05ADF00B884A7 /* SearchTableViewDataSouce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewDataSouce.swift; sourceTree = "<group>"; };
 		AF785915240BC3D4008B7BE9 /* LoginAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAction.swift; sourceTree = "<group>"; };
 		AF785917240BC3EB008B7BE9 /* LoginDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDispatcher.swift; sourceTree = "<group>"; };
@@ -270,11 +274,29 @@
 			path = "Qiita-Training";
 			sourceTree = "<group>";
 		};
-		AFA30C622435EF8D00FCABDF /* Cell */ = {
+		AF7339AF24AC730300E61D97 /* TagCollection */ = {
 			isa = PBXGroup;
 			children = (
 				AFA30C632435EFAB00FCABDF /* TagCollectionViewCell.swift */,
 				AFA30C642435EFAB00FCABDF /* TagCollectionViewCell.xib */,
+			);
+			path = TagCollection;
+			sourceTree = "<group>";
+		};
+		AF7339B024AC730F00E61D97 /* Article */ = {
+			isa = PBXGroup;
+			children = (
+				AF7339B124AC733800E61D97 /* ArticleTableViewCell.swift */,
+				AF7339B224AC733800E61D97 /* ArticleTableViewCell.xib */,
+			);
+			path = Article;
+			sourceTree = "<group>";
+		};
+		AFA30C622435EF8D00FCABDF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				AF7339AF24AC730300E61D97 /* TagCollection */,
+				AF7339B024AC730F00E61D97 /* Article */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -556,6 +578,7 @@
 				AF25FCAB2402A71500CB1CB7 /* AuthenticationViewController.storyboard in Resources */,
 				AF5F642B23CB3D8900FAD371 /* Assets.xcassets in Resources */,
 				AFB4A14B23E5A26E001900DF /* SearchViewController.storyboard in Resources */,
+				AF7339B424AC733800E61D97 /* ArticleTableViewCell.xib in Resources */,
 				AFB4A16623E5A97A001900DF /* ProfileDetailViewController.storyboard in Resources */,
 				AFABC8D22407ED6400BD10D3 /* ProfileViewController.storyboard in Resources */,
 				AF384E5F24217BEE006D30F1 /* CommentViewController.storyboard in Resources */,
@@ -607,6 +630,7 @@
 				AF5C37FD249000C800565FF3 /* UserDispatcher.swift in Sources */,
 				AFB4A13723E5A056001900DF /* TabsViewModel.swift in Sources */,
 				AFA30C652435EFAB00FCABDF /* TagCollectionViewCell.swift in Sources */,
+				AF7339B324AC733800E61D97 /* ArticleTableViewCell.swift in Sources */,
 				AFB4A14723E5A23E001900DF /* SearchViewController.swift in Sources */,
 				AFB4A14923E5A250001900DF /* SearchViewModel.swift in Sources */,
 				AF5C37FB249000B800565FF3 /* UserAction.swift in Sources */,
