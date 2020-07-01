@@ -18,6 +18,8 @@ enum QiitaAPI: Equatable {
     case authenticatedUser
     case followedTag
     case userPostedArticle
+    case followUsers
+    case followerUsers
 }
 
 extension QiitaAPI: TargetType {
@@ -38,12 +40,16 @@ extension QiitaAPI: TargetType {
             return "/api/v2/authenticated_user"
         case .followedTag:
             return "api/v2/users/\(Defaults.userID)/following_tags"
+        case .followUsers:
+            return "/api/v2/users/\(Defaults.userID)/followees"
+        case .followerUsers:
+            return "/api/v2/users/\(Defaults.userID)/followers"
         }
     }
 
     var method: Moya.Method {
         switch self {
-        case .newArticle, .followedTagArticle, .stockArticle, .searchTag, .searchWord, .authenticatedUser, .followedTag, .userPostedArticle:
+        case .newArticle, .followedTagArticle, .stockArticle, .searchTag, .searchWord, .authenticatedUser, .followedTag, .userPostedArticle, .followUsers, .followerUsers:
             return .get
         }
     }
@@ -66,7 +72,7 @@ extension QiitaAPI: TargetType {
             paramerter = ["query": "tag:\(tagWord)"]
         case .userPostedArticle:
             paramerter = ["query": "user:\(Defaults.userID)"]
-        case .newArticle, .stockArticle, .authenticatedUser, .followedTag:
+        case .newArticle, .stockArticle, .authenticatedUser, .followedTag, .followUsers, .followerUsers:
             return .requestPlain
         }
         
@@ -79,7 +85,7 @@ extension QiitaAPI: TargetType {
         switch self {
         case .newArticle, .searchWord, .searchTag, .followedTag, .userPostedArticle:
             break
-        case .followedTagArticle, .stockArticle, .authenticatedUser:
+        case .followedTagArticle, .stockArticle, .authenticatedUser, .followUsers, .followerUsers:
             paramerter = ["Authorization":"Bearer \(Defaults.token)"]
         }
         return  paramerter

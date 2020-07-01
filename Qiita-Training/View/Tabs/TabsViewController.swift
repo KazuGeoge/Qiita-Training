@@ -82,6 +82,15 @@ class TabsViewController: UITabBarController {
                     
                         self?.present(loginViewContoroller, animated: true, completion: nil)
                     }
+                case .setting:
+                    if let settingViewContoroller = ViewControllerBuilder.shared.configureViewController(viewControllerType: .setting) as? SettingViewController {
+                        let navigationController = UINavigationController(rootViewController: settingViewContoroller)
+                            navigationController.modalPresentationStyle = .fullScreen
+                        
+                        self?.present(navigationController, animated: true, completion: nil)
+                    }
+                case .dismiss:
+                    topViewController.dismiss(animated: true, completion: nil)
                 }
                 
                 if let viewContoroller = viewContoroller {

@@ -33,6 +33,12 @@ class ProfileViewController: UIViewController {
         observeViewModel()
         dataSouce.configure(tableView: tableView)
         configureButton()
+        configureNavigationBar()
+    }
+    
+    private func configureNavigationBar() {
+        navigationController?.navigationBar.barTintColor = .green
+        navigationItem.configure(navigationItemType: .profile, disposeBag: disposeBag, title: "プロフィール")
     }
     
     override func viewDidAppear(_ animated: Bool) {
