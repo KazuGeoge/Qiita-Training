@@ -32,5 +32,6 @@ class ArticleTableViewCell: UITableViewCell {
         userNameLabel.text = article.id
         articleTitleLabel.text = article.title
         tagsLabel.text = article.tags.map { $0.name }.joined(separator: " ")
+        timeLabel.text = article.createdAtDate?.offsetFrom()
     }
 }
