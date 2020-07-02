@@ -26,7 +26,7 @@ class ProfileDetailTableViewDataSouce: NSObject {
 
 extension ProfileDetailTableViewDataSouce: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.showrouteAction(model: viewModel.profileModel[indexPath.row])
+        viewModel.showRouteAction(codableModel: viewModel.profileModel[indexPath.row])
     }
 }
 

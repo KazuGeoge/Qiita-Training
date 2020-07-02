@@ -94,18 +94,19 @@ final class ProfileDetailViewModel {
             .disposed(by: self.disposeBag)
     }
     
-    func showrouteAction(model: Codable) {
+    func showRouteAction(codableModel: Codable) {
+        // TODO: プロフィールの遷移も引数のmodelを使って処理する
         switch profileType {
         case .follow:
             routeAction.show(routeType: .profile)
         case .follower:
             routeAction.show(routeType: .profile)
         case .stock:
-            if let article = model as? Article {
+            if let article = codableModel as? Article {
                 routeAction.show(routeType: .articleDetail(article))
             }
         case .tag:
-            if let article = model as? Article {
+            if let article = codableModel as? Article {
                 routeAction.show(routeType: .articleDetail(article))
             }
         default:

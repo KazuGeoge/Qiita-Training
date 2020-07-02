@@ -21,7 +21,7 @@ class ArticleTableViewCell: UITableViewCell {
     @IBOutlet private weak var timeLabel: UILabel!
     
     func configure(article: Article) {
-        
+        // いいねが付いていない時はいいね数は表示しない
         if article.likesCount == 0 {
             favCountView.isHidden = true
             tagsView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
