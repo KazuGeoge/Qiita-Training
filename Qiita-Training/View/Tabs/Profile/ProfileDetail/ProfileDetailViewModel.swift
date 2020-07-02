@@ -15,6 +15,7 @@ final class ProfileDetailViewModel {
 
     private let apiClient: APIClient
     private let disposeBag = DisposeBag()
+    private let routeAction: RouteAction
     
     private let reloadRelay = PublishRelay<()>()
     var reload: Observable<()> {
@@ -24,8 +25,9 @@ final class ProfileDetailViewModel {
     var profileModel: [Codable] = []
     var profileType: ProfileType?
     
-    init(apiClient: APIClient = .shared) {
+    init(apiClient: APIClient = .shared, routeAction: RouteAction = .shared) {
         self.apiClient = apiClient
+        self.routeAction = routeAction
     }
     
     func generateNavigationTitle() -> String {
@@ -90,5 +92,24 @@ final class ProfileDetailViewModel {
                 }
             })
             .disposed(by: self.disposeBag)
+    }
+    
+    func showrouteAction(model: Codable) {
+        switch profileType {
+        case .follow:
+            routeAction.show(routeType: .profile)
+        case .follower:
+            routeAction.show(routeType: .profile)
+        case .stock:
+            if let article = model as? Article {
+                routeAction.show(routeType: .articleDetail(article))
+            }
+        case .tag:
+            if let article = model as? Article {
+                routeAction.show(routeType: .articleDetail(article))
+            }
+        default:
+            break
+        }
     }
 }

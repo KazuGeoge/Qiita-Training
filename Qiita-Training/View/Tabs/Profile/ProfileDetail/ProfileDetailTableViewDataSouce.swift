@@ -10,7 +10,6 @@ import UIKit
 class ProfileDetailTableViewDataSouce: NSObject {
     
     private let viewModel: ProfileDetailViewModel
-    var articleList: [Article] = []
     
     init(viewModel: ProfileDetailViewModel) {
         self.viewModel = viewModel
@@ -27,21 +26,7 @@ class ProfileDetailTableViewDataSouce: NSObject {
 
 extension ProfileDetailTableViewDataSouce: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        switch viewModel.profileType {
-        case .follow:
-            RouteAction.shared.show(routeType: .profile)
-        case .follower:
-            RouteAction.shared.show(routeType: .profile)
-        case .stock:
-            RouteAction.shared.show(routeType: .articleDetail(articleList[indexPath.row]))
-        case .tag:
-            RouteAction.shared.show(routeType: .articleDetail(articleList[indexPath.row]))
-        default:
-            break
-        }
-        
-        print("遷移")
+        viewModel.showrouteAction(model: viewModel.profileModel[indexPath.row])
     }
 }
 
@@ -61,8 +46,12 @@ extension ProfileDetailTableViewDataSouce: UITableViewDataSource {
             let users = viewModel.profileModel as? [User]
             cell.textLabel?.text = users?[indexPath.row].id
         case .stock:
-            let stockArticles = viewModel.profileModel as? [Article]
-            cell.textLabel?.text = stockArticles?[indexPath.row].title
+            if let stockArticles = viewModel.profileModel as? [Article] ,
+                let articleTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ArticleTableViewCell", for: indexPath) as? ArticleTableViewCell {
+                articleTableViewCell.configure(article: stockArticles[indexPath.row])
+                
+                cell = articleTableViewCell
+            }
         case .tag:
             let followedTags = viewModel.profileModel as? [FollowedTag]
             cell.textLabel?.text = followedTags?[indexPath.row].id
