@@ -46,6 +46,7 @@
 		AF7339B324AC733800E61D97 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7339B124AC733800E61D97 /* ArticleTableViewCell.swift */; };
 		AF7339B424AC733800E61D97 /* ArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF7339B224AC733800E61D97 /* ArticleTableViewCell.xib */; };
 		AF7339B624AC7E7900E61D97 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF7339B524AC7E7900E61D97 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AF7339B824ADB64700E61D97 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7339B724ADB64700E61D97 /* Date.swift */; };
 		AF73700523F05ADF00B884A7 /* SearchTableViewDataSouce.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF73700423F05ADF00B884A7 /* SearchTableViewDataSouce.swift */; };
 		AF785916240BC3D4008B7BE9 /* LoginAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF785915240BC3D4008B7BE9 /* LoginAction.swift */; };
 		AF785918240BC3EB008B7BE9 /* LoginDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF785917240BC3EB008B7BE9 /* LoginDispatcher.swift */; };
@@ -150,6 +151,7 @@
 		AF7339B124AC733800E61D97 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		AF7339B224AC733800E61D97 /* ArticleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleTableViewCell.xib; sourceTree = "<group>"; };
 		AF7339B524AC7E7900E61D97 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		AF7339B724ADB64700E61D97 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		AF73700423F05ADF00B884A7 /* SearchTableViewDataSouce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewDataSouce.swift; sourceTree = "<group>"; };
 		AF785915240BC3D4008B7BE9 /* LoginAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAction.swift; sourceTree = "<group>"; };
 		AF785917240BC3EB008B7BE9 /* LoginDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDispatcher.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				AF1040EE245660CA00713641 /* Array.swift */,
 				AF6F702F245F803300184A11 /* Decodable.swift */,
 				AF43E5E824A2421200127305 /* NavigationItem.swift */,
+				AF7339B724ADB64700E61D97 /* Date.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -681,6 +684,7 @@
 				AFABC8E1240887E500BD10D3 /* StillLoginUserViewController.swift in Sources */,
 				AF384E53241D7B7E006D30F1 /* ArticleDispatcher.swift in Sources */,
 				AFB4A18C23E5BA4B001900DF /* RouteStore.swift in Sources */,
+				AF7339B824ADB64700E61D97 /* Date.swift in Sources */,
 				AFF6CEB62482D23400C80E4C /* Tag.swift in Sources */,
 				AFB4A17423E5AB7C001900DF /* ArticleListViewController.swift in Sources */,
 				AFB4A16C23E5AA33001900DF /* ArticleDetailViewModel.swift in Sources */,
