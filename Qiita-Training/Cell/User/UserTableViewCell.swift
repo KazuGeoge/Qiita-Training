@@ -7,10 +7,17 @@
 //
 
 import UIKit
+import Kingfisher
 
 class UserTableViewCell: UITableViewCell {
 
     @IBOutlet private weak var iconImageView: UIImageView!
     @IBOutlet private weak var userNameLabel: UILabel!
     @IBOutlet private weak var descriptionLabel: UILabel!
+    
+    func configure(user: User) {
+        iconImageView.kf.setImage(with: URL(string: user.profileImageUrl))
+        userNameLabel.text = user.id
+        descriptionLabel.text = user.description
+    }
 }
