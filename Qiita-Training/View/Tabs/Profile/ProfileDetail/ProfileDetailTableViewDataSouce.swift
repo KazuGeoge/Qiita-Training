@@ -45,7 +45,6 @@ extension ProfileDetailTableViewDataSouce: UITableViewDataSource {
         // TODO: 各セルにcodableModelごと渡してセルクラスごとに処理する形にする
         switch viewModel.profileType {
         case .follow, .follower:
-            
             if let userList = viewModel.profileModel as? [User] ,
                 let userTableViewCell = tableView.dequeueReusableCell(withIdentifier: "UserTableViewCell", for: indexPath) as? UserTableViewCell {
                 userTableViewCell.configure(user: userList[indexPath.row])
@@ -70,7 +69,15 @@ extension ProfileDetailTableViewDataSouce: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        tableView.estimatedRowHeight = 100
+        
+        switch viewModel.profileType {
+        case .follow, .follower:
+            tableView.estimatedRowHeight = 70
+        case .stock, .tag:
+            tableView.estimatedRowHeight = 100
+        case .none:
+            break
+        }
         
         return UITableView.automaticDimension
     }
