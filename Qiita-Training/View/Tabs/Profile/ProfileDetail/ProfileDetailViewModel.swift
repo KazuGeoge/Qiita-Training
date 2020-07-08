@@ -11,11 +11,12 @@ import SwiftyUserDefaults
 import RxSwift
 import RxCocoa
 
-final class ProfileDetailViewModel {
+final class ProfileDetailViewModel: NSObject {
 
     private let apiClient: APIClient
     private let disposeBag = DisposeBag()
     private let routeAction: RouteAction
+    private let viewWillAppear: Observable<()>
     
     private let reloadRelay = PublishRelay<()>()
     var reload: Observable<()> {
@@ -25,9 +26,12 @@ final class ProfileDetailViewModel {
     var profileModel: [Codable] = []
     var profileType: ProfileType?
     
-    init(apiClient: APIClient = .shared, routeAction: RouteAction = .shared) {
+    init(apiClient: APIClient = .shared, routeAction: RouteAction = .shared, viewWillAppear: Observable<()>) {
         self.apiClient = apiClient
         self.routeAction = routeAction
+        self.viewWillAppear = viewWillAppear
+        super.init()
+        self.observeViewWillApper()
     }
     
     func generateNavigationTitle() -> String {
@@ -112,5 +116,13 @@ final class ProfileDetailViewModel {
         default:
             break
         }
+    }
+    
+    func observeViewWillApper() {
+        viewWillAppear.asObservable()
+            .subscribe(onNext: { [weak self] _ in
+                self?.getProfileData()
+            })
+            .disposed(by: disposeBag)
     }
 }

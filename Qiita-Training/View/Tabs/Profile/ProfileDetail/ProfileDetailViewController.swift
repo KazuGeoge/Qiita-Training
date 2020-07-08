@@ -29,7 +29,7 @@ enum ProfileType {
 class ProfileDetailViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
-    lazy var viewModel = ProfileDetailViewModel()
+    lazy var viewModel = ProfileDetailViewModel(viewWillAppear: rx.viewWillAppear)
     private lazy var dataSouce = ProfileDetailTableViewDataSouce(viewModel: self.viewModel)
     private let disposeBag = DisposeBag()
     

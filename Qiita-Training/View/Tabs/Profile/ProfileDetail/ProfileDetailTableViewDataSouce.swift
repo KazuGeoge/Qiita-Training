@@ -17,6 +17,7 @@ class ProfileDetailTableViewDataSouce: NSObject {
     
     func configure(tableView: UITableView) {
         
+        tableView.register(UINib(nibName: "ArticleTableViewCell", bundle: nil), forCellReuseIdentifier: "ArticleTableViewCell")
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.dataSource = self
         tableView.delegate = self
