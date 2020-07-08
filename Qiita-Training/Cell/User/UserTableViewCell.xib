@@ -23,7 +23,7 @@
                             <constraint firstAttribute="width" constant="60" id="peK-Jh-fU2"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0y-7O-9l9">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0y-7O-9l9" userLabel="userNameLabel">
                         <rect key="frame" x="80" y="10" width="230" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="bgB-Wf-s2b"/>
@@ -61,6 +61,11 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="descriptionLabel" destination="zyW-pV-SN6" id="N0f-46-UD6"/>
+                <outlet property="iconImageView" destination="gQ1-vN-hEt" id="1rT-f5-kue"/>
+                <outlet property="userNameLabel" destination="I0y-7O-9l9" id="vHF-UP-afI"/>
+            </connections>
             <point key="canvasLocation" x="44.927536231884062" y="28.125"/>
         </tableViewCell>
     </objects>
