@@ -16,7 +16,7 @@ final class ProfileDetailViewModel: NSObject {
     private let apiClient: APIClient
     private let disposeBag = DisposeBag()
     private let routeAction: RouteAction
-    private let viewWillAppear: Observable<()>
+    private let viewWillAppear: Observable<(Void)>
     
     private let reloadRelay = PublishRelay<()>()
     var reload: Observable<()> {
@@ -26,12 +26,17 @@ final class ProfileDetailViewModel: NSObject {
     var profileModel: [Codable] = []
     var profileType: ProfileType?
     
-    init(apiClient: APIClient = .shared, routeAction: RouteAction = .shared, viewWillAppear: Observable<()>) {
+    init(apiClient: APIClient = .shared, routeAction: RouteAction = .shared, viewWillAppear: Observable<Void>) {
         self.apiClient = apiClient
         self.routeAction = routeAction
         self.viewWillAppear = viewWillAppear
         super.init()
-        self.observeViewWillApper()
+                
+        viewWillAppear
+            .subscribe(onNext: { [weak self] _ in
+                self?.getProfileData()
+            })
+            .disposed(by: disposeBag)
     }
     
     func generateNavigationTitle() -> String {
@@ -116,13 +121,5 @@ final class ProfileDetailViewModel: NSObject {
         default:
             break
         }
-    }
-    
-    func observeViewWillApper() {
-        viewWillAppear.asObservable()
-            .subscribe(onNext: { [weak self] _ in
-                self?.getProfileData()
-            })
-            .disposed(by: disposeBag)
     }
 }
