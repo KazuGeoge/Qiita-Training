@@ -20,7 +20,6 @@ class ProfileDetailTableViewDataSouce: NSObject {
         tableView.register(UINib(nibName: "ArticleTableViewCell", bundle: nil), forCellReuseIdentifier: "ArticleTableViewCell")
         tableView.register(UINib(nibName: "UserTableViewCell", bundle: nil), forCellReuseIdentifier: "UserTableViewCell")
         tableView.register(UINib(nibName: "TagTableViewCell", bundle: nil), forCellReuseIdentifier: "TagTableViewCell")
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.dataSource = self
         tableView.delegate = self
         tableView.reloadData()
@@ -39,11 +38,8 @@ extension ProfileDetailTableViewDataSouce: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         var cell = UITableViewCell()
-        cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        // TODO: 各セルにcodableModelごと渡してセルクラスごとに処理する形にする
         switch viewModel.profileType {
         case .follow, .follower:
             if let userList = viewModel.profileModel as? [User] ,
@@ -74,14 +70,11 @@ extension ProfileDetailTableViewDataSouce: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+
+        tableView.estimatedRowHeight = 70
         
-        switch viewModel.profileType {
-        case .follow, .follower, .tag:
-            tableView.estimatedRowHeight = 70
-        case .stock:
+        if case viewModel.profileType = ProfileType.stock {
             tableView.estimatedRowHeight = 100
-        case .none:
-            break
         }
         
         return UITableView.automaticDimension
