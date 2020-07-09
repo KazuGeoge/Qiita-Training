@@ -98,6 +98,12 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="followerNumLabel" destination="riN-ux-VfJ" id="SLY-C8-iTh"/>
+                <outlet property="postedNumLabel" destination="Egb-iL-4d2" id="wot-qN-hnL"/>
+                <outlet property="tagIconImageView" destination="S8G-nf-OSb" id="3zL-Dx-aA7"/>
+                <outlet property="tagNameLabel" destination="wcC-VX-U6f" id="6yX-eZ-kgy"/>
+            </connections>
             <point key="canvasLocation" x="512.31884057971024" y="53.571428571428569"/>
         </tableViewCell>
     </objects>

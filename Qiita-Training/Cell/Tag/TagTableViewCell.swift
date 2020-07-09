@@ -9,16 +9,8 @@
 import UIKit
 
 class TagTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
+    @IBOutlet private weak var tagIconImageView: UIImageView!
+    @IBOutlet private weak var tagNameLabel: UILabel!
+    @IBOutlet private weak var postedNumLabel: UILabel!
+    @IBOutlet private weak var followerNumLabel: UILabel!
 }
