@@ -18,7 +18,9 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S8G-nf-OSb">
                         <rect key="frame" x="10" y="10" width="50" height="50"/>
+                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="height" constant="50" id="3sx-bG-v7U"/>
                             <constraint firstAttribute="width" secondItem="S8G-nf-OSb" secondAttribute="height" multiplier="1:1" id="qjD-4V-1m6"/>
                         </constraints>
                     </imageView>

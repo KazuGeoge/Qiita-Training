@@ -19,6 +19,7 @@ class ProfileDetailTableViewDataSouce: NSObject {
         
         tableView.register(UINib(nibName: "ArticleTableViewCell", bundle: nil), forCellReuseIdentifier: "ArticleTableViewCell")
         tableView.register(UINib(nibName: "UserTableViewCell", bundle: nil), forCellReuseIdentifier: "UserTableViewCell")
+        tableView.register(UINib(nibName: "TagTableViewCell", bundle: nil), forCellReuseIdentifier: "TagTableViewCell")
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.dataSource = self
         tableView.delegate = self
@@ -59,8 +60,12 @@ extension ProfileDetailTableViewDataSouce: UITableViewDataSource {
                 cell = articleTableViewCell
             }
         case .tag:
-            let followedTags = viewModel.profileModel as? [FollowedTag]
-            cell.textLabel?.text = followedTags?[indexPath.row].id
+            if let followedTag = viewModel.profileModel as? [FollowedTag] ,
+                let tagTableViewCell = tableView.dequeueReusableCell(withIdentifier: "TagTableViewCell", for: indexPath) as? TagTableViewCell {
+                tagTableViewCell.configure(followedTag: followedTag[indexPath.row])
+                
+                cell = tagTableViewCell
+            }
         case .none:
             break
         }
@@ -71,9 +76,9 @@ extension ProfileDetailTableViewDataSouce: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         switch viewModel.profileType {
-        case .follow, .follower:
+        case .follow, .follower, .tag:
             tableView.estimatedRowHeight = 70
-        case .stock, .tag:
+        case .stock:
             tableView.estimatedRowHeight = 100
         case .none:
             break
