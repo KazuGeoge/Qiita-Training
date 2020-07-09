@@ -91,10 +91,10 @@
 		AFB4A18C23E5BA4B001900DF /* RouteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A18B23E5BA4B001900DF /* RouteStore.swift */; };
 		AFBD4ADD24B6EB0700D223E4 /* TagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBD4ADB24B6EB0700D223E4 /* TagTableViewCell.swift */; };
 		AFBD4ADE24B6EB0700D223E4 /* TagTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFBD4ADC24B6EB0700D223E4 /* TagTableViewCell.xib */; };
+		AFBD4AE024B6F19E00D223E4 /* FollowedTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBD4ADF24B6F19E00D223E4 /* FollowedTag.swift */; };
 		AFCDD9FC24B5E0DC0046E294 /* Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCDD9FB24B5E0DC0046E294 /* Reactive.swift */; };
 		AFCDDA0024B5F7410046E294 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCDD9FE24B5F7410046E294 /* UserTableViewCell.swift */; };
 		AFCDDA0124B5F7410046E294 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFCDD9FF24B5F7410046E294 /* UserTableViewCell.xib */; };
-		AFF6CEB62482D23400C80E4C /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF6CEB52482D23400C80E4C /* Tag.swift */; };
 		AFF6CEB92482F3D600C80E4C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3FCD1824713184001E7C5A /* User.swift */; };
 /* End PBXBuildFile section */
 
@@ -200,10 +200,10 @@
 		AFB4A18B23E5BA4B001900DF /* RouteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteStore.swift; sourceTree = "<group>"; };
 		AFBD4ADB24B6EB0700D223E4 /* TagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTableViewCell.swift; sourceTree = "<group>"; };
 		AFBD4ADC24B6EB0700D223E4 /* TagTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagTableViewCell.xib; sourceTree = "<group>"; };
+		AFBD4ADF24B6F19E00D223E4 /* FollowedTag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FollowedTag.swift; sourceTree = "<group>"; };
 		AFCDD9FB24B5E0DC0046E294 /* Reactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reactive.swift; sourceTree = "<group>"; };
 		AFCDD9FE24B5F7410046E294 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		AFCDD9FF24B5F7410046E294 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
-		AFF6CEB52482D23400C80E4C /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -540,7 +540,7 @@
 			isa = PBXGroup;
 			children = (
 				AF384E56241D7CA2006D30F1 /* Article.swift */,
-				AFF6CEB52482D23400C80E4C /* Tag.swift */,
+				AFBD4ADF24B6F19E00D223E4 /* FollowedTag.swift */,
 				AF3FCD1824713184001E7C5A /* User.swift */,
 			);
 			path = APIModel;
@@ -682,6 +682,7 @@
 				AF1040EC24561E8800713641 /* ArticleListViewModel.swift in Sources */,
 				AF5F642623CB3D8700FAD371 /* TabsViewController.swift in Sources */,
 				AFABC8CD2407949000BD10D3 /* ViewControllerBuilder.swift in Sources */,
+				AFBD4AE024B6F19E00D223E4 /* FollowedTag.swift in Sources */,
 				AF384E4F241D7B4E006D30F1 /* APIClient.swift in Sources */,
 				AF5F5BA323F06C520055C672 /* ProfileTableViewDataSouce.swift in Sources */,
 				AFABC8D82407F58F00BD10D3 /* ProfileDetailViewModel.swift in Sources */,
@@ -721,7 +722,6 @@
 				AF384E53241D7B7E006D30F1 /* ArticleDispatcher.swift in Sources */,
 				AFB4A18C23E5BA4B001900DF /* RouteStore.swift in Sources */,
 				AF7339B824ADB64700E61D97 /* Date.swift in Sources */,
-				AFF6CEB62482D23400C80E4C /* Tag.swift in Sources */,
 				AFB4A17423E5AB7C001900DF /* ArticleListViewController.swift in Sources */,
 				AFB4A16C23E5AA33001900DF /* ArticleDetailViewModel.swift in Sources */,
 				AF5F642423CB3D8700FAD371 /* SceneDelegate.swift in Sources */,
