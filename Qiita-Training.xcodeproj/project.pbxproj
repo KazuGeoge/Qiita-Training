@@ -89,6 +89,7 @@
 		AFB4A18823E5BA25001900DF /* RouteAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A18723E5BA25001900DF /* RouteAction.swift */; };
 		AFB4A18A23E5BA3B001900DF /* RouteDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A18923E5BA3B001900DF /* RouteDispatcher.swift */; };
 		AFB4A18C23E5BA4B001900DF /* RouteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A18B23E5BA4B001900DF /* RouteStore.swift */; };
+		AFCDD9FC24B5E0DC0046E294 /* Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCDD9FB24B5E0DC0046E294 /* Reactive.swift */; };
 		AFF6CEB62482D23400C80E4C /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF6CEB52482D23400C80E4C /* Tag.swift */; };
 		AFF6CEB92482F3D600C80E4C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3FCD1824713184001E7C5A /* User.swift */; };
 /* End PBXBuildFile section */
@@ -193,6 +194,7 @@
 		AFB4A18723E5BA25001900DF /* RouteAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteAction.swift; sourceTree = "<group>"; };
 		AFB4A18923E5BA3B001900DF /* RouteDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDispatcher.swift; sourceTree = "<group>"; };
 		AFB4A18B23E5BA4B001900DF /* RouteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteStore.swift; sourceTree = "<group>"; };
+		AFCDD9FB24B5E0DC0046E294 /* Reactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reactive.swift; sourceTree = "<group>"; };
 		AFF6CEB52482D23400C80E4C /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -220,6 +222,7 @@
 				AF6F702F245F803300184A11 /* Decodable.swift */,
 				AF43E5E824A2421200127305 /* NavigationItem.swift */,
 				AF7339B724ADB64700E61D97 /* Date.swift */,
+				AFCDD9FB24B5E0DC0046E294 /* Reactive.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -672,6 +675,7 @@
 				AF384E57241D7CA2006D30F1 /* Article.swift in Sources */,
 				AF785918240BC3EB008B7BE9 /* LoginDispatcher.swift in Sources */,
 				AFABC8D62407F54F00BD10D3 /* ProfileDetailTableViewDataSouce.swift in Sources */,
+				AFCDD9FC24B5E0DC0046E294 /* Reactive.swift in Sources */,
 				AFB4A14D23E5A2BA001900DF /* ProfileViewController.swift in Sources */,
 				AF3FCD1B24713A60001E7C5A /* AuthenticationViewModel.swift in Sources */,
 				AF5C37FF249000D800565FF3 /* UserStore.swift in Sources */,

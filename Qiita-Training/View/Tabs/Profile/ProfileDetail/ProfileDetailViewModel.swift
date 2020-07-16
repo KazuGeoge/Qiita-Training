@@ -11,10 +11,12 @@ import SwiftyUserDefaults
 import RxSwift
 import RxCocoa
 
-final class ProfileDetailViewModel {
+final class ProfileDetailViewModel: NSObject {
 
     private let apiClient: APIClient
     private let disposeBag = DisposeBag()
+    private let routeAction: RouteAction
+    private let viewWillAppear: Observable<(Void)>
     
     private let reloadRelay = PublishRelay<()>()
     var reload: Observable<()> {
@@ -24,8 +26,17 @@ final class ProfileDetailViewModel {
     var profileModel: [Codable] = []
     var profileType: ProfileType?
     
-    init(apiClient: APIClient = .shared) {
+    init(apiClient: APIClient = .shared, routeAction: RouteAction = .shared, viewWillAppear: Observable<Void>) {
         self.apiClient = apiClient
+        self.routeAction = routeAction
+        self.viewWillAppear = viewWillAppear
+        super.init()
+                
+        viewWillAppear
+            .subscribe(onNext: { [weak self] _ in
+                self?.getProfileData()
+            })
+            .disposed(by: disposeBag)
     }
     
     func generateNavigationTitle() -> String {
@@ -90,5 +101,25 @@ final class ProfileDetailViewModel {
                 }
             })
             .disposed(by: self.disposeBag)
+    }
+    
+    func showRouteAction(codableModel: Codable) {
+        // TODO: プロフィールの遷移も引数のmodelを使って処理する
+        switch profileType {
+        case .follow:
+            routeAction.show(routeType: .profile)
+        case .follower:
+            routeAction.show(routeType: .profile)
+        case .stock:
+            if let article = codableModel as? Article {
+                routeAction.show(routeType: .articleDetail(article))
+            }
+        case .tag:
+            if let article = codableModel as? Article {
+                routeAction.show(routeType: .articleDetail(article))
+            }
+        default:
+            break
+        }
     }
 }

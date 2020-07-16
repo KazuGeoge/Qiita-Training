@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ArticleTableViewCell: UITableViewCell {
 
@@ -19,4 +20,18 @@ class ArticleTableViewCell: UITableViewCell {
     @IBOutlet private weak var tagsLabel: UILabel!
     @IBOutlet private weak var timeLabel: UILabel!
     
+    func configure(article: Article) {
+        // いいねが付いていない時はいいね数は表示しない
+        if article.likesCount == 0 {
+            favCountView.isHidden = true
+            tagsView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
+        }
+        
+        favCountLabel.text = String(article.likesCount)
+        iconImageView.kf.setImage(with: URL(string: article.user.profileImageUrl))
+        userNameLabel.text = article.id
+        articleTitleLabel.text = article.title
+        tagsLabel.text = article.tags.map { $0.name }.joined(separator: " ")
+        timeLabel.text = article.createdAtDate?.offsetFrom()
+    }
 }
