@@ -15,6 +15,11 @@ class TagTableViewCell: UITableViewCell {
     @IBOutlet private weak var postedNumLabel: UILabel!
     @IBOutlet private weak var followerNumLabel: UILabel!
     
+    override func prepareForReuse() {
+        // UIImageViewのbackGroundColorは表示させたいためisHiddenにはしない
+        tagIconImageView.image = UIImage()
+    }
+    
     func configure(followedTag: FollowedTag) {
         tagNameLabel.text = followedTag.id
         postedNumLabel.text = String(followedTag.itemsCount) + "件の投稿"
