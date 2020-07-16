@@ -89,7 +89,11 @@
 		AFB4A18823E5BA25001900DF /* RouteAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A18723E5BA25001900DF /* RouteAction.swift */; };
 		AFB4A18A23E5BA3B001900DF /* RouteDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A18923E5BA3B001900DF /* RouteDispatcher.swift */; };
 		AFB4A18C23E5BA4B001900DF /* RouteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB4A18B23E5BA4B001900DF /* RouteStore.swift */; };
+		AFBD4ADD24B6EB0700D223E4 /* TagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFBD4ADB24B6EB0700D223E4 /* TagTableViewCell.swift */; };
+		AFBD4ADE24B6EB0700D223E4 /* TagTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFBD4ADC24B6EB0700D223E4 /* TagTableViewCell.xib */; };
 		AFCDD9FC24B5E0DC0046E294 /* Reactive.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCDD9FB24B5E0DC0046E294 /* Reactive.swift */; };
+		AFCDDA0024B5F7410046E294 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFCDD9FE24B5F7410046E294 /* UserTableViewCell.swift */; };
+		AFCDDA0124B5F7410046E294 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFCDD9FF24B5F7410046E294 /* UserTableViewCell.xib */; };
 		AFF6CEB62482D23400C80E4C /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF6CEB52482D23400C80E4C /* Tag.swift */; };
 		AFF6CEB92482F3D600C80E4C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3FCD1824713184001E7C5A /* User.swift */; };
 /* End PBXBuildFile section */
@@ -194,7 +198,11 @@
 		AFB4A18723E5BA25001900DF /* RouteAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteAction.swift; sourceTree = "<group>"; };
 		AFB4A18923E5BA3B001900DF /* RouteDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDispatcher.swift; sourceTree = "<group>"; };
 		AFB4A18B23E5BA4B001900DF /* RouteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteStore.swift; sourceTree = "<group>"; };
+		AFBD4ADB24B6EB0700D223E4 /* TagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTableViewCell.swift; sourceTree = "<group>"; };
+		AFBD4ADC24B6EB0700D223E4 /* TagTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagTableViewCell.xib; sourceTree = "<group>"; };
 		AFCDD9FB24B5E0DC0046E294 /* Reactive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reactive.swift; sourceTree = "<group>"; };
+		AFCDD9FE24B5F7410046E294 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		AFCDD9FF24B5F7410046E294 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
 		AFF6CEB52482D23400C80E4C /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -305,8 +313,10 @@
 		AFA30C622435EF8D00FCABDF /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				AFBD4ADA24B6EAF100D223E4 /* Tag */,
 				AF7339AF24AC730300E61D97 /* TagCollection */,
 				AF7339B024AC730F00E61D97 /* Article */,
+				AFCDD9FD24B5F70C0046E294 /* User */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -508,6 +518,24 @@
 			path = Store;
 			sourceTree = "<group>";
 		};
+		AFBD4ADA24B6EAF100D223E4 /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+				AFBD4ADB24B6EB0700D223E4 /* TagTableViewCell.swift */,
+				AFBD4ADC24B6EB0700D223E4 /* TagTableViewCell.xib */,
+			);
+			path = Tag;
+			sourceTree = "<group>";
+		};
+		AFCDD9FD24B5F70C0046E294 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				AFCDD9FE24B5F7410046E294 /* UserTableViewCell.swift */,
+				AFCDD9FF24B5F7410046E294 /* UserTableViewCell.xib */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		AFF6CEB72482D24700C80E4C /* APIModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -586,8 +614,10 @@
 				AFB4A13923E5A090001900DF /* TabsViewController.storyboard in Resources */,
 				AF5F642E23CB3D8900FAD371 /* LaunchScreen.storyboard in Resources */,
 				AF25FCAB2402A71500CB1CB7 /* AuthenticationViewController.storyboard in Resources */,
+				AFCDDA0124B5F7410046E294 /* UserTableViewCell.xib in Resources */,
 				AF5F642B23CB3D8900FAD371 /* Assets.xcassets in Resources */,
 				AFB4A14B23E5A26E001900DF /* SearchViewController.storyboard in Resources */,
+				AFBD4ADE24B6EB0700D223E4 /* TagTableViewCell.xib in Resources */,
 				AF7339B424AC733800E61D97 /* ArticleTableViewCell.xib in Resources */,
 				AFB4A16623E5A97A001900DF /* ProfileDetailViewController.storyboard in Resources */,
 				AFABC8D22407ED6400BD10D3 /* ProfileViewController.storyboard in Resources */,
@@ -656,6 +686,7 @@
 				AF5F5BA323F06C520055C672 /* ProfileTableViewDataSouce.swift in Sources */,
 				AFABC8D82407F58F00BD10D3 /* ProfileDetailViewModel.swift in Sources */,
 				AFB4A16023E5A689001900DF /* SettingViewController.swift in Sources */,
+				AFCDDA0024B5F7410046E294 /* UserTableViewCell.swift in Sources */,
 				AF384E51241D7B6F006D30F1 /* ArticleAction.swift in Sources */,
 				AF785916240BC3D4008B7BE9 /* LoginAction.swift in Sources */,
 				AF384E4D241D7B42006D30F1 /* QiitaAPITargetType.swift in Sources */,
@@ -672,6 +703,7 @@
 				AFB4A16A23E5AA1D001900DF /* ArticleDetailViewController.swift in Sources */,
 				AFABC8D42407F4BE00BD10D3 /* ArticleListTableViewDataSouce.swift in Sources */,
 				AFB4A16223E5A958001900DF /* ProfileDetailViewController.swift in Sources */,
+				AFBD4ADD24B6EB0700D223E4 /* TagTableViewCell.swift in Sources */,
 				AF384E57241D7CA2006D30F1 /* Article.swift in Sources */,
 				AF785918240BC3EB008B7BE9 /* LoginDispatcher.swift in Sources */,
 				AFABC8D62407F54F00BD10D3 /* ProfileDetailTableViewDataSouce.swift in Sources */,
