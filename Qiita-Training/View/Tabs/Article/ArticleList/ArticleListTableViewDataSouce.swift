@@ -18,7 +18,7 @@ class ArticleListTableViewDataSouce: NSObject {
     
     func configure(tableView: UITableView) {
      
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(UINib(nibName: "ArticleTableViewCell", bundle: nil), forCellReuseIdentifier: "ArticleTableViewCell")
         tableView.dataSource = self
         tableView.delegate = self
         tableView.reloadData()
@@ -40,9 +40,19 @@ extension ArticleListTableViewDataSouce: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell = UITableViewCell()
-        cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = viewModel.articleList[indexPath.row].title
+        
+        if let articleTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ArticleTableViewCell", for: indexPath) as? ArticleTableViewCell {
+            articleTableViewCell.configure(article: viewModel.articleList[indexPath.row])
+            
+            cell = articleTableViewCell
+        }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        tableView.estimatedRowHeight = 100
+
+        return UITableView.automaticDimension
     }
 }

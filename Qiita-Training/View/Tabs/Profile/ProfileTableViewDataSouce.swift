@@ -20,7 +20,7 @@ class ProfileTableViewDataSouce: NSObject {
     
     func configure(tableView: UITableView) {
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(UINib(nibName: "ArticleTableViewCell", bundle: nil), forCellReuseIdentifier: "ArticleTableViewCell")
         tableView.dataSource = self
         tableView.delegate = self
         tableView.reloadData()
@@ -42,23 +42,22 @@ extension ProfileTableViewDataSouce: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return viewModel.articleList.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
   
-        let postNum = 0
-        return "\(postNum)件の投稿"
+        return "\(viewModel.articleList.count)件の投稿"
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell = UITableViewCell()
-        cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        // 作成したセルクラスを使用する
-        if !viewModel.articleList.isEmpty {
-            cell.textLabel?.text = viewModel.articleList[indexPath.row].title
+
+        if let articleCell = tableView.dequeueReusableCell(withIdentifier: "ArticleTableViewCell", for: indexPath) as? ArticleTableViewCell {
+            articleCell.configure(article: viewModel.articleList[indexPath.row])
+            
+            cell = articleCell
         }
         
         return cell
