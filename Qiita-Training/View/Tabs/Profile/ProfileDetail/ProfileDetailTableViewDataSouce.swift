@@ -17,9 +17,9 @@ class ProfileDetailTableViewDataSouce: NSObject {
     
     func configure(tableView: UITableView) {
         
-        tableView.register(UINib(nibName: "ArticleTableViewCell", bundle: nil), forCellReuseIdentifier: "ArticleTableViewCell")
-        tableView.register(UINib(nibName: "UserTableViewCell", bundle: nil), forCellReuseIdentifier: "UserTableViewCell")
-        tableView.register(UINib(nibName: "TagTableViewCell", bundle: nil), forCellReuseIdentifier: "TagTableViewCell")
+        tableView.register(UINib(nibName: UserTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: UserTableViewCell.reuseIdentifier)
+        tableView.register(UINib(nibName: ArticleTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: ArticleTableViewCell.reuseIdentifier)
+        tableView.register(UINib(nibName: TagTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: TagTableViewCell.reuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.reloadData()
@@ -43,23 +43,22 @@ extension ProfileDetailTableViewDataSouce: UITableViewDataSource {
         switch viewModel.profileType {
         case .follow, .follower:
             if let userList = viewModel.profileModel as? [User] ,
-                let userTableViewCell = tableView.dequeueReusableCell(withIdentifier: "UserTableViewCell", for: indexPath) as? UserTableViewCell {
+                let userTableViewCell = tableView.dequeueReusableCell(withIdentifier: UserTableViewCell.reuseIdentifier, for: indexPath) as? UserTableViewCell {
                 userTableViewCell.configure(user: userList[indexPath.row])
                 
                 cell = userTableViewCell
             }
         case .stock:
             if let stockArticles = viewModel.profileModel as? [Article] ,
-                let articleTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ArticleTableViewCell", for: indexPath) as? ArticleTableViewCell {
+                let articleTableViewCell = tableView.dequeueReusableCell(withIdentifier: ArticleTableViewCell.reuseIdentifier, for: indexPath) as? ArticleTableViewCell {
                 articleTableViewCell.configure(article: stockArticles[indexPath.row])
                 
                 cell = articleTableViewCell
             }
         case .tag:
             if let followedTag = viewModel.profileModel as? [FollowedTag] ,
-                let tagTableViewCell = tableView.dequeueReusableCell(withIdentifier: "TagTableViewCell", for: indexPath) as? TagTableViewCell {
+                let tagTableViewCell = tableView.dequeueReusableCell(withIdentifier: TagTableViewCell.reuseIdentifier, for: indexPath) as? TagTableViewCell {
                 tagTableViewCell.configure(followedTag: followedTag[indexPath.row])
-                
                 cell = tagTableViewCell
             }
         case .none:
