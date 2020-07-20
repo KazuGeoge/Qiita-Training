@@ -29,7 +29,6 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewModel.getUserPostedArticle()
         observeViewModel()
         dataSouce.configure(tableView: tableView)
         configureButton()
@@ -51,6 +50,7 @@ class ProfileViewController: UIViewController {
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] _ in
                 self?.tableView.reloadData()
+                self?.configureUI()
             })
             .disposed(by: disposeBag)
     }
@@ -58,7 +58,9 @@ class ProfileViewController: UIViewController {
     private func configureUI() {
         let user = viewModel.user
         
+        userImageView.kf.setImage(with: URL(string: user?.profileImageUrl ?? ""))
         userName.text = user?.id
+        smallUserName.text = user?.id
         
         // TODO: 画像処理は別Issueで行う
         if let follow = user?.followeesCount, let followers = user?.followersCount {
