@@ -9,14 +9,15 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import SwiftyUserDefaults
 
 class ProfileViewController: UIViewController {
 
+    lazy var viewModel = ProfileViewModel()
     @IBOutlet private weak var userImageView: UIImageView!
     @IBOutlet private weak var userName: UILabel!
     @IBOutlet private weak var smallUserName: UILabel!
     @IBOutlet private weak var tableView: UITableView!
-    private lazy var viewModel = ProfileViewModel()
     private lazy var dataSouce = ProfileTableViewDataSouce(viewModel: viewModel)
     @IBOutlet private weak var followButton: UIButton!
     @IBOutlet private weak var followerButton: UIButton!
@@ -33,6 +34,7 @@ class ProfileViewController: UIViewController {
         dataSouce.configure(tableView: tableView)
         configureButton()
         configureNavigationBar()
+        setUserData()
     }
     
     private func configureNavigationBar() {
@@ -43,6 +45,12 @@ class ProfileViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         configureUI()
+    }
+    
+    // ユーザーのIDを元にAPIを叩くためsetUserIDを必ず最初に呼ぶ
+    private func setUserData() {
+        viewModel.setUserID()
+        viewModel.getUserDate()
     }
     
     private func observeViewModel() {

@@ -12,7 +12,7 @@ import RxCocoa
 enum RouteType {
    case articleDetail(Article)
    case articleList(QiitaAPI)
-   case profile
+   case profile(Bool, String)
    case profileDetail(ProfileType)
    case login
    case stillLogin

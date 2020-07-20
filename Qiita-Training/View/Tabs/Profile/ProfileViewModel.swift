@@ -7,6 +7,7 @@
 //
 import RxSwift
 import RxCocoa
+import SwiftyUserDefaults
 
 final class ProfileViewModel {
     
@@ -18,6 +19,9 @@ final class ProfileViewModel {
     private let userAction: UserAction
     private let userStore: UserStore
     var user: User?
+    var userID = ""
+    var otherUserID = ""
+    var isSelfUser = true
     var reload: Observable<()> {
         return reloadRelay.asObservable()
     }
@@ -29,20 +33,21 @@ final class ProfileViewModel {
         self.articleStore = articleStore
         self.userAction = userAction
         self.userStore = userStore
-        self.user = userStore.user.value
         
         observeReloadTriger()
-        getUserDate()
-        getUserPostedArticle()
+    }
+    
+    func setUserID() {
+        self.userID = isSelfUser ? Defaults.userID : otherUserID
     }
     
     private func getUserPostedArticle() {
-        apiClient.provider.rx.request(.userPostedArticle)
+        apiClient.provider.rx.request(.userPostedArticle(userID))
             .filterSuccessfulStatusCodes()
-            .subscribe(onSuccess: {[weak self] articleAraayResponse in
+            .subscribe(onSuccess: { [weak self] articleAraayResponse in
                 do {
                     let article = try [Article].decode(json: articleAraayResponse.data)
-                    self?.articleAction.article(articleList: article, qiitaAPIType: .userPostedArticle)
+                    self?.articleAction.article(articleList: article, qiitaAPIType: .userPostedArticle(self?.userID ?? ""))
                 } catch(let error) {
                     // TODO: エラーイベントを流す
                     print(error)
@@ -57,7 +62,7 @@ final class ProfileViewModel {
     // 記事のAPIとユーザー情報のAPIのレスポンスが揃ったらデータをViewModel内で保持させRelayでイベントを流す
     private func observeReloadTriger() {
         articleStore.article.asObservable()
-            .filter { article in article.1 == .userPostedArticle }
+            .filter { [weak self] article in article.1 == .userPostedArticle(self?.userID ?? "") }
             .withLatestFrom(userStore.user.asObservable()) { ($0, $1) }
             .do(onNext: { [weak self] in self?.articleList = $0.0.0 })
             .do(onNext: { [weak self] in self?.user = $0.1 })
@@ -66,8 +71,10 @@ final class ProfileViewModel {
             .disposed(by: disposeBag)
     }
     
-    private func getUserDate() {
-        apiClient.provider.rx.request(.authenticatedUser)
+    func getUserDate() {
+        getUserPostedArticle()
+        
+        apiClient.provider.rx.request(.userProfile(userID))
             .filterSuccessfulStatusCodes()
             .subscribe(onSuccess: { [weak self] articleListResponse in
                 do {

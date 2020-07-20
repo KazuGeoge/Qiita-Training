@@ -101,10 +101,10 @@ final class ProfileDetailViewModel: NSObject {
     func showRouteAction(codableModel: Codable) {
         // TODO: プロフィールの遷移も引数のmodelを使って処理する
         switch profileType {
-        case .follow:
-            routeAction.show(routeType: .profile)
-        case .follower:
-            routeAction.show(routeType: .profile)
+        case .follow, .follower:
+            if let user = codableModel as? User {
+                routeAction.show(routeType: .profile(false, user.id))
+            }
         case .stock:
             if let article = codableModel as? Article {
                 routeAction.show(routeType: .articleDetail(article))

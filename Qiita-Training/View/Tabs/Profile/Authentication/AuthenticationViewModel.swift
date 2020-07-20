@@ -43,6 +43,7 @@ class AuthenticationViewModel: NSObject {
                     self?.userAction.user(user: result)
                     self?.viewDismissSubject.onNext(())
                     self?.getFollowedTagData()
+                    Defaults.userID = result.id
                 } catch(let error) {
                     // TODO: エラーイベントを流す
                     print(error)
