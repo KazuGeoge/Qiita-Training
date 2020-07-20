@@ -79,26 +79,26 @@ class ProfileViewController: UIViewController {
 
     private func configureButton() {
         followButton.rx.tap
-            .subscribe({ _ in
-                RouteAction.shared.show(routeType: .profileDetail(.follow))
+            .subscribe({ [weak self] _ in
+                RouteAction.shared.show(routeType: .profileDetail(.follow, self?.viewModel.user?.id ?? ""))
             })
             .disposed(by: disposeBag)
         
         followerButton.rx.tap
-            .subscribe({ _ in
-                RouteAction.shared.show(routeType: .profileDetail(.follower))
+            .subscribe({ [weak self] _ in
+                RouteAction.shared.show(routeType: .profileDetail(.follower, self?.viewModel.user?.id ?? ""))
             })
             .disposed(by: disposeBag)
         
         stockButton.rx.tap
-            .subscribe({ _ in
-                RouteAction.shared.show(routeType: .profileDetail(.stock))
+            .subscribe({ [weak self] _ in
+                RouteAction.shared.show(routeType: .profileDetail(.stock, self?.viewModel.user?.id ?? ""))
             })
             .disposed(by: disposeBag)
         
         tagButton.rx.tap
-            .subscribe({ _ in
-                RouteAction.shared.show(routeType: .profileDetail(.tag))
+            .subscribe({ [weak self] _ in
+                RouteAction.shared.show(routeType: .profileDetail(.tag, self?.viewModel.user?.id ?? ""))
             })
             .disposed(by: disposeBag)
     }

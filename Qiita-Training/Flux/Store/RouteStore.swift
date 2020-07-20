@@ -13,7 +13,7 @@ enum RouteType {
    case articleDetail(Article)
    case articleList(QiitaAPI)
    case profile(Bool, String)
-   case profileDetail(ProfileType)
+   case profileDetail(ProfileType, String)
    case login
    case stillLogin
    case setting

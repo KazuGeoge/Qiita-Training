@@ -74,9 +74,10 @@ class TabsViewController: UITabBarController {
                     profileViewController?.viewModel.isSelfUser = isSelfUser
                     profileViewController?.viewModel.otherUserID = userName
                     viewContoroller = profileViewController
-                case .profileDetail(let profileType):
+                case .profileDetail(let profileType, let userID):
                     let profileDetailViewController = ViewControllerBuilder.shared.configureViewController(viewControllerType: .profileDetail) as? ProfileDetailViewController
                     profileDetailViewController?.viewModel.profileType = profileType
+                    profileDetailViewController?.viewModel.userID = userID
                     viewContoroller = profileDetailViewController
                 case .stillLogin:
                     viewContoroller = ViewControllerBuilder.shared.configureViewController(viewControllerType: .stillLogin) as? StillLoginUserViewController

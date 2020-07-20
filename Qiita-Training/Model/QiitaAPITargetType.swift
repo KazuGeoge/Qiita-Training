@@ -12,15 +12,15 @@ import SwiftyUserDefaults
 enum QiitaAPI: Equatable {
     case newArticle
     case followedTagArticle([String])
-    case stockArticle
+    case stockArticle(String)
     case searchWord(String)
     case searchTag(String)
     case authenticatedUser
     case userProfile(String)
-    case followedTag
+    case followedTag(String)
     case userPostedArticle(String)
-    case followUsers
-    case followerUsers
+    case followUsers(String)
+    case followerUsers(String)
 }
 
 extension QiitaAPI: TargetType {
@@ -41,12 +41,12 @@ extension QiitaAPI: TargetType {
             return "/api/v2/authenticated_user"
         case .userProfile(let userID):
             return "/api/v2/users/\(userID)"
-        case .followedTag:
-            return "api/v2/users/\(Defaults.userID)/following_tags"
-        case .followUsers:
-            return "/api/v2/users/\(Defaults.userID)/followees"
-        case .followerUsers:
-            return "/api/v2/users/\(Defaults.userID)/followers"
+        case .followedTag(let userID):
+            return "api/v2/users/\(userID)/following_tags"
+        case .followUsers(let userID):
+            return "/api/v2/users/\(userID)/followees"
+        case .followerUsers(let userID):
+            return "/api/v2/users/\(userID)/followers"
         }
     }
 

@@ -47,7 +47,7 @@ final class FeedViewModel {
     
     private func observeLoginStore() {
         loginStore.login.asObservable()
-            .do { [weak self] in self?.getAPI(qiitaAPI: .stockArticle) }
+            .do { [weak self] in self?.getAPI(qiitaAPI: .stockArticle(Defaults.userID)) }
             .subscribe(onNext: { [weak self] _ in
                 guard let followedTagArray = Defaults.followedTagArray else { return }
                 self?.getAPI(qiitaAPI: .followedTagArticle(followedTagArray))

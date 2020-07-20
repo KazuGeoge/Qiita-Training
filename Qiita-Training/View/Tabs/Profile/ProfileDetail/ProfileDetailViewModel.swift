@@ -25,6 +25,7 @@ final class ProfileDetailViewModel: NSObject {
     
     var profileModel: [Codable] = []
     var profileType: ProfileType?
+    var userID = ""
     
     init(apiClient: APIClient = .shared, routeAction: RouteAction = .shared, viewWillAppear: Observable<()>) {
         self.apiClient = apiClient
@@ -36,7 +37,7 @@ final class ProfileDetailViewModel: NSObject {
     
     func generateNavigationTitle() -> String {
         
-        var title = "\(Defaults.userID)さんの"
+        var title = "\(userID)さんの"
         
         switch profileType {
         case .follow:
@@ -58,15 +59,15 @@ final class ProfileDetailViewModel: NSObject {
         
         switch profileType {
         case .follow:
-            qiitaAPI = .followUsers
+            qiitaAPI = .followUsers(userID)
         case .follower:
-            qiitaAPI = .followerUsers
+            qiitaAPI = .followerUsers(userID)
         case .stock:
-            qiitaAPI = .stockArticle
+            qiitaAPI = .stockArticle(userID)
         case .tag:
-            qiitaAPI = .followedTag
+            qiitaAPI = .followedTag(userID)
         case .none:
-            break
+            break 
         }
         
         callAPI(qiitaAPI: qiitaAPI)
