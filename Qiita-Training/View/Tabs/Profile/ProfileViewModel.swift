@@ -18,8 +18,8 @@ final class ProfileViewModel {
     private let reloadRelay = PublishRelay<()>()
     private let userAction: UserAction
     private let userStore: UserStore
+    private var userID = ""
     var user: User?
-    var userID = ""
     var otherUserID = ""
     var isSelfUser = true
     var reload: Observable<()> {
