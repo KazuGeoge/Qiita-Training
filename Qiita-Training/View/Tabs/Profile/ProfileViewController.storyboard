@@ -53,10 +53,10 @@
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LR5-ZO-VVX" customClass="FollowButton" customModule="Qiita_Training" customModuleProvider="target">
-                                                <rect key="frame" x="10" y="140" width="394" height="0.0"/>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LR5-ZO-VVX" customClass="IsFollowButton" customModule="Qiita_Training" customModuleProvider="target">
+                                                <rect key="frame" x="10" y="90" width="394" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" id="ZEP-Ip-B76"/>
+                                                    <constraint firstAttribute="height" constant="40" id="ZEP-Ip-B76"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                             </button>
@@ -64,8 +64,9 @@
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="0.22239263803680981" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="LR5-ZO-VVX" firstAttribute="leading" secondItem="04V-G3-FQn" secondAttribute="leading" id="15u-SD-2he"/>
-                                            <constraint firstItem="LR5-ZO-VVX" firstAttribute="top" secondItem="04V-G3-FQn" secondAttribute="bottom" constant="10" id="2Po-Kf-zkX"/>
+                                            <constraint firstItem="LR5-ZO-VVX" firstAttribute="top" secondItem="04V-G3-FQn" secondAttribute="bottom" priority="500" constant="10" id="2Po-Kf-zkX"/>
                                             <constraint firstItem="AeY-Ip-Y6T" firstAttribute="leading" secondItem="t1d-Yc-8SG" secondAttribute="leading" constant="10" id="4G9-Mj-YP1"/>
+                                            <constraint firstAttribute="bottom" secondItem="bBG-KP-X91" secondAttribute="bottom" priority="700" constant="10" id="7Xf-Yv-n2F"/>
                                             <constraint firstAttribute="trailing" secondItem="Rxz-jE-Mot" secondAttribute="trailing" id="8wd-P9-3xN"/>
                                             <constraint firstItem="AeY-Ip-Y6T" firstAttribute="top" secondItem="t1d-Yc-8SG" secondAttribute="top" constant="10" id="AL0-Os-vPT"/>
                                             <constraint firstItem="bBG-KP-X91" firstAttribute="leading" secondItem="04V-G3-FQn" secondAttribute="trailing" constant="5" id="Gi8-1q-jJr"/>
@@ -78,7 +79,7 @@
                                             <constraint firstAttribute="bottom" secondItem="Rxz-jE-Mot" secondAttribute="bottom" id="fOu-zc-8LC"/>
                                             <constraint firstItem="fxP-Rg-V1I" firstAttribute="leading" secondItem="AeY-Ip-Y6T" secondAttribute="trailing" constant="15" id="kU0-nO-ELh"/>
                                             <constraint firstItem="Rxz-jE-Mot" firstAttribute="leading" secondItem="t1d-Yc-8SG" secondAttribute="leading" id="oHl-Vl-a2r"/>
-                                            <constraint firstAttribute="bottom" secondItem="LR5-ZO-VVX" secondAttribute="bottom" id="ua3-HT-T1g"/>
+                                            <constraint firstAttribute="bottom" secondItem="LR5-ZO-VVX" secondAttribute="bottom" constant="10" id="ua3-HT-T1g"/>
                                             <constraint firstItem="04V-G3-FQn" firstAttribute="bottom" secondItem="bBG-KP-X91" secondAttribute="bottom" id="xPa-27-hyz"/>
                                         </constraints>
                                     </view>
@@ -258,9 +259,9 @@
                         <viewLayoutGuide key="safeArea" id="ld0-KP-4iH"/>
                     </view>
                     <connections>
-                        <outlet property="followButton" destination="LR5-ZO-VVX" id="sy9-q7-VxI"/>
+                        <outlet property="IsFollowButton" destination="LR5-ZO-VVX" id="1c9-qR-wHe"/>
+                        <outlet property="followButton" destination="rJA-Q5-2uQ" id="MS2-eI-yRz"/>
                         <outlet property="followCountLabel" destination="dse-D7-13W" id="x1z-rI-U4s"/>
-                        <outlet property="followUserButton" destination="LR5-ZO-VVX" id="rAH-JW-IGm"/>
                         <outlet property="followerButton" destination="EAo-lu-uns" id="25J-g0-Qfl"/>
                         <outlet property="followerCountLabel" destination="Clw-Cj-n9M" id="dZu-qX-8sH"/>
                         <outlet property="smallUserName" destination="bBG-KP-X91" id="slh-NZ-XYi"/>

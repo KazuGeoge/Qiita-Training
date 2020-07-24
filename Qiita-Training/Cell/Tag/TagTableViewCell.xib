@@ -83,7 +83,7 @@
                             <constraint firstAttribute="bottom" secondItem="1Vg-qO-xBt" secondAttribute="bottom" id="i4W-nc-sTi"/>
                         </constraints>
                     </view>
-                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjh-Id-lv4" customClass="FollowButton" customModule="Qiita_Training" customModuleProvider="target">
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xjh-Id-lv4" customClass="IsFollowButton" customModule="Qiita_Training" customModuleProvider="target">
                         <rect key="frame" x="10" y="70" width="443" height="0.0"/>
                         <constraints>
                             <constraint firstAttribute="height" id="eBd-ur-v1Q"/>

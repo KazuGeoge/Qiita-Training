@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class FollowButton: UIButton {
+class IsFollowButton: UIButton {
 
     override func draw(_ rect: CGRect) {
         

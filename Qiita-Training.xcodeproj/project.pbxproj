@@ -42,8 +42,8 @@
 		AF5F642623CB3D8700FAD371 /* TabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5F642523CB3D8700FAD371 /* TabsViewController.swift */; };
 		AF5F642B23CB3D8900FAD371 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF5F642A23CB3D8900FAD371 /* Assets.xcassets */; };
 		AF5F642E23CB3D8900FAD371 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF5F642C23CB3D8900FAD371 /* LaunchScreen.storyboard */; };
-		AF691A2924CADFA4000EFD5B /* FollowButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF691A2824CADFA4000EFD5B /* FollowButton.xib */; };
-		AF691A2B24CAE0A9000EFD5B /* FollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF691A2A24CAE0A9000EFD5B /* FollowButton.swift */; };
+		AF691A2924CADFA4000EFD5B /* IsFollowButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF691A2824CADFA4000EFD5B /* IsFollowButton.xib */; };
+		AF691A2B24CAE0A9000EFD5B /* IsFollowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF691A2A24CAE0A9000EFD5B /* IsFollowButton.swift */; };
 		AF6F7030245F803300184A11 /* Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6F702F245F803300184A11 /* Decodable.swift */; };
 		AF7339B324AC733800E61D97 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7339B124AC733800E61D97 /* ArticleTableViewCell.swift */; };
 		AF7339B424AC733800E61D97 /* ArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF7339B224AC733800E61D97 /* ArticleTableViewCell.xib */; };
@@ -155,8 +155,8 @@
 		AF5F642A23CB3D8900FAD371 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF5F642D23CB3D8900FAD371 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF5F642F23CB3D8900FAD371 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AF691A2824CADFA4000EFD5B /* FollowButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FollowButton.xib; sourceTree = "<group>"; };
-		AF691A2A24CAE0A9000EFD5B /* FollowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowButton.swift; sourceTree = "<group>"; };
+		AF691A2824CADFA4000EFD5B /* IsFollowButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IsFollowButton.xib; sourceTree = "<group>"; };
+		AF691A2A24CAE0A9000EFD5B /* IsFollowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsFollowButton.swift; sourceTree = "<group>"; };
 		AF6F702F245F803300184A11 /* Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decodable.swift; sourceTree = "<group>"; };
 		AF7339B124AC733800E61D97 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		AF7339B224AC733800E61D97 /* ArticleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleTableViewCell.xib; sourceTree = "<group>"; };
@@ -303,8 +303,8 @@
 		AF691A2724CADF4B000EFD5B /* Button */ = {
 			isa = PBXGroup;
 			children = (
-				AF691A2A24CAE0A9000EFD5B /* FollowButton.swift */,
-				AF691A2824CADFA4000EFD5B /* FollowButton.xib */,
+				AF691A2A24CAE0A9000EFD5B /* IsFollowButton.swift */,
+				AF691A2824CADFA4000EFD5B /* IsFollowButton.xib */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -623,7 +623,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF691A2924CADFA4000EFD5B /* FollowButton.xib in Resources */,
+				AF691A2924CADFA4000EFD5B /* IsFollowButton.xib in Resources */,
 				AFB4A17823E5AB9F001900DF /* ArticleListViewController.storyboard in Resources */,
 				AFA30C662435EFAB00FCABDF /* TagCollectionViewCell.xib in Resources */,
 				AFABC8E3240887EE00BD10D3 /* StillLoginUserViewController.storyboard in Resources */,
@@ -705,7 +705,7 @@
 				AF5F5BA323F06C520055C672 /* ProfileTableViewDataSouce.swift in Sources */,
 				AFABC8D82407F58F00BD10D3 /* ProfileDetailViewModel.swift in Sources */,
 				AFB4A16023E5A689001900DF /* SettingViewController.swift in Sources */,
-				AF691A2B24CAE0A9000EFD5B /* FollowButton.swift in Sources */,
+				AF691A2B24CAE0A9000EFD5B /* IsFollowButton.swift in Sources */,
 				AFCDDA0024B5F7410046E294 /* UserTableViewCell.swift in Sources */,
 				AF384E51241D7B6F006D30F1 /* ArticleAction.swift in Sources */,
 				AF785916240BC3D4008B7BE9 /* LoginAction.swift in Sources */,
