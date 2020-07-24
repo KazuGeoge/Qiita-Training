@@ -25,6 +25,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet private weak var tagButton: UIButton!
     @IBOutlet private weak var followCountLabel: UILabel!
     @IBOutlet private weak var followerCountLabel: UILabel!
+    @IBOutlet weak var followUserButton: FollowButton!
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {

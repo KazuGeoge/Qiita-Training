@@ -14,6 +14,7 @@ class TagTableViewCell: UITableViewCell {
     @IBOutlet private weak var tagNameLabel: UILabel!
     @IBOutlet private weak var postedNumLabel: UILabel!
     @IBOutlet private weak var followerNumLabel: UILabel!
+    @IBOutlet weak var followButton: FollowButton!
     
     override func prepareForReuse() {
         // UIImageViewのbackGroundColorは表示させたいためisHiddenにはしない

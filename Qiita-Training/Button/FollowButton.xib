@@ -11,7 +11,11 @@
         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wAv-Vx-DwA" customClass="FollowButton" customModule="Qiita_Training" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="473" height="74"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <state key="normal" title="Button"/>
+            <color key="backgroundColor" red="0.29273373553697629" green="0.59609608232572941" blue="0.04275939126254065" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+            <state key="normal" title="＋フォロー">
+                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            </state>
             <point key="canvasLocation" x="-410.86956521739131" y="23.4375"/>
         </button>
     </objects>
