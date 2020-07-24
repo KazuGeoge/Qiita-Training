@@ -259,11 +259,12 @@
                         <viewLayoutGuide key="safeArea" id="ld0-KP-4iH"/>
                     </view>
                     <connections>
-                        <outlet property="IsFollowButton" destination="LR5-ZO-VVX" id="1c9-qR-wHe"/>
                         <outlet property="followButton" destination="rJA-Q5-2uQ" id="MS2-eI-yRz"/>
                         <outlet property="followCountLabel" destination="dse-D7-13W" id="x1z-rI-U4s"/>
                         <outlet property="followerButton" destination="EAo-lu-uns" id="25J-g0-Qfl"/>
                         <outlet property="followerCountLabel" destination="Clw-Cj-n9M" id="dZu-qX-8sH"/>
+                        <outlet property="isFollowButton" destination="LR5-ZO-VVX" id="1c9-qR-wHe"/>
+                        <outlet property="isFollowButtonBottom" destination="2Po-Kf-zkX" id="AD5-nz-Jxd"/>
                         <outlet property="smallUserName" destination="bBG-KP-X91" id="slh-NZ-XYi"/>
                         <outlet property="stockButton" destination="CK4-IK-hFL" id="G37-j8-IMk"/>
                         <outlet property="tableView" destination="7kr-HS-gCv" id="loq-k1-qwB"/>
