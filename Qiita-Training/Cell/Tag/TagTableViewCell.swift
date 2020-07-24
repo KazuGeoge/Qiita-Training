@@ -17,7 +17,7 @@ class TagTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         // UIImageViewのbackGroundColorは表示させたいためisHiddenにはしない
-        tagIconImageView.image = UIImage()
+        tagIconImageView.image = nil
     }
     
     func configure(followedTag: FollowedTag) {
