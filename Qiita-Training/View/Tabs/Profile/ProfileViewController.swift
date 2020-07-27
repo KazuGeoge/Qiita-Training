@@ -37,6 +37,13 @@ class ProfileViewController: UIViewController {
         configureButton()
         configureNavigationBar()
         setUserData()
+        
+        if !viewModel.isSelfUser {
+            isFollowButton.isHidden = false
+            isFollowButtonBottom.priority = UILayoutPriority(rawValue: 1000)
+            
+            viewModel.isFollowUser()
+        }
     }
     
     private func configureNavigationBar() {
@@ -61,6 +68,13 @@ class ProfileViewController: UIViewController {
             .subscribe(onNext: { [weak self] _ in
                 self?.tableView.reloadData()
                 self?.configureUI()
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.follow.asObservable()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] _ in
+                self?.isFollowButton.configureFollowState()
             })
             .disposed(by: disposeBag)
     }

@@ -16,6 +16,7 @@ final class ProfileViewModel {
     private let articleStore: ArticleStore
     private let disposeBag = DisposeBag()
     private let reloadRelay = PublishRelay<()>()
+    private let followRelay = PublishRelay<()>()
     private let userAction: UserAction
     private let userStore: UserStore
     private var userID = ""
@@ -24,6 +25,9 @@ final class ProfileViewModel {
     var isSelfUser = true
     var reload: Observable<()> {
         return reloadRelay.asObservable()
+    }
+    var follow: Observable<()> {
+        return followRelay.asObservable()
     }
     var articleList: [Article] = []
     
@@ -80,6 +84,28 @@ final class ProfileViewModel {
                 do {
                     let result = try User.decode(json: articleListResponse.data)
                     self?.userAction.user(user: result)
+                } catch(let error) {
+                    // TODO: エラーイベントを流す
+                    print(error)
+                }
+            }) { (error) in
+                // TODO: エラーイベントを流す
+                print(error)
+        }
+        .disposed(by: self.disposeBag)
+    }
+    
+    func isFollowUser() {
+        apiClient.provider.rx.request(.followUsers(Defaults.userID))
+            .filterSuccessfulStatusCodes()
+            .subscribe(onSuccess: { [weak self] articleListResponse in
+                do {
+                    let followUsers = try [User].decode(json: articleListResponse.data)
+                    
+                    if followUsers.map({ $0.id }).contains(self?.userID) {
+                        self?.followRelay.accept(())
+                        return
+                    }
                 } catch(let error) {
                     // TODO: エラーイベントを流す
                     print(error)
