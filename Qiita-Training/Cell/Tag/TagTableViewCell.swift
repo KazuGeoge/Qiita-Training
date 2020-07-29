@@ -14,21 +14,33 @@ class TagTableViewCell: UITableViewCell {
     @IBOutlet private weak var tagNameLabel: UILabel!
     @IBOutlet private weak var postedNumLabel: UILabel!
     @IBOutlet private weak var followerNumLabel: UILabel!
-    @IBOutlet weak var isFollowButton: UIButton!
-    @IBOutlet weak var isFollowButtonTop: NSLayoutConstraint!
+    @IBOutlet private weak var isFollowButton: IsFollowButton!
+    @IBOutlet private weak var isFollowButtonTop: NSLayoutConstraint!
     
     override func prepareForReuse() {
         // UIImageViewのbackGroundColorは表示させたいためisHiddenにはしない
         tagIconImageView.image = UIImage()
     }
     
-    func configure(followedTag: FollowedTag) {
+    func configure(followedTag: FollowedTag?) {
+        guard let followedTag = followedTag else { return }
+        
         tagNameLabel.text = followedTag.id
         postedNumLabel.text = String(followedTag.itemsCount) + "件の投稿"
         followerNumLabel.text = String(followedTag.followersCount) + "人のフォロワー"
         
         if let iconUrlString = followedTag.iconUrl {
             tagIconImageView.kf.setImage(with: URL(string: iconUrlString))
+        }
+    }
+    
+    func isShowFollowButton(isFollow: Bool) {
+        backgroundColor = .systemGray5
+        isFollowButton.isHidden = false
+        isFollowButtonTop.priority = UILayoutPriority(rawValue: 1000)
+        
+        if isFollow {
+            isFollowButton.configureFollowState()
         }
     }
 }

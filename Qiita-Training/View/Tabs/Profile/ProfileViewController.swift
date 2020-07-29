@@ -26,7 +26,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet private weak var followCountLabel: UILabel!
     @IBOutlet private weak var followerCountLabel: UILabel!
     @IBOutlet private weak var isFollowButton: IsFollowButton!
-    @IBOutlet private weak var isFollowButtonBottom: NSLayoutConstraint!
+    @IBOutlet private weak var isFollowButtonTop: NSLayoutConstraint!
     private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -40,7 +40,7 @@ class ProfileViewController: UIViewController {
         
         if !viewModel.isSelfUser {
             isFollowButton.isHidden = false
-            isFollowButtonBottom.priority = UILayoutPriority(rawValue: 1000)
+            isFollowButtonTop.priority = UILayoutPriority(rawValue: 1000)
             
             viewModel.isFollowUser()
         }

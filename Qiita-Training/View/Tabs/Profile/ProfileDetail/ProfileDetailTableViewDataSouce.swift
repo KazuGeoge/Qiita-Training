@@ -74,6 +74,8 @@ extension ProfileDetailTableViewDataSouce: UITableViewDataSource {
         
         if case viewModel.profileType = ProfileType.stock {
             tableView.estimatedRowHeight = 100
+        } else if case viewModel.profileType = ProfileType.tag {
+            return 70
         }
         
         return UITableView.automaticDimension
