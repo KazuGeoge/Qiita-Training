@@ -63,13 +63,16 @@ final class ProfileViewModel {
         .disposed(by: self.disposeBag)
     }
     
-    // 記事のAPIとユーザー情報のAPIのレスポンスが揃ったらデータをViewModel内で保持させRelayでイベントを流す
     private func observeReloadTriger() {
         articleStore.article.asObservable()
             .filter { [weak self] article in article.1 == .userPostedArticle(self?.userID ?? "") }
-            .withLatestFrom(userStore.user.asObservable()) { ($0, $1) }
-            .do(onNext: { [weak self] in self?.articleList = $0.0.0 })
-            .do(onNext: { [weak self] in self?.user = $0.1 })
+            .do(onNext: { [weak self] article in self?.articleList = article.0 })
+            .map {_ in ()}
+            .bind(to: reloadRelay)
+            .disposed(by: disposeBag)
+        
+        userStore.user.asObservable()
+            .do(onNext: { [weak self] in self?.user = $0 })
             .map {_ in ()}
             .bind(to: reloadRelay)
             .disposed(by: disposeBag)
