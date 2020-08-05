@@ -46,8 +46,8 @@ extension ArticleListTableViewDataSouce: UITableViewDataSource {
         // タグを表示する時はヘッダーとしてタグのセルを一番最初に追加する
         if indexPath.row == 0, viewModel.isSearchTag,
             let tagTableViewCell = tableView.dequeueReusableCell(withIdentifier: TagTableViewCell.reuseIdentifier, for: indexPath) as? TagTableViewCell {
-            tagTableViewCell.configure(followedTag: viewModel.tag)
-            tagTableViewCell.isShowFollowButton(isFollow: viewModel.isFollowTag)
+            tagTableViewCell.showFollowButton()
+            
             return tagTableViewCell
         }
         

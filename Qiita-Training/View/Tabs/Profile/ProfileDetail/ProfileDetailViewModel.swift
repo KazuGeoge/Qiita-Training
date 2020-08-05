@@ -16,7 +16,6 @@ final class ProfileDetailViewModel: NSObject {
     private let disposeBag = DisposeBag()
     private let routeAction: RouteAction
     private let viewWillAppear: Observable<()>
-    
     private let reloadRelay = PublishRelay<()>()
     var reload: Observable<()> {
         return reloadRelay.asObservable()
@@ -110,12 +109,34 @@ final class ProfileDetailViewModel: NSObject {
                 routeAction.show(routeType: .articleDetail(article))
             }
         case .tag:
-            if let article = codableModel as? Article {
-                routeAction.show(routeType: .articleDetail(article))
+            if let tag = codableModel as? FollowedTag {
+                let qiitaAPI = QiitaAPI.searchTag(tag.id)
+                routeAction.show(routeType: .articleList(qiitaAPI))
+                getArticleDate(qiitaAPI: qiitaAPI)
             }
         default:
             break
         }
+    }
+    
+   func getArticleDate(qiitaAPI: QiitaAPI?) {
+        guard let qiitaAPI = qiitaAPI else { return }
+
+        apiClient.provider.rx.request(qiitaAPI)
+            .filterSuccessfulStatusCodes()
+            .subscribe(onSuccess: { articleListResponse in
+                do {
+                    let result = try [Article].decode(json: articleListResponse.data)
+                    ArticleAction.shared.article(articleList: result, qiitaAPIType: qiitaAPI)
+                } catch(let error) {
+                    // TODO: エラーイベントを流す
+                    print(error)
+                }
+            }) { (error) in
+                // TODO: エラーイベントを流す
+                print(error)
+        }
+        .disposed(by: self.disposeBag)
     }
     
     func observeViewWillApper() {

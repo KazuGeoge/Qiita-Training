@@ -34,13 +34,10 @@ class TagTableViewCell: UITableViewCell {
         }
     }
     
-    func isShowFollowButton(isFollow: Bool) {
+    func showFollowButton() {
         backgroundColor = .systemGray5
         isFollowButton.isHidden = false
         isFollowButtonTop.priority = UILayoutPriority(rawValue: 1000)
-        
-        if isFollow {
-            isFollowButton.configureFollowState()
-        }
+        isFollowButton.configureFollowState()
     }
 }
