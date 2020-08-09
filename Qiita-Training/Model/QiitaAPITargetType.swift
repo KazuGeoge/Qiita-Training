@@ -21,6 +21,8 @@ enum QiitaAPI: Equatable {
     case userPostedArticle(String)
     case followUsers(String)
     case followerUsers(String)
+    // 実際にAPIは叩かないが識別のため追加
+    case browsingHistory
 }
 
 extension QiitaAPI: TargetType {
@@ -47,12 +49,14 @@ extension QiitaAPI: TargetType {
             return "/api/v2/users/\(userID)/followees"
         case .followerUsers(let userID):
             return "/api/v2/users/\(userID)/followers"
+        case .browsingHistory:
+            return ""
         }
     }
 
     var method: Moya.Method {
         switch self {
-        case .newArticle, .followedTagArticle, .stockArticle, .searchTag, .searchWord, .authenticatedUser, .userProfile, .followedTag, .userPostedArticle, .followUsers, .followerUsers:
+        case .newArticle, .followedTagArticle, .stockArticle, .searchTag, .searchWord, .authenticatedUser, .userProfile, .followedTag, .userPostedArticle, .followUsers, .followerUsers , .browsingHistory:
             return .get
         }
     }
@@ -75,7 +79,7 @@ extension QiitaAPI: TargetType {
             paramerter = ["query": "tag:\(tagWord)"]
         case .userPostedArticle(let userID):
             paramerter = ["query": "user:\(userID)"]
-        case .newArticle, .stockArticle, .authenticatedUser, .userProfile, .followedTag, .followUsers, .followerUsers:
+        case .newArticle, .stockArticle, .authenticatedUser, .userProfile, .followedTag, .followUsers, .followerUsers, .browsingHistory:
             return .requestPlain
         }
         
@@ -86,7 +90,7 @@ extension QiitaAPI: TargetType {
         var paramerter: [String: String] = [:]
         
         switch self {
-        case .newArticle, .searchWord, .searchTag, .followedTag, .userPostedArticle, .userProfile:
+        case .newArticle, .searchWord, .searchTag, .followedTag, .userPostedArticle, .userProfile, .browsingHistory:
             break
         case .followedTagArticle, .stockArticle, .authenticatedUser, .followUsers, .followerUsers:
             paramerter = ["Authorization":"Bearer \(Defaults.token)"]

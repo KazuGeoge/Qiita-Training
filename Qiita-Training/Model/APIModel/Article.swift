@@ -30,7 +30,7 @@ struct Article: Codable {
 }
 
 // Realmに保存する時は下記のClassに変換して保存
-class ArticleObject : Object {
+class ArticleObject: Object {
 
     @objc private dynamic var structData: Data? = nil
 

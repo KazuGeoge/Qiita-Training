@@ -7,8 +7,20 @@
 //
 import UIKit
 import SwiftyUserDefaults
+import RealmSwift
 
 final class SettingViewModel {
+    
+    private let routeAction: RouteAction
+    private let apiClient: APIClient
+    private let articleAction: ArticleAction
+    private var articleList: [Article] = []
+    
+    init(routeAction: RouteAction = .shared, apiClient: APIClient = .shared, articleAction: ArticleAction = .shared) {
+        self.routeAction = routeAction
+        self.apiClient = apiClient
+        self.articleAction = articleAction
+    }
     
     enum SettingType {
         case switchTeam, browsedHistory, logIn, logOut, feedBack, license
@@ -23,8 +35,6 @@ final class SettingViewModel {
             case .license:        return "ライセンス"
             }
         }
-        
-      // それぞれのURLも実装する
     }
     
     var typeList: [[SettingType]] {
@@ -33,5 +43,34 @@ final class SettingViewModel {
                 [.switchTeam, .browsedHistory, Defaults.isLoginUdser ? .logOut: .logIn],
                 [.feedBack, .license]
         ]
+    }
+    
+    func selectCell(settingType: SettingType) {
+        switch settingType {
+        case .browsedHistory:
+            getArticle()
+        default:
+            break
+        }
+    }
+    
+    func getArticle() {
+        let realm = try? Realm()
+        guard let resultArticleObjectArray = realm?.objects(ArticleObject.self) else { return }
+        
+        var articleList: [Article] = []
+        
+        for resultArticleObject in resultArticleObjectArray {
+            if let article = resultArticleObject.article {
+                articleList.append(article)
+            }
+        }
+        
+        routeAction.show(routeType: .articleList(.browsingHistory))
+        
+        // ArticleListに遷移して監視articleStoreの監視があってからイベントを流すため遅延させる
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+            self?.articleAction.article(articleList: articleList, qiitaAPIType: .browsingHistory)
+        }
     }
 }
