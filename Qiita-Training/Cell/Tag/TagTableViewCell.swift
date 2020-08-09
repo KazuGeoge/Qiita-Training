@@ -14,8 +14,8 @@ class TagTableViewCell: UITableViewCell {
     @IBOutlet private weak var tagNameLabel: UILabel!
     @IBOutlet private weak var postedNumLabel: UILabel!
     @IBOutlet private weak var followerNumLabel: UILabel!
-    @IBOutlet private weak var isFollowButton: IsFollowButton!
-    @IBOutlet private weak var isFollowButtonTop: NSLayoutConstraint!
+    @IBOutlet private weak var followButton: IsFollowButton!
+    @IBOutlet private weak var followButtonTop: NSLayoutConstraint!
     
     override func prepareForReuse() {
         // UIImageViewのbackGroundColorは表示させたいためisHiddenにはしない
@@ -36,8 +36,8 @@ class TagTableViewCell: UITableViewCell {
     
     func showFollowButton() {
         backgroundColor = .systemGray5
-        isFollowButton.isHidden = false
-        isFollowButtonTop.priority = UILayoutPriority(rawValue: 1000)
-        isFollowButton.configureFollowState()
+        followButton.isHidden = false
+        followButtonTop.priority = UILayoutPriority(rawValue: 1000)
+        followButton.configureFollowState()
     }
 }
