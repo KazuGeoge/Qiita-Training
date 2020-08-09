@@ -20,7 +20,7 @@ class ProfileTableViewDataSouce: NSObject {
     
     func configure(tableView: UITableView) {
         
-        tableView.register(UINib(nibName: "ArticleTableViewCell", bundle: nil), forCellReuseIdentifier: "ArticleTableViewCell")
+        tableView.register(UINib(nibName: ArticleTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: ArticleTableViewCell.reuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.reloadData()
@@ -54,7 +54,7 @@ extension ProfileTableViewDataSouce: UITableViewDataSource {
         
         var cell = UITableViewCell()
 
-        if let articleCell = tableView.dequeueReusableCell(withIdentifier: "ArticleTableViewCell", for: indexPath) as? ArticleTableViewCell {
+        if let articleCell = tableView.dequeueReusableCell(withIdentifier: ArticleTableViewCell.reuseIdentifier, for: indexPath) as? ArticleTableViewCell {
             articleCell.configure(article: viewModel.articleList[indexPath.row])
             
             cell = articleCell

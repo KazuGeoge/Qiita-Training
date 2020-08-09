@@ -14,4 +14,5 @@ struct User: Codable {
     var name: String
     var followeesCount: Int
     var followersCount: Int
+    var description: String?
 }

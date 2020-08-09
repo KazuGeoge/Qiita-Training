@@ -20,7 +20,7 @@ class TagCollectionViewDataSouce: NSObject {
     func configure(tagArray: [String]) {
         self.tagArray = tagArray
         tagCollectionView.dataSource = self
-        tagCollectionView.register(UINib(nibName: "TagCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TagCollectionViewCell")
+        tagCollectionView.register(UINib(nibName: TagCollectionViewCell.reuseIdentifier, bundle: nil), forCellWithReuseIdentifier: TagCollectionViewCell.reuseIdentifier)
     }
 }
 
@@ -34,7 +34,7 @@ extension TagCollectionViewDataSouce: UICollectionViewDataSource {
         
         var cell = UICollectionViewCell()
         
-        if let tagCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCollectionViewCell", for: indexPath) as? TagCollectionViewCell {
+        if let tagCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: TagCollectionViewCell.reuseIdentifier, for: indexPath) as? TagCollectionViewCell {
             tagCollectionViewCell.configure(tagText: tagArray[indexPath.row])
             cell = tagCollectionViewCell
         }

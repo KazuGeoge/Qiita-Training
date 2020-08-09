@@ -17,8 +17,9 @@ class ProfileDetailTableViewDataSouce: NSObject {
     
     func configure(tableView: UITableView) {
         
-        tableView.register(UINib(nibName: "ArticleTableViewCell", bundle: nil), forCellReuseIdentifier: "ArticleTableViewCell")
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(UINib(nibName: UserTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: UserTableViewCell.reuseIdentifier)
+        tableView.register(UINib(nibName: ArticleTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: ArticleTableViewCell.reuseIdentifier)
+        tableView.register(UINib(nibName: TagTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: TagTableViewCell.reuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.reloadData()
@@ -37,29 +38,44 @@ extension ProfileDetailTableViewDataSouce: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         var cell = UITableViewCell()
-        cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        // TODO: 各セルにcodableModelごと渡してセルクラスごとに処理する形にする
         switch viewModel.profileType {
         case .follow, .follower:
-            let users = viewModel.profileModel as? [User]
-            cell.textLabel?.text = users?[indexPath.row].id
+            if let userList = viewModel.profileModel as? [User] ,
+                let userTableViewCell = tableView.dequeueReusableCell(withIdentifier: UserTableViewCell.reuseIdentifier, for: indexPath) as? UserTableViewCell {
+                userTableViewCell.configure(user: userList[indexPath.row])
+                
+                cell = userTableViewCell
+            }
         case .stock:
             if let stockArticles = viewModel.profileModel as? [Article] ,
-                let articleTableViewCell = tableView.dequeueReusableCell(withIdentifier: "ArticleTableViewCell", for: indexPath) as? ArticleTableViewCell {
+                let articleTableViewCell = tableView.dequeueReusableCell(withIdentifier: ArticleTableViewCell.reuseIdentifier, for: indexPath) as? ArticleTableViewCell {
                 articleTableViewCell.configure(article: stockArticles[indexPath.row])
                 
                 cell = articleTableViewCell
             }
         case .tag:
-            let followedTags = viewModel.profileModel as? [FollowedTag]
-            cell.textLabel?.text = followedTags?[indexPath.row].id
+            if let followedTag = viewModel.profileModel as? [FollowedTag] ,
+                let tagTableViewCell = tableView.dequeueReusableCell(withIdentifier: TagTableViewCell.reuseIdentifier, for: indexPath) as? TagTableViewCell {
+                tagTableViewCell.configure(followedTag: followedTag[indexPath.row])
+                cell = tagTableViewCell
+            }
         case .none:
             break
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+
+        tableView.estimatedRowHeight = 70
+        
+        if case viewModel.profileType = ProfileType.stock {
+            tableView.estimatedRowHeight = 100
+        }
+        
+        return UITableView.automaticDimension
     }
 }
