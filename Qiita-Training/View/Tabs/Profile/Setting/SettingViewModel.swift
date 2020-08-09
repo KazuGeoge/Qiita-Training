@@ -66,6 +66,8 @@ final class SettingViewModel {
             }
         }
         
+        //　閲覧履歴が下に追加されていくのは不自然なため配列の順番を変える
+        articleList.reverse()
         routeAction.show(routeType: .articleList(.browsingHistory))
         
         // ArticleListに遷移して監視articleStoreの監視があってからイベントを流すため遅延させる
