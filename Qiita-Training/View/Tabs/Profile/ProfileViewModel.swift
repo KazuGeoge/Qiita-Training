@@ -18,6 +18,7 @@ final class ProfileViewModel {
     private let reloadRelay = PublishRelay<()>()
     private let userAction: UserAction
     private let userStore: UserStore
+    private let routeAction: RouteAction
     private var userID = ""
     var user: User?
     var otherUserID = ""
@@ -27,12 +28,13 @@ final class ProfileViewModel {
     }
     var articleList: [Article] = []
     
-    init(apiClient: APIClient = .shared, articleAction: ArticleAction = .shared, articleStore: ArticleStore = .shared, userAction: UserAction = .shared, userStore: UserStore = .shared) {
+    init(apiClient: APIClient = .shared, articleAction: ArticleAction = .shared, articleStore: ArticleStore = .shared, userAction: UserAction = .shared, userStore: UserStore = .shared, routeAction: RouteAction = .shared) {
         self.apiClient = apiClient
         self.articleAction = articleAction
         self.articleStore = articleStore
         self.userAction = userAction
         self.userStore = userStore
+        self.routeAction = routeAction
         
         observeReloadTriger()
     }
@@ -89,5 +91,9 @@ final class ProfileViewModel {
                 print(error)
         }
         .disposed(by: self.disposeBag)
+    }
+    
+    func showRouteAction(profileType: ProfileType) {
+        routeAction.show(routeType: .profileDetail(profileType, user?.id ?? ""))
     }
 }
