@@ -58,4 +58,20 @@ final class ArticleListViewModel: NSObject {
             break
         }
     }
+    
+    func callAPI() {
+        guard let qiitaAPI = qiitaAPIType else { return }
+        apiClient.provider.rx.request(qiitaAPI)
+            .filterSuccessfulStatusCodes()
+            .subscribe(onSuccess: { [weak self] response in
+                do {
+                    self?.articleList += try [Article].decode(json: response.data)
+                    self?.reloadRelay.accept(())
+                } catch(let error) {
+                    // TODO: エラーイベントを流す
+                    print(error)
+                }
+            })
+            .disposed(by: self.disposeBag)
+    }
 }
