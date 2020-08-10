@@ -25,6 +25,7 @@ class ArticleListViewController: UIViewController {
         observeViewModel()
         viewModel.qiitaAPIType = qiitaAPIType
         viewModel.setIsSearchTag()
+        observeTableViewDidScroll()
     }
     
     private func observeViewModel() {
@@ -34,5 +35,28 @@ class ArticleListViewController: UIViewController {
                 self?.tableView.reloadData()
             })
             .disposed(by: disposeBag)
+    }
+    
+    private func observeTableViewDidScroll() {
+        tableView.rx.didScroll.asObservable()
+            .withLatestFrom(tableView.rx.contentOffset.asObservable())
+            .map { $0.y }
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] currentOffsetY in
+                self?.tableViewDidScroll(currentOffsetY: currentOffsetY)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func tableViewDidScroll(currentOffsetY: CGFloat) {
+        // 次の読み込みをページの底辺からの位置で判断し無限スクロールにする
+        let maximumOffset = tableView.contentSize.height - tableView.frame.height
+        let distanceToBottom = maximumOffset - currentOffsetY
+        
+        // 底から600の距離に来たら更新用の読み込みをする。ロード中にはAPIを叩かないようにする。
+        if distanceToBottom <= 500 && !viewModel.isLoding && !viewModel.isEmptyContentList {
+            viewModel.isLoding = true
+            viewModel.callAPI()
+        }
     }
 }

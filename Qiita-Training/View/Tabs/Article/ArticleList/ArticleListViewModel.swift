@@ -21,6 +21,8 @@ final class ArticleListViewModel: NSObject {
     var articleList: [Article] = []
     var qiitaAPIType: QiitaAPI?
     var isSearchTag = false
+    var isLoding = false
+    var isEmptyContentList = false
     var reload: Observable<()> {
         return reloadRelay.asObservable()
     }
