@@ -13,6 +13,7 @@ import SwiftyUserDefaults
 final class ArticleListViewModel: NSObject {
 
     private let disposeBag = DisposeBag()
+    private let articleAction: ArticleAction
     private let articleStore: ArticleStore
     private let routeAction: RouteAction
     private let loginStore: LoginStore
@@ -23,11 +24,13 @@ final class ArticleListViewModel: NSObject {
     var isSearchTag = false
     var isLoding = false
     var isEmptyContentList = false
+    var pageNum = 1
     var reload: Observable<()> {
         return reloadRelay.asObservable()
     }
     
-    init(articleStore: ArticleStore = .shared, routeAction: RouteAction = .shared, loginStore: LoginStore = .shared, apiClient: APIClient = .shared) {
+    init(articleAction: ArticleAction = .shared, articleStore: ArticleStore = .shared, routeAction: RouteAction = .shared, loginStore: LoginStore = .shared, apiClient: APIClient = .shared) {
+        self.articleAction = articleAction
         self.articleStore = articleStore
         self.routeAction = routeAction
         self.loginStore = loginStore
@@ -60,15 +63,23 @@ final class ArticleListViewModel: NSObject {
     }
     
     func callAPI() {
+        pageNum += 1
+        articleAction.paging(pageNum: pageNum)
+        
         guard let qiitaAPI = qiitaAPIType else { return }
         apiClient.provider.rx.request(qiitaAPI)
             .filterSuccessfulStatusCodes()
             .subscribe(onSuccess: { [weak self] response in
                 do {
-                    self?.articleList += try [Article].decode(json: response.data)
-                    self?.reloadRelay.accept(())
+                    let articleList = try [Article].decode(json: response.data)
+                
+                    // レスポンスがからの場合は次からAPIを叩かないようにする
+                    if !articleList.isEmpty {
+                        self?.articleList += articleList
+                        self?.isLoding = false
+                        self?.reloadRelay.accept(())
+                    }
                 } catch(let error) {
-                    // TODO: エラーイベントを流す
                     print(error)
                 }
             })
