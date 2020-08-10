@@ -19,4 +19,8 @@ final class ArticleAction {
     func article(articleList: [Article], qiitaAPIType: QiitaAPI) {
         dispatcher.article.onNext((articleList, qiitaAPIType))
     }
+    
+    func paging(pageNum: Int) {
+        dispatcher.paging.onNext(pageNum)
+    }
 }
