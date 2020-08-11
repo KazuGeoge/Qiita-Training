@@ -94,6 +94,8 @@ final class ProfileViewModel {
     }
     
     func showRouteAction(profileType: ProfileType) {
-        routeAction.show(routeType: .profileDetail(profileType, user?.id ?? ""))
+        guard let userID = user?.id else { return }
+        
+        routeAction.show(routeType: .profileDetail(profileType, userID))
     }
 }
