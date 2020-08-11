@@ -29,6 +29,7 @@ class ArticleListTableViewDataSouce: NSObject {
 extension ArticleListTableViewDataSouce: UITableViewDelegate {
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
         viewModel.showArticleDetail(article: viewModel.articleList[indexPath.row])
     }
 }
