@@ -26,7 +26,7 @@ final class ArticleDetailViewModel: NSObject {
         let realm = try? Realm()
         
         try? realm?.write {
-            let articleObject = ArticleObject()
+            let articleObject = ArticleRealmObject()
             articleObject.article = article
             realm?.add(articleObject)
         }
