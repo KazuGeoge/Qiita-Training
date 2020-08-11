@@ -66,7 +66,10 @@ class ProfileViewController: UIViewController {
     private func configureUI() {
         let user = viewModel.user
         
-        userImageView.kf.setImage(with: URL(string: user?.profileImageUrl ?? ""))
+        if let userProfileImageString = user?.profileImageUrl {
+            userImageView.kf.setImage(with: URL(string: userProfileImageString))
+        }
+        
         userName.text = user?.id
         smallUserName.text = user?.id
         
@@ -80,25 +83,25 @@ class ProfileViewController: UIViewController {
     private func configureButton() {
         followButton.rx.tap
             .subscribe({ [weak self] _ in
-                viewModel.showRouteAction(profileType: .follow)
+                self?.viewModel.showRouteAction(profileType: .follow)
             })
             .disposed(by: disposeBag)
         
         followerButton.rx.tap
             .subscribe({ [weak self] _ in
-                viewModel.showRouteAction(profileType: .follower)
+                self?.viewModel.showRouteAction(profileType: .follower)
             })
             .disposed(by: disposeBag)
         
         stockButton.rx.tap
             .subscribe({ [weak self] _ in
-                viewModel.showRouteAction(profileType: .stock)
+                self?.viewModel.showRouteAction(profileType: .stock)
             })
             .disposed(by: disposeBag)
         
         tagButton.rx.tap
             .subscribe({ [weak self] _ in
-                viewModel.showRouteAction(profileType: .tag)
+                self?.viewModel.showRouteAction(profileType: .tag)
             })
             .disposed(by: disposeBag)
     }

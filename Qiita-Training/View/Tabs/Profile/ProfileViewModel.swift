@@ -66,8 +66,10 @@ final class ProfileViewModel {
         articleStore.article.asObservable()
             .filter { [weak self] article in article.1 == .userPostedArticle(self?.userID ?? "") }
             .withLatestFrom(userStore.user.asObservable()) { ($0, $1) }
-            .do(onNext: { [weak self] in self?.articleList = $0.0.0 })
-            .do(onNext: { [weak self] in self?.user = $0.1 })
+            .do(onNext: { [weak self] in
+                self?.articleList = $0.0.0
+                self?.user = $0.1
+            })
             .map {_ in ()}
             .bind(to: reloadRelay)
             .disposed(by: disposeBag)
