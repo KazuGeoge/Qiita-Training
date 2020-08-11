@@ -15,6 +15,7 @@ final class ProfileDetailViewModel: NSObject {
     private let apiClient: APIClient
     private let disposeBag = DisposeBag()
     private let routeAction: RouteAction
+    private let articleAction: ArticleAction
     private let viewWillAppear: Observable<()>
     private let reloadRelay = PublishRelay<()>()
     var reload: Observable<()> {
@@ -25,9 +26,10 @@ final class ProfileDetailViewModel: NSObject {
     var profileType: ProfileType?
     var userID = ""
     
-    init(apiClient: APIClient = .shared, routeAction: RouteAction = .shared, viewWillAppear: Observable<()>) {
+    init(apiClient: APIClient = .shared, routeAction: RouteAction = .shared, articleAction: ArticleAction = .shared, viewWillAppear: Observable<()>) {
         self.apiClient = apiClient
         self.routeAction = routeAction
+        self.articleAction = articleAction
         self.viewWillAppear = viewWillAppear
         super.init()
         self.observeViewWillApper()
@@ -127,7 +129,7 @@ final class ProfileDetailViewModel: NSObject {
             .subscribe(onSuccess: { articleListResponse in
                 do {
                     let result = try [Article].decode(json: articleListResponse.data)
-                    ArticleAction.shared.article(articleList: result, qiitaAPIType: qiitaAPI)
+                    articleAction.article(articleList: result, qiitaAPIType: qiitaAPI)
                 } catch(let error) {
                     // TODO: エラーイベントを流す
                     print(error)

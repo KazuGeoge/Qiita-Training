@@ -117,6 +117,6 @@ final class ProfileViewModel {
                 // TODO: エラーイベントを流す
                 print(error)
         }
-        .disposed(by: self.disposeBag)
+        .disposed(by: disposeBag)
     }
 }
