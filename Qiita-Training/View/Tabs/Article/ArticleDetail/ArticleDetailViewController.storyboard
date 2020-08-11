@@ -35,7 +35,7 @@
                                                         <rect key="frame" x="10" y="40.5" width="355" height="30"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UaX-5j-H3C">
-                                                                <rect key="frame" x="0.0" y="0.0" width="101" height="30"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="121.5" height="30"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hMd-Wj-F5e">
                                                                         <rect key="frame" x="0.0" y="1.5" width="30" height="27.5"/>
@@ -44,8 +44,8 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TestUserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZd-uz-UkE">
-                                                                        <rect key="frame" x="30" y="9" width="71" height="12"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                        <rect key="frame" x="32" y="7" width="89.5" height="16"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -56,7 +56,7 @@
                                                                     <constraint firstItem="hMd-Wj-F5e" firstAttribute="leading" secondItem="UaX-5j-H3C" secondAttribute="leading" id="eSh-2s-QZC"/>
                                                                     <constraint firstItem="hMd-Wj-F5e" firstAttribute="top" secondItem="UaX-5j-H3C" secondAttribute="top" id="m6k-Fc-7NN"/>
                                                                     <constraint firstItem="pZd-uz-UkE" firstAttribute="centerY" secondItem="UaX-5j-H3C" secondAttribute="centerY" id="xmk-PK-eDN"/>
-                                                                    <constraint firstItem="pZd-uz-UkE" firstAttribute="leading" secondItem="hMd-Wj-F5e" secondAttribute="trailing" id="yYK-lh-aVP"/>
+                                                                    <constraint firstItem="pZd-uz-UkE" firstAttribute="leading" secondItem="hMd-Wj-F5e" secondAttribute="trailing" constant="2" id="yYK-lh-aVP"/>
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBi-D1-Ht2">

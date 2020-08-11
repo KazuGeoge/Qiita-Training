@@ -39,6 +39,10 @@ class ArticleDetailViewController: UIViewController, WKUIDelegate {
         titleLabel.text = article?.title
         userNameLabel.text = article?.user.id
         
+        if let profileImageString = article?.user.profileImageUrl {
+            iconImageView.kf.setImage(with: URL(string: profileImageString))
+        }
+        
         if let createdAtDate = article?.createdAtDate {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
