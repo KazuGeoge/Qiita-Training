@@ -38,7 +38,13 @@ class ArticleDetailViewController: UIViewController, WKUIDelegate {
     private func configureUI() {
         titleLabel.text = article?.title
         userNameLabel.text = article?.user.id
-        timeLabel.text = article?.createdAt
+        
+        if let createdAtDate = article?.createdAtDate {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+            let dateString = dateFormatter.string(from: createdAtDate)
+            timeLabel.text = dateString
+        }
         
         tabBarController?.tabBar.isHidden = true
     }

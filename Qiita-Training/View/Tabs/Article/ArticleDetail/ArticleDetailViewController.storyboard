@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -13,26 +13,26 @@
             <objects>
                 <viewController storyboardIdentifier="ArticleDetailViewController" id="wy1-e9-Xdk" customClass="ArticleDetailViewController" customModule="Qiita_Training" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Lz-yx-qOR">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EQk-Yx-CHB">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iaI-ax-g3Z">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uPK-3k-zZ0">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="130.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="130.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fxi-yk-bIt">
-                                                        <rect key="frame" x="10" y="10" width="580" height="20.5"/>
+                                                        <rect key="frame" x="10" y="10" width="355" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ebc-B8-Jwh">
-                                                        <rect key="frame" x="10" y="40.5" width="580" height="30"/>
+                                                        <rect key="frame" x="10" y="40.5" width="355" height="30"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UaX-5j-H3C">
                                                                 <rect key="frame" x="0.0" y="0.0" width="101" height="30"/>
@@ -60,7 +60,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBi-D1-Ht2">
-                                                                <rect key="frame" x="470" y="0.0" width="100" height="30"/>
+                                                                <rect key="frame" x="222.5" y="0.0" width="122.5" height="30"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="XPG-QY-B8K">
                                                                         <rect key="frame" x="0.0" y="9.5" width="13" height="12"/>
@@ -70,8 +70,8 @@
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020/03/18 07:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YiY-wG-rN3">
-                                                                        <rect key="frame" x="13" y="9" width="87" height="12"/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                        <rect key="frame" x="13" y="7" width="109.5" height="16"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                         <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -98,10 +98,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eik-il-3kO">
-                                                        <rect key="frame" x="10" y="70.5" width="580" height="60"/>
+                                                        <rect key="frame" x="10" y="70.5" width="355" height="60"/>
                                                         <subviews>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ujm-4X-pAp">
-                                                                <rect key="frame" x="0.0" y="10" width="580" height="50"/>
+                                                                <rect key="frame" x="0.0" y="10" width="355" height="50"/>
                                                                 <color key="backgroundColor" red="0.92384714079999997" green="0.92384714079999997" blue="0.92384714079999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="F41-eA-1hd"/>
@@ -113,7 +113,7 @@
                                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                                 </collectionViewFlowLayout>
                                                                 <cells>
-                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3uo-oO-SKW">
+                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3uo-oO-SKW">
                                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                                         <autoresizingMask key="autoresizingMask"/>
                                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="KOU-iL-UHT">
@@ -147,7 +147,7 @@
                                                 </constraints>
                                             </view>
                                             <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dov-A2-ZwN">
-                                                <rect key="frame" x="0.0" y="130.5" width="600" height="469.5"/>
+                                                <rect key="frame" x="0.0" y="130.5" width="375" height="536.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <wkWebViewConfiguration key="configuration">
                                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
@@ -177,19 +177,19 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="9Ng-fo-mwk"/>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ei5-al-hrb">
-                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="-100" translatesAutoresizingMaskIntoConstraints="NO" id="6RR-1b-OLD">
-                                        <rect key="frame" x="0.0" y="15" width="600" height="20"/>
+                                        <rect key="frame" x="0.0" y="15" width="375" height="20"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j6P-4M-ocU">
-                                                <rect key="frame" x="0.0" y="0.0" width="225" height="20"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="169" height="20"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hand.thumbsup" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="IX3-xs-ed3">
-                                                        <rect key="frame" x="0.0" y="-1" width="225" height="21"/>
+                                                        <rect key="frame" x="0.0" y="-1" width="169" height="21"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNq-zA-VZc">
-                                                        <rect key="frame" x="0.0" y="0.0" width="225" height="20"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="169" height="20"/>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -204,13 +204,13 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mxo-5r-uR6">
-                                                <rect key="frame" x="125" y="0.0" width="225" height="20"/>
+                                                <rect key="frame" x="69" y="0.0" width="168.5" height="20"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="k7y-o9-vyE">
-                                                        <rect key="frame" x="0.0" y="1" width="225" height="17.5"/>
+                                                        <rect key="frame" x="0.0" y="1" width="168.5" height="17.5"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tkC-u1-krr">
-                                                        <rect key="frame" x="0.0" y="0.0" width="225" height="20"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="168.5" height="20"/>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -225,13 +225,13 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SdD-yb-scr">
-                                                <rect key="frame" x="250" y="0.0" width="225" height="20"/>
+                                                <rect key="frame" x="137.5" y="0.0" width="169" height="20"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lmW-kE-Kin">
-                                                        <rect key="frame" x="0.0" y="0.5" width="225" height="19.5"/>
+                                                        <rect key="frame" x="0.0" y="0.5" width="169" height="19.5"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dS6-B7-YSi">
-                                                        <rect key="frame" x="0.0" y="0.0" width="225" height="20"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="169" height="20"/>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -246,13 +246,13 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ta1-8Z-joI">
-                                                <rect key="frame" x="375" y="0.0" width="225" height="20"/>
+                                                <rect key="frame" x="206.5" y="0.0" width="168.5" height="20"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowshape.turn.up.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="JLh-Dl-Drw">
-                                                        <rect key="frame" x="0.0" y="1" width="225" height="17.5"/>
+                                                        <rect key="frame" x="0.0" y="1" width="168.5" height="17.5"/>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WNz-1b-Inx">
-                                                        <rect key="frame" x="0.0" y="0.0" width="225" height="20"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="168.5" height="20"/>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -301,11 +301,6 @@
                         <outlet property="titleLabel" destination="Fxi-yk-bIt" id="bQQ-FK-cv8"/>
                         <outlet property="userNameLabel" destination="pZd-uz-UkE" id="3yM-Xv-uBz"/>
                         <outlet property="webView" destination="Dov-A2-ZwN" id="cFU-1d-Nv5"/>
-                        <outlet property="iconImageView" destination="JfX-VZ-jaJ" id="mLR-nB-eH4"/>
-                        <outlet property="tagCollectionView" destination="p6M-8p-rtf" id="4YZ-oN-T3P"/>
-                        <outlet property="timeLabel" destination="8wq-Fj-mYJ" id="z1g-aU-4Yx"/>
-                        <outlet property="titleLabel" destination="5GO-ba-d94" id="azl-HT-6Hp"/>
-                        <outlet property="userNameLabel" destination="wUE-fS-kSb" id="SFz-Km-BKi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I89-i7-VpD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
