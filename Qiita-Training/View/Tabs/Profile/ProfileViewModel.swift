@@ -36,11 +36,14 @@ final class ProfileViewModel {
         self.userStore = userStore
         self.routeAction = routeAction
         
+        self.userID = Defaults.userID
         observeReloadTriger()
     }
     
     func setUserID() {
-        self.userID = isSelfUser ? Defaults.userID : otherUserID
+        guard !isSelfUser else { return }
+        
+        self.userID = otherUserID
     }
     
     private func getUserPostedArticle() {
