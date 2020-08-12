@@ -60,7 +60,7 @@ final class ProfileViewModel {
                 // TODO: エラーイベントを流す
                 print(error)
         }
-        .disposed(by: self.disposeBag)
+        .disposed(by: disposeBag)
     }
     
     private func observeReloadTriger() {
@@ -95,7 +95,7 @@ final class ProfileViewModel {
                 // TODO: エラーイベントを流す
                 print(error)
         }
-        .disposed(by: self.disposeBag)
+        .disposed(by: disposeBag)
     }
     
     func isFollowUser() {

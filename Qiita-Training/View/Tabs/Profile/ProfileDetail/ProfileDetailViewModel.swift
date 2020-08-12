@@ -96,7 +96,7 @@ final class ProfileDetailViewModel: NSObject {
                     print(error)
                 }
             })
-            .disposed(by: self.disposeBag)
+            .disposed(by: disposeBag)
     }
     
     func showRouteAction(codableModel: Codable) {
@@ -126,10 +126,10 @@ final class ProfileDetailViewModel: NSObject {
 
         apiClient.provider.rx.request(qiitaAPI)
             .filterSuccessfulStatusCodes()
-            .subscribe(onSuccess: { articleListResponse in
+            .subscribe(onSuccess: { [weak self] articleListResponse in
                 do {
                     let result = try [Article].decode(json: articleListResponse.data)
-                    articleAction.article(articleList: result, qiitaAPIType: qiitaAPI)
+                    self?.articleAction.article(articleList: result, qiitaAPIType: qiitaAPI)
                 } catch(let error) {
                     // TODO: エラーイベントを流す
                     print(error)
@@ -138,7 +138,7 @@ final class ProfileDetailViewModel: NSObject {
                 // TODO: エラーイベントを流す
                 print(error)
         }
-        .disposed(by: self.disposeBag)
+        .disposed(by: disposeBag)
     }
     
     func observeViewWillApper() {

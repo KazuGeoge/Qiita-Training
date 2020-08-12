@@ -67,6 +67,6 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
             .subscribe(onNext: { [weak self] _ in
                 self?.tableView.reloadData()
             })
-            .disposed(by: self.disposeBag)
+            .disposed(by: disposeBag)
     }
 }
