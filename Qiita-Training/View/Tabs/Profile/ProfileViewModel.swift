@@ -98,7 +98,7 @@ final class ProfileViewModel {
         .disposed(by: self.disposeBag)
     }
     
-    func showRouteAction(profileType: ProfileType) {
+    func showProfileDetail(profileType: ProfileType) {
         guard let userID = user?.id else { return }
         
         routeAction.show(routeType: .profileDetail(profileType, userID))
