@@ -45,7 +45,7 @@ class ArticleDetailViewController: UIViewController, WKUIDelegate {
         
         if let createdAtDate = article?.createdAtDate {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
             let dateString = dateFormatter.string(from: createdAtDate)
             timeLabel.text = dateString
         }
