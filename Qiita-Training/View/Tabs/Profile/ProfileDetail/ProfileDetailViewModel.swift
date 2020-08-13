@@ -32,7 +32,12 @@ final class ProfileDetailViewModel: NSObject {
         self.articleAction = articleAction
         self.viewWillAppear = viewWillAppear
         super.init()
-        self.observeViewWillApper()
+                
+        viewWillAppear
+            .subscribe(onNext: { [weak self] _ in
+                self?.getProfileData()
+            })
+            .disposed(by: disposeBag)
     }
     
     func generateNavigationTitle() -> String {
