@@ -9,15 +9,16 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import SwiftyUserDefaults
 
 class ProfileViewController: UIViewController {
 
+    lazy var viewModel = ProfileViewModel()
+    private lazy var dataSouce = ProfileTableViewDataSouce(viewModel: viewModel)
     @IBOutlet private weak var userImageView: UIImageView!
     @IBOutlet private weak var userName: UILabel!
     @IBOutlet private weak var smallUserName: UILabel!
     @IBOutlet private weak var tableView: UITableView!
-    private lazy var viewModel = ProfileViewModel()
-    private lazy var dataSouce = ProfileTableViewDataSouce(viewModel: viewModel)
     @IBOutlet private weak var followButton: UIButton!
     @IBOutlet private weak var followerButton: UIButton!
     @IBOutlet private weak var stockButton: UIButton!
@@ -29,11 +30,11 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        viewModel.getUserPostedArticle()
         observeViewModel()
         dataSouce.configure(tableView: tableView)
         configureButton()
         configureNavigationBar()
+        setUserData()
     }
     
     private func configureNavigationBar() {
@@ -46,11 +47,18 @@ class ProfileViewController: UIViewController {
         configureUI()
     }
     
+    // ユーザーのIDを元にAPIを叩くためsetUserIDを必ず最初に呼ぶ
+    private func setUserData() {
+        viewModel.setUserID()
+        viewModel.getUserDate()
+    }
+    
     private func observeViewModel() {
         viewModel.reload.asObservable()
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] _ in
                 self?.tableView.reloadData()
+                self?.configureUI()
             })
             .disposed(by: disposeBag)
     }
@@ -58,7 +66,12 @@ class ProfileViewController: UIViewController {
     private func configureUI() {
         let user = viewModel.user
         
+        if let userProfileImageString = user?.profileImageUrl {
+            userImageView.kf.setImage(with: URL(string: userProfileImageString))
+        }
+        
         userName.text = user?.id
+        smallUserName.text = user?.id
         
         // TODO: 画像処理は別Issueで行う
         if let follow = user?.followeesCount, let followers = user?.followersCount {
@@ -69,26 +82,26 @@ class ProfileViewController: UIViewController {
 
     private func configureButton() {
         followButton.rx.tap
-            .subscribe({ _ in
-                RouteAction.shared.show(routeType: .profileDetail(.follow))
+            .subscribe({ [weak self] _ in
+                self?.viewModel.showProfileDetail(profileType: .follow)
             })
             .disposed(by: disposeBag)
         
         followerButton.rx.tap
-            .subscribe({ _ in
-                RouteAction.shared.show(routeType: .profileDetail(.follower))
+            .subscribe({ [weak self] _ in
+                self?.viewModel.showProfileDetail(profileType: .follower)
             })
             .disposed(by: disposeBag)
         
         stockButton.rx.tap
-            .subscribe({ _ in
-                RouteAction.shared.show(routeType: .profileDetail(.stock))
+            .subscribe({ [weak self] _ in
+                self?.viewModel.showProfileDetail(profileType: .stock)
             })
             .disposed(by: disposeBag)
         
         tagButton.rx.tap
-            .subscribe({ _ in
-                RouteAction.shared.show(routeType: .profileDetail(.tag))
+            .subscribe({ [weak self] _ in
+                self?.viewModel.showProfileDetail(profileType: .tag)
             })
             .disposed(by: disposeBag)
     }

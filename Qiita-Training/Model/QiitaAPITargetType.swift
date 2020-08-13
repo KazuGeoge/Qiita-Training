@@ -12,14 +12,15 @@ import SwiftyUserDefaults
 enum QiitaAPI: Equatable {
     case newArticle
     case followedTagArticle([String])
-    case stockArticle
+    case stockArticle(String)
     case searchWord(String)
     case searchTag(String)
     case authenticatedUser
-    case followedTag
-    case userPostedArticle
-    case followUsers
-    case followerUsers
+    case userProfile(String)
+    case followedTag(String)
+    case userPostedArticle(String)
+    case followUsers(String)
+    case followerUsers(String)
 }
 
 extension QiitaAPI: TargetType {
@@ -38,18 +39,20 @@ extension QiitaAPI: TargetType {
             return "/api/v2/users/\(Defaults.userID)/stocks"
         case .authenticatedUser:
             return "/api/v2/authenticated_user"
-        case .followedTag:
-            return "api/v2/users/\(Defaults.userID)/following_tags"
-        case .followUsers:
-            return "/api/v2/users/\(Defaults.userID)/followees"
-        case .followerUsers:
-            return "/api/v2/users/\(Defaults.userID)/followers"
+        case .userProfile(let userID):
+            return "/api/v2/users/\(userID)"
+        case .followedTag(let userID):
+            return "api/v2/users/\(userID)/following_tags"
+        case .followUsers(let userID):
+            return "/api/v2/users/\(userID)/followees"
+        case .followerUsers(let userID):
+            return "/api/v2/users/\(userID)/followers"
         }
     }
 
     var method: Moya.Method {
         switch self {
-        case .newArticle, .followedTagArticle, .stockArticle, .searchTag, .searchWord, .authenticatedUser, .followedTag, .userPostedArticle, .followUsers, .followerUsers:
+        case .newArticle, .followedTagArticle, .stockArticle, .searchTag, .searchWord, .authenticatedUser, .userProfile, .followedTag, .userPostedArticle, .followUsers, .followerUsers:
             return .get
         }
     }
@@ -70,9 +73,9 @@ extension QiitaAPI: TargetType {
             paramerter = ["query": searchWord]
         case .searchTag(let tagWord):
             paramerter = ["query": "tag:\(tagWord)"]
-        case .userPostedArticle:
-            paramerter = ["query": "user:\(Defaults.userID)"]
-        case .newArticle, .stockArticle, .authenticatedUser, .followedTag, .followUsers, .followerUsers:
+        case .userPostedArticle(let userID):
+            paramerter = ["query": "user:\(userID)"]
+        case .newArticle, .stockArticle, .authenticatedUser, .userProfile, .followedTag, .followUsers, .followerUsers:
             return .requestPlain
         }
         
@@ -83,7 +86,7 @@ extension QiitaAPI: TargetType {
         var paramerter: [String: String] = [:]
         
         switch self {
-        case .newArticle, .searchWord, .searchTag, .followedTag, .userPostedArticle:
+        case .newArticle, .searchWord, .searchTag, .followedTag, .userPostedArticle, .userProfile:
             break
         case .followedTagArticle, .stockArticle, .authenticatedUser, .followUsers, .followerUsers:
             paramerter = ["Authorization":"Bearer \(Defaults.token)"]

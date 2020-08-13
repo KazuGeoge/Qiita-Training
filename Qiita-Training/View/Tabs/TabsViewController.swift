@@ -69,11 +69,15 @@ class TabsViewController: UITabBarController {
                     let articleListViewController = ViewControllerBuilder.shared.configureViewController(viewControllerType: .articleList) as? ArticleListViewController
                     articleListViewController?.qiitaAPIType = qiitaAPI
                     viewContoroller = articleListViewController
-                case .profile:
-                    viewContoroller = ViewControllerBuilder.shared.configureViewController(viewControllerType: .profile) as? ProfileViewController
-                case .profileDetail(let profileType):
+                case .profile(let isSelfUser, let userName):
+                    let profileViewController = ViewControllerBuilder.shared.configureViewController(viewControllerType: .profile) as? ProfileViewController
+                    profileViewController?.viewModel.isSelfUser = isSelfUser
+                    profileViewController?.viewModel.otherUserID = userName
+                    viewContoroller = profileViewController
+                case .profileDetail(let profileType, let userID):
                     let profileDetailViewController = ViewControllerBuilder.shared.configureViewController(viewControllerType: .profileDetail) as? ProfileDetailViewController
                     profileDetailViewController?.viewModel.profileType = profileType
+                    profileDetailViewController?.viewModel.userID = userID
                     viewContoroller = profileDetailViewController
                 case .stillLogin:
                     viewContoroller = ViewControllerBuilder.shared.configureViewController(viewControllerType: .stillLogin) as? StillLoginUserViewController

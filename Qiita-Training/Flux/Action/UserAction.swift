@@ -16,7 +16,6 @@ final class UserAction {
     }
     
     func user(user: User) {
-        Defaults.userID = user.id
         dispatcher.user.onNext(user)
     }
 }

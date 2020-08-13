@@ -7,6 +7,7 @@
 //
 import RxSwift
 import RxCocoa
+import SwiftyUserDefaults
 
 final class ProfileViewModel {
     
@@ -14,29 +15,44 @@ final class ProfileViewModel {
     private let articleAction: ArticleAction
     private let articleStore: ArticleStore
     private let disposeBag = DisposeBag()
-    private let reloadSubject = PublishSubject<()>()
+    private let reloadRelay = PublishRelay<()>()
+    private let userAction: UserAction
+    private let userStore: UserStore
+    private let routeAction: RouteAction
+    private var userID = ""
     var user: User?
+    var otherUserID = ""
+    var isSelfUser = true
     var reload: Observable<()> {
-        return reloadSubject.asObservable()
+        return reloadRelay.asObservable()
     }
     var articleList: [Article] = []
     
-    init(apiClient: APIClient = .shared, articleAction: ArticleAction = .shared, articleStore: ArticleStore = .shared, user: User? = UserStore.shared.user.value) {
+    init(apiClient: APIClient = .shared, articleAction: ArticleAction = .shared, articleStore: ArticleStore = .shared, userAction: UserAction = .shared, userStore: UserStore = .shared, routeAction: RouteAction = .shared) {
         self.apiClient = apiClient
         self.articleAction = articleAction
         self.articleStore = articleStore
-        self.user = user
+        self.userAction = userAction
+        self.userStore = userStore
+        self.routeAction = routeAction
         
+        self.userID = Defaults.userID
         observeReloadTriger()
     }
     
-    func getUserPostedArticle() {
-        apiClient.provider.rx.request(.userPostedArticle)
+    func setUserID() {
+        guard !isSelfUser else { return }
+        
+        self.userID = otherUserID
+    }
+    
+    private func getUserPostedArticle() {
+        apiClient.provider.rx.request(.userPostedArticle(userID))
             .filterSuccessfulStatusCodes()
-            .subscribe(onSuccess: {[weak self] articleAraayResponse in
+            .subscribe(onSuccess: { [weak self] articleAraayResponse in
                 do {
                     let article = try [Article].decode(json: articleAraayResponse.data)
-                    self?.articleAction.article(articleList: article, qiitaAPIType: .userPostedArticle)
+                    self?.articleAction.article(articleList: article, qiitaAPIType: .userPostedArticle(self?.userID ?? ""))
                 } catch(let error) {
                     // TODO: エラーイベントを流す
                     print(error)
@@ -48,12 +64,43 @@ final class ProfileViewModel {
         .disposed(by: self.disposeBag)
     }
     
+    // 記事のAPIとユーザー情報のAPIのレスポンスが揃ったらデータをViewModel内で保持させRelayでイベントを流す
     private func observeReloadTriger() {
         articleStore.article.asObservable()
-            .filter { article in article.1 == .userPostedArticle }
-            .do(onNext: { [weak self] article in self?.articleList = article.0 })
+            .filter { [weak self] article in article.1 == .userPostedArticle(self?.userID ?? "") }
+            .withLatestFrom(userStore.user.asObservable()) { ($0, $1) }
+            .do(onNext: { [weak self] in
+                self?.articleList = $0.0.0
+                self?.user = $0.1
+            })
             .map {_ in ()}
-            .bind(to: reloadSubject)
+            .bind(to: reloadRelay)
             .disposed(by: disposeBag)
+    }
+    
+    func getUserDate() {
+        getUserPostedArticle()
+        
+        apiClient.provider.rx.request(.userProfile(userID))
+            .filterSuccessfulStatusCodes()
+            .subscribe(onSuccess: { [weak self] articleListResponse in
+                do {
+                    let result = try User.decode(json: articleListResponse.data)
+                    self?.userAction.user(user: result)
+                } catch(let error) {
+                    // TODO: エラーイベントを流す
+                    print(error)
+                }
+            }) { (error) in
+                // TODO: エラーイベントを流す
+                print(error)
+        }
+        .disposed(by: self.disposeBag)
+    }
+    
+    func showProfileDetail(profileType: ProfileType) {
+        guard let userID = user?.id else { return }
+        
+        routeAction.show(routeType: .profileDetail(profileType, userID))
     }
 }

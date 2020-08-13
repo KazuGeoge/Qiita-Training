@@ -39,6 +39,7 @@ class AuthenticationViewModel: NSObject {
             .subscribe(onSuccess: { [weak self] articleListResponse in
                 do {
                     let result = try User.decode(json: articleListResponse.data)
+                    Defaults.userID = result.id
                     // UserActionで受け取ったユーザー情報を流す
                     self?.userAction.user(user: result)
                     self?.viewDismissSubject.onNext(())
@@ -55,7 +56,7 @@ class AuthenticationViewModel: NSObject {
     }
     
     private func getFollowedTagData() {
-        apiClient.provider.rx.request(.followedTag)
+        apiClient.provider.rx.request(.followedTag(Defaults.userID))
                    .filterSuccessfulStatusCodes()
                    .subscribe(onSuccess: { [weak self] followedTagResponse in
                        do {

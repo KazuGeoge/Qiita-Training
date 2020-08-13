@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftyUserDefaults
 import RxSwift
 import RxCocoa
 
@@ -25,6 +24,7 @@ final class ProfileDetailViewModel: NSObject {
     
     var profileModel: [Codable] = []
     var profileType: ProfileType?
+    var userID = ""
     
     init(apiClient: APIClient = .shared, routeAction: RouteAction = .shared, viewWillAppear: Observable<Void>) {
         self.apiClient = apiClient
@@ -41,7 +41,7 @@ final class ProfileDetailViewModel: NSObject {
     
     func generateNavigationTitle() -> String {
         
-        var title = "\(Defaults.userID)さんの"
+        var title = "\(userID)さんの"
         
         switch profileType {
         case .follow:
@@ -63,15 +63,15 @@ final class ProfileDetailViewModel: NSObject {
         
         switch profileType {
         case .follow:
-            qiitaAPI = .followUsers
+            qiitaAPI = .followUsers(userID)
         case .follower:
-            qiitaAPI = .followerUsers
+            qiitaAPI = .followerUsers(userID)
         case .stock:
-            qiitaAPI = .stockArticle
+            qiitaAPI = .stockArticle(userID)
         case .tag:
-            qiitaAPI = .followedTag
+            qiitaAPI = .followedTag(userID)
         case .none:
-            break
+            break 
         }
         
         callAPI(qiitaAPI: qiitaAPI)
@@ -106,10 +106,10 @@ final class ProfileDetailViewModel: NSObject {
     func showRouteAction(codableModel: Codable) {
         // TODO: プロフィールの遷移も引数のmodelを使って処理する
         switch profileType {
-        case .follow:
-            routeAction.show(routeType: .profile)
-        case .follower:
-            routeAction.show(routeType: .profile)
+        case .follow, .follower:
+            if let user = codableModel as? User {
+                routeAction.show(routeType: .profile(false, user.id))
+            }
         case .stock:
             if let article = codableModel as? Article {
                 routeAction.show(routeType: .articleDetail(article))
