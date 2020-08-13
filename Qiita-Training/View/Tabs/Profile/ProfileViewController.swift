@@ -82,7 +82,10 @@ class ProfileViewController: UIViewController {
     private func configureUI() {
         let user = viewModel.user
         
-        userImageView.kf.setImage(with: URL(string: user?.profileImageUrl ?? ""))
+        if let userProfileImageString = user?.profileImageUrl {
+            userImageView.kf.setImage(with: URL(string: userProfileImageString))
+        }
+        
         userName.text = user?.id
         smallUserName.text = user?.id
         
@@ -96,25 +99,25 @@ class ProfileViewController: UIViewController {
     private func configureButton() {
         followButton.rx.tap
             .subscribe({ [weak self] _ in
-                RouteAction.shared.show(routeType: .profileDetail(.follow, self?.viewModel.user?.id ?? ""))
+                self?.viewModel.showProfileDetail(profileType: .follow)
             })
             .disposed(by: disposeBag)
         
         followerButton.rx.tap
             .subscribe({ [weak self] _ in
-                RouteAction.shared.show(routeType: .profileDetail(.follower, self?.viewModel.user?.id ?? ""))
+                self?.viewModel.showProfileDetail(profileType: .follower)
             })
             .disposed(by: disposeBag)
         
         stockButton.rx.tap
             .subscribe({ [weak self] _ in
-                RouteAction.shared.show(routeType: .profileDetail(.stock, self?.viewModel.user?.id ?? ""))
+                self?.viewModel.showProfileDetail(profileType: .stock)
             })
             .disposed(by: disposeBag)
         
         tagButton.rx.tap
             .subscribe({ [weak self] _ in
-                RouteAction.shared.show(routeType: .profileDetail(.tag, self?.viewModel.user?.id ?? ""))
+                self?.viewModel.showProfileDetail(profileType: .tag)
             })
             .disposed(by: disposeBag)
     }

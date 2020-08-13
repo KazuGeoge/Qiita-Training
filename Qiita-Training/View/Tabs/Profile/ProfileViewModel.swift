@@ -19,6 +19,7 @@ final class ProfileViewModel {
     private let followRelay = PublishRelay<()>()
     private let userAction: UserAction
     private let userStore: UserStore
+    private let routeAction: RouteAction
     private var userID = ""
     var user: User?
     var otherUserID = ""
@@ -31,18 +32,22 @@ final class ProfileViewModel {
     }
     var articleList: [Article] = []
     
-    init(apiClient: APIClient = .shared, articleAction: ArticleAction = .shared, articleStore: ArticleStore = .shared, userAction: UserAction = .shared, userStore: UserStore = .shared) {
+    init(apiClient: APIClient = .shared, articleAction: ArticleAction = .shared, articleStore: ArticleStore = .shared, userAction: UserAction = .shared, userStore: UserStore = .shared, routeAction: RouteAction = .shared) {
         self.apiClient = apiClient
         self.articleAction = articleAction
         self.articleStore = articleStore
         self.userAction = userAction
         self.userStore = userStore
+        self.routeAction = routeAction
         
+        self.userID = Defaults.userID
         observeReloadTriger()
     }
     
     func setUserID() {
-        self.userID = isSelfUser ? Defaults.userID : otherUserID
+        guard !isSelfUser else { return }
+        
+        self.userID = otherUserID
     }
     
     private func getUserPostedArticle() {
@@ -60,7 +65,7 @@ final class ProfileViewModel {
                 // TODO: エラーイベントを流す
                 print(error)
         }
-        .disposed(by: self.disposeBag)
+        .disposed(by: disposeBag)
     }
     
     private func observeReloadTriger() {
@@ -95,7 +100,7 @@ final class ProfileViewModel {
                 // TODO: エラーイベントを流す
                 print(error)
         }
-        .disposed(by: self.disposeBag)
+        .disposed(by: disposeBag)
     }
     
     func isFollowUser() {
@@ -117,6 +122,12 @@ final class ProfileViewModel {
                 // TODO: エラーイベントを流す
                 print(error)
         }
-        .disposed(by: self.disposeBag)
+        .disposed(by: disposeBag)
+    }
+    
+    func showProfileDetail(profileType: ProfileType) {
+        guard let userID = user?.id else { return }
+        
+        routeAction.show(routeType: .profileDetail(profileType, userID))
     }
 }

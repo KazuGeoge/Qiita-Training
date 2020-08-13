@@ -30,11 +30,11 @@ struct Article: Codable {
 }
 
 // Realmに保存する時は下記のClassに変換して保存
-class ArticleObject: Object {
+class ArticleRealmObject: Object {
 
     @objc private dynamic var structData: Data? = nil
 
-    var article : Article? {
+    var article: Article? {
         get {
             if let data = structData {
                 return try? JSONDecoder().decode(Article.self, from: data)
