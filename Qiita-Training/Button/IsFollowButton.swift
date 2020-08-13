@@ -12,7 +12,26 @@ import RxCocoa
 
 class IsFollowButton: UIButton {
 
-    override func draw(_ rect: CGRect) {
+    private var isFollow = false
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setupAttributes()
+    }
+
+    private func setupAttributes() {
+        layer.borderColor = UIColor.gray.cgColor
+        layer.borderWidth = 0.5
         
+        backgroundColor = .green
+        setTitle("+ フォロー", for: .normal)
+        setTitleColor(.white, for: .normal)
+    }
+    
+    func configureFollowState() {
+        isFollow = true
+        backgroundColor = .white
+        setTitle("✓ フォロー中", for: .normal)
+        setTitleColor(.green, for: .normal)
     }
 }

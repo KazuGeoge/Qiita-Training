@@ -8,6 +8,7 @@
 
 import RxSwift
 import RxCocoa
+import SwiftyUserDefaults
 
 final class ArticleListViewModel: NSObject {
 
@@ -15,17 +16,20 @@ final class ArticleListViewModel: NSObject {
     private let articleStore: ArticleStore
     private let routeAction: RouteAction
     private let loginStore: LoginStore
-    private let reloadSubject = PublishSubject<()>()
+    private let reloadRelay = PublishRelay<()>()
+    private let apiClient: APIClient
     var articleList: [Article] = []
     var qiitaAPIType: QiitaAPI?
+    var isSearchTag = false
     var reload: Observable<()> {
-        return reloadSubject.asObservable()
+        return reloadRelay.asObservable()
     }
     
-    init(articleStore: ArticleStore = .shared, routeAction: RouteAction = .shared, loginStore: LoginStore = .shared) {
+    init(articleStore: ArticleStore = .shared, routeAction: RouteAction = .shared, loginStore: LoginStore = .shared, apiClient: APIClient = .shared) {
         self.articleStore = articleStore
         self.routeAction = routeAction
         self.loginStore = loginStore
+        self.apiClient = apiClient
         super.init()
         observeReloadTriger()
     }
@@ -35,11 +39,21 @@ final class ArticleListViewModel: NSObject {
             .filter { [weak self] article in article.1 == self?.qiitaAPIType }
             .do(onNext: { [weak self] article in self?.articleList = article.0 })
             .map {_ in ()}
-            .bind(to: reloadSubject)
+            .bind(to: reloadRelay)
             .disposed(by: disposeBag)
     }
     
     func showArticleDetail(article: Article) {
         routeAction.show(routeType: .articleDetail(article))
+    }
+    
+    func setIsSearchTag() {
+        switch qiitaAPIType {
+        case .searchTag:
+            isSearchTag = true
+            reloadRelay.accept(())
+        default:
+            break
+        }
     }
 }

@@ -15,8 +15,8 @@ final class ProfileDetailViewModel: NSObject {
     private let apiClient: APIClient
     private let disposeBag = DisposeBag()
     private let routeAction: RouteAction
-    private let viewWillAppear: Observable<(Void)>
-    
+    private let articleAction: ArticleAction
+    private let viewWillAppear: Observable<()>
     private let reloadRelay = PublishRelay<()>()
     var reload: Observable<()> {
         return reloadRelay.asObservable()
@@ -26,9 +26,10 @@ final class ProfileDetailViewModel: NSObject {
     var profileType: ProfileType?
     var userID = ""
     
-    init(apiClient: APIClient = .shared, routeAction: RouteAction = .shared, viewWillAppear: Observable<Void>) {
+    init(apiClient: APIClient = .shared, routeAction: RouteAction = .shared, articleAction: ArticleAction = .shared, viewWillAppear: Observable<()>) {
         self.apiClient = apiClient
         self.routeAction = routeAction
+        self.articleAction = articleAction
         self.viewWillAppear = viewWillAppear
         super.init()
                 
@@ -100,7 +101,7 @@ final class ProfileDetailViewModel: NSObject {
                     print(error)
                 }
             })
-            .disposed(by: self.disposeBag)
+            .disposed(by: disposeBag)
     }
     
     func showRouteAction(codableModel: Codable) {
@@ -115,11 +116,41 @@ final class ProfileDetailViewModel: NSObject {
                 routeAction.show(routeType: .articleDetail(article))
             }
         case .tag:
-            if let article = codableModel as? Article {
-                routeAction.show(routeType: .articleDetail(article))
+            if let tag = codableModel as? FollowedTag {
+                let qiitaAPI = QiitaAPI.searchTag(tag.id)
+                routeAction.show(routeType: .articleList(qiitaAPI))
+                getArticleDate(qiitaAPI: qiitaAPI)
             }
         default:
             break
         }
+    }
+    
+   func getArticleDate(qiitaAPI: QiitaAPI?) {
+        guard let qiitaAPI = qiitaAPI else { return }
+
+        apiClient.provider.rx.request(qiitaAPI)
+            .filterSuccessfulStatusCodes()
+            .subscribe(onSuccess: { [weak self] articleListResponse in
+                do {
+                    let result = try [Article].decode(json: articleListResponse.data)
+                    self?.articleAction.article(articleList: result, qiitaAPIType: qiitaAPI)
+                } catch(let error) {
+                    // TODO: エラーイベントを流す
+                    print(error)
+                }
+            }) { (error) in
+                // TODO: エラーイベントを流す
+                print(error)
+        }
+        .disposed(by: disposeBag)
+    }
+    
+    func observeViewWillApper() {
+        viewWillAppear.asObservable()
+            .subscribe(onNext: { [weak self] _ in
+                self?.getProfileData()
+            })
+            .disposed(by: disposeBag)
     }
 }

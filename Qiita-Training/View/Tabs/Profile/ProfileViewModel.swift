@@ -16,6 +16,7 @@ final class ProfileViewModel {
     private let articleStore: ArticleStore
     private let disposeBag = DisposeBag()
     private let reloadRelay = PublishRelay<()>()
+    private let followRelay = PublishRelay<()>()
     private let userAction: UserAction
     private let userStore: UserStore
     private let routeAction: RouteAction
@@ -25,6 +26,9 @@ final class ProfileViewModel {
     var isSelfUser = true
     var reload: Observable<()> {
         return reloadRelay.asObservable()
+    }
+    var follow: Observable<()> {
+        return followRelay.asObservable()
     }
     var articleList: [Article] = []
     
@@ -61,18 +65,19 @@ final class ProfileViewModel {
                 // TODO: エラーイベントを流す
                 print(error)
         }
-        .disposed(by: self.disposeBag)
+        .disposed(by: disposeBag)
     }
     
-    // 記事のAPIとユーザー情報のAPIのレスポンスが揃ったらデータをViewModel内で保持させRelayでイベントを流す
     private func observeReloadTriger() {
         articleStore.article.asObservable()
             .filter { [weak self] article in article.1 == .userPostedArticle(self?.userID ?? "") }
-            .withLatestFrom(userStore.user.asObservable()) { ($0, $1) }
-            .do(onNext: { [weak self] in
-                self?.articleList = $0.0.0
-                self?.user = $0.1
-            })
+            .do(onNext: { [weak self] article in self?.articleList = article.0 })
+            .map {_ in ()}
+            .bind(to: reloadRelay)
+            .disposed(by: disposeBag)
+        
+        userStore.user.asObservable()
+            .do(onNext: { [weak self] in self?.user = $0 })
             .map {_ in ()}
             .bind(to: reloadRelay)
             .disposed(by: disposeBag)
@@ -95,7 +100,29 @@ final class ProfileViewModel {
                 // TODO: エラーイベントを流す
                 print(error)
         }
-        .disposed(by: self.disposeBag)
+        .disposed(by: disposeBag)
+    }
+    
+    func isFollowUser() {
+        apiClient.provider.rx.request(.followUsers(Defaults.userID))
+            .filterSuccessfulStatusCodes()
+            .subscribe(onSuccess: { [weak self] articleListResponse in
+                do {
+                    let followUsers = try [User].decode(json: articleListResponse.data)
+                    
+                    if followUsers.map({ $0.id }).contains(self?.userID) {
+                        self?.followRelay.accept(())
+                        return
+                    }
+                } catch(let error) {
+                    // TODO: エラーイベントを流す
+                    print(error)
+                }
+            }) { (error) in
+                // TODO: エラーイベントを流す
+                print(error)
+        }
+        .disposed(by: disposeBag)
     }
     
     func showProfileDetail(profileType: ProfileType) {

@@ -24,6 +24,7 @@ class ArticleListViewController: UIViewController {
         dataSouce.configure(tableView: tableView)
         observeViewModel()
         viewModel.qiitaAPIType = qiitaAPIType
+        viewModel.setIsSearchTag()
     }
     
     private func observeViewModel() {
