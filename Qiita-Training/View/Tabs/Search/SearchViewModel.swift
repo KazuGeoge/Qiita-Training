@@ -56,6 +56,6 @@ final class SearchViewModel {
                 // TODO: エラーイベントを流す
                 print(error)
         }
-        .disposed(by: self.disposeBag)
+        .disposed(by: disposeBag)
     }
 }

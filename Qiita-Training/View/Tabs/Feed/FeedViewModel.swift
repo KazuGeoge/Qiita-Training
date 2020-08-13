@@ -42,7 +42,7 @@ final class FeedViewModel {
                 // TODO: エラーイベントを流す
                 print(error)
         }
-        .disposed(by: self.disposeBag)
+        .disposed(by: disposeBag)
     }
     
     private func observeLoginStore() {
@@ -52,6 +52,6 @@ final class FeedViewModel {
                 guard let followedTagArray = Defaults.followedTagArray else { return }
                 self?.getAPI(qiitaAPI: .followedTagArticle(followedTagArray))
             })
-            .disposed(by: self.disposeBag)
+            .disposed(by: disposeBag)
     }
 }

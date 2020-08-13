@@ -56,16 +56,9 @@ final class SettingViewModel {
     
     func getArticle() {
         let realm = try? Realm()
-        guard let resultArticleObjectArray = realm?.objects(ArticleObject.self) else { return }
+        guard let resultArticleObjectArray = realm?.objects(ArticleRealmObject.self) else { return }
         
-        var articleList: [Article] = []
-        
-        for resultArticleObject in resultArticleObjectArray {
-            if let article = resultArticleObject.article {
-                articleList.append(article)
-            }
-        }
-        
+        var articleList: [Article] = resultArticleObjectArray.compactMap { $0.article }
         //　閲覧履歴が下に追加されていくのは不自然なため配列の順番を変える
         articleList.reverse()
         routeAction.show(routeType: .articleList(.browsingHistory))
