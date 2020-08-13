@@ -10,6 +10,7 @@ import UIKit
 import WebKit
 import RxSwift
 import RxCocoa
+import RealmSwift
 
 class ArticleDetailViewController: UIViewController, WKUIDelegate {
 
@@ -31,6 +32,7 @@ class ArticleDetailViewController: UIViewController, WKUIDelegate {
         configureDataSouce()
         openWeb()
         viewModel.appendTagArray(tagArray:  article?.tags.map { $0.name } ?? [])
+        viewModel.seveArticle(article: article)
     }
 
     private func configureUI() {

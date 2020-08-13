@@ -50,6 +50,10 @@
 		AF7339B624AC7E7900E61D97 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF7339B524AC7E7900E61D97 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AF7339B824ADB64700E61D97 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7339B724ADB64700E61D97 /* Date.swift */; };
 		AF73700523F05ADF00B884A7 /* SearchTableViewDataSouce.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF73700423F05ADF00B884A7 /* SearchTableViewDataSouce.swift */; };
+		AF76F4B824DBA76B00DEB147 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF76F4B624DBA76B00DEB147 /* Realm.framework */; };
+		AF76F4B924DBA76B00DEB147 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF76F4B624DBA76B00DEB147 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AF76F4BA24DBA76B00DEB147 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF76F4B724DBA76B00DEB147 /* RealmSwift.framework */; };
+		AF76F4BB24DBA76B00DEB147 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AF76F4B724DBA76B00DEB147 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AF785916240BC3D4008B7BE9 /* LoginAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF785915240BC3D4008B7BE9 /* LoginAction.swift */; };
 		AF785918240BC3EB008B7BE9 /* LoginDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF785917240BC3EB008B7BE9 /* LoginDispatcher.swift */; };
 		AF78591A240BC3FB008B7BE9 /* LoginStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF785919240BC3FB008B7BE9 /* LoginStore.swift */; };
@@ -110,8 +114,10 @@
 			files = (
 				AF7339B624AC7E7900E61D97 /* Kingfisher.framework in Embed Frameworks */,
 				AF44DB4323D9AB080001048A /* RxMoya.framework in Embed Frameworks */,
+				AF76F4BB24DBA76B00DEB147 /* RealmSwift.framework in Embed Frameworks */,
 				AF44DB4123D9AB080001048A /* RxCocoa.framework in Embed Frameworks */,
 				AF44DB3F23D9AB080001048A /* Moya.framework in Embed Frameworks */,
+				AF76F4B924DBA76B00DEB147 /* Realm.framework in Embed Frameworks */,
 				AF3D52CB241A45AA00F38DAF /* SwiftyUserDefaults.framework in Embed Frameworks */,
 				AFABC8DB2407F5FB00BD10D3 /* SwipeMenuViewController.framework in Embed Frameworks */,
 				AF44DB3D23D9AB080001048A /* RxSwift.framework in Embed Frameworks */,
@@ -163,6 +169,8 @@
 		AF7339B524AC7E7900E61D97 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		AF7339B724ADB64700E61D97 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		AF73700423F05ADF00B884A7 /* SearchTableViewDataSouce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewDataSouce.swift; sourceTree = "<group>"; };
+		AF76F4B624DBA76B00DEB147 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		AF76F4B724DBA76B00DEB147 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		AF785915240BC3D4008B7BE9 /* LoginAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAction.swift; sourceTree = "<group>"; };
 		AF785917240BC3EB008B7BE9 /* LoginDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDispatcher.swift; sourceTree = "<group>"; };
 		AF785919240BC3FB008B7BE9 /* LoginStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStore.swift; sourceTree = "<group>"; };
@@ -221,7 +229,9 @@
 				AF44DB4023D9AB080001048A /* RxCocoa.framework in Frameworks */,
 				AF44DB3E23D9AB080001048A /* Moya.framework in Frameworks */,
 				AF3D52CA241A45AA00F38DAF /* SwiftyUserDefaults.framework in Frameworks */,
+				AF76F4B824DBA76B00DEB147 /* Realm.framework in Frameworks */,
 				AFABC8DA2407F5FA00BD10D3 /* SwipeMenuViewController.framework in Frameworks */,
+				AF76F4BA24DBA76B00DEB147 /* RealmSwift.framework in Frameworks */,
 				AF44DB3C23D9AB080001048A /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,6 +264,8 @@
 		AF44DB3723D9AB080001048A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AF76F4B624DBA76B00DEB147 /* Realm.framework */,
+				AF76F4B724DBA76B00DEB147 /* RealmSwift.framework */,
 				AF3D52C9241A45AA00F38DAF /* SwiftyUserDefaults.framework */,
 				AFABC8D92407F5FA00BD10D3 /* SwipeMenuViewController.framework */,
 				AF44DB3923D9AB080001048A /* Moya.framework */,
@@ -668,6 +680,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SwipeMenuViewController.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyUserDefaults.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 			);
 			outputFileListPaths = (
 			);

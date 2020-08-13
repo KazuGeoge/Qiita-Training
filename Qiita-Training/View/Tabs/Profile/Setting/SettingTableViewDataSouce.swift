@@ -30,8 +30,7 @@ class SettingTableViewDataSouce: NSObject {
 extension SettingTableViewDataSouce: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        // TODO: 次のIsseueでセルごとの遷移先を実装する
-        print("遷移")
+        viewModel.selectCell(settingType: viewModel.typeList[indexPath.section][indexPath.row])
     }
 }
 
