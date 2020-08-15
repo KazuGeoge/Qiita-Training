@@ -40,8 +40,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
        
         if let text = searchBar.text {
             Defaults.searchedArray.append(text)
-            viewModel.showArticleList(qiitaAPI: .searchWord(text))
-            viewModel.getAPI(qiitaAPI: .searchWord(text))
+            viewModel.showArticleList(qiitaAPI: .searchWord(text, 1))
+            viewModel.getAPI(qiitaAPI: .searchWord(text, 1))
         }
         
         tableView.reloadData()

@@ -51,12 +51,12 @@ final class ProfileViewModel {
     }
     
     private func getUserPostedArticle() {
-        apiClient.provider.rx.request(.userPostedArticle(userID))
+        apiClient.provider.rx.request(.userPostedArticle(userID, 1))
             .filterSuccessfulStatusCodes()
             .subscribe(onSuccess: { [weak self] articleAraayResponse in
                 do {
                     let article = try [Article].decode(json: articleAraayResponse.data)
-                    self?.articleAction.article(articleList: article, qiitaAPIType: .userPostedArticle(self?.userID ?? ""))
+                    self?.articleAction.article(articleList: article, qiitaAPIType: .userPostedArticle(self?.userID ?? "", 1))
                 } catch(let error) {
                     // TODO: エラーイベントを流す
                     print(error)
@@ -70,7 +70,7 @@ final class ProfileViewModel {
     
     private func observeReloadTriger() {
         articleStore.article.asObservable()
-            .filter { [weak self] article in article.1 == .userPostedArticle(self?.userID ?? "") }
+            .filter { [weak self] article in article.1 == .userPostedArticle(self?.userID ?? "", 1) }
             .do(onNext: { [weak self] article in self?.articleList = article.0 })
             .map {_ in ()}
             .bind(to: reloadRelay)

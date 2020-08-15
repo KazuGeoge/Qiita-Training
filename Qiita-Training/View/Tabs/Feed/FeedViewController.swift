@@ -88,12 +88,12 @@ extension FeedViewController: SwipeMenuViewDataSource {
             var qiitaAPI: QiitaAPI?
             switch index {
             case 0:
-                qiitaAPI = .newArticle
+                qiitaAPI = .newArticle(1)
             case 1:
                 guard let followedTagArray = Defaults.followedTagArray else { break }
-                qiitaAPI = .followedTagArticle(followedTagArray)
+                qiitaAPI = .followedTagArticle(followedTagArray, 1)
             case 2:
-                qiitaAPI = .stockArticle (Defaults.userID)
+                qiitaAPI = .stockArticle (Defaults.userID, 1)
             default:
                 break
             }

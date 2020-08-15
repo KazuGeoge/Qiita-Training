@@ -29,7 +29,7 @@ extension SearchTableViewDataSouce: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let qiitaAPI = indexPath.section == 0 ?
-            QiitaAPI.searchWord(viewModel.searchedArray[indexPath.row]) : QiitaAPI.searchTag(viewModel.tagArray[indexPath.row])
+            QiitaAPI.searchWord(viewModel.searchedArray[indexPath.row], 1) : QiitaAPI.searchTag(viewModel.tagArray[indexPath.row])
         
         RouteAction.shared.show(routeType: .articleList(qiitaAPI))
         viewModel.getAPI(qiitaAPI: qiitaAPI)

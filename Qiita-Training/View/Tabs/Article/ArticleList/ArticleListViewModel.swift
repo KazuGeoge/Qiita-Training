@@ -63,8 +63,7 @@ final class ArticleListViewModel: NSObject {
     }
     
     func callAPI() {
-        pageNum += 1
-        
+        addPageNumber()
         guard let qiitaAPI = qiitaAPIType else { return }
         apiClient.provider.rx.request(qiitaAPI)
             .filterSuccessfulStatusCodes()
@@ -83,5 +82,10 @@ final class ArticleListViewModel: NSObject {
                 }
             })
             .disposed(by: self.disposeBag)
+    }
+    
+    private func addPageNumber() {
+        pageNum += 1
+        qiitaAPIType?.addPage(page: pageNum)
     }
 }

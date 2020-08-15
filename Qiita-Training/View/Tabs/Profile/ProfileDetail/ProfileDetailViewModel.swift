@@ -68,7 +68,7 @@ final class ProfileDetailViewModel: NSObject {
         case .follower:
             qiitaAPI = .followerUsers(userID)
         case .stock:
-            qiitaAPI = .stockArticle(userID)
+            qiitaAPI = .stockArticle(userID, 1)
         case .tag:
             qiitaAPI = .followedTag(userID)
         case .none:
