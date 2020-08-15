@@ -67,22 +67,20 @@ extension QiitaAPI: TargetType {
     }
     
     var task: Task {
-        let pagingNumber = ArticleStore.shared.paging.value
-        
-        var paramerter: [String: Any] = ["page":pagingNumber]
+        var paramerter: [String: Any] = [:]
         
         switch self {
         case .followedTagArticle(let followedTagArray):
             let joinedTagArray = followedTagArray.joined(separator:  " OR tag:")
-            paramerter.updateValue("tag:\(joinedTagArray)", forKey: "?query")
+            paramerter = ["query": "tag:\(joinedTagArray)"]
         case .searchWord(let searchWord):
-            paramerter.updateValue(searchWord, forKey: "?query")
+            paramerter = ["query": searchWord]
         case .searchTag(let tagWord):
-            paramerter.updateValue("tag:\(tagWord)", forKey: "?query")
+            paramerter = ["query": "tag:\(tagWord)"]
         case .userPostedArticle(let userID):
-            paramerter.updateValue("user:\(userID)", forKey: "?query")
+            paramerter = ["query": "user:\(userID)"]
         case .newArticle, .stockArticle, .authenticatedUser, .userProfile, .followedTag, .followUsers, .followerUsers, .browsingHistory:
-            break
+            return .requestPlain
         }
         
         return .requestParameters(parameters: paramerter, encoding: URLEncoding.default)
