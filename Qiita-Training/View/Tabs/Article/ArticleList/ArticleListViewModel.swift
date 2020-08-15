@@ -64,7 +64,6 @@ final class ArticleListViewModel: NSObject {
     
     func callAPI() {
         pageNum += 1
-        articleAction.paging(pageNum: pageNum)
         
         guard let qiitaAPI = qiitaAPIType else { return }
         apiClient.provider.rx.request(qiitaAPI)

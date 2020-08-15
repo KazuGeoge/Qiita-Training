@@ -10,19 +10,36 @@ import Moya
 import SwiftyUserDefaults
 
 enum QiitaAPI: Equatable {
-    case newArticle
-    case followedTagArticle([String])
-    case stockArticle(String)
-    case searchWord(String)
+    case newArticle(Int)
+    case followedTagArticle([String], Int)
+    case stockArticle(String, Int)
+    case searchWord(String, Int)
     case searchTag(String)
     case authenticatedUser
     case userProfile(String)
     case followedTag(String)
-    case userPostedArticle(String)
+    case userPostedArticle(String, Int)
     case followUsers(String)
     case followerUsers(String)
     // 実際にAPIは叩かないが識別のため追加
     case browsingHistory
+    
+    mutating func addPage(page: Int) {
+        switch self {
+        case .newArticle:
+            self = .newArticle(page)
+        case .followedTagArticle(let tagArray, _):
+            self = .followedTagArticle(tagArray, page)
+        case .stockArticle(let userID, _):
+            self = .stockArticle(userID, page)
+        case .searchWord(let searchWord, _):
+            self = .searchWord(searchWord, page)
+        case .userPostedArticle(let userID, _):
+            self = .userPostedArticle(userID, page)
+        default:
+            break
+        }
+    }
 }
 
 extension QiitaAPI: TargetType {
@@ -70,17 +87,24 @@ extension QiitaAPI: TargetType {
         var paramerter: [String: Any] = [:]
         
         switch self {
-        case .followedTagArticle(let followedTagArray):
+        case .followedTagArticle(let followedTagArray, let page):
             let joinedTagArray = followedTagArray.joined(separator:  " OR tag:")
             paramerter = ["query": "tag:\(joinedTagArray)"]
-        case .searchWord(let searchWord):
+            paramerter.updateValue(page, forKey: "page")
+        case .searchWord(let searchWord, let page):
             paramerter = ["query": searchWord]
+            paramerter.updateValue(page, forKey: "page")
         case .searchTag(let tagWord):
             paramerter = ["query": "tag:\(tagWord)"]
-        case .userPostedArticle(let userID):
+        case .userPostedArticle(let userID, let page):
             paramerter = ["query": "user:\(userID)"]
-        case .newArticle, .stockArticle, .authenticatedUser, .userProfile, .followedTag, .followUsers, .followerUsers, .browsingHistory:
-            return .requestPlain
+            paramerter.updateValue(page, forKey: "page")
+        case .newArticle(let page):
+            paramerter = ["page": page]
+        case .stockArticle(_, let page):
+            paramerter = ["page": page]
+        case .browsingHistory, .authenticatedUser, .userProfile, .followedTag, .followUsers, .followerUsers:
+            break
         }
         
         return .requestParameters(parameters: paramerter, encoding: URLEncoding.default)
